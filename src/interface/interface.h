@@ -7,5 +7,6 @@
 
 #include "base_itf.h"
 #include "pcie_interface.h"
+#include "simulation_interface.h"
 
 #endif //NSUKIT_INTERFACE_H

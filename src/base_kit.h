@@ -8,33 +8,39 @@
 
 class BaseKit {
 public:
-    virtual nsukitStatus_t start_command(nsuAcceptParam_t *param=nullptr) {
+    virtual nsukitStatus_t start_command(nsuAcceptParam_t *param) {
         return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     }
 
     virtual nsukitStatus_t stop_command() {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
-    virtual nsukitStatus_t start_stream(nsuAcceptParam_t *param=nullptr) {
+    virtual nsukitStatus_t start_stream(nsuAcceptParam_t *param) {
         return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     }
 
     virtual nsukitStatus_t stop_stream() {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
-    template<typename T>
-    nsukitStatus_t write(nsuRegAddr_t addr, T value, bool execute=true) {
+    virtual nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value, bool execute) {
         return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     }
 
-    template<typename T>
-    nsukitStatus_t write(nsuICDParam_t addr, T value, bool execute=true) {
+    virtual nsukitStatus_t write(nsuICDParam_t addr, nsuRegValue_t value, bool execute) {
         return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     }
 
-    virtual nsukitStatus_t read(nsuRegAddr_t addr, nsuRegValue_t * buf= nullptr) {
+    virtual nsukitStatus_t write(nsuICDParam_t addr, nsuICDParam_t value, bool execute) {
         return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     }
 
-    virtual nsukitStatus_t read(nsuICDParam_t addr, nsuRegValue_t * buf= nullptr) {
+    virtual nsukitStatus_t read(nsuRegAddr_t addr, nsuRegValue_t* buf) {
+        return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+    }
+
+    virtual nsukitStatus_t read(nsuICDParam_t addr, nsuRegValue_t* buf) {
+        return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+    }
+
+    virtual nsukitStatus_t read(nsuICDParam_t addr, nsuICDParam_t* buf) {
         return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     }
 
@@ -63,21 +69,15 @@ public:
         return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     }
 
-    virtual nsuStreamLen_t send_open(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0) {
-        return 0;
-    }
+    virtual nsuStreamLen_t
+    send_open(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0) {return 0;}
 
-    virtual nsuStreamLen_t recv_open(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0) {
-        return 0;
-    }
+    virtual nsuStreamLen_t
+    recv_open(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0) {return 0;}
 
-    virtual nsuStreamLen_t wait_dma(nsuMemory_p fd, time_t timeout=0) {
-        return 0;
-    }
+    virtual nsuStreamLen_t wait_dma(nsuMemory_p fd, time_t timeout=0) {return 0;}
 
-    virtual nsukitStatus_t break_dma(nsuMemory_p fd) {
-        return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-    }
+    virtual nsukitStatus_t break_dma(nsuMemory_p fd) {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 };
 
 #endif //NSUKIT_BASE_KIT_H

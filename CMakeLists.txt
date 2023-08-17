@@ -54,7 +54,11 @@ add_library(NSUKit SHARED
         src/tools/type.h
         src/middleware/virtual_chnl.cpp
         src/middleware/virtual_chnl.h
-        src/tools/type.cpp)
+        src/tools/type.cpp
+        src/interface/tcp_interface.cpp
+        src/interface/tcp_interface.h
+        src/interface/simulation_interface.cpp
+        src/interface/simulation_interface.h)
 
 #target_link_libraries(NSUKit xdma_api)
 

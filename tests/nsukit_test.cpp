@@ -10,14 +10,20 @@
 
 
 TEST(NSUKITTest, BaseTemplate) {
-    NSUKit::NSUKit<PCIECmdUItf, PCIEChnlUItf> kit{};
+    NSUKit::NSUKit<SimCmdUItf, SimChnlUItf> kit{};
 
-    nsuXDMAParam_t param {};
-    param.board = 0;
-    auto status = kit.start_command(&param);
+    nsuSimParam_t param {};
+    param.a = 10;
     // 基类被正常重载
-    EXPECT_EQ(status, nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+    EXPECT_EQ(kit.start_command(&param), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
 
     // 输入空指针时可以正常报错
     EXPECT_EQ(kit.start_command(nullptr), nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE);
+
+    // write重载
+    EXPECT_EQ(kit.write(0x00000010, 30), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+
+    // read重载
+    nsuRegValue_t res;
+    EXPECT_EQ(kit.read(0x00000010, &res), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
 }

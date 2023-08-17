@@ -46,22 +46,59 @@ nsukitStatus_t PCIECmdUItf::set_timeout(int s) {
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
-nsukitStatus_t PCIECmdUItf::write(std::any addr, std::any value) {
+
+nsukitStatus_t PCIECmdUItf::send_bytes(nsuBytes_t& bytes) {
     // TODO: 补充实现
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
-std::any PCIECmdUItf::read(std::any addr) {
+
+nsukitStatus_t PCIECmdUItf::send_bytes(nsuCharBuf_p bytes) {
     // TODO: 补充实现
-    return I_BaseCmdUItf::read(addr);
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
-nsukitStatus_t PCIECmdUItf::send_bytes() {
+
+nsukitStatus_t PCIECmdUItf::recv_bytes(nsuSize_t size, nsuCharBuf_p buf) {
     // TODO: 补充实现
-    return I_BaseCmdUItf::send_bytes();
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
-nsukitStatus_t PCIECmdUItf::recv_bytes() {
+
+/**
+ *
+ * @param addr
+ * @param value
+ * @return
+ */
+nsukitStatus_t PCIECmdUItf::write(nsuRegAddr_t addr, nsuRegValue_t value) {
     // TODO: 补充实现
-    return I_BaseCmdUItf::recv_bytes();
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}
+
+
+/**
+ *
+ * @param addr
+ * @param buf
+ * @return
+ */
+nsukitStatus_t PCIECmdUItf::read(nsuRegAddr_t addr, nsuRegValue_t *buf) {
+    // TODO: 补充实现
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}
+
+
+/**
+ *
+ * @return
+ */
+nsukitStatus_t PCIEChnlUItf::open_board() {
+    // TODO: 补充实现
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}
+
+nsukitStatus_t PCIEChnlUItf::close() {
+    // TODO: 补充实现
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }

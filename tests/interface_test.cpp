@@ -54,5 +54,5 @@ TEST(BaseCmdTest, PCIEInstance) {
     I_BaseCmdUItf *itf = new PCIECmdUItf();
     dynamic_cast<PCIECmdUItf *>(itf)->fake_mode = true;
     EXPECT_EQ(itf->write(0x33000000, 0x10), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
-    free(itf);
+    delete itf;
 }

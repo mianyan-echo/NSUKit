@@ -10,9 +10,13 @@
 
 class RegOperationMixin {
 public:
-    virtual nsukitStatus_t reg_write(std::any addr, std::any value) {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
+    virtual nsukitStatus_t reg_write(nsuRegAddr_t addr, nsuRegValue_t value) {
+        return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+    }
 
-    virtual std::any reg_read(std::any addr) {return -1;}
+    virtual nsukitStatus_t reg_read(nsuRegAddr_t addr, nsuRegValue_t* buf) {
+        return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+    }
 };
 
 
@@ -53,12 +57,20 @@ protected:
     static nsukitStatus_t _fmt_reg_write(nsuRegAddr_t reg, T value, nsuCharBuf_p buf);
 
 public:
-    virtual nsukitStatus_t send_bytes() {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
-    virtual nsukitStatus_t recv_bytes() {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
+    virtual nsukitStatus_t send_bytes(nsuBytes_t& bytes) {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
-    virtual nsukitStatus_t write(std::any addr, std::any value) {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
+    virtual nsukitStatus_t send_bytes(nsuCharBuf_p bytes) {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
-    virtual std::any read(std::any addr) {return -1;}
+    virtual nsukitStatus_t
+    recv_bytes(nsuSize_t size, nsuCharBuf_p buf) {return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
+
+    virtual nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value) {
+        return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+    }
+
+    virtual nsukitStatus_t read(nsuRegAddr_t addr, nsuRegValue_t* buf) {
+        return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+    }
 };
 
 

@@ -1,25 +1,22 @@
 //
-// Created by 56585 on 2023/8/15.
+// Created by 56585 on 2023/8/17.
 //
 
-#ifndef NSUKIT_PCIE_INTERFACE_H
-#define NSUKIT_PCIE_INTERFACE_H
+#ifndef NSUKIT_SIMULATION_INTERFACE_H
+#define NSUKIT_SIMULATION_INTERFACE_H
 
 #include "base_itf.h"
 
 
-class PCIECmdUItf: public I_BaseCmdUItf {
+class SimCmdUItf: public I_BaseCmdUItf {
 protected:
-    nsuBoardNum_t pciBoard=0;
-    nsuRegAddr_t sentBase=0;
-    nsuRegAddr_t recvBase=0;
-    int pciTimeout=0;
+    int sim_param_a = 0;
+    int sim_param_b = 0;
+    int simTimeout = 0;
 
 public:
-    bool fake_mode= false;
-
-    PCIECmdUItf();
-    ~PCIECmdUItf() override = default;
+    SimCmdUItf();
+    ~SimCmdUItf() override = default;
 
     nsukitStatus_t accept(nsuAcceptParam_t *param) override;
 
@@ -31,7 +28,7 @@ public:
 
     nsukitStatus_t read(nsuRegAddr_t addr, nsuRegValue_t* buf) override;
 
-    nsukitStatus_t send_bytes(nsuBytes_t& bytes) override;
+    nsukitStatus_t send_bytes(nsuBytes_t &bytes) override;
 
     nsukitStatus_t send_bytes(nsuCharBuf_p bytes) override;
 
@@ -39,14 +36,14 @@ public:
 };
 
 
-class PCIEChnlUItf: public I_BaseChnlUItf {
+class SimChnlUItf: public I_BaseChnlUItf {
 public:
-    PCIEChnlUItf();
-    ~PCIEChnlUItf() override = default;
+    SimChnlUItf();
+    ~SimChnlUItf() override = default;
 
     nsukitStatus_t open_board() override;
 
     nsukitStatus_t close() override;
 };
 
-#endif //NSUKIT_PCIE_INTERFACE_H
+#endif //NSUKIT_SIMULATION_INTERFACE_H
