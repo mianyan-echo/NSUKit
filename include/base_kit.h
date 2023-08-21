@@ -1,7 +1,7 @@
 #ifndef NSUKIT_BASE_KIT_H
 #define NSUKIT_BASE_KIT_H
 
-#include "tools/config.h"
+#include "utils/config.h"
 #include "interface/interface.h"
 #include "middleware/middleware.h"
 

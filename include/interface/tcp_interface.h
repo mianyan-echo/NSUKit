@@ -10,10 +10,18 @@
 
 namespace nsukit {
     class DLLEXPORT TCPCmdUItf : public I_BaseCmdUItf {
+    public:
+        TCPCmdUItf() = default;
+
+        ~TCPCmdUItf() override = default;
     };
 
 
     class DLLEXPORT TCPChnlUItf : public I_BaseChnlUItf {
+    public:
+        TCPChnlUItf() = default;
+
+        ~TCPChnlUItf() override = default;
     };
 }
 

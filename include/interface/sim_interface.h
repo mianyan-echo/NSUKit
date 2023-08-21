@@ -2,8 +2,8 @@
 // Created by 56585 on 2023/8/17.
 //
 
-#ifndef NSUKIT_SIMULATION_INTERFACE_H
-#define NSUKIT_SIMULATION_INTERFACE_H
+#ifndef NSUKIT_SIM_INTERFACE_H
+#define NSUKIT_SIM_INTERFACE_H
 
 #include "base_itf.h"
 
@@ -50,4 +50,4 @@ namespace nsukit {
     };
 }
 
-#endif //NSUKIT_SIMULATION_INTERFACE_H
+#endif //NSUKIT_SIM_INTERFACE_H

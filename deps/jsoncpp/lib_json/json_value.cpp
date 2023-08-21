@@ -4,9 +4,9 @@
 // See file LICENSE for detail or copy at http://jsoncpp.sourceforge.net/LICENSE
 
 #if !defined(JSON_IS_AMALGAMATION)
-#include "json/assertions.h"
-#include "json/value.h"
-#include "json/writer.h"
+#include "../json/assertions.h"
+#include "../json/value.h"
+#include "../json/writer.h"
 #endif // if !defined(JSON_IS_AMALGAMATION)
 #include <algorithm>
 #include <cassert>
@@ -194,7 +194,7 @@ static inline void releaseStringValue(char* value, unsigned) { free(value); }
 // //////////////////////////////////////////////////////////////////
 #if !defined(JSON_IS_AMALGAMATION)
 
-#include "lib_json/json_valueiterator.inl"
+#include "json_valueiterator.inl"
 #endif // if !defined(JSON_IS_AMALGAMATION)
 
 namespace Json {

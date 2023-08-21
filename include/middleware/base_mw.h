@@ -5,7 +5,7 @@
 #ifndef NSUKIT_BASE_MW_H
 #define NSUKIT_BASE_MW_H
 
-#include "tools/config.h"
+#include "utils/config.h"
 
 namespace nsukit {
     class DLLEXPORT U_Middleware {

@@ -19,46 +19,53 @@ FetchContent_MakeAvailable(googletest)
 
 include_directories(src)
 include_directories(include)
+include_directories(deps/jsoncpp)
 link_directories(lib)
 
-add_library(NSUKit SHARED
+SET(libNSUKit_SRC
 #        include/NSUKit.h
         include/xdma_api.h
-        include/json/json.h
-        include/json/allocator.h
-        include/json/assertions.h
-        include/json/config.h
-        include/json/forwards.h
-        include/json/json_features.h
-        include/json/reader.h
-        include/json/value.h
-        include/json/version.h
-        include/json/writer.h
-        src/lib_json/json_tool.h
-        src/lib_json/json_reader.cpp
-        src/lib_json/json_value.cpp
-        src/lib_json/json_writer.cpp
+        deps/jsoncpp/json/json.h
+        deps/jsoncpp/json/allocator.h
+        deps/jsoncpp/json/assertions.h
+        deps/jsoncpp/json/config.h
+        deps/jsoncpp/json/forwards.h
+        deps/jsoncpp/json/json_features.h
+        deps/jsoncpp/json/reader.h
+        deps/jsoncpp/json/value.h
+        deps/jsoncpp/json/version.h
+        deps/jsoncpp/json/writer.h
+        deps/jsoncpp/lib_json/json_tool.h
+        deps/jsoncpp/lib_json/json_reader.cpp
+        deps/jsoncpp/lib_json/json_value.cpp
+        deps/jsoncpp/lib_json/json_writer.cpp
         src/base_kit.cpp
         src/interface/base_itf.cpp
-        src/interface/base_itf.h
         src/middleware/icd_parser.cpp
-        src/middleware/icd_parser.h
-        src/tools/config.cpp
-        src/tools/config.h
+        src/utils/config.cpp
         src/interface/pcie_interface.cpp
-        src/interface/pcie_interface.h
-        src/interface/interface.h
         src/middleware/base_mw.cpp
-        src/middleware/base_mw.h
-        src/middleware/middleware.h
-        src/tools/type.h
         src/middleware/virtual_chnl.cpp
-        src/middleware/virtual_chnl.h
-        src/tools/type.cpp
+        src/utils/type.cpp
         src/interface/tcp_interface.cpp
-        src/interface/tcp_interface.h
-        src/interface/simulation_interface.cpp
-        src/interface/simulation_interface.h)
+        src/interface/sim_interface.cpp
+        src/interface/serial_interface.cpp
+        include/interface/base_itf.h
+        include/middleware/icd_parser.h
+        include/utils/config.h
+        include/interface/pcie_interface.h
+        include/interface/interface.h
+        include/middleware/base_mw.h
+        include/middleware/middleware.h
+        include/utils/type.h
+        include/middleware/virtual_chnl.h
+        include/interface/tcp_interface.h
+        include/interface/sim_interface.h
+        include/interface/serial_interface.h)
+
+add_library(NSUKit SHARED ${libNSUKit_SRC})
+SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../lib)
+SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY .)
 
 #target_link_libraries(NSUKit xdma_api)
 
