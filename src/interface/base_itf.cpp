@@ -4,6 +4,7 @@
 
 #include "base_itf.h"
 
+using namespace nsukit;
 
 /**
  *

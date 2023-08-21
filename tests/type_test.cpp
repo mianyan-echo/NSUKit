@@ -7,6 +7,8 @@
 #include <ctime>
 #include "NSUKit.h"
 
+using namespace nsukit;
+
 
 TEST(EnumTest, BitWiseTest) {
     EXPECT_EQ(nsukitStatus_t::NSUKIT_STATUS_ALLOC_FAILED|nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD,

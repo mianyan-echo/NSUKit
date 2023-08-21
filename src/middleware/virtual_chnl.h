@@ -9,12 +9,15 @@
 #include "interface/base_itf.h"
 
 
-class VirtualChnlMw: public I_BaseChnlMw, public RegOperationMixin{
-public:
-    explicit VirtualChnlMw(BaseKit *kit) {}
-    ~VirtualChnlMw() = default;
+namespace nsukit {
+    class DLLEXPORT VirtualChnlMw : public I_BaseChnlMw, public RegOperationMixin {
+    public:
+        explicit VirtualChnlMw(BaseKit *kit) {}
 
-    nsukitStatus_t config(nsuAcceptParam_t *param) override;
-};
+        ~VirtualChnlMw() = default;
+
+        nsukitStatus_t config(nsuAcceptParam_t *param) override;
+    };
+}
 
 #endif //NSUKIT_VIRTUAL_CHNL_H

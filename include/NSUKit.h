@@ -5,16 +5,6 @@
 #ifndef NSUKIT_NSUKIT_H
 #define NSUKIT_NSUKIT_H
 
-#ifdef linux
-
-#define _API_CALL
-#define DLLEXPORT extern "C"
-#else  //win, rtx
-
-#define _API_CALL __stdcall
-#define DLLEXPORT extern "C" __declspec(dllexport)
-#endif
-
 #ifdef NSUKIT_IN_TEST
 #include "base_kit.h"
 #endif
@@ -25,7 +15,7 @@
 #define METHOD_NEED_(func) if (!func()) return nsukitStatus_t::NSUKIT_STATUS_TEMP_MISMATCH
 
 
-namespace NSUKit {
+namespace nsukit {
     /**
      *
      * @tparam CmdItf_t I_Base

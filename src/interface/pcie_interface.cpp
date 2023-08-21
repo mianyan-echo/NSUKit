@@ -4,6 +4,9 @@
 
 #include "pcie_interface.h"
 
+using namespace nsukit;
+
+
 PCIEChnlUItf::PCIEChnlUItf() = default;
 
 PCIECmdUItf::PCIECmdUItf() = default;

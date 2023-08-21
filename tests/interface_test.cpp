@@ -9,6 +9,8 @@
 #include <ctime>
 #include "NSUKit.h"
 
+using namespace nsukit;
+
 // 注册一个测试，第一个参数为测试集名称，第二个参数为测试名称.
 TEST(BaseCmdTest, TestAssertions) {
     // Expect two strings not to be equal.

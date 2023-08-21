@@ -4,6 +4,8 @@
 
 #include "config.h"
 
+using namespace nsukit;
+
 
 /**
  * sleep函数，ms为单位

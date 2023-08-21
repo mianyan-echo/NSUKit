@@ -79,6 +79,7 @@ add_executable(
         tests/interface_test.cpp
         tests/nsukit_test.cpp
         tests/type_test.cpp
+        tests/namespace_test.cpp
 )
 target_link_libraries(
         nsukit_test

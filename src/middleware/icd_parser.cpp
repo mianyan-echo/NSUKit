@@ -4,6 +4,7 @@
 
 #include "icd_parser.h"
 
+using namespace nsukit;
 
 /**
  * 检查指令反馈
@@ -256,7 +257,7 @@ CommandPack *ICDRegMw::FmtCommand(const std::string &cmd_name, const std::string
 }
 
 
-uint32_t GetFileSize(const std::string &file_path) {
+uint32_t nsukit::GetFileSize(const std::string &file_path) {
     uint32_t size = 0;
     std::ifstream _in(file_path, std::ios::in | std::ios::binary | std::ios::ate);
     if (_in.is_open()) {
@@ -271,7 +272,7 @@ uint32_t GetFileSize(const std::string &file_path) {
  * @param tail 目标结尾
  * @return bool 是或否
  */
-bool StringEndWith(std::string_view str, std::string_view tail) {
+bool nsukit::StringEndWith(std::string_view str, std::string_view tail) {
     return str.compare(str.size() - tail.size(), tail.size(), tail) == 0;
 }
 
@@ -281,7 +282,7 @@ bool StringEndWith(std::string_view str, std::string_view tail) {
  * @param head 目标开头
  * @return bool 是或否
  */
-bool StringStartWith(std::string_view str, std::string_view head) {
+bool nsukit::StringStartWith(std::string_view str, std::string_view head) {
     return str.compare(0, head.size(), head) == 0;
 }
 
@@ -289,7 +290,7 @@ bool StringStartWith(std::string_view str, std::string_view head) {
  * 删除通过new申请的CommandPack
  * @param pack 在堆上的CommandPack的指针
  */
-void DeleteCommandPack(CommandPack *pack) {
+void nsukit::DeleteCommandPack(CommandPack *pack) {
     delete[] pack->bytes;
     delete pack;
 }

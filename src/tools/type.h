@@ -5,6 +5,18 @@
 #ifndef NSUKIT_TYPE_H
 #define NSUKIT_TYPE_H
 
+#ifdef linux
+
+#define _API_CALL
+#define DLLEXTERN extern "C"
+#define DLLEXPORT
+#else  //win, rtx
+
+#define _API_CALL __stdcall
+#define DLLEXTERN extern "C"
+#define DLLEXPORT __declspec(dllexport)
+#endif
+
 #include <iostream>
 #include <string>
 #include <any>
@@ -15,7 +27,7 @@
 /**
  * 统一描述接口返回的执行状态
  */
-enum class nsukitStatus_t {
+DLLEXTERN enum class nsukitStatus_t {
     NSUKIT_STATUS_SUCCESS          =                  0,        // 0 运行成功
     NSUKIT_STATUS_NEED_RELOAD      =                  1 << 0,   // 1 此方法需要重载
     NSUKIT_STATUS_ARCH_MISMATCH    =                  1 << 1,   // 2 不支持此操作系统
@@ -24,46 +36,46 @@ enum class nsukitStatus_t {
     NSUKIT_STATUS_TEMP_MISMATCH    =                  1 << 4
 };
 
-nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs);
+DLLEXPORT nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs);
 
-void operator|= (nsukitStatus_t &lhs, nsukitStatus_t rhs);
+DLLEXPORT void operator|= (nsukitStatus_t &lhs, nsukitStatus_t rhs);
 
 
-typedef         std::vector<char>                     nsuBytes_t;
-typedef         char *                                nsuCharBuf_p;
-typedef         void *                                nsuVoidBuf_p;
-typedef         uint8_t                               nsuBoardNum_t;
-typedef         uint8_t                               nsuChnlNum_t;
-typedef         size_t *                              nsuMemory_p;
-typedef         size_t                                nsuSize_t;
-typedef         nsuSize_t                             nsuStreamLen_t;
-typedef         uint32_t                              nsuRegAddr_t;
-typedef         uint32_t                              nsuRegValue_t;
-typedef         std::string                           nsuICDParam_t;
-typedef         nsukitStatus_t                        nsuStatus_t;
-typedef         nsukitStatus_t *                      nsuStatus_p;
+DLLEXTERN typedef         std::vector<char>                     nsuBytes_t;
+DLLEXTERN typedef         char *                                nsuCharBuf_p;
+DLLEXTERN typedef         void *                                nsuVoidBuf_p;
+DLLEXTERN typedef         uint8_t                               nsuBoardNum_t;
+DLLEXTERN typedef         uint8_t                               nsuChnlNum_t;
+DLLEXTERN typedef         size_t *                              nsuMemory_p;
+DLLEXTERN typedef         size_t                                nsuSize_t;
+DLLEXTERN typedef         nsuSize_t                             nsuStreamLen_t;
+DLLEXTERN typedef         uint32_t                              nsuRegAddr_t;
+DLLEXTERN typedef         uint32_t                              nsuRegValue_t;
+DLLEXTERN typedef         std::string                           nsuICDParam_t;
+DLLEXTERN typedef         nsukitStatus_t                        nsuStatus_t;
+DLLEXTERN typedef         nsukitStatus_t *                      nsuStatus_p;
 
 
 /**
  * 各个interface的accept方法传参所用的基类
  */
-struct nsuAcceptParam_t {
+struct DLLEXPORT nsuAcceptParam_t {
 };
 
 
-struct nsuTCPParam_t: nsuAcceptParam_t{
+struct DLLEXPORT nsuTCPParam_t: nsuAcceptParam_t{
     std::string addr;
-    uint16_t port;
+    uint16_t port{};
 };
 
 
-struct nsuXDMAParam_t: nsuAcceptParam_t{
+struct DLLEXPORT nsuXDMAParam_t: nsuAcceptParam_t{
     nsuBoardNum_t board = 0;
     nsuRegAddr_t sent_base=0;
     nsuRegAddr_t recv_base=0;
 };
 
-struct nsuSimParam_t: nsuAcceptParam_t{
+struct DLLEXPORT nsuSimParam_t: nsuAcceptParam_t{
     int a = 1;
     int b = 2;
 };

@@ -8,9 +8,11 @@
 #include <ctime>
 #include "NSUKit.h"
 
+using namespace nsukit;
+
 
 TEST(NSUKITTest, BaseTemplate) {
-    NSUKit::NSUKit<SimCmdUItf, SimChnlUItf> kit{};
+    NSUKit<SimCmdUItf, SimChnlUItf> kit;
 
     nsuSimParam_t param {};
     param.a = 10;

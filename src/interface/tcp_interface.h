@@ -8,11 +8,13 @@
 #include "base_itf.h"
 
 
-class TCPCmdUItf: public I_BaseCmdUItf {
-};
+namespace nsukit {
+    class DLLEXPORT TCPCmdUItf : public I_BaseCmdUItf {
+    };
 
 
-class TCPChnlUItf: public I_BaseChnlUItf {
-};
+    class DLLEXPORT TCPChnlUItf : public I_BaseChnlUItf {
+    };
+}
 
 #endif //NSUKIT_TCP_INTERFACE_H

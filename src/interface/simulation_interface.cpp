@@ -4,6 +4,8 @@
 
 #include "simulation_interface.h"
 
+using namespace nsukit;
+
 SimChnlUItf::SimChnlUItf() = default;
 
 SimCmdUItf::SimCmdUItf() = default;

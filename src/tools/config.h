@@ -7,11 +7,13 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <any>
 #include <cstdarg>
 #include <cstdint>
 #include <vector>
 #include "type.h"
+
 
 #ifdef linux
 #include <unistd.h>
@@ -29,26 +31,26 @@ typedef unsigned int DWORD;
 
 #endif
 
-
-/**
- * 前向声明BaseKit类，作为NSUKit类的基类使用
- */
-class BaseKit;
-
-
-/**
- * 标准指令反馈
- */
-struct StandardCmdFeedback {
-    uint32_t packHead = 0;
-    uint32_t packId = 0;
-    uint32_t packNum = 0;
-    uint32_t packLength = 0;
-    uint32_t execSucceed = 0;
-};
+namespace nsukit {
+    /**
+     * 前向声明BaseKit类，作为NSUKit类的基类使用
+     */
+    DLLEXTERN class DLLEXPORT BaseKit;
 
 
-extern void uSleep(DWORD milliseconds);
+    /**
+     * 标准指令反馈
+     */
+    struct StandardCmdFeedback {
+        uint32_t packHead = 0;
+        uint32_t packId = 0;
+        uint32_t packNum = 0;
+        uint32_t packLength = 0;
+        uint32_t execSucceed = 0;
+    };
 
+
+    extern void uSleep(DWORD milliseconds);
+}
 
 #endif //NSUKIT_CONFIG_H
