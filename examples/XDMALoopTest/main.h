@@ -1,0 +1,10 @@
+//
+// Created by 56585 on 2023/8/21.
+//
+
+#ifndef NSUKIT_EXAMPLES_XDMALOOPTEST_MAIN_H
+#define NSUKIT_EXAMPLES_XDMALOOPTEST_MAIN_H
+
+#include "xdma_api.h"
+
+#endif //NSUKIT_EXAMPLES_XDMALOOPTEST_MAIN_H

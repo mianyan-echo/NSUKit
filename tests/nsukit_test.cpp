@@ -4,11 +4,24 @@
 
 #define NSUKIT_IN_TEST
 
-#include <gtest/gtest.h>
-#include <ctime>
+#include "test_config.h"
 #include "NSUKit.h"
 
 using namespace nsukit;
+
+
+TEST(NSUKITTest, VersionCheck) {
+    std::cout << "NSUKIT_PROJECT_VER == " << NSUKIT_PROJECT_VER << std::endl;
+    std::cout << "NSUKIT_PROJECT_VER_CODE == " << NSUKIT_PROJECT_VER_CODE << std::endl;
+    std::cout
+    << "NSUKIT_VER(" << NSUKIT_PROJECT_VER_MAJOR << ", " << NSUKIT_PROJECT_VER_MINOR << ", " << NSUKIT_PROJECT_VER_PATCH << ") == "
+//    << "NSUKIT_VER_(" << NSUKIT_PROJECT_VER << ") == "
+    << NSUKIT_VER_(NSUKIT_PROJECT_VER_MAJOR, NSUKIT_PROJECT_VER_MINOR, NSUKIT_PROJECT_VER_PATCH)
+    << std::endl;
+
+    EXPECT_EQ(NSUKIT_VER_(NSUKIT_PROJECT_VER_MAJOR, NSUKIT_PROJECT_VER_MINOR, NSUKIT_PROJECT_VER_PATCH),
+              NSUKIT_PROJECT_VER_CODE);
+}
 
 
 TEST(NSUKITTest, BaseTemplate) {

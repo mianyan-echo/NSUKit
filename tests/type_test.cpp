@@ -3,8 +3,7 @@
 //
 #define NSUKIT_IN_TEST
 
-#include <gtest/gtest.h>
-#include <ctime>
+#include "test_config.h"
 #include "NSUKit.h"
 
 using namespace nsukit;

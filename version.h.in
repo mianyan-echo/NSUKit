@@ -1,0 +1,15 @@
+#ifndef NSUKIT_VERSION_H
+#define NSUKIT_VERSION_H
+
+#define PROJECT_NAME          "@PROJECT_NAME@"
+#define NSUKIT_PROJECT_VER           "@PROJECT_VERSION@"
+#define NSUKIT_PROJECT_VER_MAJOR     @PROJECT_VERSION_MAJOR@
+#define NSUKIT_PROJECT_VER_MINOR     @PROJECT_VERSION_MINOR@
+#define NSUKIT_PROJECT_VER_PATCH     @PROJECT_VERSION_PATCH@
+#define NSUKIT_PROJECT_VER_CODE      (((NSUKIT_PROJECT_VER_MAJOR) << 16) + \
+                                       ((NSUKIT_PROJECT_VER_MINOR) << 8) + \
+                                       (NSUKIT_PROJECT_VER_PATCH))
+#define NSUKIT_VER_(major, minor, patch)         (((major) << 16) + ((minor) << 8) + (patch))
+
+
+#endif //NSUKIT_VERSION_H

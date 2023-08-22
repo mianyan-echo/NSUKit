@@ -3,9 +3,8 @@
 //
 #define NSUKIT_IN_TEST
 
-#include "gtest/gtest.h"
+#include "test_config.h"
 #include "NSUKit.h"
-#include "ctime"
 
 
 TEST(Namespace_nsukit, BaseTest) {

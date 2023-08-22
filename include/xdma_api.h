@@ -121,26 +121,29 @@ DLLEXPORT void *fpga_get_dma_buffer(HANDLE dma);
 //free the dma buffer
 DLLEXPORT void _API_CALL fpga_free_dma(HANDLE dma);
 
-//Start a sending (h2c) dma.
-//boardn: pciBoard index.
-//chnl: dma channel. 0..3 (depends on IP)
-//dma: the dma object carries the data buffer.
-//len32: transfer length in 32bit words.
-//offset: data location (offset) in the dma buffer.
-//last: if it has a AXIS TLAST at the end of dma. Only for streaming.
-//mm_addr: address on the AXI4 MM interface. Only for MM.
-//mm_addr_inc: If the AXI4 MM address increases.
-//timeout: dma waiting timeout in milliseconds. -1= infinite. 0=no wait.
-//return the transfored data length in DWORDs.
-//return DMA_START_ERROR for dma start error. use fpga_err_msg() to the get detial error information.
+
+
 #define DMA_START_ERROR 0xffffffffffffffffULL
 #define DMA_NOWAIT 0
 #define DMA_WAIT_FOR_EVER 0xffffffff
-
-DLLEXPORT unsigned long long _API_CALL
-fpga_send(unsigned int boardn, unsigned int chnl, HANDLE dma, unsigned long long len32, unsigned long long offset = 0,
-          unsigned int last = 1, unsigned int mm_addr = 0, unsigned int mm_addr_inc = 0,
-          unsigned int timeout = DMA_WAIT_FOR_EVER);
+/**
+ * Start a sending (h2c) dma.
+ * @param boardn pciBoard index.
+ * @param chnl dma channel. 0..3 (depends on IP)
+ * @param dma the dma object carries the data buffer.
+ * @param len32 transfer length in 32bit words.
+ * @param offset data location (offset) in the dma buffer.
+ * @param last if it has a AXIS TLAST at the end of dma. Only for streaming.
+ * @param mm_addr address on the AXI4 MM interface. Only for MM.
+ * @param mm_addr_inc If the AXI4 MM address increases.
+ * @param timeout dma waiting timeout in milliseconds. -1= infinite. 0=no wait.
+ * @return the transfored data length in DWORDs. DMA_START_ERROR for dma start error.
+ * use fpga_err_msg() to the get detial error information.
+ */
+DLLEXPORT unsigned long long _API_CALL fpga_send(unsigned int boardn, unsigned int chnl, HANDLE dma,
+                                                 unsigned long long len32, unsigned long long offset = 0,
+                                                 unsigned int last = 1, unsigned int mm_addr = 0,
+                                                 unsigned int mm_addr_inc = 0, unsigned int timeout = DMA_WAIT_FOR_EVER);
 
 //Start a receiving (c2h) dma
 //boardn: pciBoard index.

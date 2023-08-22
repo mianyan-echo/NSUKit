@@ -6,6 +6,7 @@
 #define NSUKIT_NSUKIT_H
 
 #include "base_kit.h"
+#include "version.h"
 
 // 锁定nsukit三参数方法中的第三个参数的默认值
 #define LOCK_NSUKIT_METHOD_3P(name, t1, t2, value) nsukitStatus_t name(t1 a, t2 b) {return name(a, b, value);}
