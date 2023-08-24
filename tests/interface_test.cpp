@@ -2,13 +2,18 @@
 // Created by 56585 on 2023/8/14.
 //
 
-
-#define NSUKIT_IN_TEST
-
 #include "test_config.h"
 #include "NSUKit.h"
 
 using namespace nsukit;
+
+
+class TestCmdUItf: public I_BaseCmdUItf {
+public:
+    using I_BaseCmdUItf::_fmt_reg_read;
+    using I_BaseCmdUItf::_fmt_reg_write;
+};
+
 
 // 注册一个测试，第一个参数为测试集名称，第二个参数为测试名称.
 TEST(BaseCmdTest, TestAssertions) {
@@ -24,13 +29,13 @@ TEST(BaseCmdTest, FmtRegOverICD) {
     char read_buffer[20], write_buffer[24];
 
     // 从基础命令接口获取读取和写入数据包
-    auto read_data_packet = I_BaseCmdUItf::_fmt_reg_read(0x32000000);
-    auto write_data_packet = I_BaseCmdUItf::_fmt_reg_write(0x32000000, 0x10);
+    auto read_data_packet = TestCmdUItf::_fmt_reg_read(0x32000000);
+    auto write_data_packet = TestCmdUItf::_fmt_reg_write(0x32000000, 0x10);
 
     // 调用接口并将读取的数据存储在 read_buffer 中，检查返回值
-    EXPECT_EQ(I_BaseCmdUItf::_fmt_reg_read(0x32000000, read_buffer), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+    EXPECT_EQ(TestCmdUItf::_fmt_reg_read(0x32000000, read_buffer), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
     // 调用接口并将写入的数据存储在 write_buffer 中，检查返回值
-    EXPECT_EQ(I_BaseCmdUItf::_fmt_reg_write(0x32000000, 0x10, write_buffer), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+    EXPECT_EQ(TestCmdUItf::_fmt_reg_write(0x32000000, 0x10, write_buffer), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
 
     // 期望数据包的大小与预期相符
     EXPECT_EQ(read_data_packet.size(), 20 * sizeof(char));

@@ -9,23 +9,6 @@ set(CMAKE_CXX_STANDARD 17)
 # 输出操作系统信息
 MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}")
 
-# 设置代理环境变量
-set(ENV{http_proxy} "http://127.0.0.1:10800")
-set(ENV{https_proxy} "http://127.0.0.1:10801")
-
-# 包含FetchContent模块
-include(FetchContent)
-
-# 下载并构建googletest库
-FetchContent_Declare(
-        googletest
-        URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
-)
-# For Windows: 防止覆盖父项目的编译器/链接器设置
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
-
 # =======================================项目信息配置=============================================
 # 配置版本头文件
 configure_file(version.h.in ../include/version.h)
@@ -97,26 +80,10 @@ endif ()
 
 
 # ================================启用测试========================================
-enable_testing()
-# 添加测试用例
-add_executable(
-        nsukit_test
-        tests/interface_test.cpp
-        tests/nsukit_test.cpp
-        tests/type_test.cpp
-        tests/namespace_test.cpp
-        tests/xdma_loop_test.cpp
-        tests/test_config.h
-)
-# 链接测试用例和库
-target_link_libraries(
-        nsukit_test
-        gtest_main
-        NSUKit
-        xdma_api
-)
-# 包含Google Test模块
-include(GoogleTest)
-# 发现并添加测试
-gtest_discover_tests(nsukit_test)
+# cmake -DENABLE_TEST=ON 时启用test
+option(ENABLE_TEST "set to switch enable test" OFF)
+if (ENABLE_TEST)
+    add_subdirectory(tests)
+    SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY ./tests)
+endif()
 # ============================================================================

@@ -1,8 +1,6 @@
 //
 // Created by 56585 on 2023/8/16.
 //
-#define NSUKIT_IN_TEST
-
 #include "test_config.h"
 #include "NSUKit.h"
 

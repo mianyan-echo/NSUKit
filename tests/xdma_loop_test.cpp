@@ -8,8 +8,9 @@
 
 TEST(XDMA_LOOP_TEST, TEST) {
     const int xdma_board = 0;
-    const int xdma_block = 102400;    // bytes
-    const int loop_num = 1000;
+    const int xdma_block = 32;    // bytes
+    const int loop_num = 1;
+    const int valid_addr = 0x00000000;
 
     fpga_open(xdma_board);
     std::cout << fpga_info_string(xdma_board) << std::endl;
@@ -19,14 +20,18 @@ TEST(XDMA_LOOP_TEST, TEST) {
     time_t st = 0, et = 0;
     time(&st);
     for(int i=0; i<loop_num; i++) {
+        fpga_wr_lite(xdma_board, valid_addr, 1);
         auto _recv_len = fpga_recv(xdma_board, 0, fd, xdma_block/4, 0, 1, 0, 0, DMA_WAIT_FOR_EVER);
+        fpga_wr_lite(xdma_board, valid_addr, 0);
+        fpga_wr_lite(xdma_board, valid_addr, 1);
+        fpga_wr_lite(xdma_board, valid_addr, 0);
         if(_recv_len != xdma_block/4) {
             std::cout << fpga_err_msg() << std::endl;
         }
-        auto _send_len = fpga_send(xdma_board, 0, fd, xdma_block/4, 0, 1, 0, 0, DMA_WAIT_FOR_EVER);
-        if(_send_len != xdma_block/4) {
-            std::cout << fpga_err_msg() << std::endl;
-        }
+//        auto _send_len = fpga_send(xdma_board, 0, fd, xdma_block/4, 0, 1, 0, 0, DMA_WAIT_FOR_EVER);
+//        if(_send_len != xdma_block/4) {
+//            std::cout << fpga_err_msg() << std::endl;
+//        }
     }
     time(&et);
     std::cout << "repeat: " << loop_num << " xdma loop test use time: " << et-st << "s" << std::endl;

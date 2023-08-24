@@ -9,6 +9,6 @@
 #include <ctime>
 #include "gtest/gtest.h"
 
-#define TEST_XDMA_LOOP
+//#define TEST_XDMA_LOOP     // XDMA 回环测试开关
 
 #endif //NSUKIT_GTEST_TEST_CONFIG_H

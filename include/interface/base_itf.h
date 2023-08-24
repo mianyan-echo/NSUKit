@@ -36,11 +36,7 @@ namespace nsukit {
 
 
     class DLLEXPORT I_BaseCmdUItf : public U_Interface {
-#ifdef NSUKIT_IN_TEST
-    public:
-#else
-        protected:
-#endif
+    protected:
         struct RegPack {
             uint32_t head = 0x5F5F5F5F;
             uint32_t id = 0;

@@ -10,7 +10,7 @@
  * @param rhs 右值
  * @return 按位与后的枚举值
  */
-nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs) {
+nsukitStatus_t operator| (nsukitStatus_t lhs, nsukitStatus_t rhs) {
     return static_cast<nsukitStatus_t>((int)lhs | (int)rhs);
 }
 
