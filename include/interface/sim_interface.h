@@ -38,11 +38,11 @@ namespace nsukit {
     };
 
 
-    class DLLEXPORT SimChnlUItf : public I_BaseChnlUItf {
+    class DLLEXPORT SimStreamUItf : public I_BaseStreamUItf {
     public:
-        SimChnlUItf();
+        SimStreamUItf();
 
-        ~SimChnlUItf() override = default;
+        ~SimStreamUItf() override = default;
 
         nsukitStatus_t open_board() override;
 

@@ -5,7 +5,7 @@
 #ifndef NSUKIT_BASE_ITF_H
 #define NSUKIT_BASE_ITF_H
 
-#include "utils/config.h"
+#include "../utils/config.h"
 
 
 namespace nsukit {
@@ -75,7 +75,7 @@ namespace nsukit {
     /**
      * 通道类
      */
-    class DLLEXPORT I_BaseChnlUItf : public U_Interface {
+    class DLLEXPORT I_BaseStreamUItf : public U_Interface {
     public:
         virtual nsukitStatus_t open_board() { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 

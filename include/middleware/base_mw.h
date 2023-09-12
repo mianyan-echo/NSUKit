@@ -5,7 +5,7 @@
 #ifndef NSUKIT_BASE_MW_H
 #define NSUKIT_BASE_MW_H
 
-#include "utils/config.h"
+#include "../utils/config.h"
 
 namespace nsukit {
     class DLLEXPORT U_Middleware {
@@ -23,11 +23,11 @@ namespace nsukit {
     };
 
 
-    class DLLEXPORT I_BaseChnlMw : public U_Middleware {
+    class DLLEXPORT I_BaseStreamMw : public U_Middleware {
     public:
-        explicit I_BaseChnlMw() = default;
+        explicit I_BaseStreamMw() = default;
 
-        explicit I_BaseChnlMw(BaseKit *kit) {}
+        explicit I_BaseStreamMw(BaseKit *kit) {}
 
     };
 }

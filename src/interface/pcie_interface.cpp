@@ -7,7 +7,7 @@
 using namespace nsukit;
 
 
-PCIEChnlUItf::PCIEChnlUItf() = default;
+PCIEStreamUItf::PCIEStreamUItf() = default;
 
 PCIECmdUItf::PCIECmdUItf() = default;
 
@@ -96,12 +96,12 @@ nsukitStatus_t PCIECmdUItf::read(nsuRegAddr_t addr, nsuRegValue_t *buf) {
  *
  * @return
  */
-nsukitStatus_t PCIEChnlUItf::open_board() {
+nsukitStatus_t PCIEStreamUItf::open_board() {
     // TODO: 补充实现
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
-nsukitStatus_t PCIEChnlUItf::close() {
+nsukitStatus_t PCIEStreamUItf::close() {
     // TODO: 补充实现
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }

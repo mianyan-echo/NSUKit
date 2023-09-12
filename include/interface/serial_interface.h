@@ -16,11 +16,11 @@ namespace nsukit {
         ~SerialCmdUItf() override = default;
     };
 
-    class DLLEXPORT SerialChnlUItf: public I_BaseChnlUItf {
+    class DLLEXPORT SerialStreamUItf: public I_BaseStreamUItf {
     public:
-        SerialChnlUItf() = default;
+        SerialStreamUItf() = default;
 
-        ~SerialChnlUItf() override = default;
+        ~SerialStreamUItf() override = default;
 
     };
 }

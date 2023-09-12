@@ -17,11 +17,11 @@ namespace nsukit {
     };
 
 
-    class DLLEXPORT TCPChnlUItf : public I_BaseChnlUItf {
+    class DLLEXPORT TCPStreamUItf : public I_BaseStreamUItf {
     public:
-        TCPChnlUItf() = default;
+        TCPStreamUItf() = default;
 
-        ~TCPChnlUItf() override = default;
+        ~TCPStreamUItf() override = default;
     };
 }
 

@@ -1,5 +1,6 @@
 /**
- *
+ * @brief ....
+ * @typedef nsuBytes_t
  */
 
 #ifndef NSUKIT_TYPE_H
@@ -25,10 +26,11 @@
 #include <vector>
 
 /**
+ * @enum nsukitStatus_t
  * 统一描述接口返回的执行状态
  */
 DLLEXTERN enum class nsukitStatus_t {
-    NSUKIT_STATUS_SUCCESS          =                  0,        // 0 运行成功
+    NSUKIT_STATUS_SUCCESS          =                  0,        /*< 0 运行成功 */
     NSUKIT_STATUS_NEED_RELOAD      =                  1 << 0,   // 1 此方法需要重载
     NSUKIT_STATUS_ARCH_MISMATCH    =                  1 << 1,   // 2 不支持此操作系统
     NSUKIT_STATUS_ALLOC_FAILED     =                  1 << 2,   // 4 内存申请失败
@@ -41,7 +43,15 @@ DLLEXPORT nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs);
 DLLEXPORT void operator|= (nsukitStatus_t &lhs, nsukitStatus_t rhs);
 
 
+DLLEXTERN enum class nsuBulkMode {
+    LOOP = 0,
+    INCREMENT = 1
+};
+
+
 DLLEXTERN typedef         std::vector<char>                     nsuBytes_t;
+
+/** This is the documentation for the following typedefdsfsdfsd */
 DLLEXTERN typedef         char *                                nsuCharBuf_p;
 DLLEXTERN typedef         void *                                nsuVoidBuf_p;
 DLLEXTERN typedef         uint8_t                               nsuBoardNum_t;

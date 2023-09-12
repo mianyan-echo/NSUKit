@@ -10,7 +10,7 @@
 
 
 namespace nsukit {
-    class DLLEXPORT VirtualChnlMw : public I_BaseChnlMw, public RegOperationMixin {
+    class DLLEXPORT VirtualChnlMw : public I_BaseStreamMw, public RegOperationMixin {
     public:
         explicit VirtualChnlMw(BaseKit *kit) {}
 

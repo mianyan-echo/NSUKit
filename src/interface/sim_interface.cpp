@@ -6,7 +6,7 @@
 
 using namespace nsukit;
 
-SimChnlUItf::SimChnlUItf() = default;
+SimStreamUItf::SimStreamUItf() = default;
 
 SimCmdUItf::SimCmdUItf() = default;
 
@@ -86,10 +86,10 @@ nsukitStatus_t SimCmdUItf::read(nsuRegAddr_t addr, nsuRegValue_t *buf) {
  *
  * @return
  */
-nsukitStatus_t SimChnlUItf::open_board() {
+nsukitStatus_t SimStreamUItf::open_board() {
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
-nsukitStatus_t SimChnlUItf::close() {
+nsukitStatus_t SimStreamUItf::close() {
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }

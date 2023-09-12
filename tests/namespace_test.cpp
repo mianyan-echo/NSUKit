@@ -7,9 +7,10 @@
 
 TEST(Namespace_nsukit, BaseTest) {
     auto status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
-    nsukit::NSUKit<
+    nsukit::NSUSoc<
             nsukit::PCIECmdUItf,
-            nsukit::PCIEChnlUItf,
+            nsukit::PCIECmdUItf,
+            nsukit::PCIEStreamUItf,
             nsukit::ICDRegMw,
             nsukit::VirtualChnlMw> kit;
 

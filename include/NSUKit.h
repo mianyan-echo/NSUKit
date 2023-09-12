@@ -17,47 +17,51 @@
 namespace nsukit {
     /**
      *
-     * @tparam CmdItf_t I_Base
-     * @tparam ChnlItf_t
-     * @tparam CmdMw_t
-     * @tparam ChnlMw_t
+     * @tparam CSItf_t nsukit::I_BaseCmdUItf 的子类
+     * @tparam CRItf_t nsukit::I_BaseCmdUItf 的子类
+     * @tparam DSItf_t nsukit::I_BaseStreamUItf 的子类
+     * @tparam CmdMw_t nsukit::I_BaseRegMw 的子类
+     * @tparam ChnlMw_t nsukit::I_BaseStreamMw 的子类
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t=ICDRegMw, class ChnlMw_t=VirtualChnlMw>
-    class NSUKit : public BaseKit {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t=ICDRegMw, class ChnlMw_t=VirtualChnlMw>
+    class NSUSoc : public BaseKit {
     private:
-        bool itf_chnl_typesafe = true;
-        bool itf_cmd_typesafe = true;
+        bool itf_ds_typesafe = true;
+        bool itf_cs_typesafe = true;
+        bool itf_cr_typesafe = true;
         bool mw_chnl_typesafe = true;
         bool mw_cmd_typesafe = true;
 
     protected:
         CmdMw_t *mw_cmd;
         ChnlMw_t *mw_chnl;
-        CmdItf_t *itf_cmd;
-        ChnlItf_t *itf_chnl;
+        CSItf_t *itf_cs;
+        CRItf_t *itf_cr;
+        DSItf_t *itf_ds;
 
-        bool check_typesafe() {return itf_cmd_typesafe and itf_chnl_typesafe and mw_chnl_typesafe and mw_cmd_typesafe;}
+        bool check_typesafe() {
+            return itf_cs_typesafe and itf_cr_typesafe and itf_ds_typesafe and mw_chnl_typesafe and mw_cmd_typesafe;
+        }
+
+        bool combined_cmd_itf() {return itf_cs == itf_cr;}
 
     public:
-        NSUKit();
-        ~NSUKit();
+        NSUSoc();
+        ~NSUSoc();
 
-        nsukitStatus_t start_command(nsuAcceptParam_t *param) override;
+        nsukitStatus_t link_cmd(nsuAcceptParam_t *param) override;
 
-        nsukitStatus_t stop_command() override;
+        nsukitStatus_t unlink_cmd() override;
 
-        nsukitStatus_t start_stream(nsuAcceptParam_t *param) override;
+        nsukitStatus_t link_stream(nsuAcceptParam_t *param) override;
 
-        nsukitStatus_t stop_stream() override;
+        nsukitStatus_t unlink_stream() override;
 
         nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value, bool execute) override;
-        LOCK_NSUKIT_METHOD_3P(write, nsuRegAddr_t, nsuRegValue_t, true)
 
         nsukitStatus_t write(nsuICDParam_t addr, nsuRegValue_t value, bool execute) override;
-        LOCK_NSUKIT_METHOD_3P(write, nsuICDParam_t, nsuRegValue_t, true)
 
         nsukitStatus_t write(nsuICDParam_t addr, nsuICDParam_t value, bool execute) override;
-        LOCK_NSUKIT_METHOD_3P(write, nsuICDParam_t, nsuICDParam_t, true)
 
         nsukitStatus_t read(nsuRegAddr_t addr, nsuRegValue_t* buf) override;
 
@@ -67,24 +71,33 @@ namespace nsukit {
     };
 
 
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::NSUKit() {
-        itf_cmd_typesafe = std::is_base_of<I_BaseCmdUItf, CmdItf_t>::value;
-        itf_chnl_typesafe = std::is_base_of<I_BaseChnlUItf, ChnlItf_t>::value;
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::NSUSoc() {
+        itf_cs_typesafe = std::is_base_of<I_BaseCmdUItf, CSItf_t>::value;
+        itf_cr_typesafe = std::is_base_of<I_BaseCmdUItf, CRItf_t>::value;
+        itf_ds_typesafe = std::is_base_of<I_BaseStreamUItf, DSItf_t>::value;
         mw_cmd_typesafe = std::is_base_of<I_BaseRegMw, CmdMw_t>::value;
-        mw_chnl_typesafe = std::is_base_of<I_BaseChnlMw, ChnlMw_t>::value;
+        mw_chnl_typesafe = std::is_base_of<I_BaseStreamMw, ChnlMw_t>::value;
 
-        itf_cmd = new CmdItf_t();
-        itf_chnl = new ChnlItf_t();
+        itf_cs = new CSItf_t();
+        if (std::is_same<CSItf_t, CRItf_t>::value) {
+            itf_cr = itf_cs;
+        } else {
+            itf_cr = new CRItf_t();
+        }
+        itf_ds = new DSItf_t();
         mw_cmd = new CmdMw_t(this);
         mw_chnl = new ChnlMw_t(this);
     }
 
 
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::~NSUKit() {
-        free(itf_cmd);
-        free(itf_chnl);
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::~NSUSoc() {
+        if (!this->combined_cmd_itf()) {
+            free(itf_cr);
+        }
+        free(itf_cs);
+        free(itf_ds);
         free(mw_cmd);
         free(mw_chnl);
     }
@@ -96,19 +109,19 @@ namespace nsukit {
      * @code
      * #include "NSUKit.h"
      *
-     * auto kit = NSUKit::NSUKit<PCIECmdUItf, PCIEChnlUItf>();
+     * auto kit = NSUKit::NSUSoc<PCIECmdUItf, PCIEStreamUItf>();
      * nsukitStatus_t status;
      * nsuXDMAParam_t param {};
      * param.board = 0;
-     * status = kit.start_command(&param);
+     * status = kit.link_cmd(&param);
      * status = kit.write(0x00000035, 15);
      * @endcode
      *
      * @param param
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::start_command(nsuAcceptParam_t *param) {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_cmd(nsuAcceptParam_t *param) {
         if (param == nullptr) {
             return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
         }
@@ -117,9 +130,13 @@ namespace nsukit {
         // 初始化状态为成功
         nsukitStatus_t status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 
+        if (!this->combined_cmd_itf()) {
+            auto* crInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
+            status |= crInterface->accept(param);
+        }
         // 调用命令接口的 accept 函数，将结果合并到状态中
-        auto* cmdInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cmd);
-        status |= cmdInterface->accept(param);
+        auto* csInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cs);
+        status |= csInterface->accept(param);
         // 调用命令中间件的 config 函数，将结果合并到状态中
         auto* cmdMiddleware = dynamic_cast<I_BaseRegMw*>(mw_cmd);
         status |= cmdMiddleware->config(param);
@@ -133,10 +150,17 @@ namespace nsukit {
      *
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::stop_command() {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::unlink_cmd() {
         METHOD_NEED_(check_typesafe);
-        return dynamic_cast<I_BaseCmdUItf *>(itf_cmd)->close();
+        // 初始化状态为成功
+        nsukitStatus_t status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+
+        if (!this->combined_cmd_itf()) {
+            auto* crInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
+            status |= crInterface->close();
+        }
+        return dynamic_cast<I_BaseCmdUItf *>(itf_cs)->close();
     }
 
 
@@ -146,8 +170,8 @@ namespace nsukit {
      * @param param
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::start_stream(nsuAcceptParam_t *param) {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_stream(nsuAcceptParam_t *param) {
         if (param == nullptr) {
             return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
         }
@@ -157,11 +181,11 @@ namespace nsukit {
         nsukitStatus_t status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 
         // 调用命令接口的 accept 函数，将结果合并到状态中
-        auto* chnlInterface = dynamic_cast<I_BaseChnlUItf*>(itf_chnl);
+        auto* chnlInterface = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
         status |= chnlInterface->accept(param);
         status |= chnlInterface->open_board();
         // 调用命令中间件的 config 函数，将结果合并到状态中
-        auto* chnlMiddleware = dynamic_cast<I_BaseChnlMw*>(mw_chnl);
+        auto* chnlMiddleware = dynamic_cast<I_BaseStreamMw*>(mw_chnl);
         status |= chnlMiddleware->config(param);
 
         // 返回合并后的状态
@@ -173,10 +197,10 @@ namespace nsukit {
      *
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::stop_stream() {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::unlink_stream() {
         METHOD_NEED_(check_typesafe);
-        return dynamic_cast<I_BaseChnlUItf *>(itf_chnl)->close();
+        return dynamic_cast<I_BaseStreamUItf *>(itf_ds)->close();
     }
 
 
@@ -188,14 +212,14 @@ namespace nsukit {
      * @param execute
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t
-    NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::write(nsuRegAddr_t addr, nsuRegValue_t value, bool execute) {
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::write(nsuRegAddr_t addr, nsuRegValue_t value, bool execute) {
         METHOD_NEED_(check_typesafe);
 
         auto status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
         if (execute) {
-            auto* cmdInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cmd);
+            auto* cmdInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
             status |= cmdInterface->write(addr, value);
         }
         return status;
@@ -210,9 +234,9 @@ namespace nsukit {
      * @param execute 是否执行对应的ICD指令
      * @return 接口执行状态
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t
-    NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::write(nsuICDParam_t addr, nsuRegValue_t value, bool execute) {
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::write(nsuICDParam_t addr, nsuRegValue_t value, bool execute) {
         METHOD_NEED_(check_typesafe);
 
         // TODO: 补充实现
@@ -228,9 +252,9 @@ namespace nsukit {
      * @param execute 是否执行对应的ICD指令
      * @return 接口执行状态
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t
-    NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::write(nsuICDParam_t addr, nsuICDParam_t value, bool execute) {
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::write(nsuICDParam_t addr, nsuICDParam_t value, bool execute) {
         METHOD_NEED_(check_typesafe);
 
         // TODO: 补充实现
@@ -244,12 +268,12 @@ namespace nsukit {
      * @param buf
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::read(nsuRegAddr_t addr, nsuRegValue_t *buf) {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::read(nsuRegAddr_t addr, nsuRegValue_t *buf) {
         METHOD_NEED_(check_typesafe);
 
         auto status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
-        auto* cmdInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cmd);
+        auto* cmdInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
         status |= cmdInterface->read(addr, buf);
         return status;
     }
@@ -261,8 +285,8 @@ namespace nsukit {
      * @param buf
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::read(nsuICDParam_t addr, nsuRegValue_t *buf) {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::read(nsuICDParam_t addr, nsuRegValue_t *buf) {
         METHOD_NEED_(check_typesafe);
 
         return BaseKit::read(addr, buf);
@@ -275,8 +299,8 @@ namespace nsukit {
      * @param buf
      * @return
      */
-    template<class CmdItf_t, class ChnlItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUKit<CmdItf_t, ChnlItf_t, CmdMw_t, ChnlMw_t>::read(nsuICDParam_t addr, nsuICDParam_t *buf) {
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::read(nsuICDParam_t addr, nsuICDParam_t *buf) {
         METHOD_NEED_(check_typesafe);
 
         return BaseKit::read(addr, buf);

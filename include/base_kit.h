@@ -9,27 +9,19 @@
 namespace nsukit {
     class DLLEXPORT BaseKit {
     public:
-        virtual nsukitStatus_t start_command(nsuAcceptParam_t *param) {
+        virtual nsukitStatus_t link_cmd(nsuAcceptParam_t *param) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        virtual nsukitStatus_t stop_command() { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t unlink_cmd() { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
-        virtual nsukitStatus_t start_stream(nsuAcceptParam_t *param) {
+        virtual nsukitStatus_t link_stream(nsuAcceptParam_t *param) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        virtual nsukitStatus_t stop_stream() { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t unlink_stream() { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
-        virtual nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value, bool execute) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
-
-        virtual nsukitStatus_t write(nsuICDParam_t addr, nsuRegValue_t value, bool execute) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
-
-        virtual nsukitStatus_t write(nsuICDParam_t addr, nsuICDParam_t value, bool execute) {
+        virtual nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
@@ -37,21 +29,34 @@ namespace nsukit {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        virtual nsukitStatus_t read(nsuICDParam_t addr, nsuRegValue_t *buf) {
+        virtual nsukitStatus_t bulk_write(
+                nsuRegAddr_t base, nsuCharBuf_p values, nsuBulkMode mode=nsuBulkMode::INCREMENT) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        virtual nsukitStatus_t read(nsuICDParam_t addr, nsuICDParam_t *buf) {
+        virtual nsukitStatus_t bulk_read(
+                nsuRegAddr_t base, nsuSize_t length,
+                nsuRegValue_t *buf = nullptr, nsuBulkMode mode=nsuBulkMode::INCREMENT) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        template<typename T>
-        nsukitStatus_t bulk_write(std::initializer_list<nsuRegAddr_t> addrs, std::initializer_list<T> values) {
+        virtual nsukitStatus_t set_param(nsuICDParam_t addr, nsuRegValue_t value, bool execute) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        virtual nsukitStatus_t
-        bulk_read(std::initializer_list<nsuRegAddr_t> list, std::vector<nsuRegValue_t> *buf = nullptr) {
+        virtual nsukitStatus_t set_param(nsuICDParam_t addr, nsuICDParam_t value, bool execute) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        }
+
+        virtual nsukitStatus_t set_param(nsuICDParam_t addr, nsuRegValue_t *buf) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        }
+
+        virtual nsukitStatus_t set_param(nsuICDParam_t addr, nsuICDParam_t *buf) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        }
+
+        virtual nsukitStatus_t execute(nsuICDParam_t name) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
@@ -74,14 +79,14 @@ namespace nsukit {
         }
 
         virtual nsuStreamLen_t
-        send_open(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) { return 0; }
+        open_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) { return 0; }
 
         virtual nsuStreamLen_t
-        recv_open(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) { return 0; }
+        open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) { return 0; }
 
-        virtual nsuStreamLen_t wait_dma(nsuMemory_p fd, time_t timeout = 0) { return 0; }
+        virtual nsuStreamLen_t wait_stream(nsuMemory_p fd, time_t timeout = 0) { return 0; }
 
-        virtual nsukitStatus_t break_dma(nsuMemory_p fd) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t break_stream(nsuMemory_p fd) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
     };
 }
 

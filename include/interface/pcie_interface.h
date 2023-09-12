@@ -41,11 +41,11 @@ namespace nsukit {
     };
 
 
-    class DLLEXPORT PCIEChnlUItf : public I_BaseChnlUItf {
+    class DLLEXPORT PCIEStreamUItf : public I_BaseStreamUItf {
     public:
-        PCIEChnlUItf();
+        PCIEStreamUItf();
 
-        ~PCIEChnlUItf() override = default;
+        ~PCIEStreamUItf() override = default;
 
         nsukitStatus_t open_board() override;
 
