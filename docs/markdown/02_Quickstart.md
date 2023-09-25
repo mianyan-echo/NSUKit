@@ -167,8 +167,9 @@ kit.bulk_read(0x00000020, 10, nsukit::nsuBulkMode::LOOP)                // 从�
 
 nsukit::NSUSoc<nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf> kit;
 
-auto fd = kit.alloc_buffer(16384)        // 申请一片16384Bytes的内存
-kit.stream_recv(0, fd, 16384, 0)         // 通过通道0将指定数据量存储到申请到的fd上
+auto fd = kit.alloc_buffer(16384);        // 申请一片16384Bytes的内存
+// 当前有四个数据流通道可供使用，即第一个参数可填0~3
+kit.stream_recv(0, fd, 16384, 0);         // 通过通道0将指定数据量存储到申请到的fd上
 ```
 
 ---
