@@ -14,7 +14,7 @@ gcc xxx.cpp -INSUKit/include -lNSUKit
 ```
 
 ## 最简模拟数据上行用例
-
+- **每个例化好的nsukit::NSUSoc类，可以对应一张数据进机卡，对于192单元项目每个板卡有四个数据流通道可用**
 ```c++
 #include <iostream>
 #include "NSUKit.h"
@@ -46,6 +46,7 @@ auto data_ptr = kit.get_buffer(fd, buf_len);
 kit.write(0x10000000, 1);
 kit.write(0x10000000, 0);
 
+// 第一个参数指定数据流通道，可为0~3
 kit.stream_recv(0, fd, buf_len, 0);
 
 if (*(uint8_t *)data_ptr == 1) {
