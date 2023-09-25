@@ -29,7 +29,7 @@ namespace nsukit {
         bool itf_ds_typesafe = true;
         bool itf_cs_typesafe = true;
         bool itf_cr_typesafe = true;
-        bool mw_chnl_typesafe = true;
+        bool mw_stream_typesafe = true;
         bool mw_cmd_typesafe = true;
 
     protected:
@@ -40,7 +40,7 @@ namespace nsukit {
         DSItf_t *itf_ds;
 
         bool check_typesafe() {
-            return itf_cs_typesafe and itf_cr_typesafe and itf_ds_typesafe and mw_chnl_typesafe and mw_cmd_typesafe;
+            return itf_cs_typesafe and itf_cr_typesafe and itf_ds_typesafe and mw_stream_typesafe and mw_cmd_typesafe;
         }
 
         bool combined_cmd_itf() {return itf_cs == itf_cr;}
@@ -49,25 +49,82 @@ namespace nsukit {
         NSUSoc();
         ~NSUSoc();
 
-        nsukitStatus_t link_cmd(nsuAcceptParam_t *param) override;
+        nsukitStatus_t link_cmd(nsuInitParam_t *param) override;
 
         nsukitStatus_t unlink_cmd() override;
 
-        nsukitStatus_t link_stream(nsuAcceptParam_t *param) override;
+        nsukitStatus_t link_stream(nsuInitParam_t *param) override;
 
         nsukitStatus_t unlink_stream() override;
 
-        nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value, bool execute) override;
+        /**
+         * 写寄存器
+         * @details 按照输入的地址、值进行写寄存器
+         * @param addr 写入寄存器地址
+         * @param value 写入寄存器值
+         * @return
+         */
+        nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value) override;
 
-        nsukitStatus_t write(nsuICDParam_t addr, nsuRegValue_t value, bool execute) override;
-
-        nsukitStatus_t write(nsuICDParam_t addr, nsuICDParam_t value, bool execute) override;
-
+        /**
+         * 读寄存器
+         * @param addr 读取寄存器地址
+         * @param buf  要接收读取值的buffer
+         * @return
+         */
         nsukitStatus_t read(nsuRegAddr_t addr, nsuRegValue_t* buf) override;
 
-        nsukitStatus_t read(nsuICDParam_t addr, nsuRegValue_t* buf) override;
+        /**
+         * 申请一片数据流用的内存
+         * @param length 要申请的内存长度
+         * @param buf 外部填入一片申请好的内存首地址指针
+         * @return 数据流内存标识
+         */
+        nsuMemory_p alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf = nullptr) override;
 
-        nsukitStatus_t read(nsuICDParam_t addr, nsuICDParam_t* buf) override;
+        /**
+         * 释放数据流用的内存
+         * @param fd 数据流内存标识
+         * @return
+         */
+        nsukitStatus_t free_buffer(nsuMemory_p fd) override;
+
+        /**
+         * 获取数据流内存标识的真实内存首指针
+         * @param fd 数据流内存标识
+         * @param length 所需数据流内存长度
+         * @return
+         */
+        nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length) override;
+
+        /**
+         * 阻塞式开启一次数据流上行
+         * @param chnl 数据流通道号
+         * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+         * @param length 要上行的数据长度
+         * @param offset 上行数据到内存的首地址偏移值
+         * @param stop_event 停止函数
+         * @param flag 预留
+         * @return
+         */
+        nsukitStatus_t
+        stream_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0,
+                    bool(*stop_event) () = nullptr, int flag = 1) override;
+
+        nsukitStatus_t
+        stream_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0,
+                    bool(*stop_event) () = nullptr, int flag = 1) override;
+
+        nsukitStatus_t
+        open_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) override;
+
+        nsukitStatus_t
+        open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) override;
+
+        nsukitStatus_t
+        wait_stream(nsuMemory_p fd, time_t timeout = 0) override;
+
+        nsukitStatus_t break_stream(nsuMemory_p fd) override;
     };
 
 
@@ -77,7 +134,7 @@ namespace nsukit {
         itf_cr_typesafe = std::is_base_of<I_BaseCmdUItf, CRItf_t>::value;
         itf_ds_typesafe = std::is_base_of<I_BaseStreamUItf, DSItf_t>::value;
         mw_cmd_typesafe = std::is_base_of<I_BaseRegMw, CmdMw_t>::value;
-        mw_chnl_typesafe = std::is_base_of<I_BaseStreamMw, ChnlMw_t>::value;
+        mw_stream_typesafe = std::is_base_of<I_BaseStreamMw, ChnlMw_t>::value;
 
         itf_cs = new CSItf_t();
         if (std::is_same<CSItf_t, CRItf_t>::value) {
@@ -121,7 +178,7 @@ namespace nsukit {
      * @return
      */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_cmd(nsuAcceptParam_t *param) {
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_cmd(nsuInitParam_t *param) {
         if (param == nullptr) {
             return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
         }
@@ -171,7 +228,7 @@ namespace nsukit {
      * @return
      */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_stream(nsuAcceptParam_t *param) {
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_stream(nsuInitParam_t *param) {
         if (param == nullptr) {
             return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
         }
@@ -183,7 +240,6 @@ namespace nsukit {
         // 调用命令接口的 accept 函数，将结果合并到状态中
         auto* chnlInterface = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
         status |= chnlInterface->accept(param);
-        status |= chnlInterface->open_board();
         // 调用命令中间件的 config 函数，将结果合并到状态中
         auto* chnlMiddleware = dynamic_cast<I_BaseStreamMw*>(mw_chnl);
         status |= chnlMiddleware->config(param);
@@ -204,70 +260,16 @@ namespace nsukit {
     }
 
 
-    /**
-     * 写寄存器
-     * @details 按照输入的地址、值进行写寄存器
-     * @param addr
-     * @param value
-     * @param execute
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t
-    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::write(nsuRegAddr_t addr, nsuRegValue_t value, bool execute) {
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::write(nsuRegAddr_t addr, nsuRegValue_t value) {
         METHOD_NEED_(check_typesafe);
 
-        auto status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
-        if (execute) {
-            auto* cmdInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
-            status |= cmdInterface->write(addr, value);
-        }
-        return status;
+        auto cmdInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
+        return cmdInterface->write(addr, value);
     }
 
 
-    /**
-     * 写ICD参数
-     * @details 按照输入的ICD参数名称、值进行写入到参数中
-     * @param addr icd参数名
-     * @param value uint32 值
-     * @param execute 是否执行对应的ICD指令
-     * @return 接口执行状态
-     */
-    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t
-    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::write(nsuICDParam_t addr, nsuRegValue_t value, bool execute) {
-        METHOD_NEED_(check_typesafe);
-
-        // TODO: 补充实现
-        return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
-    }
-
-
-    /**
-     * 写ICD参数
-     * @details 按照输入的ICD参数名称、值进行写入到参数中
-     * @param addr icd参数名
-     * @param value 字符串值
-     * @param execute 是否执行对应的ICD指令
-     * @return 接口执行状态
-     */
-    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t
-    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::write(nsuICDParam_t addr, nsuICDParam_t value, bool execute) {
-        METHOD_NEED_(check_typesafe);
-
-        // TODO: 补充实现
-        return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
-    }
-
-
-    /**
-     * 读寄存器
-     * @param addr
-     * @param buf
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::read(nsuRegAddr_t addr, nsuRegValue_t *buf) {
         METHOD_NEED_(check_typesafe);
@@ -279,31 +281,91 @@ namespace nsukit {
     }
 
 
-    /**
-     *
-     * @param addr
-     * @param buf
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::read(nsuICDParam_t addr, nsuRegValue_t *buf) {
-        METHOD_NEED_(check_typesafe);
-
-        return BaseKit::read(addr, buf);
+    nsuMemory_p
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf) {
+        if (!check_typesafe()) {
+            return nullptr;
+        }
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->alloc_buffer(length, buf);
     }
 
 
-    /**
-     *
-     * @param addr
-     * @param buf
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::read(nsuICDParam_t addr, nsuICDParam_t *buf) {
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::free_buffer(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->free_buffer(fd);
+    }
 
-        return BaseKit::read(addr, buf);
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsuVoidBuf_p
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_buffer(nsuMemory_p fd, nsuStreamLen_t length) {
+        if (!check_typesafe()) {
+            return nullptr;
+        }
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->get_buffer(fd, length);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::stream_recv(nsuChnlNum_t chnl, nsuMemory_p fd,
+                                                                                     nsuStreamLen_t length,
+                                                                                     nsuStreamLen_t offset,
+                                                                                     bool(*stop_event) (), int flag) {
+        METHOD_NEED_(check_typesafe);
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->stream_recv(chnl, fd, length, offset, stop_event, flag);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::stream_send(nsuChnlNum_t chnl, nsuMemory_p fd,
+                                                                                     nsuStreamLen_t length,
+                                                                                     nsuStreamLen_t offset,
+                                                                                     bool (*stop_event)(), int flag) {
+        METHOD_NEED_(check_typesafe);
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->stream_send(chnl, fd, length, offset, stop_event, flag);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::open_send(nsuChnlNum_t chnl, nsuMemory_p fd,
+                                                                                   nsuStreamLen_t length,
+                                                                                   nsuStreamLen_t offset) {
+        METHOD_NEED_(check_typesafe);
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->open_send(chnl, fd, length, offset);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd,
+                                                                                   nsuStreamLen_t length,
+                                                                                   nsuStreamLen_t offset) {
+        METHOD_NEED_(check_typesafe);
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->open_recv(chnl, fd, length, offset);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::wait_stream(nsuMemory_p fd, time_t timeout) {
+        METHOD_NEED_(check_typesafe);
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->wait_stream(fd, timeout);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::break_stream(nsuMemory_p fd) {
+        METHOD_NEED_(check_typesafe);
+        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        return itf->break_stream(fd);
     }
 
 }

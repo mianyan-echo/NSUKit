@@ -9,7 +9,6 @@
 #include <fstream>
 #include <cassert>
 #include <vector>
-#include <map>
 #include "base_mw.h"
 #include "json/json.h"
 //#include "c_socket.h"
@@ -84,16 +83,16 @@ namespace nsukit {
         uint32_t adc4_Maximum = 0;            // ADC4采集信号的时域最大值  当前PRT保持，下个PRT覆盖
     };
 
-    DLLEXPORT void DeleteCommandPack(CommandPack *pack);
+    NSU_DLLEXPORT void DeleteCommandPack(CommandPack *pack);
 
-    DLLEXPORT uint32_t GetFileSize(const std::string &file_path);
+    NSU_DLLEXPORT uint32_t GetFileSize(const std::string &file_path);
 
-    DLLEXPORT bool StringEndWith(std::string_view str, std::string_view tail);
+    NSU_DLLEXPORT bool StringEndWith(std::string_view str, std::string_view tail);
 
-    DLLEXPORT bool StringStartWith(std::string_view str, std::string_view head);
+    NSU_DLLEXPORT bool StringStartWith(std::string_view str, std::string_view head);
 
 
-    class DLLEXPORT ICDRegMw : public I_BaseRegMw {
+    class NSU_DLLEXPORT ICDRegMw : public I_BaseRegMw {
     private:
         std::string serverIP{};
         int dmaBoard{};
@@ -125,7 +124,7 @@ namespace nsukit {
 
         ~ICDRegMw();
 
-        nsukitStatus_t config(nsuAcceptParam_t *param) override;
+        nsukitStatus_t config(nsuInitParam_t *param) override;
 
         void ShowInfo();
 

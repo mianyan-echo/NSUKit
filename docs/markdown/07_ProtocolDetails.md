@@ -52,7 +52,7 @@ _**PCI-E指令代码示例**_
 ```python
 from nsukit import *
 nsukit = NSUKit(PCIECmdUItf, PCIEStreamUItf)
-nsukit.link_cmd(target=0, sent_base=0x10000000, recv_base=0x13000000, irq_base=0x00003000 + 44, sent_down_base=0x00003030)
+nsukit.link_cmd(target=0, cmd_sent_base=0x10000000, cmd_recv_base=0x13000000, irq_base=0x00003000 + 44, sent_down_base=0x00003030)
 nsukit.write(0x1, b'\x02\x00\x00\x00')
 nsukit.read(0x1)
 nsukit.bulk_write({0x1: b'\x02\x00\x00\x00', 0x2: b'\x03\x00\x00\x00'})

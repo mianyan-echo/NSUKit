@@ -7,7 +7,7 @@
 using namespace nsukit;
 
 
-nsukitStatus_t VirtualChnlMw::config(nsuAcceptParam_t *param) {
+nsukitStatus_t VirtualChnlMw::config(nsuInitParam_t *param) {
     // TODO 定义实现
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }

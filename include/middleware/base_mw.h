@@ -8,13 +8,13 @@
 #include "../utils/config.h"
 
 namespace nsukit {
-    class DLLEXPORT U_Middleware {
+    class NSU_DLLEXPORT U_Middleware {
     public:
-        virtual nsukitStatus_t config(nsuAcceptParam_t *param) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t config(nsuInitParam_t *param) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
     };
 
 
-    class DLLEXPORT I_BaseRegMw : public U_Middleware {
+    class NSU_DLLEXPORT I_BaseRegMw : public U_Middleware {
     public:
         explicit I_BaseRegMw() = default;
 
@@ -23,7 +23,7 @@ namespace nsukit {
     };
 
 
-    class DLLEXPORT I_BaseStreamMw : public U_Middleware {
+    class NSU_DLLEXPORT I_BaseStreamMw : public U_Middleware {
     public:
         explicit I_BaseStreamMw() = default;
 

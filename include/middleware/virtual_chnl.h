@@ -10,13 +10,13 @@
 
 
 namespace nsukit {
-    class DLLEXPORT VirtualChnlMw : public I_BaseStreamMw, public RegOperationMixin {
+    class NSU_DLLEXPORT VirtualChnlMw : public I_BaseStreamMw, public RegOperationMixin {
     public:
         explicit VirtualChnlMw(BaseKit *kit) {}
 
         ~VirtualChnlMw() = default;
 
-        nsukitStatus_t config(nsuAcceptParam_t *param) override;
+        nsukitStatus_t config(nsuInitParam_t *param) override;
     };
 }
 

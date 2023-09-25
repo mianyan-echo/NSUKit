@@ -9,14 +9,14 @@
 
 
 namespace nsukit {
-    class DLLEXPORT SerialCmdUItf: public I_BaseCmdUItf {
+    class NSU_DLLEXPORT SerialCmdUItf: public I_BaseCmdUItf {
     public:
         SerialCmdUItf() = default;
 
         ~SerialCmdUItf() override = default;
     };
 
-    class DLLEXPORT SerialStreamUItf: public I_BaseStreamUItf {
+    class NSU_DLLEXPORT SerialStreamUItf: public I_BaseStreamUItf {
     public:
         SerialStreamUItf() = default;
 

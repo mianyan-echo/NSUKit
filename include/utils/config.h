@@ -9,9 +9,13 @@
 #include <string>
 #include <cstring>
 #include <any>
+#include <map>
+#include <mutex>
 #include <cstdarg>
 #include <cstdint>
 #include <vector>
+#include <ranges>
+#include <cmath>
 #include "type.h"
 
 
@@ -26,8 +30,9 @@ typedef unsigned int DWORD;
 #include <winsock2.h>  // 在windows.h之前
 #include <windows.h>
 
-#define Sleep Sleep
-#define s_unit 1
+#define Sleep              Sleep
+#define s_unit             1
+#define NSU_REG_BWIDTH     4
 
 #endif
 
@@ -35,7 +40,7 @@ namespace nsukit {
     /**
      * 前向声明BaseKit类，作为NSUKit类的基类使用
      */
-    DLLEXTERN class DLLEXPORT BaseKit;
+    DLLEXTERN class NSU_DLLEXPORT BaseKit;
 
 
     /**

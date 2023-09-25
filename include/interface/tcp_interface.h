@@ -9,7 +9,7 @@
 
 
 namespace nsukit {
-    class DLLEXPORT TCPCmdUItf : public I_BaseCmdUItf {
+    class NSU_DLLEXPORT TCPCmdUItf : public I_BaseCmdUItf {
     public:
         TCPCmdUItf() = default;
 
@@ -17,7 +17,7 @@ namespace nsukit {
     };
 
 
-    class DLLEXPORT TCPStreamUItf : public I_BaseStreamUItf {
+    class NSU_DLLEXPORT TCPStreamUItf : public I_BaseStreamUItf {
     public:
         TCPStreamUItf() = default;
 

@@ -1,5 +1,5 @@
 # 设置要求的CMake版本
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.23)
 
 # 定义项目名称和版本
 project(NSUKit VERSION 0.1.0)
@@ -41,7 +41,7 @@ SET(libNSUKit_SRC
         src/interface/base_itf.cpp
         src/middleware/icd_parser.cpp
         src/utils/config.cpp
-        src/interface/pcie_interface.cpp
+#        src/interface/pcie_interface.cpp
         src/middleware/base_mw.cpp
         src/middleware/virtual_chnl.cpp
         src/utils/type.cpp
@@ -51,7 +51,7 @@ SET(libNSUKit_SRC
         include/interface/base_itf.h
         include/middleware/icd_parser.h
         include/utils/config.h
-        include/interface/pcie_interface.h
+#        include/interface/pcie_interface.h
         include/interface/interface.h
         include/middleware/base_mw.h
         include/middleware/middleware.h
@@ -66,7 +66,7 @@ add_library(NSUKit SHARED ${libNSUKit_SRC})
 SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../lib)
 SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY .)
 
-target_link_libraries(NSUKit xdma_api)
+#target_link_libraries(NSUKit xdma_api)
 # Linux下链接pthread库
 if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     target_link_libraries(NSUKit pthread)

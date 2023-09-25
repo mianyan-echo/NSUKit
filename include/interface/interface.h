@@ -6,7 +6,7 @@
 #define NSUKIT_INTERFACE_H
 
 #include "base_itf.h"
-#include "pcie_interface.h"
+//#include "pcie_interface.h"
 #include "sim_interface.h"
 #include "serial_interface.h"
 

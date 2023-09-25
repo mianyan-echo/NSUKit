@@ -25,8 +25,8 @@ TEST(NSUKITTest, VersionCheck) {
 TEST(NSUKITTest, BaseTemplate) {
     NSUSoc<SimCmdUItf, SimCmdUItf, SimStreamUItf> kit;
 
-    nsuSimParam_t param {};
-    param.a = 10;
+    nsuInitParam_t param {};
+    param.sim_target = 10;
     // 基类被正常重载
     EXPECT_EQ(kit.link_cmd(&param), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
 

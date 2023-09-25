@@ -83,8 +83,8 @@ ICDRegMw::ICDRegMw(BaseKit *kit, std::string_view file_name) {
 ICDRegMw::~ICDRegMw() = default;
 
 
-nsukitStatus_t ICDRegMw::config(nsuAcceptParam_t *param) {
-    auto _param = (nsuTCPParam_t *)param;
+nsukitStatus_t ICDRegMw::config(nsuInitParam_t *param) {
+    auto _param = (nsuInitParam_t *)param;
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 

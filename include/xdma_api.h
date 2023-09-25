@@ -107,13 +107,13 @@ DLLEXPORT unsigned long long _API_CALL fpga_read_reg64(unsigned int boardn, unsi
 //if share_buffer is another dma_t, then share the data buffer.
 //Note: if the share_buffer != NULL, the buffer must = NULL.
 DLLEXPORT HANDLE _API_CALL
-fpga_alloc_dma(unsigned int boardn, unsigned long long len32, void *buffer = NULL, HANDLE share_dma = NULL);
+fpga_alloc_dma(unsigned int boardn, unsigned long long len32, void *buffer = nullptr, HANDLE share_dma = nullptr);
 //For C2H dma only. Beter performance potentially.
 DLLEXPORT HANDLE _API_CALL
-fpga_alloc_dma_recv(unsigned int boardn, unsigned long long len32, void *buffer = NULL, HANDLE share_buffer = NULL);
+fpga_alloc_dma_recv(unsigned int boardn, unsigned long long len32, void *buffer = nullptr, HANDLE share_buffer = nullptr);
 //For H2C dma only. Beter performance potentially.
 DLLEXPORT HANDLE _API_CALL
-fpga_alloc_dma_send(unsigned int boardn, unsigned long long len32, void *buffer = NULL, HANDLE share_buffer = NULL);
+fpga_alloc_dma_send(unsigned int boardn, unsigned long long len32, void *buffer = nullptr, HANDLE share_buffer = nullptr);
 
 //Get the user data buffer start address of the dma object
 DLLEXPORT void *fpga_get_dma_buffer(HANDLE dma);
@@ -141,9 +141,9 @@ DLLEXPORT void _API_CALL fpga_free_dma(HANDLE dma);
  * use fpga_err_msg() to the get detial error information.
  */
 DLLEXPORT unsigned long long _API_CALL fpga_send(unsigned int boardn, unsigned int chnl, HANDLE dma,
-                                                 unsigned long long len32, unsigned long long offset = 0,
-                                                 unsigned int last = 1, unsigned int mm_addr = 0,
-                                                 unsigned int mm_addr_inc = 0, unsigned int timeout = DMA_WAIT_FOR_EVER);
+                                                     unsigned long long len32, unsigned long long offset = 0,
+                                                     unsigned int last = 1, unsigned int mm_addr = 0,
+                                                     unsigned int mm_addr_inc = 0, unsigned int timeout = DMA_WAIT_FOR_EVER);
 
 //Start a receiving (c2h) dma
 //boardn: pciBoard index.

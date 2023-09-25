@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.20)
 
 # 设置代理环境变量
 set(ENV{http_proxy} "http://127.0.0.1:10800")
@@ -25,6 +25,7 @@ set(NSUKitTest_SRC
         namespace_test.cpp
         xdma_loop_test.cpp
         test_config.h
+        data_upload_test.cpp
 )
 
 add_executable(nsukit_test ${NSUKitTest_SRC})
