@@ -161,7 +161,7 @@ namespace nsukit {
     };
 
 
-    class NSU_DLLEXPORT Mixin_VirtualRegCmd {
+    class NSU_DLLEXPORT Mixin_VirtualRegCmd: public U_BaseCmdMixin {
     private:
         I_BaseCmdUItf *cmd_itf_;
     protected:

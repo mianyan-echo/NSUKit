@@ -41,6 +41,7 @@ DLLEXTERN enum class nsukitStatus_t {
     NSUKIT_STATUS_ACCEPT_FAIL      =                  1 << 6,
     NSUKIT_STATUS_STREAM_FAIL      =                  1 << 7,
     NSUKIT_STATUS_STREAM_RUNNING   =                  1 << 8,
+    NSUKIT_STATUS_TIMEOUT          =                  1 << 9,
 };
 
 NSU_DLLEXPORT nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs);

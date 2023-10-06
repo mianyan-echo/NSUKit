@@ -44,10 +44,15 @@ nsukitStatus_t XDMAOperation_t::close_xdma_board(int board) {
 PCIEStreamUItf::PCIEStreamUItf() = default;
 
 
+unsigned int PCIECmdUItf::irqNum = 15;
+
+
 nsukitStatus_t PCIECmdUItf::accept(nsuInitParam_t *param) {
     pciBoard = param->cmd_board;
     sentBase = param->cmd_sent_base;
     recvBase = param->cmd_recv_base;
+    irqBase = param->cmd_irq_base;
+    sentDownBase = param->cmd_sent_down_base;
 
     return xdmaOp.open_xdma_board(pciBoard);
 }
@@ -65,20 +70,39 @@ nsukitStatus_t PCIECmdUItf::set_timeout(float s) {
 
 
 nsukitStatus_t PCIECmdUItf::send_bytes(nsuBytes_t& bytes) {
-    // TODO: 补充实现
-    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    return send_bytes(bytes.data(), bytes.size());
 }
 
 
 nsukitStatus_t PCIECmdUItf::send_bytes(nsuCharBuf_p bytes, nsuSize_t length) {
-    // TODO: 补充实现
-    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    OpLock.lock();
+    onceTimeout = pciTimeout;
+    auto st = std::chrono::high_resolution_clock::now();
+
+    auto res = increment_write(sentBase, bytes, length);
+    fpga_wr_lite(pciBoard, sentDownBase, 1);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5));
+    fpga_wr_lite(pciBoard, sentDownBase, 0);
+
+    auto _use_time = (double )(std::chrono::high_resolution_clock::now()-st).count() * 1e-9;
+    if (_use_time < onceTimeout) {
+        OpLock.unlock();
+        return nsukitStatus_t::NSUKIT_STATUS_TIMEOUT;
+    }
+    onceTimeout -= _use_time;
+    OpLock.unlock();
+    return res;
 }
 
 
 nsukitStatus_t PCIECmdUItf::recv_bytes(nsuSize_t size, nsuCharBuf_p buf) {
-    // TODO: 补充实现
-    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    if (size <= 0) return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+    if (buf == nullptr) return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+
+    auto res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    res |= per_recv();
+    res |= increment_read(recvBase, size, buf);
+    return res;
 }
 
 
@@ -94,6 +118,21 @@ nsukitStatus_t PCIECmdUItf::read(nsuRegAddr_t addr, nsuRegValue_t *buf) {
     }
     auto res = fpga_rd_lite(pciBoard, addr);
     memcpy(buf, &res, sizeof(nsuRegValue_t ));
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}
+
+
+nsukitStatus_t PCIECmdUItf::reset_irq() {
+    fpga_wr_lite(pciBoard, irqBase, 0x80000000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5));
+    fpga_wr_lite(pciBoard, irqBase, 0);
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}
+
+nsukitStatus_t PCIECmdUItf::per_recv() {
+    auto res = fpga_wait_irq(pciBoard, irqNum, static_cast<int>(onceTimeout*1000));
+    if (res != 0) return nsukitStatus_t::NSUKIT_STATUS_TIMEOUT;
+    reset_irq();
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 

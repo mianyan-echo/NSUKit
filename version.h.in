@@ -11,5 +11,6 @@
                                                    (NSUKIT_PROJECT_VER_PATCH))
 #define NSUKIT_VER_(major, minor, patch)         (((major) << 16) + ((minor) << 8) + (patch))
 
+#cmakedefine NSUKIT_WITH_XDMA
 
 #endif //NSUKIT_VERSION_H

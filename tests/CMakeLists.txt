@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.24)
 
 # 设置代理环境变量
 set(ENV{http_proxy} "http://127.0.0.1:10800")

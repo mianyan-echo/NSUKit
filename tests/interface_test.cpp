@@ -21,6 +21,13 @@ TEST(BaseCmdTest, TestAssertions) {
     EXPECT_STRNE("hello", "world");
     // Expect equality.
     EXPECT_EQ(7 * 6, 42);
+
+    auto _t = std::chrono::milliseconds(0);
+
+    auto a = std::chrono::steady_clock::now();
+    std::this_thread::sleep_for(_t);
+    auto b = std::chrono::steady_clock::now();
+    std::cout << (b-a).count() << std::endl;
 }
 
 
@@ -56,8 +63,8 @@ TEST(BaseCmdTest, TestAssertions) {
 /**
  * 测试
  */
-//TEST(BaseCmdTest, PCIEInstance) {
-//    I_BaseCmdUItf *itf = new PCIECmdUItf();
-//    EXPECT_EQ(itf->write(0x33000000, 0x10), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
-//    delete itf;
-//}
+TEST(BaseCmdTest, PCIEInstance) {
+    I_BaseCmdUItf *itf = new SimCmdUItf();
+    EXPECT_EQ(itf->write(0x33000000, 0x10), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+    delete itf;
+}
