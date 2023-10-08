@@ -8,6 +8,7 @@
 #include "base_itf.h"
 #include "sim_interface.h"
 #include "serial_interface.h"
+#include "tcp_interface.h"
 
 #ifdef NSUKIT_WITH_XDMA
 #include "pcie_interface.h"

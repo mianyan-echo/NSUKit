@@ -5,7 +5,7 @@
 #ifndef NSUKIT_BASE_ITF_H
 #define NSUKIT_BASE_ITF_H
 
-#include "../utils/config.h"
+#include "base/base_kit.h"
 
 
 namespace nsukit {

@@ -31,17 +31,18 @@
  * 统一描述接口返回的执行状态
  */
 DLLEXTERN enum class nsukitStatus_t {
-    NSUKIT_STATUS_SUCCESS          =                  0,        /*< 0 运行成功 */
-    NSUKIT_STATUS_NEED_RELOAD      =                  1 << 0,   // 1 此方法需要重载
-    NSUKIT_STATUS_ARCH_MISMATCH    =                  1 << 1,   // 2 不支持此操作系统
-    NSUKIT_STATUS_ALLOC_FAILED     =                  1 << 2,   // 4 内存申请失败
-    NSUKIT_STATUS_INVALID_VALUE    =                  1 << 3,   // 8
-    NSUKIT_STATUS_TEMP_MISMATCH    =                  1 << 4,
-    NSUKIT_STATUS_MISMATCH_MIXIN   =                  1 << 5,
-    NSUKIT_STATUS_ACCEPT_FAIL      =                  1 << 6,
-    NSUKIT_STATUS_STREAM_FAIL      =                  1 << 7,
-    NSUKIT_STATUS_STREAM_RUNNING   =                  1 << 8,
-    NSUKIT_STATUS_TIMEOUT          =                  1 << 9,
+    NSUKIT_STATUS_SUCCESS             =                  0,        /*< 0 运行成功 */
+    NSUKIT_STATUS_NEED_RELOAD         =                  1 << 0,   // 1 此方法需要重载
+    NSUKIT_STATUS_ARCH_MISMATCH       =                  1 << 1,   // 2 不支持此操作系统
+    NSUKIT_STATUS_ALLOC_FAILED        =                  1 << 2,   // 4 内存申请失败
+    NSUKIT_STATUS_INVALID_VALUE       =                  1 << 3,   // 8
+    NSUKIT_STATUS_TEMP_MISMATCH       =                  1 << 4,
+    NSUKIT_STATUS_MISMATCH_MIXIN      =                  1 << 5,
+    NSUKIT_STATUS_ACCEPT_FAIL         =                  1 << 6,
+    NSUKIT_STATUS_STREAM_FAIL         =                  1 << 7,
+    NSUKIT_STATUS_STREAM_RUNNING      =                  1 << 8,
+    NSUKIT_STATUS_TIMEOUT             =                  1 << 9,
+    NSUKIT_STATUS_MEMBER_NOT_SUPPORT  =                  1 << 10,
 };
 
 NSU_DLLEXPORT nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs);
@@ -65,7 +66,8 @@ DLLEXTERN typedef         size_t                                nsuSize_t;
 DLLEXTERN typedef         nsuSize_t                             nsuStreamLen_t;
 DLLEXTERN typedef         uint32_t                              nsuRegAddr_t;
 DLLEXTERN typedef         uint32_t                              nsuRegValue_t;
-DLLEXTERN typedef         std::string                           nsuICDParam_t;
+DLLEXTERN typedef         std::string                           nsuCSParam_t;
+DLLEXTERN typedef         std::string                           nsuCSName_t;
 DLLEXTERN typedef         nsukitStatus_t                        nsuStatus_t;
 DLLEXTERN typedef         nsukitStatus_t *                      nsuStatus_p;
 
@@ -111,7 +113,7 @@ struct nsuMwParam_t{
         VIRTUAL = 1
     };
     std::string icd_path = "./icd.json";
-    bool check_recv_head = true;
+    bool check_cs_recv = false;
 
     StreamMode stream_mode = StreamMode::REAL;
 };

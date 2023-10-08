@@ -2,13 +2,32 @@
 cmake_minimum_required(VERSION 3.24)
 
 # 定义项目名称和版本
-project(NSUKit VERSION 0.1.0)
+project(NSUKit VERSION 0.1.2)
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 17)
+
+# 添加自定义cmake文件目录
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+# 使用Utility.cmake
+include(Utility)
 
 # cmake -DENABLE_TEST=ON 时启用test
 option(ENABLE_TEST "set to switch enable test" OFF)
 option(NSUKIT_WITH_XDMA "配置项目编译和目标文件是否依赖xdma_api" OFF)
+
+string(TIMESTAMP COMPILE_TIME %Y%m%d_%H%M%S)
+set(build_time    ${COMPILE_TIME})
+
+# 获取当前的GIT_HASH
+set(GIT_HASH "")
+get_git_hash(GIT_HASH)
+message(STATUS "Git hash is ${GIT_HASH}")
+
+# 获取当前的分支
+set(GIT_BRANCH "")
+get_git_branch(GIT_BRANCH)
+message(STATUS "Git branch is ${GIT_BRANCH}")
 
 # 输出操作系统信息
 MESSAGE(STATUS "operation system is ${CMAKE_SYSTEM}")
@@ -41,25 +60,25 @@ SET(libNSUKit_SRC
         deps/jsoncpp/lib_json/json_reader.cpp
         deps/jsoncpp/lib_json/json_value.cpp
         deps/jsoncpp/lib_json/json_writer.cpp
-        src/base_kit.cpp
+        src/base/base_kit.cpp
         src/interface/base_itf.cpp
         src/middleware/icd_parser.cpp
-        src/utils/config.cpp
+        src/base/config.cpp
         src/interface/pcie_interface.cpp
         src/middleware/base_mw.cpp
         src/middleware/virtual_chnl.cpp
-        src/utils/type.cpp
+        src/base/type.cpp
         src/interface/tcp_interface.cpp
         src/interface/sim_interface.cpp
         src/interface/serial_interface.cpp
         include/interface/base_itf.h
         include/middleware/icd_parser.h
-        include/utils/config.h
+        include/base/config.h
         include/interface/pcie_interface.h
         include/interface/interface.h
         include/middleware/base_mw.h
         include/middleware/middleware.h
-        include/utils/type.h
+        include/base/type.h
         include/middleware/virtual_chnl.h
         include/interface/tcp_interface.h
         include/interface/sim_interface.h

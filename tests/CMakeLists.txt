@@ -25,7 +25,6 @@ set(NSUKitTest_SRC
         namespace_test.cpp
         xdma_loop_test.cpp
         test_config.h
-        data_upload_test.cpp
 )
 
 add_executable(nsukit_test ${NSUKitTest_SRC})

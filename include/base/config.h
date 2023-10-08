@@ -44,11 +44,7 @@ typedef unsigned int DWORD;
 #endif
 
 namespace nsukit {
-    /**
-     * 前向声明BaseKit类，作为NSUKit类的基类使用
-     */
-    DLLEXTERN class NSU_DLLEXPORT BaseKit;
-
+    NSU_DLLEXPORT std::string api_info();
 
     /**
      * 标准指令反馈
