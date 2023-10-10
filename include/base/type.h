@@ -10,7 +10,7 @@
 
 #define _API_CALL
 #define DLLEXTERN extern "C"
-#define DLLEXPORT
+#define NSU_DLLEXPORT
 #else  //win, rtx
 
 #define _API_CALL __stdcall
@@ -43,6 +43,7 @@ DLLEXTERN enum class nsukitStatus_t {
     NSUKIT_STATUS_STREAM_RUNNING      =                  1 << 8,
     NSUKIT_STATUS_TIMEOUT             =                  1 << 9,
     NSUKIT_STATUS_MEMBER_NOT_SUPPORT  =                  1 << 10,
+    NSUKIT_STATUS_ITF_FAIL            =                  1 << 11
 };
 
 NSU_DLLEXPORT nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs);
@@ -75,6 +76,7 @@ DLLEXTERN typedef         nsukitStatus_t *                      nsuStatus_p;
 struct nsuTCPParam_t{
     std::string cmd_ip = "127.0.0.1";
     uint32_t cmd_tcp_port = 5001;
+    float cmd_tcp_timeout = 1.;
 
     std::string stream_ip = "127.0.0.1";
     uint32_t stream_tcp_port{};

@@ -1,8 +1,10 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.10)
 
 # 设置代理环境变量
 set(ENV{http_proxy} "http://127.0.0.1:10800")
 set(ENV{https_proxy} "http://127.0.0.1:10801")
+
+cmake_policy(SET CMP0135 NEW)
 
 # 包含FetchContent模块
 include(FetchContent)

@@ -1,8 +1,8 @@
 # 设置要求的CMake版本
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.10)
 
 # 定义项目名称和版本
-project(NSUKit VERSION 0.1.2)
+project(NSUKit VERSION 0.1.3)
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 17)
 
@@ -68,6 +68,7 @@ SET(libNSUKit_SRC
         src/middleware/base_mw.cpp
         src/middleware/virtual_chnl.cpp
         src/base/type.cpp
+        src/base/c_socket.cpp
         src/interface/tcp_interface.cpp
         src/interface/sim_interface.cpp
         src/interface/serial_interface.cpp
@@ -79,6 +80,7 @@ SET(libNSUKit_SRC
         include/middleware/base_mw.h
         include/middleware/middleware.h
         include/base/type.h
+        include/base/c_socket.h
         include/middleware/virtual_chnl.h
         include/interface/tcp_interface.h
         include/interface/sim_interface.h
