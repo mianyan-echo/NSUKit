@@ -17,6 +17,7 @@
 #elif _WIN32
 
 #include <winsock2.h>  // 在windows.h之前
+#include <windows.h>
 
 #pragma comment(lib, "ws2_32.lib")
 // C4996 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings

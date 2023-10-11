@@ -10,7 +10,6 @@
 #include <any>
 #include <map>
 #include <vector>
-#include <ranges>
 
 #include <cmath>
 #include <cstring>
@@ -26,25 +25,12 @@
 #include "version.h"
 
 
-#ifdef linux
-#include <unistd.h>
-#define Sleep usleep
-#define s_unit 1000
-typedef unsigned int DWORD;
-
-#elif _WIN32
-
-#include <winsock2.h>  // 在windows.h之前
-#include <windows.h>
-
-#define Sleep              Sleep
-#define s_unit             1
+namespace nsukit {
 #define NSU_REG_BWIDTH     4
 
-#endif
-
-namespace nsukit {
     NSU_DLLEXPORT std::string api_info();
+
+    NSU_DLLEXPORT std::string status2_string(nsukitStatus_t status);
 
     /**
      * 标准指令反馈
@@ -56,9 +42,6 @@ namespace nsukit {
         uint32_t packLength = 0;
         uint32_t execSucceed = 0;
     };
-
-
-    extern void uSleep(DWORD milliseconds);
 }
 
 #endif //NSUKIT_CONFIG_H

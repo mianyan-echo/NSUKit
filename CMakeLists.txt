@@ -84,7 +84,8 @@ SET(libNSUKit_SRC
         include/middleware/virtual_chnl.h
         include/interface/tcp_interface.h
         include/interface/sim_interface.h
-        include/interface/serial_interface.h)
+        include/interface/serial_interface.h
+        src/middleware/json_icd_wrapper.h)
 
 if (NSUKIT_WITH_XDMA)
 else ()
@@ -98,6 +99,7 @@ endif ()
 # 创建共享库NSUKit
 add_library(NSUKit SHARED ${libNSUKit_SRC})
 SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../lib)
+SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../example)
 SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY .)
 
 if (NSUKIT_WITH_XDMA)

@@ -46,7 +46,7 @@ namespace nsukit {
             return itf_cs_typesafe and itf_cr_typesafe and itf_ds_typesafe and mw_stream_typesafe and mw_cmd_typesafe;
         }
 
-        bool combined_cmd_itf() {return itf_cs == itf_cr;}
+        bool combined_cmd_itf() {return (I_BaseCmdUItf *)itf_cs == (I_BaseCmdUItf *)itf_cr;}
 
     public:
         NSUSoc();
@@ -181,7 +181,7 @@ namespace nsukit {
 
         itf_cs = new CSItf_t();
         if (std::is_same<CSItf_t, CRItf_t>::value) {
-            itf_cr = itf_cs;
+            itf_cr = (CRItf_t *)itf_cs;
         } else {
             itf_cr = new CRItf_t();
         }

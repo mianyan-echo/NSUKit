@@ -14,10 +14,51 @@ std::string nsukit::api_info() {
 }
 
 
-/**
- * sleep函数，ms为单位
- * @param milliseconds sleep时间 ms
- */
-void uSleep(DWORD milliseconds) {
-    Sleep(milliseconds * s_unit);
+std::string nsukit::status2_string(nsukitStatus_t status) {
+    auto res = std::string{};
+    switch (status) {
+        case nsukitStatus_t::NSUKIT_STATUS_SUCCESS:
+            res += "&&NSUKIT_STATUS_SUCCESS";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD:
+            res += "&&NSUKIT_STATUS_NEED_RELOAD";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_ARCH_MISMATCH:
+            res += "&&NSUKIT_STATUS_ARCH_MISMATCH";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_ALLOC_FAILED:
+            res += "&&NSUKIT_STATUS_ALLOC_FAILED";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE:
+            res += "&&NSUKIT_STATUS_INVALID_VALUE";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_TEMP_MISMATCH:
+            res += "&&NSUKIT_STATUS_TEMP_MISMATCH";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_MISMATCH_MIXIN:
+            res += "&&NSUKIT_STATUS_MISMATCH_MIXIN";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_ACCEPT_FAIL:
+            res += "&&NSUKIT_STATUS_ACCEPT_FAIL";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_STREAM_FAIL:
+            res += "&&NSUKIT_STATUS_STREAM_FAIL";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING:
+            res += "&&NSUKIT_STATUS_STREAM_RUNNING";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_TIMEOUT:
+            res += "&&NSUKIT_STATUS_TIMEOUT";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_MEMBER_NOT_SUPPORT:
+            res += "&&NSUKIT_STATUS_MEMBER_NOT_SUPPORT";
+            break;
+        case nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL:
+            res += "&&NSUKIT_STATUS_ITF_FAIL";
+            break;
+        default:
+            res += "&&NSUKIT_UNKNOWN_STATUS";
+            break;
+    }
+    return res.substr(2);
 }

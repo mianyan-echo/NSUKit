@@ -1,8 +1,8 @@
 # 设置要求的CMake版本
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.10)
 
 # 定义项目名称和版本
-project(XDMALoopTest VERSION 0.1.0)
+project(NSUKitExample VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 17)
 
 include_directories(../include)
@@ -12,4 +12,4 @@ SET(XDMALoopTest_SRC
         XDMALoopTest/main.h
         XDMALoopTest/main.cpp)
 
-add_executable(XDMALoopTest ${XDMALoopTest_SRC})
+add_executable(FirmWareUpdate firmware_update.cpp)

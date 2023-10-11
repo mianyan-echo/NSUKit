@@ -7,6 +7,28 @@
 using namespace nsukit;
 
 
+//TEST(NSUKITTest, TTT) {
+//    nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::SimStreamUItf> kit{};
+//
+//    nsuInitParam_t param;
+//
+//    param.cmd_ip = "192.168.1.152";
+//    param.cmd_board = 0;
+//    param.stream_board = 0;
+//    auto res = kit.link_cmd(&param);
+//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
+//    res |= kit.link_stream(&param);
+//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
+//
+//    res |= kit.set_param("固件路径", R"(C:\Users\56585\Downloads\BOOT-RFSG3-Demo-2023101002.bin)");
+//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
+//    res |= kit.execute("固件更新");
+//
+//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
+//    std::cout << kit.get_param<uint32_t>("固件更新结果") << std::endl;
+//}
+
+
 TEST(NSUKITTest, VersionCheck) {
     std::cout << "NSUKIT_PROJECT_VER == " << NSUKIT_PROJECT_VER << std::endl;
     std::cout << "NSUKIT_PROJECT_VER_CODE == " << NSUKIT_PROJECT_VER_CODE << std::endl;
