@@ -213,7 +213,7 @@ nsukitStatus_t PCIEStreamUItf::wait_stream(nsuMemory_p fd, float timeout) {
         return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
     }
     auto res = fpga_wait_dma(fd, (uint32_t)(timeout*1000.));
-    process->current = res;
+    process->current = res*byteWidth;
     if (process->current != process->total) {
         return nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
     }

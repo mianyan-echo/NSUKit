@@ -32,19 +32,49 @@
 
 ## 自闭环仿真
 
-@todo SimCmdUItf、SimStreamUItf类暂未实现
+@todo SimCmdUItf、SimStreamUItf类正在完善
 
 1. 提供SimCmdUItf、SimStreamUItf两个虚拟协议类，可以模拟与板卡的通信过程，支持写入记忆、数据流仿真等一系列功能，方便 **在没有硬件条件时测试上层程序** 
 2. 
-   ```python
-   from nsukit import NSUKit
-   from nsukit.interface import SimCmdUItf, SimStreamUItf
+   ```cpp
+   #include <iostream>
+   #include "NSUKit.h"
    
-   kit = NSUKit(SimCmdUItf, SimStreamUItf)
-   kit.link_cmd()
-   kit.link_stream()
-   kit.write(0x10, b'\x01\x02\x03\x04')
-   ...
+   int main() {
+   nsukit::NSUSoc<
+   nsukit::SimCmdUItf,
+   nsukit::SimCmdUItf,
+   nsukit::SimStreamUItf> kit{};
+   size_t buf_len = 1024*1024;
+   
+   nsuInitParam_t param;
+   
+   param.sim_target = 0;
+   // 模拟生成数据函数，数据上行时，会向alloc_buffer中写入从1开始的递增数据
+   param.sim_stream_func = [](nsuCharBuf_p buf, nsuStreamLen_t len) {
+   for (int i=1; i<len; i++) {
+   *(buf+i-1) = (char )i;
+   }
+   };
+   
+   kit.link_cmd(&param);
+   kit.link_stream(&param);
+   
+   auto fd = kit.alloc_buffer(buf_len);
+   auto data_ptr = kit.get_buffer(fd, buf_len);
+   
+   // 模拟开启采集要配置的寄存器
+   kit.write(0x10000000, 1);
+   kit.write(0x10000000, 0);
+   
+   // 第一个参数指定数据流通道，可为0~3
+   kit.stream_recv(0, fd, buf_len, 0);
+   
+   if (*(uint8_t *)data_ptr == 1) {
+   std::cout << "模拟上行数据成功" << std::endl;
+   }
+   return 0;
+   }
    ```
 
 ---
@@ -59,15 +89,18 @@
 1. 同步方式数据流交互接口: [NSUKit.stream_send](@ref NSUKit_stream_send)、[NSUKit.stream_recv](@ref NSUKit_stream_recv)
 2. 如下示例在host上申请了一片1G的内存，对前1kB写入数据20，将这1kB数据下发到板卡
 
-```python
-from nsukit import NSUKit
+```cpp
+kit.link_stream(&param);
 
-...
-kit: NSUKit
-fd = kit.alloc_buffer(length=1024**3)
-buf = kit.get_buffer(fd, 1024**3)
-buf[:1024] = 20
-kit.stream_send(chnl=0, fd=fd, length=1024, offset=0)
+auto fd = kit.alloc_buffer(buf_len);
+auto data_ptr = kit.get_buffer(fd, buf_len);
+
+// 模拟开启采集要配置的寄存器
+kit.write(0x10000000, 1);
+kit.write(0x10000000, 0);
+
+// 第一个参数指定数据流通道，可为0~3
+kit.stream_recv(0, fd, buf_len, 0);
 ```
 
 ### 异步方式
@@ -76,18 +109,82 @@ kit.stream_send(chnl=0, fd=fd, length=1024, offset=0)
 1. 提供异步数据流交互接口: [NSUKit.open_send](@ref NSUKit_open_send)、[NSUKit.open_recv](@ref NSUKit_open_recv)、[NSUKit.wait_stream](@ref NSUKit_wait_stream)、[NSUKit.break_stream](@ref NSUKit_break_stream)
 2. 接口在开启数据流后立即返回，不等待说有数据传输完成，用户可以在数据流传输过程中继续执行其它操作
 
-```python
-from nsukit import NSUKit
+```cpp
+#include <iostream>
+#include <fstream>
+#include "NSUKit.h"
 
-...
-kit: NSUKit
-fd = kit.alloc_buffer(length=1024**3)
-res = kit.open_send(chnl=0, fd=fd, length=1024**3, offset=0)
-kit.execute('状态查询')
-print(kit.get_param('板卡温度'))
-if res != -1:
-   while res != 1024**3:
-      res = kit.wait_stream(fd, timeout=0.05)
+
+int main(int argc, char *argv[]) {
+   const int ds_chnl = 0;
+std::ofstream outf;
+nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> kit{};
+nsuInitParam_t param;
+
+std::cout << "当前示例" << argv[0]
+     << "为展示基于PCIE的数据上行的接口调用示例，功能为从板卡0的数传通道0上行指定数量的数据并写入文件" << std::endl;
+if (argc != 4) {
+   std::cout << "不受支持的传参方法" << std::endl;
+std::cout << argv[0] << " {IP} {totalBytes} {filePath}" << std::endl;
+return 1;
+}
+nsuSize_t total_len = std::atoi(argv[2]);
+if (total_len % 4 != 0) {
+std::cout << "上行数据总长度total_len " << total_len << "Bytes应为 " << 4 << "Bytes的整倍数" << std::endl;
+return 1;
+}
+
+// 连接板卡
+param.cmd_ip = argv[1];
+param.cmd_board = 0;
+param.stream_board = 0;
+auto res = kit.link_cmd(&param);
+if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+std::cout << "建立CS、CR连接：" << nsukit::status2_string(res) << std::endl;
+}
+res = kit.link_stream(&param);
+if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+std::cout << "建立DS连接：" << nsukit::status2_string(res) << std::endl;
+}
+
+// 准备DS连接要用的内存
+nsuMemory_p mem = kit.alloc_buffer(total_len);                 // 申请内存
+auto ds_buf = (char *)kit.get_buffer(mem, total_len);          // 获取内存首指针
+
+                                                                  // 通知FPGA开始采集
+res = kit.execute("系统开启");
+if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+std::cout << "系统开启：" << nsukit::status2_string(res) << std::endl;
+}
+
+// 上行一个颗粒度的数据
+res = kit.open_recv(ds_chnl, mem, total_len, 0);
+if (res == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+std::cout << "成功开启DS交互" << std::endl;
+auto ds_state = nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
+while (ds_state != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+ds_state = kit.wait_stream(mem, 1000.);
+//            std::cout << "wait_stream：" << nsukit::status2_string(ds_state) << std::endl;
+}
+}
+
+std::cout << *(uint32_t *)ds_buf << std::endl;
+
+// 通知FPGA开始采集
+res = kit.execute("系统停止");
+if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+std::cout << "系统停止：" << nsukit::status2_string(res) << std::endl;
+}
+
+// 存盘
+outf.open(argv[3], std::ofstream::binary);
+outf.write(ds_buf, total_len);
+outf.close();
+
+kit.free_buffer(mem);  // 释放内存
+return 0;
+}
+
 ```
 
 ---

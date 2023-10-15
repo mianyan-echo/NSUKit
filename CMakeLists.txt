@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # 定义项目名称和版本
-project(NSUKit VERSION 0.1.3)
+project(NSUKit VERSION 1.0.0)
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 17)
 
@@ -124,3 +124,15 @@ if (ENABLE_TEST)
     SET_TARGET_PROPERTIES(NSUKit PROPERTIES RUNTIME_OUTPUT_DIRECTORY ./tests)
 endif()
 # ============================================================================
+
+# =============================================================================
+
+if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+#    set_target_properties(NSUKit PROPERTIES INCLUDES ${CMAKE_SOURCE_DIR}/include)
+    install(TARGETS NSUKit
+            PERMISSIONS WORLD_EXECUTE WORLD_WRITE WORLD_READ
+            EXPORT NSUKit
+            LIBRARY DESTINATION "/usr/lib"  # 动态库安装路径
+            INCLUDES ${CMAKE_SOURCE_DIR}/include  # 头文件安装路径
+    )
+endif ()

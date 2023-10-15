@@ -8,24 +8,41 @@ using namespace nsukit;
 
 
 //TEST(NSUKITTest, TTT) {
-//    nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::SimStreamUItf> kit{};
-//
+//    nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> kit{};
 //    nsuInitParam_t param;
+//    int argc = 2;
 //
 //    param.cmd_ip = "192.168.1.152";
+//    param.icd_path = "./icd.json";
 //    param.cmd_board = 0;
 //    param.stream_board = 0;
 //    auto res = kit.link_cmd(&param);
-//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
-//    res |= kit.link_stream(&param);
-//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
+//    if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+//        std::cout << "建立连接：" << nsukit::status2_string(res) << std::endl;
+//    }
 //
-//    res |= kit.set_param("固件路径", R"(C:\Users\56585\Downloads\BOOT-RFSG3-Demo-2023101002.bin)");
-//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
-//    res |= kit.execute("固件更新");
+//    switch (argc) {
+//        case 2:
+//            res = kit.execute("RF配置");
+//            if (res == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+//                std::cout << "RF配置：" << nsukit::status2_string(res) << std::endl;
+//                std::cout << "RF配置执行结果：" << kit.get_param<nsuRegValue_t>("RF配置结果") << std::endl;
+//            }
 //
-//    std::cout << (res==nsukitStatus_t::NSUKIT_STATUS_SUCCESS) << std::endl;
-//    std::cout << kit.get_param<uint32_t>("固件更新结果") << std::endl;
+//            res = kit.execute("DDS配置");
+//            if (res == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+//                std::cout << "DDS配置：" << nsukit::status2_string(res) << std::endl;
+//            }
+//
+//            res = kit.execute("奈奎斯特区配置");
+//            if (res == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+//                std::cout << "奈奎斯特区配置：" << nsukit::status2_string(res) << std::endl;
+//            }
+//        default:
+//            std::cout << "不受支持的传参方法" << std::endl;
+//    }
+//
+////    return 0;
 //}
 
 

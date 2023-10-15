@@ -65,7 +65,7 @@ namespace nsukit {
 
         virtual nsukitStatus_t free_buffer(nsuMemory_p fd) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
-        virtual nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length) { return nullptr; }
+        virtual nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length=0) { return nullptr; }
 
         virtual nsukitStatus_t
         stream_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0,

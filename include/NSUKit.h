@@ -138,7 +138,7 @@ namespace nsukit {
          * @param length 所需数据流内存长度
          * @return
          */
-        nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length) override;
+        nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length=0) override;
 
         /**
          * 阻塞式开启一次数据流上行

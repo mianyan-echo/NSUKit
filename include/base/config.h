@@ -30,7 +30,7 @@ namespace nsukit {
 
     NSU_DLLEXPORT std::string api_info();
 
-    NSU_DLLEXPORT std::string status2_string(nsukitStatus_t status);
+    std::string NSU_DLLEXPORT status2_string(nsukitStatus_t status);
 
     /**
      * 标准指令反馈

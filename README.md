@@ -15,6 +15,7 @@ gcc xxx.cpp -INSUKit/include -lNSUKit
 
 ## 最简模拟数据上行用例
 - **每个例化好的nsukit::NSUSoc类，可以对应一张数据进机卡，对于192单元项目每个板卡有四个数据流通道可用**
+- 更多示例可参考examples中的代码
 ```c++
 #include <iostream>
 #include "NSUKit.h"

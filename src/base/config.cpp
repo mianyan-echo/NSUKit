@@ -4,8 +4,6 @@
 
 #include "base/config.h"
 
-using namespace nsukit;
-
 
 std::string nsukit::api_info() {
     return std::string("NSUKit: version: v") + std::string(NSUKIT_PROJECT_VER)
