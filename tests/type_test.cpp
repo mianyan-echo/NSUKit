@@ -18,3 +18,9 @@ TEST(EnumTest, BitWiseTest) {
     status |= nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
     EXPECT_EQ(status, nsukitStatus_t(0b1001));
 }
+
+TEST(EnumTest, ToString) {
+    EXPECT_EQ(status2_string(nsukitStatus_t::NSUKIT_STATUS_SUCCESS), "NSUKIT_STATUS_SUCCESS");
+    std::cout << status2_string(
+            nsukitStatus_t::NSUKIT_STATUS_SUCCESS | nsukitStatus_t::NSUKIT_STATUS_TIMEOUT) << std::endl;
+}

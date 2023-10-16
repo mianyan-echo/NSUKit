@@ -2,7 +2,7 @@
 // Created by 56585 on 2023/8/14.
 //
 
-#include "middleware/icd_parser.h"
+#include "json_icd_wrapper.h"
 
 using namespace nsukit;
 
@@ -25,20 +25,13 @@ inline static void *CheckFeedback(char *data) {
     return nullptr;
 }
 
-void ICDRegMw::ShowInfo() {
-    if (serverIP.length()) {
-        std::cout << "Socket: " << serverIP << ":" << serverPort << "\n";
-    } else {
-        std::cout << "Axi: " << dmaBoard << "\n";
-    }
-}
 
-bool ICDRegMw::InitICD(std::string_view path) {
+bool JsonWrapper::InitICD(std::string_view path) {
     //获取icd.json的输入流
-    std::ifstream _in(icdPath, std::ios::binary);
+    std::ifstream _in(path.data(), std::ios::binary);
     if (!_in.is_open()) {
-        std::cout << "can not find icd file: " << icdPath << std::endl;
-        throw "can not find icd file";
+        std::cout << "can not find icd file: " << path << std::endl;
+        throw std::runtime_error("can not find icd file");
     }
 
     // 解析json文件
@@ -48,8 +41,8 @@ bool ICDRegMw::InitICD(std::string_view path) {
             icdParams = &icdRoot["param"];
         }
     } else {
-        std::cout << "文件: " << icdPath << "格式有误!" << std::endl;
-        throw "icd文件格式错误";
+        std::cout << "文件: " << path << "格式有误!" << std::endl;
+        throw std::runtime_error("icd文件格式错误");
     }
     _in.close();
 
@@ -57,48 +50,161 @@ bool ICDRegMw::InitICD(std::string_view path) {
 }
 
 
-ICDRegMw::ICDRegMw(BaseKit *kit, std::string_view file_name) {
-
+ICDRegMw::ICDRegMw(I_BaseCmdUItf *itf) {
+    cs_itf = itf;
+    icd = new JsonWrapper();
 }
 
 
-//ICDRegMw::ICDRegMw(std::string_view path, int dma_board): icdPath(path),
-//                                                          sendFlag("toaxi"),
-//                                                          dmaBoard(dma_board) {
-//    InitICD(path);
-//}
-//
-//
-///**
-// * 解析icd文件，指令组包
-// * @param path icd文件路径
-// */
-//ICDRegMw::ICDRegMw(std::string_view path, std::string_view server_ip, unsigned short int port) : icdPath(path),
-//                                                                                                 serverIP(server_ip),
-//                                                                                                 sendFlag("socket"),
-//                                                                                                 serverPort(port) {
-//    InitICD(path);
-//}
-
-ICDRegMw::~ICDRegMw() = default;
+ICDRegMw::~ICDRegMw() {
+    delete icd;
+}
 
 
 nsukitStatus_t ICDRegMw::config(nsuInitParam_t *param) {
-    auto _param = (nsuInitParam_t *)param;
+    icdPath = param->icd_path;
+    checkFeedback = param->check_cs_recv;
+
+    try {
+        icd->InitICD(icdPath);
+    } catch (...) {
+        return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+    }
+
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
 
-/**
- * 修改指令目标ip与port
- * @param _ip
- * @param port
- * @return
- */
-bool ICDRegMw::SetServerAddr(const std::string &_ip, unsigned short port) {
-    serverIP = _ip;
-    if (port != 0) serverPort = port;
-    return true;
+uint8_t ICDRegMw::get_param(nsuCSParam_t &param_name, uint8_t _default) {
+    try {
+        return icd->get_icd_param<uint8_t>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+int8_t ICDRegMw::get_param(nsuCSParam_t &param_name, int8_t _default) {
+    try {
+        return icd->get_icd_param<int8_t>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+uint16_t ICDRegMw::get_param(nsuCSParam_t &param_name, uint16_t _default) {
+    try {
+        return icd->get_icd_param<uint16_t>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+int16_t ICDRegMw::get_param(nsuCSParam_t &param_name, int16_t _default) {
+    try {
+        return icd->get_icd_param<int16_t>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+uint32_t ICDRegMw::get_param(nsuCSParam_t &param_name, uint32_t _default) {
+    try {
+        return icd->get_icd_param<uint32_t>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+int32_t ICDRegMw::get_param(nsuCSParam_t &param_name, int32_t _default) {
+    try {
+        return icd->get_icd_param<int32_t>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+double ICDRegMw::get_param(nsuCSParam_t &param_name, double _default) {
+    try {
+        return icd->get_icd_param<double>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+float ICDRegMw::get_param(nsuCSParam_t &param_name, float _default) {
+    try {
+        return icd->get_icd_param<float>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+std::string ICDRegMw::get_param(nsuCSParam_t &param_name, std::string _default) {
+    try {
+        return icd->get_icd_param<std::string>(param_name);
+    } catch (std::runtime_error &e) {
+        return _default;
+    }
+}
+
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const uint8_t &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const int8_t &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const uint16_t &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const int16_t &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const uint32_t &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const int32_t &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const double &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const float &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+nsukitStatus_t ICDRegMw::set_param(nsuCSParam_t &param_name, const std::string &value) {
+    return icd->set_icd_param(param_name, value);
+}
+
+
+nsukitStatus_t ICDRegMw::execute(nsuCSName_t cname) {
+    auto res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    CommandPack *pCommandPack;
+    try {
+        pCommandPack = FmtCommand(cname);
+    } catch (...) {
+        return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+    }
+
+    res |= cs_itf->send_bytes(pCommandPack->bytes, pCommandPack->length);
+
+    if (pCommandPack->recvLen > 0) {
+        char *result = new char[pCommandPack->recvLen]();
+        res |= cs_itf->recv_bytes(pCommandPack->recvLen, result);
+        if (checkFeedback) CheckFeedback(result);
+        res |= EnableParam(cname, result);
+        delete[] result;
+    }
+    DeleteCommandPack(pCommandPack);
+    return res;
 }
 
 
@@ -108,7 +214,7 @@ bool ICDRegMw::SetServerAddr(const std::string &_ip, unsigned short port) {
  * @param value
  * @return
  */
-CommandPack *ICDRegMw::FmtRegister(const Json::Value &reg, const Json::Value &value) {
+CommandPack *JsonWrapper::FmtRegister(const Json::Value &reg, const Json::Value &value) {
     if (value.isString() && StringStartWith(value.asString(), "0x")) {
         // 对于 "0x5F5F5F5F"
         auto _value = (uint32_t) std::stoll(value.asString(), nullptr, 16);
@@ -117,12 +223,15 @@ CommandPack *ICDRegMw::FmtRegister(const Json::Value &reg, const Json::Value &va
         // 对于 "0b10101011"
         auto _value = std::stoll(value.asString().substr(2), nullptr, 2);
         return FmtRegister(reg, _value);
-    } else if (value.isString() && reg[1].asString() == ICD_File) {
+    } else if (value.isString() && reg[0].asString() == ICD_File) {
         // 对于 file文件类型
         return FmtFile(value.asString());
+    } else if (value.isString() && reg[0].asString() == ICD_FileLength) {
+        // 对于文件大小类型
+        return FmtFile(value.asString(), true);
     } else if (value.isNumeric()) {
         // 对于全体数字
-        std::string value_type = reg[1].asString();
+        std::string value_type = reg[0].asString();
         if (value_type == ICD_Float) {
             auto _value = value.asFloat();
             return FmtRegister(reg, _value);
@@ -147,6 +256,9 @@ CommandPack *ICDRegMw::FmtRegister(const Json::Value &reg, const Json::Value &va
         } else if (value_type == ICD_Int32) {
             auto _value = (int32_t) value.asInt();
             return FmtRegister(reg, _value);
+        } else if (value_type == ICD_FileLength) {
+            auto _value = (uint32_t) value.asInt();
+            return FmtRegister(reg, _value);
         } else {
             std::cout << "未识别的值类型 " << value.toStyledString() << std::endl;
             throw "未识别的寄存器值类型";
@@ -163,7 +275,7 @@ CommandPack *ICDRegMw::FmtRegister(const Json::Value &reg, const Json::Value &va
  * @param value
  * @return
  */
-CommandPack *ICDRegMw::FmtRegister(const Json::Value &reg, const std::string &value) {
+CommandPack *JsonWrapper::FmtRegister(const Json::Value &reg, const std::string &value) {
     if (StringStartWith(value, "0x")) {
         unsigned int _value = std::stoll(value, nullptr, 16);
         return FmtRegister(reg, _value);
@@ -183,7 +295,7 @@ CommandPack *ICDRegMw::FmtRegister(const Json::Value &reg, const std::string &va
  * @param need_size
  * @return 独处的CommandPack
  */
-CommandPack *ICDRegMw::FmtFile(const std::string &file_path, bool need_size) {
+CommandPack *JsonWrapper::FmtFile(const std::string &file_path, bool need_size) {
     CommandPack *fileData = nullptr;
     std::ifstream _in(file_path, std::ios::in | std::ios::binary | std::ios::ate);
     if (_in.is_open()) {
@@ -199,6 +311,8 @@ CommandPack *ICDRegMw::FmtFile(const std::string &file_path, bool need_size) {
             _in.seekg(0, std::ios::beg);
             _in.read(fileData->bytes, fileData->length);
         }
+    } else {
+        std::cout << "文件路径 " << file_path << " 错误" << std::endl;
     }
     return fileData;
 }
@@ -214,36 +328,56 @@ CommandPack *ICDRegMw::FmtCommand(const std::string &cmd_name, const std::string
     Json::Value command;
     std::vector<CommandPack *> registerList;
     CommandPack *regTemp;
+    nsuSize_t recv_len = 0;
     auto resCommandPack = new CommandPack;
     uint32_t commandLength = 0;
 
-    if (icdCommands->isMember(cmd_name)) {
-        command = (*icdCommands)[cmd_name];
-        for (auto &reg: command) {
-            if (reg.isString() && reg.asString() == ICD_ParamFlag_File) {
-                regTemp = FmtFile(file_path);
-            } else if (reg.isString() && reg.asString() == ICD_ParamFlag_FileLength) {
-                regTemp = FmtFile(file_path, true);
-            } else if (reg.isString() && icdParams->isMember(reg.asString())) {
-                reg = (*icdParams)[reg.asString()];
-                regTemp = FmtRegister(reg, reg[2]);
-            } else if (reg.isArray()) {
-                regTemp = FmtRegister(reg, reg[2]);
-            } else {
-                throw "不受支持的寄存器写法";
-            }
-            assert(regTemp->bytes != nullptr);
-            registerList.emplace_back(regTemp);
-            commandLength += regTemp->length;
-        }
-    } else {
+    if (!icd->icdCommands->isMember(cmd_name)) {
         std::cout << "Not find command: " << cmd_name << std::endl;
-        throw "指令名称在icd中不存在";
+        throw std::runtime_error("指令名称在icd中不存在");
+    }
+
+    // 生成要发送的指令
+    command = (*(icd->icdCommands))[cmd_name]["send"];
+    for (auto &reg: command) {
+        if (reg.isString() && reg.asString() == ICD_ParamFlag_File) {
+            regTemp = icd->FmtFile(file_path);
+        } else if (reg.isString() && reg.asString() == ICD_ParamFlag_FileLength) {
+            regTemp = icd->FmtFile(file_path, true);
+        } else if (reg.isString() && icd->icdParams->isMember(reg.asString())) {
+            reg = (*icd->icdParams)[reg.asString()];
+            regTemp = icd->FmtRegister(reg, reg[1]);
+        } else if (reg.isArray()) {
+            regTemp = icd->FmtRegister(reg, reg[1]);
+        } else {
+            throw std::runtime_error("不受支持的寄存器写法");
+        }
+        assert(regTemp->bytes != nullptr);
+        registerList.emplace_back(regTemp);
+        commandLength += regTemp->length;
+    }
+
+    // 计算要接收的指令长度
+    command = (*(icd->icdCommands))[cmd_name]["recv"];
+    for (auto &reg: command) {
+        if (reg.isString() && reg.asString() == ICD_ParamFlag_File) {
+            throw std::runtime_error("不受支持的寄存器写法");
+        } else if (reg.isString() && reg.asString() == ICD_ParamFlag_FileLength) {
+            throw std::runtime_error("不受支持的寄存器写法");
+        } else if (reg.isString() && icd->icdParams->isMember(reg.asString())) {
+            reg = (*(icd->icdParams))[reg.asString()];
+            recv_len += TypeSizeMap[reg[0].asString()];
+        } else if (reg.isArray()) {
+            recv_len += TypeSizeMap[reg[0].asString()];
+        } else {
+            throw std::runtime_error("不受支持的寄存器写法");
+        }
     }
 
     // 将获取到的二进制寄存器列表拼接为一个CommandPack
     resCommandPack->bytes = new char[commandLength + 1];
     resCommandPack->length = commandLength;
+    resCommandPack->recvLen = recv_len;
     char *flag = resCommandPack->bytes;
     for (auto &reg: registerList) {
         memcpy(flag, reg->bytes, reg->length);
@@ -254,6 +388,66 @@ CommandPack *ICDRegMw::FmtCommand(const std::string &cmd_name, const std::string
     memcpy(resCommandPack->bytes + 12, &commandLength, 4);
 
     return resCommandPack;
+}
+
+nsukitStatus_t ICDRegMw::EnableParam(nsuCSName_t cname, nsuCharBuf_p buf) {
+    Json::Value command;
+    auto res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+
+    if (!icd->icdCommands->isMember(cname)) {
+        std::cout << "Not find command: " << cname << std::endl;
+        throw std::runtime_error("指令名称在icd中不存在");
+    }
+
+    // 遍历recv中的所有参数
+    command = (*(icd->icdCommands))[cname]["recv"];
+    auto ptr = (nsuCharBuf_p )buf;
+    for (auto &reg: command) {
+        if (reg.isString() && reg.asString() == ICD_ParamFlag_File) {
+            res |= nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+        } else if (reg.isString() && reg.asString() == ICD_ParamFlag_FileLength) {
+            res |= nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+        } else if (reg.isString() && icd->icdParams->isMember(reg.asString())) {
+            auto _pack = (*(icd->icdParams))[reg.asString()];
+            auto _width = TypeSizeMap[_pack[0].asString()];
+            res |= set_param_by_tname(reg.asString(), _pack[0].asString(), ptr);
+            ptr += _width;
+        } else if (reg.isArray()) {
+            ptr += TypeSizeMap[reg[0].asString()];
+        } else {
+            res |= nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+        }
+    }
+    return res;
+}
+
+nsukitStatus_t ICDRegMw::set_param_by_tname(nsuCSParam_t pname, std::string type, nsuCharBuf_p buf) {
+    if (type == ICD_Float) {
+        auto _value = *(float *)buf;
+        return icd->set_icd_param(pname, _value);
+    } else if (type == ICD_Double) {
+        auto _value = *(double *)buf;
+        return icd->set_icd_param(pname, _value);
+    } else if (type == ICD_Uint8) {
+        auto _value = *(uint8_t *)buf;
+        return icd->set_icd_param(pname, _value);
+    } else if (type == ICD_Int8) {
+        auto _value = *(int8_t *)buf;
+        return icd->set_icd_param(pname, _value);
+    } else if (type == ICD_Uint16) {
+        auto _value = *(uint16_t *)buf;
+        return icd->set_icd_param(pname, _value);
+    } else if (type == ICD_Int16) {
+        auto _value = *(int16_t *)buf;
+        return icd->set_icd_param(pname, _value);
+    } else if (type == ICD_Uint32) {
+        auto _value = *(uint32_t *)buf;
+        return icd->set_icd_param(pname, _value);
+    } else if (type == ICD_Int32) {
+        auto _value = *(int32_t *) buf;
+        return icd->set_icd_param(pname, _value);
+    }
+    return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
 }
 
 

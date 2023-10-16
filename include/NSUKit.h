@@ -5,8 +5,11 @@
 #ifndef NSUKIT_NSUKIT_H
 #define NSUKIT_NSUKIT_H
 
-#include "base_kit.h"
+#include "base/base_kit.h"
 #include "version.h"
+#include "interface/interface.h"
+#include "middleware/middleware.h"
+
 
 // 锁定nsukit三参数方法中的第三个参数的默认值
 #define LOCK_NSUKIT_METHOD_3P(name, t1, t2, value) nsukitStatus_t name(t1 a, t2 b) {return name(a, b, value);}
@@ -43,7 +46,7 @@ namespace nsukit {
             return itf_cs_typesafe and itf_cr_typesafe and itf_ds_typesafe and mw_stream_typesafe and mw_cmd_typesafe;
         }
 
-        bool combined_cmd_itf() {return itf_cs == itf_cr;}
+        bool combined_cmd_itf() {return (I_BaseCmdUItf *)itf_cs == (I_BaseCmdUItf *)itf_cr;}
 
     public:
         NSUSoc();
@@ -75,6 +78,46 @@ namespace nsukit {
         nsukitStatus_t read(nsuRegAddr_t addr, nsuRegValue_t* buf) override;
 
         /**
+         * 块写入
+         * @param base
+         * @param values
+         * @param mode
+         * @return
+         */
+        nsukitStatus_t
+        bulk_write(nsuRegAddr_t base, nsuCharBuf_p values,
+                   nsuSize_t length, nsuBulkMode mode=nsuBulkMode::INCREMENT) override;
+
+        /**
+         * 块读取
+         * @param base
+         * @param length
+         * @param buf
+         * @param mode
+         * @return
+         */
+        nsukitStatus_t
+        bulk_read(nsuRegAddr_t base, nsuSize_t length,
+                  nsuVoidBuf_p buf = nullptr, nsuBulkMode mode=nsuBulkMode::INCREMENT) override;
+
+        /**
+         *
+         * @tparam T
+         * @param name
+         * @param value
+         * @return
+         */
+        template<typename T>
+        nsukitStatus_t set_param(nsuCSParam_t name, T value);
+
+        template<typename T>
+        T get_param(nsuCSParam_t name, T _default=0);
+
+        std::string get_param(nsuCSParam_t &param_name, std::string _default="") override;
+
+        nsukitStatus_t execute(nsuCSParam_t cname) override;
+
+        /**
          * 申请一片数据流用的内存
          * @param length 要申请的内存长度
          * @param buf 外部填入一片申请好的内存首地址指针
@@ -95,7 +138,7 @@ namespace nsukit {
          * @param length 所需数据流内存长度
          * @return
          */
-        nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length) override;
+        nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length=0) override;
 
         /**
          * 阻塞式开启一次数据流上行
@@ -122,7 +165,7 @@ namespace nsukit {
         open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) override;
 
         nsukitStatus_t
-        wait_stream(nsuMemory_p fd, time_t timeout = 0) override;
+        wait_stream(nsuMemory_p fd, float timeout = 0.) override;
 
         nsukitStatus_t break_stream(nsuMemory_p fd) override;
     };
@@ -138,13 +181,13 @@ namespace nsukit {
 
         itf_cs = new CSItf_t();
         if (std::is_same<CSItf_t, CRItf_t>::value) {
-            itf_cr = itf_cs;
+            itf_cr = (CRItf_t *)itf_cs;
         } else {
             itf_cr = new CRItf_t();
         }
         itf_ds = new DSItf_t();
-        mw_cmd = new CmdMw_t(this);
-        mw_chnl = new ChnlMw_t(this);
+        mw_cmd = new CmdMw_t(itf_cs);
+        mw_chnl = new ChnlMw_t(itf_ds);
     }
 
 
@@ -282,12 +325,72 @@ namespace nsukit {
 
 
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::bulk_write(nsuRegAddr_t base, nsuCharBuf_p values,
+                                                                     nsuSize_t length, nsuBulkMode mode) {
+        auto cmdInterface = dynamic_cast<I_BaseCmdUItf *>(itf_cr);
+        if (mode == nsuBulkMode::INCREMENT) {
+            return cmdInterface->increment_write(base, values, length);
+        }
+        if (mode == nsuBulkMode::LOOP) {
+            return cmdInterface->loop_write(base, values, length);
+        }
+        return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::bulk_read(nsuRegAddr_t base, nsuSize_t length,
+                                                                                   nsuVoidBuf_p buf, nsuBulkMode mode) {
+        auto cmdInterface = dynamic_cast<I_BaseCmdUItf *>(itf_cr);
+        if (mode == nsuBulkMode::INCREMENT) {
+            return cmdInterface->increment_read(base, length, buf);
+        }
+        if (mode == nsuBulkMode::LOOP) {
+            return cmdInterface->loop_read(base, length, buf);
+        }
+        return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::execute(nsuCSParam_t cname) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->execute(cname);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    template<typename T>
+    T NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t name, T _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(name, _default);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    std::string
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, std::string _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    template<typename T>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t name, T value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(name, value);
+    }
+
+
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsuMemory_p
     NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf) {
         if (!check_typesafe()) {
             return nullptr;
         }
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        auto itf = dynamic_cast<I_BaseStreamUItf *>(itf_ds);
         return itf->alloc_buffer(length, buf);
     }
 
@@ -295,7 +398,7 @@ namespace nsukit {
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::free_buffer(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        auto itf = dynamic_cast<I_BaseStreamUItf *>(itf_ds);
         return itf->free_buffer(fd);
     }
 
@@ -306,7 +409,7 @@ namespace nsukit {
         if (!check_typesafe()) {
             return nullptr;
         }
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
+        auto itf = dynamic_cast<I_BaseStreamUItf *>(itf_ds);
         return itf->get_buffer(fd, length);
     }
 
@@ -317,8 +420,8 @@ namespace nsukit {
                                                                                      nsuStreamLen_t offset,
                                                                                      bool(*stop_event) (), int flag) {
         METHOD_NEED_(check_typesafe);
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
-        return itf->stream_recv(chnl, fd, length, offset, stop_event, flag);
+        auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
+        return mw->stream_recv(chnl, fd, length, offset, stop_event, 0, flag);
     }
 
 
@@ -328,8 +431,8 @@ namespace nsukit {
                                                                                      nsuStreamLen_t offset,
                                                                                      bool (*stop_event)(), int flag) {
         METHOD_NEED_(check_typesafe);
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
-        return itf->stream_send(chnl, fd, length, offset, stop_event, flag);
+        auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
+        return mw->stream_send(chnl, fd, length, offset, stop_event, 0, flag);
     }
 
 
@@ -338,8 +441,8 @@ namespace nsukit {
                                                                                    nsuStreamLen_t length,
                                                                                    nsuStreamLen_t offset) {
         METHOD_NEED_(check_typesafe);
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
-        return itf->open_send(chnl, fd, length, offset);
+        auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
+        return mw->open_send(chnl, fd, length, offset);
     }
 
 
@@ -348,24 +451,24 @@ namespace nsukit {
                                                                                    nsuStreamLen_t length,
                                                                                    nsuStreamLen_t offset) {
         METHOD_NEED_(check_typesafe);
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
-        return itf->open_recv(chnl, fd, length, offset);
+        auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
+        return mw->open_recv(chnl, fd, length, offset);
     }
 
 
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::wait_stream(nsuMemory_p fd, time_t timeout) {
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::wait_stream(nsuMemory_p fd, float timeout) {
         METHOD_NEED_(check_typesafe);
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
-        return itf->wait_stream(fd, timeout);
+        auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
+        return mw->wait_stream(fd, timeout);
     }
 
 
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::break_stream(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
-        auto itf = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
-        return itf->break_stream(fd);
+        auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
+        return mw->break_stream(fd);
     }
 
 }

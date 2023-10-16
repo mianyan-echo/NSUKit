@@ -8,11 +8,22 @@
 using namespace nsukit;
 
 
-//class TestCmdUItf: public I_BaseCmdUItf {
-//public:
-//    using I_BaseCmdUItf::_fmt_reg_read;
-//    using I_BaseCmdUItf::_fmt_reg_write;
-//};
+class TestCase_UseCmdMixin: public nsukit::I_BaseCmdUItf {
+protected:
+    std::vector<std::map<nsuRegAddr_t, nsuRegValue_t> > *reg_map;
+public:
+    TestCase_UseCmdMixin(std::vector<std::map<nsuRegAddr_t, nsuRegValue_t> > *map) {
+        reg_map = map;
+        mixin_ = new nsukit::Mixin_NativeRegCmd(this);};
+
+    ~TestCase_UseCmdMixin() override {delete mixin_;};
+
+    nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value) override {
+        std::map<nsuRegAddr_t, nsuRegValue_t> _m {{addr, value}};
+        reg_map->push_back(_m);
+        return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    }
+};
 
 
 // 注册一个测试，第一个参数为测试集名称，第二个参数为测试名称.
@@ -21,6 +32,13 @@ TEST(BaseCmdTest, TestAssertions) {
     EXPECT_STRNE("hello", "world");
     // Expect equality.
     EXPECT_EQ(7 * 6, 42);
+
+    auto _t = std::chrono::milliseconds(0);
+
+    auto a = std::chrono::steady_clock::now();
+    std::this_thread::sleep_for(_t);
+    auto b = std::chrono::steady_clock::now();
+    std::cout << (b-a).count() << std::endl;
 }
 
 
@@ -56,8 +74,36 @@ TEST(BaseCmdTest, TestAssertions) {
 /**
  * 测试
  */
-//TEST(BaseCmdTest, PCIEInstance) {
-//    I_BaseCmdUItf *itf = new PCIECmdUItf();
-//    EXPECT_EQ(itf->write(0x33000000, 0x10), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
-//    delete itf;
-//}
+TEST(BaseCmdTest, PCIEInstance) {
+    I_BaseCmdUItf *itf = new SimCmdUItf();
+    EXPECT_EQ(itf->write(0x33000000, 0x10), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+    delete itf;
+}
+
+
+/**
+ * 测试nsukit::mixin_NativeRegCmd中的方法是否正确被执行
+ */
+TEST(CmdMixinTest, NativeRegCmd) {
+    std::vector<std::map<nsuRegAddr_t, nsuRegValue_t> > map;
+    TestCase_UseCmdMixin itf{&map};
+    uint8_t vdata[5] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+
+    nsuRegValue_t vres[2] = {0, 0};
+    memcpy(vres, vdata, 5);
+
+    itf.increment_write(0x00, vdata, 5);
+    EXPECT_EQ(map[0][0x00], vres[0]);
+    EXPECT_EQ(map[1][0x04], vres[1]);
+
+    itf.loop_write(0x100, vdata, 5);
+    EXPECT_EQ(map[2][0x100], vres[0]);
+    EXPECT_EQ(map[3][0x100], vres[1]);
+}
+
+
+/**
+ *
+ */
+TEST(CmdMixinTest, VirtualRegCmd) {
+}

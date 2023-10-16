@@ -8,7 +8,13 @@ using namespace nsukit;
 
 SimStreamUItf::SimStreamUItf() = default;
 
-SimCmdUItf::SimCmdUItf() = default;
+SimCmdUItf::SimCmdUItf() {
+    mixin_ = new Mixin_NativeRegCmd(this);
+}
+
+SimCmdUItf::~SimCmdUItf() {
+    delete mixin_;
+}
 
 
 nsukitStatus_t SimCmdUItf::accept(nsuInitParam_t *param) {

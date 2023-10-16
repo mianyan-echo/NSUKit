@@ -12,12 +12,12 @@ namespace nsukit {
     class NSU_DLLEXPORT SimCmdUItf : public I_BaseCmdUItf {
     protected:
         int sim_target = 0;
-        int simTimeout = 0;
+        float simTimeout = 0;
 
     public:
         SimCmdUItf();
 
-        ~SimCmdUItf() override = default;
+        ~SimCmdUItf() override;
 
         nsukitStatus_t accept(nsuInitParam_t *param) override;
 

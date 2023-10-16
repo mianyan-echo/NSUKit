@@ -6,8 +6,12 @@
 #define NSUKIT_INTERFACE_H
 
 #include "base_itf.h"
-//#include "pcie_interface.h"
 #include "sim_interface.h"
 #include "serial_interface.h"
+#include "tcp_interface.h"
+
+#ifdef NSUKIT_WITH_XDMA
+#include "pcie_interface.h"
+#endif
 
 #endif //NSUKIT_INTERFACE_H

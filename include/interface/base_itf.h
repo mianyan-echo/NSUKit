@@ -5,7 +5,7 @@
 #ifndef NSUKIT_BASE_ITF_H
 #define NSUKIT_BASE_ITF_H
 
-#include "../utils/config.h"
+#include "base/base_kit.h"
 
 
 namespace nsukit {
@@ -40,6 +40,14 @@ namespace nsukit {
 
     class NSU_DLLEXPORT U_BaseCmdMixin {
     public:
+        virtual nsukitStatus_t _common_write(nsuRegAddr_t reg, nsuRegValue_t value) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        };
+
+        virtual nsukitStatus_t _common_read(nsuRegAddr_t reg, nsuRegValue_t *buf) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        };
+
         virtual nsukitStatus_t multi_write(std::vector<nsuRegAddr_t> &addr, std::vector<nsuRegValue_t> &value) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
@@ -161,7 +169,7 @@ namespace nsukit {
     };
 
 
-    class NSU_DLLEXPORT Mixin_VirtualRegCmd {
+    class NSU_DLLEXPORT Mixin_VirtualRegCmd: public U_BaseCmdMixin {
     private:
         I_BaseCmdUItf *cmd_itf_;
     protected:
@@ -170,48 +178,43 @@ namespace nsukit {
             uint32_t id = 0;
             uint32_t num = 0x00000000;
             uint32_t length = 20;
+            uint32_t addr = 0;
+            uint32_t value = 0;
         };
 
-        static nsuBytes_t _fmt_reg_read(nsuRegAddr_t reg);
+        static nsuSize_t _fmt_reg_read(nsuRegAddr_t reg, nsuCharBuf_p buf);
 
-        template<typename T>
-        static nsuBytes_t _fmt_reg_write(nsuRegAddr_t reg, T value);
-
-        static nsukitStatus_t _fmt_reg_read(nsuRegAddr_t reg, nsuCharBuf_p buf);
-
-        template<typename T>
-        static nsukitStatus_t _fmt_reg_write(nsuRegAddr_t reg, T value, nsuCharBuf_p buf);
+        /**
+         * 模拟写寄存器的ICD指令
+         * @param reg 寄存器地址
+         * @param value 寄存器值
+         * @param buf 存放ICD指令的缓存
+         * @return buf大小
+         */
+        static nsuSize_t _fmt_reg_write(nsuRegAddr_t reg, nsuRegValue_t value, nsuCharBuf_p buf);
 
     public:
         explicit Mixin_VirtualRegCmd(I_BaseCmdUItf* base) : cmd_itf_(base) {};
 
-        nsukitStatus_t multi_write(std::vector<nsuRegAddr_t> &addr, std::vector<nsuRegValue_t> &value) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
+        nsukitStatus_t _common_write(nsuRegAddr_t reg, nsuRegValue_t value);
 
-        nsukitStatus_t multi_read(std::vector<nsuRegAddr_t> &addr, std::vector<nsuRegValue_t *> &value) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
+        nsukitStatus_t _common_read(nsuRegAddr_t reg, nsuRegValue_t *buf);
 
-        nsukitStatus_t
-        increment_write(nsuRegAddr_t addr, nsuVoidBuf_p value, nsuSize_t length, nsuSize_t reg_len = NSU_REG_BWIDTH) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
+        nsukitStatus_t multi_write(std::vector<nsuRegAddr_t> &addr, std::vector<nsuRegValue_t> &value);
+
+        nsukitStatus_t multi_read(std::vector<nsuRegAddr_t> &addr, std::vector<nsuRegValue_t *> &value);
 
         nsukitStatus_t
-        increment_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidBuf_p value, nsuSize_t reg_len = NSU_REG_BWIDTH) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
+        increment_write(nsuRegAddr_t addr, nsuVoidBuf_p value, nsuSize_t length, nsuSize_t reg_len = NSU_REG_BWIDTH);
 
         nsukitStatus_t
-        loop_write(nsuRegAddr_t addr, nsuVoidBuf_p value, nsuSize_t length, nsuSize_t reg_len = NSU_REG_BWIDTH) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
+        increment_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidBuf_p value, nsuSize_t reg_len = NSU_REG_BWIDTH);
 
         nsukitStatus_t
-        loop_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidBuf_p value, nsuSize_t reg_len = NSU_REG_BWIDTH) {
-            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-        }
+        loop_write(nsuRegAddr_t addr, nsuVoidBuf_p value, nsuSize_t length, nsuSize_t reg_len = NSU_REG_BWIDTH);
+
+        nsukitStatus_t
+        loop_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidBuf_p value, nsuSize_t reg_len = NSU_REG_BWIDTH);
     };
 
 
@@ -255,61 +258,6 @@ namespace nsukit {
         }
     };
 
-
-    /**
-     * 模拟写寄存器的ICD指令
-     * @tparam T 任意类型值
-     * @param reg 寄存器地址
-     * @param value 寄存器值，会截取前32bit
-     * @param buf 存放ICD指令的缓存
-     * @return 是否格式化成功
-     */
-    template<typename T>
-    nsukitStatus_t Mixin_VirtualRegCmd::_fmt_reg_write(nsuRegAddr_t reg, T value, nsuCharBuf_p buf) {
-//        static_assert(std::is_integral<T>::value, "T must be an integral type");
-        static constexpr uint32_t DataPacketID = 0x31000000;
-        static constexpr size_t DataPacketLength = sizeof(RegPack) + sizeof(nsuRegAddr_t) + sizeof(T);
-
-        if (buf == nullptr) {
-            return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;  // 缓冲区为空，返回错误
-        }
-
-        RegPack pack;
-        pack.id = DataPacketID;
-        pack.length = DataPacketLength;
-
-        memcpy(buf, &pack, sizeof(RegPack));
-        memcpy(buf + sizeof(RegPack), &reg, sizeof(nsuRegAddr_t));
-        memcpy(buf + sizeof(RegPack) + sizeof(nsuRegAddr_t), &value, sizeof(T));
-
-        return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;  // 数据格式化成功
-    }
-
-
-    /**
-     * 模拟写寄存器的ICD指令
-     * @tparam T 任意类型值
-     * @param reg 寄存器地址
-     * @param value 寄存器值，会截取前32bit
-     * @return nsuBytes_t char类型向量
-     */
-    template<typename T>
-    nsuBytes_t Mixin_VirtualRegCmd::_fmt_reg_write(nsuRegAddr_t reg, T value) {
-        nsuBytes_t res;
-        uint32_t size = sizeof(RegPack) + sizeof(nsuRegAddr_t) + sizeof(T);
-        char _res[size];
-        RegPack pack;
-        pack.id = 0x31000000;
-        pack.length = size;
-        memcpy(_res, &pack, sizeof(RegPack));
-        memcpy(_res + sizeof(RegPack), &reg, sizeof(nsuRegAddr_t));
-        memcpy(_res + sizeof(RegPack) + sizeof(nsuRegAddr_t), &value, sizeof(T));
-
-        for (auto ch: _res) {
-            res.push_back(ch);
-        }
-        return res;
-    }
 }
 
 #endif //NSUKIT_BASE_ITF_H

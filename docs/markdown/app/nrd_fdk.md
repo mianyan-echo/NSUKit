@@ -12,15 +12,7 @@ _如果您是第一次使用NRD FDK开发套件或未接触过主机与板卡指
 
 关于NSUKit的详细介绍可参照：nsukit的 [快速开始](../02_Quickstart.md)
 
-```python
-from nsukit import NSUKit
-
-...
-kit: NSUKit
-kit.set_param(name='DAC采样率', value=8e9)   # 配置指令参数
-value = kit.get_param(name='DAC采样率')   # 获取参数名为
-kit.execute(cmd='RF配置')
-```
+参照 examples/soc_config.cpp
 
 ---
 ## 2. 寄存器交互
@@ -31,7 +23,7 @@ kit.execute(cmd='RF配置')
 
 关于NSUKit的详细介绍可参照：nsukit的 [快速开始](../02_Quickstart.md)
 
-```python
+```cpp
 from nsukit import NSUKit
     
 ...
@@ -43,7 +35,7 @@ value: bytes = kit.read(addr=0x00000031)
 ---
 ## 3. 数据流交互
 
-。。。
+参考 examples/data_upload.cpp
 
 ---
 

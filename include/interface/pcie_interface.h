@@ -34,10 +34,29 @@ namespace nsukit {
 
     class NSU_DLLEXPORT PCIECmdUItf : public I_BaseCmdUItf {
     protected:
+        static unsigned int irqNum;
+
         nsuBoardNum_t pciBoard = 0;
         nsuRegAddr_t sentBase = 0;
         nsuRegAddr_t recvBase = 0;
+        nsuRegAddr_t irqBase = 0;
+        nsuRegAddr_t sentDownBase = 0;
         int pciTimeout = 0;
+
+        double onceTimeout = 0;
+        std::mutex OpLock{};
+
+        /**
+         * 复位ICD over AXI的接收中断
+         * @return
+         */
+        nsukitStatus_t reset_irq();
+
+        /**
+         * ICD over AXI方式的读取反馈前的预处理，等待对端发送反馈
+         * @return
+         */
+        nsukitStatus_t per_recv();
 
     public:
         /**
