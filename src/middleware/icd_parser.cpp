@@ -14,35 +14,35 @@ inline static void *CheckFeedback(char *data) {
     StandardCmdFeedback feedback;
     memcpy(&feedback, data, sizeof(feedback));
     if (feedback.packHead != 0xCFCFCFCF) {
-        std::cout << "接收指令包头错位" << std::endl;
+        std::cout << "Receive instruction header is misplaced" << std::endl;
         return nullptr;
     }
     if (feedback.execSucceed != 0) {
-        std::cout << "指令发送成功但执行失败" << std::endl;
+        std::cout << "The command was sent successfully but failed to execute" << std::endl;
         return nullptr;
     }
-    std::cout << "指令发送成功" << std::endl;
+    std::cout << "Command sent successfully" << std::endl;
     return nullptr;
 }
 
 
 bool JsonWrapper::InitICD(std::string_view path) {
-    //获取icd.json的输入流
+    // Get the input stream of icd.json
     std::ifstream _in(path.data(), std::ios::binary);
     if (!_in.is_open()) {
         std::cout << "can not find icd file: " << path << std::endl;
         throw std::runtime_error("can not find icd file");
     }
 
-    // 解析json文件
+    // Parse json file
     if (ICDReader.parse(_in, icdRoot)) {
         icdCommands = &icdRoot["command"];
         if (icdRoot.isMember("param")) {
             icdParams = &icdRoot["param"];
         }
     } else {
-        std::cout << "文件: " << path << "格式有误!" << std::endl;
-        throw std::runtime_error("icd文件格式错误");
+        std::cout << "file: " << path << "Wrong format!" << std::endl;
+        throw std::runtime_error("icd file format error");
     }
     _in.close();
 
@@ -79,6 +79,7 @@ uint8_t ICDRegMw::get_param(nsuCSParam_t &param_name, uint8_t _default) {
     try {
         return icd->get_icd_param<uint8_t>(param_name);
     } catch (std::runtime_error &e) {
+        std::cout << e.what() << std::endl;
         return _default;
     }
 }
@@ -260,12 +261,12 @@ CommandPack *JsonWrapper::FmtRegister(const Json::Value &reg, const Json::Value 
             auto _value = (uint32_t) value.asInt();
             return FmtRegister(reg, _value);
         } else {
-            std::cout << "未识别的值类型 " << value.toStyledString() << std::endl;
-            throw "未识别的寄存器值类型";
+            std::cout << "Unrecognized value type " << value.toStyledString() << std::endl;
+            throw "Unrecognized register value type";
         }
     } else {
-        std::cout << "未识别的值类型 " << value.toStyledString() << std::endl;
-        throw "未识别的寄存器值类型";
+        std::cout << "Unrecognized value type " << value.toStyledString() << std::endl;
+        throw "Unrecognized register value type";
     }
 }
 
@@ -283,8 +284,8 @@ CommandPack *JsonWrapper::FmtRegister(const Json::Value &reg, const std::string 
         unsigned short _value = std::stoll(value, nullptr, 2);
         return FmtRegister(reg, _value);
     } else {
-        std::cout << "未识别的值类型 " << value << std::endl;
-        throw "未识别的寄存器值类型";
+        std::cout << "Unrecognized value type " << value << std::endl;
+        throw "Unrecognized register value type";
     }
 }
 

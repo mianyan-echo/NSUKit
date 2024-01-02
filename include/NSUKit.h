@@ -9,6 +9,7 @@
 #include "version.h"
 #include "interface/interface.h"
 #include "middleware/middleware.h"
+#include "high_level/SuperAWG.h"
 
 
 // 锁定nsukit三参数方法中的第三个参数的默认值
@@ -43,7 +44,7 @@ namespace nsukit {
         DSItf_t *itf_ds;
 
         bool check_typesafe() {
-            return itf_cs_typesafe and itf_cr_typesafe and itf_ds_typesafe and mw_stream_typesafe and mw_cmd_typesafe;
+            return itf_cs_typesafe && itf_cr_typesafe && itf_ds_typesafe && mw_stream_typesafe && mw_cmd_typesafe;
         }
 
         bool combined_cmd_itf() {return (I_BaseCmdUItf *)itf_cs == (I_BaseCmdUItf *)itf_cr;}

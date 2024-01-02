@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # 设置代理环境变量
-set(ENV{http_proxy} "http://127.0.0.1:10800")
+set(ENV{http_proxy} "http://127.0.0.1:10801")
 set(ENV{https_proxy} "http://127.0.0.1:10801")
 
 cmake_policy(SET CMP0135 NEW)
@@ -37,6 +37,11 @@ target_link_libraries(
         NSUKit
         xdma_api
 )
+
+# Visual Studio环境下，更改编译器默认编码
+if(CMAKE_GENERATOR MATCHES "Visual Studio")
+    target_compile_options(nsukit_test PRIVATE /utf-8)
+endif ()
 
 # 包含Google Test模块
 include(GoogleTest)

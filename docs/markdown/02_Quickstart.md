@@ -92,7 +92,7 @@ cmake ..
 寄存器交互指以(地址, 值)的形式与板卡进行交互，提供单地址值写入/读取接口，片写入/读取接口
 
 ##### 2.2.1.1. 单地址写入/读取
-**[单地址写入](#nsukit.base_kit.NSUSoc.write)/[单地址读取](#nsukit.base_kit.NSUSoc.read)** 是指对一个寄存器地址，传输一个小于等于32位的值
+**[单地址写入](#nsukit.NSUSoc.write)/[单地址读取](#nsukit.NSUSoc.read)** 是指对一个寄存器地址，传输一个小于等于32位的值
 
 ```cpp
 #include "NSUKit.h"
@@ -106,7 +106,7 @@ kit.read(0x10000000, &reg);
 ```
 
 ##### 2.2.1.2. 片写入/读取
-**[片写入](@ref nsukit.base_kit.NSUSoc.bulk_write)/[片读取](@ref nsukit.base_kit.NSUSoc.bulk_read)** 是指以寄存器交互方式，传输大于单个寄存器位宽的指定长度的数据
+**[片写入](@ref nsukit.NSUSoc.bulk_write)/[片读取](@ref nsukit.NSUSoc.bulk_read)** 是指以寄存器交互方式，传输大于单个寄存器位宽的指定长度的数据
 
 ```cpp
 #include "NSUKit.h"
@@ -119,7 +119,7 @@ kit.bulk_read(0x00000020, 10, nsukit::nsuBulkMode::INCREMENT)                // 
 ```
 
 ##### 2.2.1.3. 单址片写入/读取
-**[单址片写入](@ref nsukit.base_kit.NSUSoc.bulk_write)/[单址片读取](@ref nsukit.base_kit.NSUSoc.bulk_read)** 是指将一串指定长度的数据，依次写入单个寄存器地址，由对端将数据从单个寄存器地址中解析出来的方式
+**[单址片写入](@ref nsukit.NSUSoc.bulk_write)/[单址片读取](@ref nsukit.NSUSoc.bulk_read)** 是指将一串指定长度的数据，依次写入单个寄存器地址，由对端将数据从单个寄存器地址中解析出来的方式
 
 ```cpp
 #include "NSUKit.h"
@@ -136,31 +136,48 @@ kit.bulk_read(0x00000020, 10, nsukit::nsuBulkMode::LOOP)                // 从�
 
 1. 指令交互指以固定的包格式将一系列需要协同配置的参数组织为一条指令下发给板卡，板卡在接收到指令并执行完成后，以约定的包格式进行回执
 2. nsukit内原生支持的**指令包格式**及定义方式可查看文档：[ICD格式](04_ICDScheme.md)
-3. 提供三个指令交互接口，[NSUSoc.set_param](#nsukit.base_kit.NSUSoc.set_param)、[NSUSoc.get_param](#nsukit.base_kit.NSUSoc.get_param)、[NSUSoc.execute](#nsukit.base_kit.NSUSoc.execute)，如下示例使用指令交互接口将板卡的DAC采样率配置为8Gsps
+3. 提供三个指令交互接口，[NSUSoc.set_param](#nsukit.NSUSoc.set_param)、[NSUSoc.get_param](#nsukit.NSUSoc.get_param)、[NSUSoc.execute](#nsukit.NSUSoc.execute)，如下示例使用指令交互接口将板卡的DAC采样率配置为8Gsps
 ##### 2.2.2.1. 配置参数
-接口详情可查看文档 #nsukit.base_kit.NSUSoc.set_param ，同时name参数的可用值可参考[此描述](#md_ICDScheme_param_group)
+接口详情可查看文档 #nsukit.NSUSoc.set_param ，同时name参数的可用值可参考[此描述](#md_ICDScheme_param_group)
 
 ```cpp
+#include "NSUKit.h"
+
+nsukit::NSUSoc<nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf> kit;
+...
+
+kit.set_param("DAC采样率", 5000);
 ```
 
 ##### 2.2.2.2. 获取参数
-接口详情可查看文档 #nsukit.base_kit.NSUSoc.get_param ，同时name参数的可用值可参考[此描述](#md_ICDScheme_param_group)
+接口详情可查看文档 #nsukit.NSUSoc.get_param ，同时name参数的可用值可参考[此描述](#md_ICDScheme_param_group)
 
 ```cpp
+#include "NSUKit.h"
+
+nsukit::NSUSoc<nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf> kit;
+...
+
+kit.get_param("DAC采样率", 5000);
 ```
 
 ##### 2.2.2.3. 执行指令
-接口详情可查看文档 #nsukit.base_kit.NSUSoc.execute ，同时cmd参数的可用值可参考[此描述](#md_ICDScheme_cmd_group)
+接口详情可查看文档 #nsukit.NSUSoc.execute ，同时cmd参数的可用值可参考[此描述](#md_ICDScheme_cmd_group)
 
 ```cpp
+#include "NSUKit.h"
 
+nsukit::NSUSoc<nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf> kit;
+...
+
+kit.execute("RF配置");
 ```
 
 #### 2.2.3. 数据流交互                  {#md_数据流交互}
 <center>![](StreamInterface.png)</center>
 
 1. 数据流交互指板卡与主机间以流的方式进行数据传输，只用指定一个基地址，就可以将一片数据连续不断地从一端传输到另一端，常用于大批量、长时间、高带宽的数据传输场景，详细使用方式可参看[进阶使用](03_Professional.md)
-2. 数据流交互接口分为内存管理与数据收发两部分，内存管理([NSUSoc.alloc_buffer](#nsukit.base_kit.NSUSoc.alloc_buffer)、[NSUSoc.free_buffer](#nsukit.base_kit.NSUSoc.free_buffer)、[NSUSoc.get_buffer](@ref nsukit.base_kit.NSUSoc.get_buffer))用于管理用于数据流交互的host端连续内存。如下示例展示用数据流交互接口阻塞式将16kB数据从板卡传输到主机内存
+2. 数据流交互接口分为内存管理与数据收发两部分，内存管理([NSUSoc.alloc_buffer](#nsukit.NSUSoc.alloc_buffer)、[NSUSoc.free_buffer](#nsukit.NSUSoc.free_buffer)、[NSUSoc.get_buffer](@ref nsukit.NSUSoc.get_buffer))用于管理用于数据流交互的host端连续内存。如下示例展示用数据流交互接口阻塞式将16kB数据从板卡传输到主机内存
 
 ```cpp
 #include "NSUKit.h"

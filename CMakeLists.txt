@@ -85,7 +85,11 @@ SET(libNSUKit_SRC
         include/interface/tcp_interface.h
         include/interface/sim_interface.h
         include/interface/serial_interface.h
-        src/middleware/json_icd_wrapper.h)
+        src/middleware/json_icd_wrapper.h
+        src/high_level/SuperAWG.cpp
+        include/high_level/SuperAWG.h
+        src/high_level/HardwareSync.cpp
+        include/high_level/HardwareSync.h)
 
 if (NSUKIT_WITH_XDMA)
 else ()
@@ -114,6 +118,11 @@ endif ()
 # Windows下链接ws2_32库
 if (MINGW)
     target_link_libraries(NSUKit ws2_32)
+endif ()
+
+# Visual Studio环境下，更改编译器默认编码
+if(CMAKE_GENERATOR MATCHES "Visual Studio")
+    target_compile_options(NSUKit PRIVATE /utf-8)
 endif ()
 # ==============================================================================
 
