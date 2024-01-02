@@ -4,7 +4,9 @@ cmake_minimum_required(VERSION 3.10)
 set(ENV{http_proxy} "http://127.0.0.1:10801")
 set(ENV{https_proxy} "http://127.0.0.1:10801")
 
-cmake_policy(SET CMP0135 NEW)
+if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+endif()
 
 # 包含FetchContent模块
 include(FetchContent)
@@ -27,6 +29,7 @@ set(NSUKitTest_SRC
         namespace_test.cpp
         xdma_loop_test.cpp
         test_config.h
+        hsync_test.cpp
 )
 
 add_executable(nsukit_test ${NSUKitTest_SRC})

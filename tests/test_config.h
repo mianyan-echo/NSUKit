@@ -10,5 +10,6 @@
 #include "gtest/gtest.h"
 
 //#define TEST_XDMA_LOOP     // XDMA LOOP TEST switch
+//#define TEST_HARDWARE_SYNC     // hl_hsync_sync test switch
 
 #endif //NSUKIT_GTEST_TEST_CONFIG_H

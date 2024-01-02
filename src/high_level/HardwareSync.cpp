@@ -36,7 +36,7 @@ nsukitStatus_t parse_cmd_str(char *cmd_str, std::vector<std::string>& cmds) {
  * @param cmd
  * @return
  */
-nsukitStatus_t parallel_execute(std::vector<nsukit::BaseKit *>& slave_list, std::string cmd) {
+nsukitStatus_t parallel_execute(std::vector<nsukit::BaseKit *>& slave_list, const std::string& cmd) {
     nsukitStatus_t res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
     for(const auto &elem : slave_list) {
         res |= elem->execute(cmd);
@@ -64,6 +64,6 @@ nsukitStatus_t nsukit::hl_hsync_sync(nsukit::BaseKit *master, nsukit::BaseKit **
     res |= parallel_execute(slave_list, cmds[2]);
     res |= master->execute(cmds[3]);
     res |= parallel_execute(slave_list, cmds[4]);
-    res |= master->execute(cmds[6]);
+    res |= master->execute(cmds[5]);
     return res;
 }
