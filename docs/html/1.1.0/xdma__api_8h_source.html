@@ -1,0 +1,369 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/include/xdma_api.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo切图-竖版.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.1.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('xdma__api_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">xdma_api.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//----------------------------------------------------------</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// XDMA common APIs</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// for Xilinx DMA/Bridge Subsystem for PCI Express v4.1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// Note:</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// 1. Only support 1 MSI interrupt vector.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// 2. </span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//-----------------------------------------------------------</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef XDMA_API_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define XDMA_API_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifdef linux</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define _API_CALL</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define DLLEXPORT extern &quot;C&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#else  </span><span class="comment">//win, rtx</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define _API_CALL __stdcall</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define DLLEXPORT extern &quot;C&quot;</span> __declspec(dllexport)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define CHNL_NUM 4</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define XDMA_INFO_STR_LEN 2047</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *HANDLE;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//APIs for information</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>fpga_info_vendor_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                        <span class="comment">// Device ID</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>fpga_info_device_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                        <span class="comment">// Vendor ID</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>fpga_info_bus_num(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                          <span class="comment">// Bus number</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>fpga_info_device_num(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                       <span class="comment">// Device number</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>fpga_info_function_num(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                     <span class="comment">// Function number</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>fpga_info_max_lane_width(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                   <span class="comment">// Max lane width, 1 2 4 8 16 32</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>fpga_info_max_link_speed(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                   <span class="comment">// Max link speed, 1=2.5G, 2=5G, 3=8G</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>fpga_info_lane_width(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                       <span class="comment">// Working lane width, 1 2 4 8 16 32</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>fpga_info_link_speed(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                       <span class="comment">// Working link speed, 1=2.5G, 2=5G, 3=8G</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>fpga_info_max_payload_size(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                 <span class="comment">// Max payload size in nsuBytes_t</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>fpga_info_max_readreq_size(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                 <span class="comment">// Max read request size in nsuBytes_t</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>fpga_info_msi_enable(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                       <span class="comment">// MSI Interrupt enabled</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>fpga_info_msix_enable(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                      <span class="comment">// MSIX Interrupt enabled</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>fpga_info_msi_num(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                          <span class="comment">// Number of MSIX Interrupt vectors</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>fpga_info_axis_width(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                       <span class="comment">// Bit width of AXIS interface</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>fpga_info_relaxed_ordering(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                 <span class="comment">// Relaxed ordering</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>fpga_info_ip_version(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                       <span class="comment">// IP core version</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>fpga_info_kernel_version(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                   <span class="comment">// OS kernel driver version</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>fpga_info_api_version(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                      <span class="comment">// API version</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>fpga_info_bar_num(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                          <span class="comment">// Number of BARs</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>fpga_info_bar_reg(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                          <span class="comment">// BAR index for XDMA control registers</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>fpga_info_bar_alite(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                        <span class="comment">// BAR index for AXI Lite</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>fpga_info_bar_bypass(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                       <span class="comment">// BAR index for DMA Bypass</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>fpga_info_chnl_num(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">int</span> c2h);                <span class="comment">// Dma channels count (0-H2C, 1-C2H)</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>fpga_info_stream(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">int</span> c2h, <span class="keywordtype">int</span> chnl);        <span class="comment">// If the dma channel is AXI-Stream</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>DLLEXPORT <span class="keywordtype">char</span> *_API_CALL fpga_info_string(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);                          <span class="comment">// Information String</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">//Open a pciBoard with pciBoard index = 0,1,2,...</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">//poll_interval_ms: 0=interrupt mode; otherwise it&#39;s interrupt poll interval in millisecond</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">//return true if successed.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>DLLEXPORT <span class="keywordtype">bool</span> _API_CALL fpga_open(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> poll_interval_ms = 0);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">//Poll the interrupts</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">//interval_ms: The polling period in milisecond. 0 = back to normal interrupt mode.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">//DLLEXPORT void _API_CALL fpga_set_pollmode(unsigned int boardn, unsigned int interval_ms);</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">//Close a pciBoard and release all related dma objects.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_close(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">//Write a 32bit word to a XMDA engine control register</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_write_reg32(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> addr8, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> data);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">//Read a 32bit word from a XMDA engine control register</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL fpga_read_reg32(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> addr8);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">//Write a 64bit word to a XMDA engine control register</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_write_reg64(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> addr8, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> data);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">//Read a 64bit word from a XMDA engine control register</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL fpga_read_reg64(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> addr8);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">//Create a dma object with data buffer length for 32bit words</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">//if buffer != NULL, driver will use this buffer, otherwise create new buffer.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">//if share_buffer is another dma_t, then share the data buffer.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">//Note: if the share_buffer != NULL, the buffer must = NULL.</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>DLLEXPORT HANDLE _API_CALL</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>fpga_alloc_dma(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len32, <span class="keywordtype">void</span> *buffer = <span class="keyword">nullptr</span>, HANDLE share_dma = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">//For C2H dma only. Beter performance potentially.</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>DLLEXPORT HANDLE _API_CALL</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>fpga_alloc_dma_recv(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len32, <span class="keywordtype">void</span> *buffer = <span class="keyword">nullptr</span>, HANDLE share_buffer = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">//For H2C dma only. Beter performance potentially.</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>DLLEXPORT HANDLE _API_CALL</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>fpga_alloc_dma_send(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len32, <span class="keywordtype">void</span> *buffer = <span class="keyword">nullptr</span>, HANDLE share_buffer = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">//Get the user data buffer start address of the dma object</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>DLLEXPORT <span class="keywordtype">void</span> *fpga_get_dma_buffer(HANDLE dma);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">//free the dma buffer</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_free_dma(HANDLE dma);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#define DMA_START_ERROR 0xffffffffffffffffULL</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#define DMA_NOWAIT 0</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">#define DMA_WAIT_FOR_EVER 0xffffffff</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL fpga_send(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> chnl, HANDLE dma,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                                                     <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len32, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset = 0,</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                                                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> last = 1, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mm_addr = 0,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                                                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mm_addr_inc = 0, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> timeout = DMA_WAIT_FOR_EVER);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">//Start a receiving (c2h) dma</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">//boardn: pciBoard index.</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">//chnl: dma channel. 0..3 (depends on IP)</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">//dma: the dma object carries the data buffer.</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">//len32: transfer length in 32bit words.</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">//offset: data location (offset) in the dma buffer.</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">//last: if it has a AXIS TLAST at the end of dma. Only for streaming.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">//mm_addr: address on the AXI4 MM interface. Only for MM.</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">//mm_addr_inc: If the AXI4 MM address increases.</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">//timeout: dma waiting timeout in milliseconds. DMA_WAIT_FOR_EVER= infinite. 0=no wait.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">//return the transfored data length in DWORDs.</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">//return DMA_START_ERROR for dma start error. use fpga_err_msg() to the get detial error information.</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>fpga_recv(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> chnl, HANDLE dma, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len32, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset = 0,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> last = 1, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mm_addr = 0, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mm_addr_inc = 0,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> timeout = DMA_WAIT_FOR_EVER);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">//make a single recv dma for a dma objects array. this is for windows only.</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>fpga_recv_multiple(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> chnl, HANDLE *dma_array, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dma_num,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                   <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> offset, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> last, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mm_addr,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                   <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mm_addr_inc, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> timeout);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">//Wait for a dma to complete,</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">//if the fpga_send/recv() was called with no wait or returned with timeout.</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">//dma: the dma object.</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">//timeout: dma waiting timeout in milliseconds. DMA_WAIT_FOR_EVER= infinite. 0=no wait.</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">//return the transfored data length in DWORDs.</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL fpga_wait_dma(HANDLE dma, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> timeout = DMA_WAIT_FOR_EVER);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">//if the last fpga_wait_dma() calling has timeout.</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">//return 1 for timeout had happend.</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>DLLEXPORT <span class="keywordtype">int</span> _API_CALL fpga_dma_timeout(HANDLE dma);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">//get the transfered data length (in Dwords) of the dma</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL fpga_poll_dma(HANDLE dma);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">//break the dma and return the transfered length in Dwords.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL fpga_break_dma(HANDLE dma);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">//pause the dma</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_pause_dma(HANDLE dma);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">//resume the dma</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_resume_dma(HANDLE dma);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">//Get speed of the last completed dma in MByte/s</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>DLLEXPORT <span class="keywordtype">double</span> fpga_get_dma_speed(HANDLE dma);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">//write a 32bit data to the AXI-lite master interface</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_wr_lite(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> addr8, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> data);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">//read a 32bit data from the AXI-lite master interface</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL fpga_rd_lite(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> addr8);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">//Wait for a user interrupts (0-15)</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">//user_irq_num: the interrupt signal index, 0-15.</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">//timeout: dma waiting timeout in milliseconds. DMA_WAIT_FOR_EVER= infinite. 0=no wait.</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">//return 0 for success, !=0 for timeout or other error.</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL fpga_wait_irq(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> user_irq_num, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> timeout);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL fpga_get_irq_ns(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">//Setup a callback function for a user interrupt.</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">//func: a C function with a void* parameter, return a int value.</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">//      The &#39;func&#39; will be call once when the interrupt arriving. </span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">//      Normally, the &#39;func&#39; should return 1 and it will be called again at next interrupt. </span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">//      If the &#39;func&#39; returns 0, means no more callback, the interrupt will be disabled.</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">//param: a void* being passed to the callback func.</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">//return 1 for success</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _API_CALL</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>fpga_set_irq_callback(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> user_irq_num, <span class="keywordtype">int</span> (*func)(<span class="keywordtype">void</span> *), <span class="keywordtype">void</span> *param);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">//Remove the callback function for a user interrupt.</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_remove_irq_callback(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> user_irq_num);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">//return the last error information string.</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>DLLEXPORT <span class="keywordtype">char</span> *_API_CALL fpga_err_msg(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">//Create a ring buffer with length = len32 Dwords</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">//The dma is always paused after the creation. Call fpga_ring_resume() to start the dma.</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">//return the dma object.</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>DLLEXPORT HANDLE _API_CALL</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>fpga_ring_create(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> chnl, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> c2h, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len32);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">//Pause the ring</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">#define fpga_ring_pause(ring) fpga_pause_dma(ring)</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">//Resume the ring</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_ring_resume(HANDLE ring);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment">//close the ring and free the resources</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_ring_close(HANDLE ring);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">//Break the dma and reset the ring.</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_ring_reset(HANDLE ring);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">//Get a data buffer with specified lenght from the dma ring buffer.</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">//For H2C dma ring, the data buffer is vacancy for application to fill new data.</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment">//For C2H dma ring, the data buffer is filled by the ealiest dma data for application to read and process.</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">//If the data buffer is not avialable, the function will wait until timeout when timeout != 0.</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment">//dma: the dma object.</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">//len32: length of new data in DWORDs.</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">//timeout: dma waiting timeout in milliseconds. -1= infinite. 0=no wait.</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">//return: data buffer pointer. NULL = unavialable or timeout.</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>DLLEXPORT <span class="keywordtype">void</span> *_API_CALL fpga_ring_next_buffer(HANDLE ring, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> len32, <span class="keywordtype">int</span> timeout);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment">//Get occupied data size (Dwords) in buffer</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>DLLEXPORT <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> _API_CALL fpga_ring_deep(HANDLE ring);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment">//Print ring status into a string.</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_ring_get_info(HANDLE _dma, <span class="keywordtype">char</span> *info);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment">//Read dma channel registers into a string</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_debug_dma_regs(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> chnl, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> c2h, <span class="keywordtype">char</span> *info);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment">//Read interrupt registers into a string</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>DLLEXPORT <span class="keywordtype">void</span> _API_CALL fpga_debug_int_regs(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> boardn, <span class="keywordtype">char</span> *info);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment">//Get the decriptors buffer point.</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment">// The desriptor buffer size = dma buffer size / 128</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>DLLEXPORT <span class="keywordtype">char</span> *_API_CALL fpga_debug_get_descs(HANDLE dma);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>xdma_api.h</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

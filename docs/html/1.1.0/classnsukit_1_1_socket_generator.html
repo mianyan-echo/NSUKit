@@ -1,0 +1,539 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: nsukit::SocketGenerator类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo切图-竖版.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.1.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classnsukit_1_1_socket_generator.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="classnsukit_1_1_socket_generator-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">nsukit::SocketGenerator类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="c__socket_8h_source.html">c_socket.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aefef2c6a3fbb88b279808f14a4fc38e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#aefef2c6a3fbb88b279808f14a4fc38e1">SocketGenerator</a> (unsigned short int port=0, std::string ip=&quot;&quot;, bool mode=true)</td></tr>
+<tr class="separator:aefef2c6a3fbb88b279808f14a4fc38e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad40ffd3841b05def9fdea6dc6ada78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#a2ad40ffd3841b05def9fdea6dc6ada78">Init</a> (bool update, unsigned short int port=0, std::string ip=&quot;&quot;)</td></tr>
+<tr class="separator:a2ad40ffd3841b05def9fdea6dc6ada78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cd7451b9a1d3f8da2533af99bcbb6f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#a8cd7451b9a1d3f8da2533af99bcbb6f2">AcceptClient</a> ()</td></tr>
+<tr class="separator:a8cd7451b9a1d3f8da2533af99bcbb6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb061988bbe1d63fa3e84a2efaaf3b5f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#acb061988bbe1d63fa3e84a2efaaf3b5f">ConnectServer</a> (float connect_time=SELECT_TIMEOUT)</td></tr>
+<tr class="separator:acb061988bbe1d63fa3e84a2efaaf3b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af732cc07700c4ab8ae7834a5b04e7a4e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#af732cc07700c4ab8ae7834a5b04e7a4e">RecvData</a> (int s, char *buf, int len)</td></tr>
+<tr class="separator:af732cc07700c4ab8ae7834a5b04e7a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c01e066b78dbacb7952d0204ca4cdf1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#a2c01e066b78dbacb7952d0204ca4cdf1">SendData</a> (int s, char *buf, int len)</td></tr>
+<tr class="separator:a2c01e066b78dbacb7952d0204ca4cdf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c5ff3e04216118257eb269c73530211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#a9c5ff3e04216118257eb269c73530211">CloseSock</a> (int s)</td></tr>
+<tr class="separator:a9c5ff3e04216118257eb269c73530211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2a4b5b499fc5282fc0009c6bc0b0a0"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#adf2a4b5b499fc5282fc0009c6bc0b0a0">GetPort</a> () const</td></tr>
+<tr class="separator:adf2a4b5b499fc5282fc0009c6bc0b0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da819fab4b2fa9b462a02435a4c9849"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#a5da819fab4b2fa9b462a02435a4c9849">GetIp</a> ()</td></tr>
+<tr class="separator:a5da819fab4b2fa9b462a02435a4c9849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a978fa050880fb9bc21b755c4eed6cc82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#a978fa050880fb9bc21b755c4eed6cc82">recvTimeout</a></td></tr>
+<tr class="separator:a978fa050880fb9bc21b755c4eed6cc82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c83d58f971bfe44cd6695a50948387"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#a81c83d58f971bfe44cd6695a50948387">tcpServer</a> {}</td></tr>
+<tr class="separator:a81c83d58f971bfe44cd6695a50948387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94c73ecd7cb769445a3a6c3d25cd6e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#ac94c73ecd7cb769445a3a6c3d25cd6e9">tcpClient</a> {}</td></tr>
+<tr class="separator:ac94c73ecd7cb769445a3a6c3d25cd6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3cf9cb90e160faa138dc403f638fb78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_socket_generator.html#ae3cf9cb90e160faa138dc403f638fb78">tcpClientConnected</a></td></tr>
+<tr class="separator:ae3cf9cb90e160faa138dc403f638fb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><div class="fragment"><div class="line"><span class="keywordtype">char</span> *data = (<span class="keywordtype">char</span> *)<span class="stringliteral">&quot;abcd&quot;</span>;</div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> port = 5050;</div>
+<div class="line"><span class="keywordtype">string</span> s_ip(<span class="stringliteral">&quot;192.168.1.65&quot;</span>);</div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> *ip = s_ip.c_str();</div>
+<div class="line"><span class="keywordtype">int</span> mode = 1;</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_socket_generator.html">SocketGenerator</a>* s = <span class="keyword">new</span> <a class="code hl_class" href="classnsukit_1_1_socket_generator.html">SocketGenerator</a>(port, ip, mode);</div>
+<div class="line"><span class="keywordflow">if</span> (mode) {</div>
+<div class="line">    cout &lt;&lt; s-&gt;ConnectServer() &lt;&lt; endl;</div>
+<div class="line">    cout &lt;&lt; s-&gt;SendData(s-&gt;tcpClient, data, 10) &lt;&lt; endl;</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="keywordflow">while</span> (1) {</div>
+<div class="line">        <span class="keywordtype">int</span> sockConn = s-&gt;AcceptClient();</div>
+<div class="line">        cout &lt;&lt; sockConn &lt;&lt; endl;</div>
+<div class="line">        <span class="keywordflow">if</span> (sockConn == -1) {</div>
+<div class="line">            cout &lt;&lt; -1 &lt;&lt; sockConn &lt;&lt; endl;</div>
+<div class="line">            s-&gt;CloseSock(sockConn);</div>
+<div class="line">            <span class="keywordflow">continue</span>;</div>
+<div class="line">         }</div>
+<div class="line">         <span class="keywordtype">int</span> cmd_id = tcp_recv(*s, sockConn);</div>
+<div class="line">         <span class="keywordflow">if</span> (cmd_id == CMD_ERR) {</div>
+<div class="line">             <span class="keywordflow">break</span>;</div>
+<div class="line">         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd_id == CMD_START) {</div>
+<div class="line">             <span class="comment">// start</span></div>
+<div class="line">         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cmd_id == CMD_STOP) {</div>
+<div class="line">             <span class="comment">// stop</span></div>
+<div class="line">         }</div>
+<div class="line">         s-&gt;CloseSock(sockConn);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassnsukit_1_1_socket_generator_html"><div class="ttname"><a href="classnsukit_1_1_socket_generator.html">nsukit::SocketGenerator</a></div><div class="ttdef"><b>Definition:</b> <a href="c__socket_8h_source.html#l00068">c_socket.h:68</a></div></div>
+</div><!-- fragment --> 
+<p class="definition">在文件 <a class="el" href="c__socket_8h_source.html">c_socket.h</a> 第 <a class="el" href="c__socket_8h_source.html#l00068">68</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="aefef2c6a3fbb88b279808f14a4fc38e1" name="aefef2c6a3fbb88b279808f14a4fc38e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefef2c6a3fbb88b279808f14a4fc38e1">&#9670;&#160;</a></span>SocketGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SocketGenerator::SocketGenerator </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>port</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>ip</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>mode</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00007">7</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a69da8e8147a0a85cea33917803b2b8c4" name="a69da8e8147a0a85cea33917803b2b8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69da8e8147a0a85cea33917803b2b8c4">&#9670;&#160;</a></span>~SocketGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SocketGenerator::~SocketGenerator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00013">13</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a8cd7451b9a1d3f8da2533af99bcbb6f2" name="a8cd7451b9a1d3f8da2533af99bcbb6f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd7451b9a1d3f8da2533af99bcbb6f2">&#9670;&#160;</a></span>AcceptClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SocketGenerator::AcceptClient </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00154">154</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9c5ff3e04216118257eb269c73530211" name="a9c5ff3e04216118257eb269c73530211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c5ff3e04216118257eb269c73530211">&#9670;&#160;</a></span>CloseSock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocketGenerator::CloseSock </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00188">188</a> 行定义.</p>
+
+</div>
+</div>
+<a id="acb061988bbe1d63fa3e84a2efaaf3b5f" name="acb061988bbe1d63fa3e84a2efaaf3b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb061988bbe1d63fa3e84a2efaaf3b5f">&#9670;&#160;</a></span>ConnectServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SocketGenerator::ConnectServer </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>connect_time</em> = <code>SELECT_TIMEOUT</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00099">99</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5da819fab4b2fa9b462a02435a4c9849" name="a5da819fab4b2fa9b462a02435a4c9849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da819fab4b2fa9b462a02435a4c9849">&#9670;&#160;</a></span>GetIp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string nsukit::SocketGenerator::GetIp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8h_source.html">c_socket.h</a> 第 <a class="el" href="c__socket_8h_source.html#l00110">110</a> 行定义.</p>
+
+</div>
+</div>
+<a id="adf2a4b5b499fc5282fc0009c6bc0b0a0" name="adf2a4b5b499fc5282fc0009c6bc0b0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf2a4b5b499fc5282fc0009c6bc0b0a0">&#9670;&#160;</a></span>GetPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int nsukit::SocketGenerator::GetPort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8h_source.html">c_socket.h</a> 第 <a class="el" href="c__socket_8h_source.html#l00106">106</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a2ad40ffd3841b05def9fdea6dc6ada78" name="a2ad40ffd3841b05def9fdea6dc6ada78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad40ffd3841b05def9fdea6dc6ada78">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SocketGenerator::Init </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>update</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>port</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>ip</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00020">20</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af732cc07700c4ab8ae7834a5b04e7a4e" name="af732cc07700c4ab8ae7834a5b04e7a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af732cc07700c4ab8ae7834a5b04e7a4e">&#9670;&#160;</a></span>RecvData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SocketGenerator::RecvData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00166">166</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a2c01e066b78dbacb7952d0204ca4cdf1" name="a2c01e066b78dbacb7952d0204ca4cdf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c01e066b78dbacb7952d0204ca4cdf1">&#9670;&#160;</a></span>SendData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SocketGenerator::SendData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a> 第 <a class="el" href="c__socket_8cpp_source.html#l00177">177</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a978fa050880fb9bc21b755c4eed6cc82" name="a978fa050880fb9bc21b755c4eed6cc82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a978fa050880fb9bc21b755c4eed6cc82">&#9670;&#160;</a></span>recvTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nsukit::SocketGenerator::recvTimeout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8h_source.html">c_socket.h</a> 第 <a class="el" href="c__socket_8h_source.html#l00083">83</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac94c73ecd7cb769445a3a6c3d25cd6e9" name="ac94c73ecd7cb769445a3a6c3d25cd6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac94c73ecd7cb769445a3a6c3d25cd6e9">&#9670;&#160;</a></span>tcpClient</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nsukit::SocketGenerator::tcpClient {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8h_source.html">c_socket.h</a> 第 <a class="el" href="c__socket_8h_source.html#l00086">86</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae3cf9cb90e160faa138dc403f638fb78" name="ae3cf9cb90e160faa138dc403f638fb78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3cf9cb90e160faa138dc403f638fb78">&#9670;&#160;</a></span>tcpClientConnected</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool nsukit::SocketGenerator::tcpClientConnected</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8h_source.html">c_socket.h</a> 第 <a class="el" href="c__socket_8h_source.html#l00087">87</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a81c83d58f971bfe44cd6695a50948387" name="a81c83d58f971bfe44cd6695a50948387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c83d58f971bfe44cd6695a50948387">&#9670;&#160;</a></span>tcpServer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nsukit::SocketGenerator::tcpServer {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="c__socket_8h_source.html">c_socket.h</a> 第 <a class="el" href="c__socket_8h_source.html#l00085">85</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>D:/Work/CppProject/NSUKit/include/base/<a class="el" href="c__socket_8h_source.html">c_socket.h</a></li>
+<li>D:/Work/CppProject/NSUKit/src/base/<a class="el" href="c__socket_8cpp_source.html">c_socket.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>nsukit</b></li><li class="navelem"><a class="el" href="classnsukit_1_1_socket_generator.html">SocketGenerator</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>
