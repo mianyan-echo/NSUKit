@@ -64,8 +64,8 @@ namespace nsukit {
         /**
          * 写寄存器
          * @details 按照输入的地址、值进行写寄存器
-         * @param addr 写入寄存器地址
-         * @param value 写入寄存器值
+         * @param addr 写入寄存器地址，u32
+         * @param value 写入寄存器值，32b
          * @return
          */
         nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value) override;
@@ -80,10 +80,13 @@ namespace nsukit {
 
         /**
          * 块写入
-         * @param base
-         * @param values
-         * @param mode
-         * @return
+         * @param base 块写入的基地址
+         * @param values 要写入的一串值，char*
+         * @param length 要写入的数据长度
+         * @param mode - 块写入模式
+         * - nsuBulkMode::INCREMENT  从基地址开始递增写入数据
+         * - nsuBulkMode::LOOP  将数据依次写入单个基地址
+         * @return nsukitStatus_t
          */
         nsukitStatus_t
         bulk_write(nsuRegAddr_t base, nsuCharBuf_p values,
@@ -91,10 +94,10 @@ namespace nsukit {
 
         /**
          * 块读取
-         * @param base
-         * @param length
-         * @param buf
-         * @param mode
+         * @param base 块读取的基地址
+         * @param length 要读取的数据长度
+         * @param buf 读取缓存
+         * @param mode 块读取入模式
          * @return
          */
         nsukitStatus_t
@@ -385,6 +388,12 @@ namespace nsukit {
     }
 
 
+    /**
+     * 申请一段数据流专用内存
+     * @param length Bytes
+     * @param buf 可为null，不为null时，代表指定一片内存，作为数据流专用内存
+     * @return 内存标识
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsuMemory_p
     NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf) {
@@ -396,6 +405,11 @@ namespace nsukit {
     }
 
 
+    /**
+     * 根据内存标识释放对应的内存
+     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+     * @return
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::free_buffer(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
@@ -404,6 +418,12 @@ namespace nsukit {
     }
 
 
+    /**
+     * 由内存标识获取真实内存指针
+     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+     * @param length
+     * @return
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsuVoidBuf_p
     NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_buffer(nsuMemory_p fd, nsuStreamLen_t length) {
@@ -426,6 +446,15 @@ namespace nsukit {
     }
 
 
+    /**
+     * 开启一次阻塞式数据流下行
+     * @param chnl 数据流通道
+     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+     * @param length 数据流下行数据量，单位Byte
+     * @param offset 从fd中对应的偏移量下行
+     * @param stop_event 函数指针，停止event
+     * @return
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::stream_send(nsuChnlNum_t chnl, nsuMemory_p fd,
                                                                                      nsuStreamLen_t length,
@@ -437,6 +466,14 @@ namespace nsukit {
     }
 
 
+    /**
+     * 异步开启一次数据流下行
+     * @param chnl 数据流通道
+     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+     * @param length 数据流下行数据量，单位Byte
+     * @param offset 从fd中对应的偏移量下行
+     * @return
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::open_send(nsuChnlNum_t chnl, nsuMemory_p fd,
                                                                                    nsuStreamLen_t length,
@@ -447,6 +484,14 @@ namespace nsukit {
     }
 
 
+    /**
+     * 异步开启一次数据流上行
+     * @param chnl 数据流通道
+     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+     * @param length 数据流上行数据量，单位Byte
+     * @param offset 数据流上行到fd中对应的偏移量
+     * @return
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd,
                                                                                    nsuStreamLen_t length,
@@ -457,6 +502,12 @@ namespace nsukit {
     }
 
 
+    /**
+     * 等待fd对应的数据流交互完成
+     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+     * @param timeout
+     * @return
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::wait_stream(nsuMemory_p fd, float timeout) {
         METHOD_NEED_(check_typesafe);
@@ -464,7 +515,11 @@ namespace nsukit {
         return mw->wait_stream(fd, timeout);
     }
 
-
+    /**
+     * 终止一次数据流交互
+     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+     * @return
+     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::break_stream(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
