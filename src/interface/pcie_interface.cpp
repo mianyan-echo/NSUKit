@@ -130,8 +130,16 @@ nsukitStatus_t PCIECmdUItf::reset_irq() {
 }
 
 nsukitStatus_t PCIECmdUItf::per_recv() {
-    auto res = fpga_wait_irq(pciBoard, irqNum, static_cast<int>(onceTimeout*1000));
-    if (res != 0) return nsukitStatus_t::NSUKIT_STATUS_TIMEOUT;
+    unsigned int cnt = 0;
+    while (fpga_rd_lite(pciBoard, irqBase) != 0x8000) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+        cnt++;
+        if (cnt >= 30*1000*10 -1){
+            return nsukitStatus_t::NSUKIT_STATUS_TIMEOUT;
+        }
+    }
+//    auto res = fpga_wait_irq(pciBoard, irqNum, static_cast<int>(onceTimeout*1000));
+//    if (res != 0) return nsukitStatus_t::NSUKIT_STATUS_TIMEOUT;
     reset_irq();
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }

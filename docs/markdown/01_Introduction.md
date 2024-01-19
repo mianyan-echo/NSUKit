@@ -21,6 +21,7 @@ _本文档为NSUKit的python语言版本的使用文档。_
    2. 固件更新 examples/firmware_update.cpp
    3. DS操作示例 examples/DSOpUseCase.cpp
    4. 多线程上行示例 examples/data_upload.cpp
+   5. 多板卡同步 examples/hardware_sync.cpp
 
 ---
 ## 应用示例

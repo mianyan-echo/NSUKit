@@ -14,6 +14,7 @@ add_executable(SoCConfig soc_config.cpp)
 add_executable(DataDownload data_download.cpp)
 add_executable(DSOpUseCase DSOpUseCase.cpp)
 add_executable(DataUpload data_upload.cpp)
+add_executable(HardwareSync hardware_sync.cpp)
 
 target_link_libraries(
         FirmwareUpdate
@@ -44,3 +45,9 @@ target_link_libraries(
         pthread
 )
 
+target_link_libraries(
+        HardwareSync
+        NSUKit
+        xdma_api
+        pthread
+)

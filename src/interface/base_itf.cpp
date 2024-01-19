@@ -65,11 +65,12 @@ Mixin_NativeRegCmd::increment_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidB
         return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
     }
     auto ceil_num = (nsuSize_t )std::ceil((float )length/(float )reg_len);
-    nsuRegValue_t buf[ceil_num];
+    auto buf = (nsuRegValue_t *) malloc(ceil_num* sizeof(nsuRegValue_t));
     memcpy(buf, value, length);
     for (int i=0;i<ceil_num;i++){
         res |= cmd_itf_->read(addr+reg_len*i, buf+i);
     }
+    free(buf);
     return res;
 }
 
@@ -98,11 +99,12 @@ Mixin_NativeRegCmd::loop_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidBuf_p 
         return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
     }
     auto ceil_num = (nsuSize_t )std::ceil((float )length/(float )reg_len);
-    nsuRegValue_t buf[ceil_num];
+    auto buf = (nsuRegValue_t *) malloc(ceil_num*sizeof(nsuRegValue_t));
     memcpy(buf, value, length);
     for (int i=0;i<ceil_num;i++){
         res |= cmd_itf_->read(addr, buf+i);
     }
+    free(buf);
     return res;
 }
 

@@ -11,10 +11,10 @@
                                                    (NSUKIT_PROJECT_VER_PATCH))
 #define NSUKIT_VER_(major, minor, patch)         (((major) << 16) + ((minor) << 8) + (patch))
 
-#define NSUKIT_BUILD_TIME "20231016_112445"
-#define NSUKIT_GIT_INFO "pages_b0559e1"
+#define NSUKIT_BUILD_TIME "20240115_200402"
+#define NSUKIT_GIT_INFO "master_9d664de"
 
 
-#define NSUKIT_WITH_XDMA
+/* #undef NSUKIT_WITH_XDMA */
 
 #endif //NSUKIT_VERSION_H

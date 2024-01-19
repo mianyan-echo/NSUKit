@@ -23,7 +23,7 @@ void SocketGenerator::Init(bool update, unsigned short int port, std::string ip)
         ip = ip;
     }
 #ifdef _WIN32
-    // WinSock服务初始化
+    // WinSock service initialization
     WORD sockVersion = MAKEWORD(2, 2);
     WSADATA wsaData;
     if (WSAStartup(sockVersion, &wsaData) != 0) {
@@ -40,14 +40,14 @@ void SocketGenerator::Init(bool update, unsigned short int port, std::string ip)
         addrCli.sin_port = htons(port);
         addrCli.sin_addr.S_un.S_addr = inet_addr(ip.c_str());
 
-        // 设置5s超时
+        // Set 5s timeout
         setsockopt(tcpClient, SOL_SOCKET, SO_RCVTIMEO, (char *)&recvTimeout, sizeof(recvTimeout));
     } else {
         tcpServer = socket(AF_INET, SOCK_STREAM, 0);
         if (tcpServer == INVALID_SOCKET) {
             throw "socket server error";
         }
-        // 绑定ip和端口
+        // Bind ip and port
         addrSer.sin_family = AF_INET;
         addrSer.sin_port = htons(port);
         addrSer.sin_addr.S_un.S_addr = htonl(INADDR_ANY);
@@ -97,12 +97,12 @@ void SocketGenerator::Init(bool update, unsigned short int port, std::string ip)
 
 
 int SocketGenerator::ConnectServer(float connect_time) {
-    // 失败返回-1, 成功返回0
+    // Returns -1 on failure, 0 on success
     int ul, recv;
 #ifdef _WIN32
     ul = 1;
     ioctlsocket(tcpClient, FIONBIO, (unsigned long *) &ul);
-    recv = connect(tcpClient, (SOCKADDR *) &addrCli, addr_len);  // 设置非阻塞返回-1,
+    recv = connect(tcpClient, (SOCKADDR *) &addrCli, addr_len);  // Setting non-blocking returns -1,
     ul = 0;
     ioctlsocket(tcpClient, FIONBIO, (unsigned long *) &ul);
 #else
@@ -152,7 +152,7 @@ int SocketGenerator::ConnectServer(float connect_time) {
 
 
 int SocketGenerator::AcceptClient() {
-    // 失败返回-1
+    // Return -1 on failure
 #ifdef _WIN32
     return accept(tcpServer, (SOCKADDR *) &addrCli, &addr_len);
 #else
@@ -160,7 +160,9 @@ int SocketGenerator::AcceptClient() {
 #endif
 }
 
-// send/recv成功时返回发送的数据长度，连接结束时返回0，连接失败时返回SOCKET_ERROR(-1)。
+// The sent data length is returned when send/recv is successful, 
+// 0 is returned when the connection is completed, 
+// and SOCKET_ERROR(-1) is returned when the connection fails.
 int SocketGenerator::RecvData(int s, char *buf, int len) {
     int recv_count = recv(s, buf, len, 0);
     if (recv_count > 0) {

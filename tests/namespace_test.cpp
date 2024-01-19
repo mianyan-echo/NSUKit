@@ -14,6 +14,7 @@ TEST(Namespace_nsukit, BaseTest) {
             nsukit::ICDRegMw,
             nsukit::VirtualChnlMw> kit;
 
+    nsukit::hl_sawg_init(&kit);
     std::cout << nsukit::api_info() << std::endl;
 }
 

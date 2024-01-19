@@ -66,23 +66,26 @@ TEST(NSUKITTest, BaseTemplate) {
 
     nsuInitParam_t param {};
     param.sim_target = 10;
-    // 基类被正常重载
+    // Base classes are overloaded normally
+
     EXPECT_EQ(kit.link_cmd(&param), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
 
-    // 输入空指针时可以正常报错
+    // When entering a null pointer, an error can be reported normally.
+
     EXPECT_EQ(kit.link_cmd(nullptr), nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE);
 
-    // write重载
+    // write reload
+
     EXPECT_EQ(kit.write(0x00000010, 30), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
 
-    // read重载
+    // read reload
+
     nsuRegValue_t res;
     EXPECT_EQ(kit.read(0x00000010, &res), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
 
-    // set_param重载
-    EXPECT_EQ(kit.set_param("发送指令包头", 0xFF), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+    EXPECT_EQ(kit.set_param("发送指令包头", 0xFF), nsukitStatus_t::NSUKIT_STATUS_SUCCESS);  // set_param reload
 
-    // get_param重载
+    // get_param reload
     EXPECT_EQ(kit.get_param<uint32_t>("发送指令包头"), 0xFF);
 
     // execute

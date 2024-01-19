@@ -28,7 +28,7 @@
 namespace nsukit {
 #define NSU_REG_BWIDTH     4
 
-    NSU_DLLEXPORT std::string api_info();
+    std::string NSU_DLLEXPORT api_info();
 
     std::string NSU_DLLEXPORT status2_string(nsukitStatus_t status);
 

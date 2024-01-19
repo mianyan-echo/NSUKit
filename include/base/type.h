@@ -9,7 +9,7 @@
 #ifdef linux
 
 #define _API_CALL
-#define DLLEXTERN extern "C"
+#define DLLEXTERN
 #define NSU_DLLEXPORT
 #else  //win, rtx
 
