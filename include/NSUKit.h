@@ -35,6 +35,8 @@ namespace nsukit {
         bool itf_cr_typesafe = true;
         bool mw_stream_typesafe = true;
         bool mw_cmd_typesafe = true;
+        bool cmd_linked = false;
+        bool stream_linked = false;
 
     protected:
         CmdMw_t *mw_cmd;
@@ -245,6 +247,10 @@ namespace nsukit {
         auto* cmdMiddleware = dynamic_cast<I_BaseRegMw*>(mw_cmd);
         status |= cmdMiddleware->config(param);
 
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            cmd_linked = true;
+        }
+
         // 返回合并后的状态
         return status;
     }
@@ -264,7 +270,11 @@ namespace nsukit {
             auto* crInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
             status |= crInterface->close();
         }
-        return dynamic_cast<I_BaseCmdUItf *>(itf_cs)->close();
+        status |= dynamic_cast<I_BaseCmdUItf *>(itf_cs)->close();
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            cmd_linked = false;
+        }
+        return status;
     }
 
 
@@ -291,6 +301,10 @@ namespace nsukit {
         auto* chnlMiddleware = dynamic_cast<I_BaseStreamMw*>(mw_chnl);
         status |= chnlMiddleware->config(param);
 
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            stream_linked = true;
+        }
+
         // 返回合并后的状态
         return status;
     }
@@ -303,7 +317,11 @@ namespace nsukit {
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::unlink_stream() {
         METHOD_NEED_(check_typesafe);
-        return dynamic_cast<I_BaseStreamUItf *>(itf_ds)->close();
+        auto status = dynamic_cast<I_BaseStreamUItf *>(itf_ds)->close();
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            stream_linked = false;
+        }
+        return status;
     }
 
 
@@ -359,6 +377,9 @@ namespace nsukit {
 
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::execute(nsuCSParam_t cname) {
+        if (!cmd_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
         return mw->execute(cname);
     }
@@ -413,6 +434,9 @@ namespace nsukit {
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::free_buffer(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto itf = dynamic_cast<I_BaseStreamUItf *>(itf_ds);
         return itf->free_buffer(fd);
     }
@@ -441,6 +465,9 @@ namespace nsukit {
                                                                                      nsuStreamLen_t offset,
                                                                                      bool(*stop_event) (), int flag) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->stream_recv(chnl, fd, length, offset, stop_event, 0, flag);
     }
@@ -461,6 +488,9 @@ namespace nsukit {
                                                                                      nsuStreamLen_t offset,
                                                                                      bool (*stop_event)(), int flag) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->stream_send(chnl, fd, length, offset, stop_event, 0, flag);
     }
@@ -479,6 +509,9 @@ namespace nsukit {
                                                                                    nsuStreamLen_t length,
                                                                                    nsuStreamLen_t offset) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->open_send(chnl, fd, length, offset);
     }
@@ -497,6 +530,9 @@ namespace nsukit {
                                                                                    nsuStreamLen_t length,
                                                                                    nsuStreamLen_t offset) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->open_recv(chnl, fd, length, offset);
     }
@@ -511,6 +547,9 @@ namespace nsukit {
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::wait_stream(nsuMemory_p fd, float timeout) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->wait_stream(fd, timeout);
     }
@@ -523,6 +562,9 @@ namespace nsukit {
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::break_stream(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->break_stream(fd);
     }

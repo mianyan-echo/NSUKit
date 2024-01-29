@@ -2,9 +2,36 @@
 // Created by 56585 on 2024/1/2.
 //
 #include "test_config.h"
+#include "NSUKit.h"
+#include <future>
+
+
+int add(int a, int b) {
+    return a + b;
+}
+
+
+TEST(HLTEST, HAS_ASYNC) {
+    int num_parallel = 4;
+    nsukit::NSUSoc<nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf> soc{};
+    nsuInitParam_t param;
+    soc.link_cmd(&param);
+    nsukitStatus_t res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    // async库实现
+    std::future<nsukitStatus_t> futures[num_parallel];
+    for(int i=0; i < num_parallel; i++) {
+        futures[i] = std::async(std::launch::async, &nsukit::BaseKit::execute, &soc, "系统停止");
+        // [&soc](){return soc.execute("系统停止");}
+    }
+    for(int i=0; i < num_parallel; i++) {
+        res |= futures[i].get();
+    }
+
+    std::cout << nsukit::status2_string(res) << std::endl;
+    EXPECT_EQ(res, nsukitStatus_t::NSUKIT_STATUS_SUCCESS);
+}
 
 #ifdef TEST_HARDWARE_SYNC
-#include "NSUKit.h"
 #include "high_level/HardwareSync.h"
 
 typedef nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::SimStreamUItf> SocType;

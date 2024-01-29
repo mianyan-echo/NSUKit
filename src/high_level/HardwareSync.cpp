@@ -6,6 +6,12 @@
 #include <string>
 #include <sstream>
 
+#ifndef HSYNC_EN_ASYNC
+#include <thread>
+#else
+#include <future>
+#endif
+
 
 /**
  *
@@ -38,10 +44,30 @@ nsukitStatus_t parse_cmd_str(char *cmd_str, std::vector<std::string>& cmds) {
  */
 nsukitStatus_t parallel_execute(std::vector<nsukit::BaseKit *>& slave_list, const std::string& cmd) {
     nsukitStatus_t res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
-    for(const auto &elem : slave_list) {
-        res |= elem->execute(cmd);
+    unsigned long long num_parallel = slave_list.size();
+#ifndef HSYNC_EN_ASYNC
+    // thread库实现
+    std::thread threads[num_parallel];
+    for(int i=0; i < num_parallel; i++) {
+        const auto &elem = slave_list[i];
+        threads[i] = std::thread(&nsukit::BaseKit::execute, elem, cmd);
+//        [&elem, cmd]() {elem->execute(cmd);}
     }
-    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    for(int i=0; i < num_parallel; i++) {
+        threads[i].join();
+    }
+#else
+    // async库实现
+    std::future<nsukitStatus_t> futures[num_parallel];
+    for(int i=0; i<num_parallel; i++) {
+        const auto &elem = slave_list[i];
+        futures[i] = std::async(std::launch::async, &nsukit::BaseKit::execute, elem, cmd);
+    }
+    for(int i=0; i<num_parallel; i++) {
+        res |= futures[i].get();
+    }
+#endif
+    return res;
 }
 
 
