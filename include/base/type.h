@@ -31,11 +31,11 @@
  * 统一描述接口返回的执行状态
  */
 DLLEXTERN enum class nsukitStatus_t {
-    NSUKIT_STATUS_SUCCESS             =                  0,        /*< 0 运行成功 */
-    NSUKIT_STATUS_NEED_RELOAD         =                  1 << 0,   // 1 此方法需要重载
-    NSUKIT_STATUS_ARCH_MISMATCH       =                  1 << 1,   // 2 不支持此操作系统
-    NSUKIT_STATUS_ALLOC_FAILED        =                  1 << 2,   // 4 内存申请失败
-    NSUKIT_STATUS_INVALID_VALUE       =                  1 << 3,   // 8
+    NSUKIT_STATUS_SUCCESS             =                  0,        //!< 0 运行成功
+    NSUKIT_STATUS_NEED_RELOAD         =                  1 << 0,   //!< 1 此方法需要重载
+    NSUKIT_STATUS_ARCH_MISMATCH       =                  1 << 1,   //!< 2 接口不支持此操作系统
+    NSUKIT_STATUS_ALLOC_FAILED        =                  1 << 2,   //!< 4 内存申请失败
+    NSUKIT_STATUS_INVALID_VALUE       =                  1 << 3,   //!< 8 不受支持的传参
     NSUKIT_STATUS_TEMP_MISMATCH       =                  1 << 4,
     NSUKIT_STATUS_MISMATCH_MIXIN      =                  1 << 5,
     NSUKIT_STATUS_ACCEPT_FAIL         =                  1 << 6,
@@ -43,7 +43,8 @@ DLLEXTERN enum class nsukitStatus_t {
     NSUKIT_STATUS_STREAM_RUNNING      =                  1 << 8,
     NSUKIT_STATUS_TIMEOUT             =                  1 << 9,
     NSUKIT_STATUS_MEMBER_NOT_SUPPORT  =                  1 << 10,
-    NSUKIT_STATUS_ITF_FAIL            =                  1 << 11
+    NSUKIT_STATUS_ITF_FAIL            =                  1 << 11,
+    NSUKIT_STATUS_NOT_LINK            =                  1 << 12
 };
 
 NSU_DLLEXPORT nsukitStatus_t operator |(nsukitStatus_t lhs, nsukitStatus_t rhs);
@@ -52,8 +53,8 @@ NSU_DLLEXPORT void operator|= (nsukitStatus_t &lhs, nsukitStatus_t rhs);
 
 
 DLLEXTERN enum class nsuBulkMode {
-    LOOP = 0,
-    INCREMENT = 1
+    LOOP = 0,       //!< 循环向单寄存器地址中写入数据
+    INCREMENT = 1   //!< 从给定基地址依次递增写入数据
 };
 
 
@@ -103,9 +104,9 @@ struct nsuXDMAParam_t{
  * @struct nsuSimParam_t
  */
 struct NSU_DLLEXPORT nsuSimParam_t {
-    int sim_target = 1;         /*< 模拟目标 */
+    int sim_target = 1;         //!< 模拟目标
     void (*sim_stream_func)(nsuCharBuf_p buf, nsuSize_t length) =
-            [](nsuCharBuf_p buf, nsuSize_t length) { memset(buf, 1, length); };    /*< 向输入的内存中写入模拟数据的函数 */
+            [](nsuCharBuf_p buf, nsuSize_t length) { memset(buf, 1, length); };    //!< 向输入的内存中写入模拟数据的函数
 };
 
 

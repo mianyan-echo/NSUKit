@@ -1,6 +1,19 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2024. Naishu
+// NSUKit is licensed under Mulan PSL v2.
+// You can use this software according to the terms and conditions of the Mulan PSL v2.
+// You may obtain a copy of Mulan PSL v2 at:
+//          http://license.coscl.org.cn/MulanPSL2
+// THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND,
+// EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT,
+// MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+// See the Mulan PSL v2 for more details.
+////////////////////////////////////////////////////////////////////////////////
+
 //
-// Created by 56585 on 2023/10/10.
+// Created by jilianyi<jilianyi@naishu.tech> on 2024/4/12.
 //
+
 #include <iostream>
 #include "NSUKit.h"
 
@@ -19,6 +32,7 @@ int main(int argc, char *argv[]) {
 
     switch (argc) {
         case 2:
+            // SocConfig {SocIP}
             res = kit.execute("RF配置");
             if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
                 std::cout << "RF配置：" << nsukit::status2_string(res) << std::endl;
@@ -37,6 +51,7 @@ int main(int argc, char *argv[]) {
             }
             break;
         case 3:
+            // SocConfig {SocIP} {CmdName}
             res = kit.execute(argv[2]);
             if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
                 std::cout << argv[2] << ": " << nsukit::status2_string(res) << std::endl;

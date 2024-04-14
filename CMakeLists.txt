@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # 定义项目名称和版本
-project(NSUKit VERSION 1.1.0)
+project(NSUKit VERSION 1.2.0)
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 17)
 
@@ -89,7 +89,9 @@ SET(libNSUKit_SRC
         src/high_level/SuperAWG.cpp
         include/high_level/SuperAWG.h
         src/high_level/HardwareSync.cpp
-        include/high_level/HardwareSync.h)
+        include/high_level/HardwareSync.h
+        include/high_level/ADTrigger.h
+        src/high_level/ADTrigger.cpp)
 
 if (NSUKIT_WITH_XDMA)
 else ()

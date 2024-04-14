@@ -5,9 +5,9 @@
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = NSUKit
-PROJECT_NUMBER         = 1.1.0
+PROJECT_NUMBER         = 1.2.0
 PROJECT_BRIEF          = 板卡级统一交互接口
-PROJECT_LOGO           = ./image/logo切图-竖版.png
+PROJECT_LOGO           = ./image/logo.png
 OUTPUT_DIRECTORY       = html
 CREATE_SUBDIRS         = NO
 CREATE_SUBDIRS_LEVEL   = 8
@@ -65,11 +65,11 @@ NUM_PROC_THREADS       = 1
 #---------------------------------------------------------------------------
 # Build related configuration options
 #---------------------------------------------------------------------------
-EXTRACT_ALL            = NO
+EXTRACT_ALL            = YES
 EXTRACT_PRIVATE        = NO
 EXTRACT_PRIV_VIRTUAL   = NO
 EXTRACT_PACKAGE        = NO
-EXTRACT_STATIC         = NO
+EXTRACT_STATIC         = YES
 EXTRACT_LOCAL_CLASSES  = YES
 EXTRACT_LOCAL_METHODS  = NO
 EXTRACT_ANON_NSPACES   = NO
@@ -209,7 +209,7 @@ IGNORE_PREFIX          =
 # Configuration options related to the HTML output
 #---------------------------------------------------------------------------
 GENERATE_HTML          = YES
-HTML_OUTPUT            = 1.1.0
+HTML_OUTPUT            = 1.2.0
 HTML_FILE_EXTENSION    = .html
 HTML_HEADER            = header.html
 HTML_FOOTER            =

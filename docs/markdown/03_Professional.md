@@ -83,24 +83,24 @@
 
 ## 数据流交互
 
-### 同步方式
+### 同步接口
 <center>![](block_stream_show.png)</center>
 
-1. 同步方式数据流交互接口: [NSUKit.stream_send](@ref NSUKit_stream_send)、[NSUKit.stream_recv](@ref NSUKit_stream_recv)
-2. 如下示例在host上申请了一片1G的内存，对前1kB写入数据20，将这1kB数据下发到板卡
+1. 同步方式数据流交互接口: [NSUSoc.stream_send](@ref NSUKit_stream_send)、[NSUSoc.stream_recv](@ref NSUKit_stream_recv)
+2. 如下示例在host上申请了一片1G的内存，对前1kB写入数据递增数，将这1kB数据下发到板卡
 
 ```cpp
 kit.link_stream(&param);
 
+int buf_len = 1024*1024*1024;
 auto fd = kit.alloc_buffer(buf_len);
 auto data_ptr = kit.get_buffer(fd, buf_len);
 
-// 模拟开启采集要配置的寄存器
-kit.write(0x10000000, 1);
-kit.write(0x10000000, 0);
+if (int i =0; i<1024*1024; i++) data_ptr[i] = i;
 
-// 第一个参数指定数据流通道，可为0~3
-kit.stream_recv(0, fd, buf_len, 0);
+// 第一个参数指定数据流通道，可为0~3，此函数会阻塞，只到数据流传输成功或报错/超时
+kit.stream_send(0, fd, buf_len, 0);
+
 ```
 
 ### 异步方式

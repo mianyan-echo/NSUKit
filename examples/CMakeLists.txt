@@ -21,11 +21,13 @@ target_link_libraries(
         NSUKit
         xdma_api
 )
+
 target_link_libraries(
         SoCConfig
         NSUKit
         xdma_api
 )
+
 target_link_libraries(
         DataDownload
         NSUKit
@@ -34,19 +36,26 @@ target_link_libraries(
 )
 target_link_libraries(
         DataDownload
-        NSUKit
-        xdma_api
-        pthread
-)
-target_link_libraries(
-        DataUpload
         NSUKit
         xdma_api
         pthread
 )
 
 target_link_libraries(
+        DataUpload
+        NSUKit.dll
+        xdma_api
+)
+
+target_link_libraries(
         HardwareSync
+        NSUKit
+        xdma_api
+        pthread
+)
+
+target_link_libraries(
+        DSOpUseCase
         NSUKit
         xdma_api
         pthread

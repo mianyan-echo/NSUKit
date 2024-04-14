@@ -1,3 +1,19 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2024. Naishu
+// NSUKit is licensed under Mulan PSL v2.
+// You can use this software according to the terms and conditions of the Mulan PSL v2.
+// You may obtain a copy of Mulan PSL v2 at:
+//          http://license.coscl.org.cn/MulanPSL2
+// THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND,
+// EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT,
+// MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+// See the Mulan PSL v2 for more details.
+////////////////////////////////////////////////////////////////////////////////
+
+//
+// Created by jilianyi<jilianyi@naishu.tech> on 2024/4/12.
+//
+
 /*
  * +---------------+                               +-------------------+
  * |               |       +---------------+       |                   |
@@ -8,7 +24,7 @@
  * |               |<----- |  empty_queue  |<----- |                   |
  * |               |       +---------------+       |                   |
  * +---------------+                               +-------------------+
- * @class ThreadSafeQueue  线程安全队列
+ * @class ThreadSafeQueue
  */
 #include <iostream>
 #include <queue>
@@ -18,7 +34,7 @@
 
 
 /**
- * @class ThreadSafeQueue 线程安全队列
+ * @class ThreadSafeQueue
  * @tparam T
  */
 template <typename T>
@@ -26,7 +42,7 @@ class ThreadSafeQueue {
 public:
     ThreadSafeQueue() {}
 
-    // 向队列中插入元素
+    //
     void Push(T *value) {
         std::unique_lock<std::mutex> lock(mutex_);
         queue_.push(value);
@@ -34,7 +50,7 @@ public:
         condition_.notify_one();
     }
 
-    // 从队列中弹出元素
+    //
     T *Pop() {
         std::unique_lock<std::mutex> lock(mutex_);
         condition_.wait(lock, [this] { return !queue_.empty(); });
@@ -76,8 +92,8 @@ void upload_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, nsuSize_t t
         mem = q->empty.Pop();
         auto s = _kit->open_recv(0, mem, block, 0);
         if (s != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-            std::cout << "建立CS、CR连接："  << std::endl;
-            std::cout << "数据上行开启失败" << nsukit::status2_string(s) << ", 当前已上行：" << current << std::endl;
+            std::cout << "Establish CS and CR connections: "  << std::endl;
+            std::cout << "Failed to enable data uplink " << nsukit::status2_string(s) << ", currently uplinked: " << current << std::endl;
             break;
         }
         s = nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
@@ -135,20 +151,22 @@ void write_file_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, const s
 
 
 int main(int argc, char *argv[]) {
-    const int ds_block = 1024*1024;   // 1MB DS交互颗粒度
+    unsigned int ds_block = 1024*1024;
     Deque q;
     std::mutex mu;
     nsukit::NSUSoc <nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> kit{};
 
     if (argc != 4) {
-        std::cout << "不受支持的传参方法" << std::endl;
+        std::cout << "Unsupported parameter passing method" << std::endl;
         // DataUpload 127.0.0.1 104857600 ./da_data_1.dat
         std::cout << argv[0] << " {IP} {totalBytes} {filePath}" << std::endl;
         return 1;
     }
     nsuSize_t total_len = std::atoi(argv[2]);
     if (total_len % ds_block != 0) {
-        std::cout << "上行数据总长度total_len " << total_len << "Bytes应为 " << ds_block << "Bytes的整倍数" << std::endl;
+        std::cout << "The total length of upstream data total_len "
+                  << total_len << " Bytes should be "
+                  << ds_block << "Integer multiple of Bytes" << std::endl;
         return 1;
     }
 
@@ -159,17 +177,16 @@ int main(int argc, char *argv[]) {
 
     auto res = kit.link_cmd(&param);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "建立CS、CR连接：" << nsukit::status2_string(res) << std::endl;
+        std::cout << "Establish CS and CR connections: " << nsukit::status2_string(res) << std::endl;
     }
 
     res = kit.link_stream(&param);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "建立DS连接：" << nsukit::status2_string(res) << std::endl;
+        std::cout << "Establish a DS connection: " << nsukit::status2_string(res) << std::endl;
     }
 
     for (int i=0; i<10; i++) {
-        // 准备DS连接要用的内存
-        nsuMemory_p mem = kit.alloc_buffer(ds_block);                 // 申请内存
+        nsuMemory_p mem = kit.alloc_buffer(ds_block);
         q.empty.Push(mem);
     }
 
@@ -193,7 +210,7 @@ int main(int argc, char *argv[]) {
         std::cout << "系统停止：" << nsukit::status2_string(res) << std::endl;
     }
 
-    std::cout << "数据落盘完成" << std::endl;
+    std::cout << "Data download completed" << std::endl;
 
     return 0;
 }

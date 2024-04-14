@@ -54,6 +54,9 @@ std::string nsukit::status2_string(nsukitStatus_t status) {
         case nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL:
             res += "&&NSUKIT_STATUS_ITF_FAIL";
             break;
+        case nsukitStatus_t::NSUKIT_STATUS_NOT_LINK:
+            res += "&&NSUKIT_STATUS_NOT_LINK";
+            break;
         default:
             res += "&&NSUKIT_UNKNOWN_STATUS";
             break;

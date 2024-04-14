@@ -15,7 +15,7 @@
 // 锁定nsukit三参数方法中的第三个参数的默认值
 #define LOCK_NSUKIT_METHOD_3P(name, t1, t2, value) nsukitStatus_t name(t1 a, t2 b) {return name(a, b, value);}
 
-#define METHOD_NEED_(func) if (!func()) return nsukitStatus_t::NSUKIT_STATUS_TEMP_MISMATCH
+#define METHOD_NEED_(func) if (!func()) { return nsukitStatus_t::NSUKIT_STATUS_TEMP_MISMATCH; }
 
 
 namespace nsukit {
@@ -35,6 +35,8 @@ namespace nsukit {
         bool itf_cr_typesafe = true;
         bool mw_stream_typesafe = true;
         bool mw_cmd_typesafe = true;
+        bool cmd_linked = false;
+        bool stream_linked = false;
 
     protected:
         CmdMw_t *mw_cmd;
@@ -44,7 +46,8 @@ namespace nsukit {
         DSItf_t *itf_ds;
 
         bool check_typesafe() {
-            return itf_cs_typesafe && itf_cr_typesafe && itf_ds_typesafe && mw_stream_typesafe && mw_cmd_typesafe;
+//            return itf_cs_typesafe && itf_cr_typesafe && itf_ds_typesafe && mw_stream_typesafe && mw_cmd_typesafe;
+            return true;
         }
 
         bool combined_cmd_itf() {return (I_BaseCmdUItf *)itf_cs == (I_BaseCmdUItf *)itf_cr;}
@@ -53,12 +56,44 @@ namespace nsukit {
         NSUSoc();
         ~NSUSoc();
 
+        /**
+         * 发送指令前准备
+         * @details 根据目标设备类型、参数建立链接
+         *
+         * @code
+         * #include "NSUKit.h"
+         *
+         * auto kit = NSUKit::NSUSoc<PCIECmdUItf, PCIEStreamUItf>();
+         * nsukitStatus_t status;
+         * nsuXDMAParam_t param {};
+         * param.board = 0;
+         * status = kit.link_cmd(&param);
+         * status = kit.write(0x00000035, 15);
+         * @endcode
+         *
+         * @param param
+         * @return
+         */
         nsukitStatus_t link_cmd(nsuInitParam_t *param) override;
 
+        /**
+         *
+         * @return
+         */
         nsukitStatus_t unlink_cmd() override;
 
+        /**
+         * 开启数据流之前准备
+         * @details 根据目标设备类型、参数建立链接
+         * @param param
+         * @return
+         */
         nsukitStatus_t link_stream(nsuInitParam_t *param) override;
 
+        /**
+         *
+         * @return
+         */
         nsukitStatus_t unlink_stream() override;
 
         /**
@@ -117,32 +152,37 @@ namespace nsukit {
         template<typename T>
         T get_param(nsuCSParam_t name, T _default=0);
 
-        std::string get_param(nsuCSParam_t &param_name, std::string _default="") override;
+        std::string
+        get_param(nsuCSParam_t &param_name, std::string _default="") override;
 
-        nsukitStatus_t execute(nsuCSParam_t cname) override;
+        nsukitStatus_t
+        execute(nsuCSParam_t cname) override;
 
         /**
          * 申请一片数据流用的内存
-         * @param length 要申请的内存长度
-         * @param buf 外部填入一片申请好的内存首地址指针
+         * @param length 要申请的内存长度 单位Bytes
+         * @param buf 外部填入一片申请好的内存首地址指针，可为null，不为null时，代表指定一片内存，作为数据流专用内存
          * @return 数据流内存标识
          */
-        nsuMemory_p alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf = nullptr) override;
+        nsuMemory_p
+        alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf = nullptr) override;
 
         /**
-         * 释放数据流用的内存
-         * @param fd 数据流内存标识
+         * 根据内存标识释放对应的内存
+         * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
          * @return
          */
-        nsukitStatus_t free_buffer(nsuMemory_p fd) override;
+        nsukitStatus_t
+        free_buffer(nsuMemory_p fd) override;
 
         /**
          * 获取数据流内存标识的真实内存首指针
-         * @param fd 数据流内存标识
+         * @param fd 数据流内存标识，nsukit::NSUSoc::alloc_buffer申请到的内存标识
          * @param length 所需数据流内存长度
          * @return
          */
-        nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length=0) override;
+        nsuVoidBuf_p
+        get_buffer(nsuMemory_p fd, nsuStreamLen_t length=0) override;
 
         /**
          * 阻塞式开启一次数据流上行
@@ -158,20 +198,57 @@ namespace nsukit {
         stream_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0,
                     bool(*stop_event) () = nullptr, int flag = 1) override;
 
+        /**
+         * 开启一次阻塞式数据流下行
+         * @param chnl 数据流通道
+         * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+         * @param length 数据流下行数据量，单位Byte
+         * @param offset 从fd中对应的偏移量下行
+         * @param stop_event 函数指针，停止event
+         * @return
+         */
         nsukitStatus_t
         stream_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0,
                     bool(*stop_event) () = nullptr, int flag = 1) override;
 
+        /**
+         * 异步开启一次数据流下行
+         * @param chnl 数据流通道
+         * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+         * @param length 数据流下行数据量，单位Byte
+         * @param offset 从fd中对应的偏移量下行
+         * @return
+         */
         nsukitStatus_t
         open_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) override;
 
+        /**
+         * 异步开启一次数据流上行
+         * @param chnl 数据流通道
+         * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+         * @param length 数据流上行数据量，单位Byte
+         * @param offset 数据流上行到fd中对应的偏移量
+         * @return
+         */
         nsukitStatus_t
         open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) override;
 
+        /**
+         * 等待fd对应的数据流交互完成
+         * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+         * @param timeout
+         * @return
+         */
         nsukitStatus_t
         wait_stream(nsuMemory_p fd, float timeout = 0.) override;
 
-        nsukitStatus_t break_stream(nsuMemory_p fd) override;
+        /**
+         * 终止一次数据流交互
+         * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
+         * @return
+         */
+        nsukitStatus_t
+        break_stream(nsuMemory_p fd) override;
     };
 
 
@@ -206,24 +283,7 @@ namespace nsukit {
         free(mw_chnl);
     }
 
-    /**
-     * 发送指令前准备
-     * @details 根据目标设备类型、参数建立链接
-     *
-     * @code
-     * #include "NSUKit.h"
-     *
-     * auto kit = NSUKit::NSUSoc<PCIECmdUItf, PCIEStreamUItf>();
-     * nsukitStatus_t status;
-     * nsuXDMAParam_t param {};
-     * param.board = 0;
-     * status = kit.link_cmd(&param);
-     * status = kit.write(0x00000035, 15);
-     * @endcode
-     *
-     * @param param
-     * @return
-     */
+
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_cmd(nsuInitParam_t *param) {
         if (param == nullptr) {
@@ -245,15 +305,15 @@ namespace nsukit {
         auto* cmdMiddleware = dynamic_cast<I_BaseRegMw*>(mw_cmd);
         status |= cmdMiddleware->config(param);
 
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            cmd_linked = true;
+        }
+
         // 返回合并后的状态
         return status;
     }
 
 
-    /**
-     *
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::unlink_cmd() {
         METHOD_NEED_(check_typesafe);
@@ -264,16 +324,14 @@ namespace nsukit {
             auto* crInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
             status |= crInterface->close();
         }
-        return dynamic_cast<I_BaseCmdUItf *>(itf_cs)->close();
+        status |= dynamic_cast<I_BaseCmdUItf *>(itf_cs)->close();
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            cmd_linked = false;
+        }
+        return status;
     }
 
 
-    /**
-     * 开启数据流之前准备
-     * @details 根据目标设备类型、参数建立链接
-     * @param param
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::link_stream(nsuInitParam_t *param) {
         if (param == nullptr) {
@@ -291,19 +349,23 @@ namespace nsukit {
         auto* chnlMiddleware = dynamic_cast<I_BaseStreamMw*>(mw_chnl);
         status |= chnlMiddleware->config(param);
 
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            stream_linked = true;
+        }
+
         // 返回合并后的状态
         return status;
     }
 
 
-    /**
-     *
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::unlink_stream() {
         METHOD_NEED_(check_typesafe);
-        return dynamic_cast<I_BaseStreamUItf *>(itf_ds)->close();
+        auto status = dynamic_cast<I_BaseStreamUItf *>(itf_ds)->close();
+        if (status == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+            stream_linked = false;
+        }
+        return status;
     }
 
 
@@ -359,6 +421,9 @@ namespace nsukit {
 
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::execute(nsuCSParam_t cname) {
+        if (!cmd_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
         return mw->execute(cname);
     }
@@ -388,12 +453,6 @@ namespace nsukit {
     }
 
 
-    /**
-     * 申请一段数据流专用内存
-     * @param length Bytes
-     * @param buf 可为null，不为null时，代表指定一片内存，作为数据流专用内存
-     * @return 内存标识
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsuMemory_p
     NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf) {
@@ -405,25 +464,17 @@ namespace nsukit {
     }
 
 
-    /**
-     * 根据内存标识释放对应的内存
-     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::free_buffer(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto itf = dynamic_cast<I_BaseStreamUItf *>(itf_ds);
         return itf->free_buffer(fd);
     }
 
 
-    /**
-     * 由内存标识获取真实内存指针
-     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
-     * @param length
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsuVoidBuf_p
     NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_buffer(nsuMemory_p fd, nsuStreamLen_t length) {
@@ -441,88 +492,71 @@ namespace nsukit {
                                                                                      nsuStreamLen_t offset,
                                                                                      bool(*stop_event) (), int flag) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->stream_recv(chnl, fd, length, offset, stop_event, 0, flag);
     }
 
 
-    /**
-     * 开启一次阻塞式数据流下行
-     * @param chnl 数据流通道
-     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
-     * @param length 数据流下行数据量，单位Byte
-     * @param offset 从fd中对应的偏移量下行
-     * @param stop_event 函数指针，停止event
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::stream_send(nsuChnlNum_t chnl, nsuMemory_p fd,
                                                                                      nsuStreamLen_t length,
                                                                                      nsuStreamLen_t offset,
                                                                                      bool (*stop_event)(), int flag) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->stream_send(chnl, fd, length, offset, stop_event, 0, flag);
     }
 
 
-    /**
-     * 异步开启一次数据流下行
-     * @param chnl 数据流通道
-     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
-     * @param length 数据流下行数据量，单位Byte
-     * @param offset 从fd中对应的偏移量下行
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::open_send(nsuChnlNum_t chnl, nsuMemory_p fd,
                                                                                    nsuStreamLen_t length,
                                                                                    nsuStreamLen_t offset) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->open_send(chnl, fd, length, offset);
     }
 
 
-    /**
-     * 异步开启一次数据流上行
-     * @param chnl 数据流通道
-     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
-     * @param length 数据流上行数据量，单位Byte
-     * @param offset 数据流上行到fd中对应的偏移量
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd,
                                                                                    nsuStreamLen_t length,
                                                                                    nsuStreamLen_t offset) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->open_recv(chnl, fd, length, offset);
     }
 
 
-    /**
-     * 等待fd对应的数据流交互完成
-     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
-     * @param timeout
-     * @return
-     */
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::wait_stream(nsuMemory_p fd, float timeout) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->wait_stream(fd, timeout);
     }
 
-    /**
-     * 终止一次数据流交互
-     * @param fd nsukit::NSUSoc::alloc_buffer申请到的内存标识
-     * @return
-     */
+
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::break_stream(nsuMemory_p fd) {
         METHOD_NEED_(check_typesafe);
+        if (!stream_linked) {
+            return nsukitStatus_t::NSUKIT_STATUS_NOT_LINK;
+        }
         auto mw = dynamic_cast<I_BaseStreamMw *>(mw_chnl);
         return mw->break_stream(fd);
     }
