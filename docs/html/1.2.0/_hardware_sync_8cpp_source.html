@@ -1,0 +1,211 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/src/high_level/HardwareSync.cpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_hardware_sync_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">HardwareSync.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_hardware_sync_8cpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by 56585 on 2023/12/27.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_hardware_sync_8h.html">high_level/HardwareSync.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef HSYNC_EN_ASYNC</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;future&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="_hardware_sync_8cpp.html#a7a48bfab6d539f37d1aa17a000f03c8b">   22</a></span><a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="_hardware_sync_8cpp.html#a7a48bfab6d539f37d1aa17a000f03c8b">parse_cmd_str</a>(<span class="keywordtype">char</span> *cmd_str, std::vector&lt;std::string&gt;&amp; cmds) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span> (cmd_str == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordtype">char</span> hsync_fmt[] = <a class="code hl_define" href="_hardware_sync_8h.html#a6509ef6643b4166dd8129273f459edfc">HSYNC_DEFAULT_CMD_FMT</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        cmd_str = hsync_fmt;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">auto</span> <span class="keywordtype">string</span> = std::string(cmd_str);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::stringstream ss(<span class="keywordtype">string</span>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::string token;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">while</span> (std::getline(ss, token, <a class="code hl_define" href="_hardware_sync_8h.html#a594acaf9fa6e93b6d40ec29f066e144a">HSYNC_CMD_FMT_DELIM</a>)) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        cmds.emplace_back(token);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="_hardware_sync_8cpp.html#a2db89fe2dc8cefc83e5dfa16ed61f4b5">   45</a></span><a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="_hardware_sync_8cpp.html#a2db89fe2dc8cefc83e5dfa16ed61f4b5">parallel_execute</a>(std::vector&lt;nsukit::BaseKit *&gt;&amp; slave_list, <span class="keyword">const</span> std::string&amp; cmd) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> res = <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> num_parallel = slave_list.size();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#ifndef HSYNC_EN_ASYNC</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// thread库实现</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::thread threads[num_parallel];</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_parallel; i++) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">const</span> <span class="keyword">auto</span> &amp;elem = slave_list[i];</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        threads[i] = std::thread(&amp;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#a15263d9a54484dbb8ce179173109796d">nsukit::BaseKit::execute</a>, elem, cmd);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">//        [&amp;elem, cmd]() {elem-&gt;execute(cmd);}</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; num_parallel; i++) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        threads[i].join();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// async库实现</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::future&lt;nsukitStatus_t&gt; futures[num_parallel];</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;num_parallel; i++) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">const</span> <span class="keyword">auto</span> &amp;elem = slave_list[i];</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        futures[i] = std::async(std::launch::async, &amp;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#a15263d9a54484dbb8ce179173109796d">nsukit::BaseKit::execute</a>, elem, cmd);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;num_parallel; i++) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        res |= futures[i].get();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespacensukit.html#ac0b62b8b03a0f74800de7582f24f1f25">   74</a></span><a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="namespacensukit.html#ac0b62b8b03a0f74800de7582f24f1f25">nsukit::hl_hsync_sync</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *master, <a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> **slaves, <span class="keywordtype">int</span> slave_num, <span class="keywordtype">char</span> *cmd_str) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> res = <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::vector&lt;std::string&gt; cmds;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::vector&lt;nsukit::BaseKit *&gt; slave_list;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_function" href="_hardware_sync_8cpp.html#a7a48bfab6d539f37d1aa17a000f03c8b">parse_cmd_str</a>(cmd_str, cmds);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">if</span> (cmds.size() == 1) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        res |= master-&gt;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#a15263d9a54484dbb8ce179173109796d">execute</a>(cmds[0]);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        res |= <a class="code hl_function" href="_hardware_sync_8cpp.html#a2db89fe2dc8cefc83e5dfa16ed61f4b5">parallel_execute</a>(slave_list, cmds[0]);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">if</span> (cmds.size() != 6) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865">nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    slave_list.reserve(slave_num);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; slave_num; i++) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        slave_list.push_back(slaves[i]);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    res |= <a class="code hl_function" href="_hardware_sync_8cpp.html#a2db89fe2dc8cefc83e5dfa16ed61f4b5">parallel_execute</a>(slave_list, cmds[0]);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    res |= master-&gt;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#a15263d9a54484dbb8ce179173109796d">execute</a>(cmds[1]);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    res |= <a class="code hl_function" href="_hardware_sync_8cpp.html#a2db89fe2dc8cefc83e5dfa16ed61f4b5">parallel_execute</a>(slave_list, cmds[2]);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    res |= master-&gt;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#a15263d9a54484dbb8ce179173109796d">execute</a>(cmds[3]);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    res |= <a class="code hl_function" href="_hardware_sync_8cpp.html#a2db89fe2dc8cefc83e5dfa16ed61f4b5">parallel_execute</a>(slave_list, cmds[4]);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    res |= master-&gt;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#a15263d9a54484dbb8ce179173109796d">execute</a>(cmds[5]);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+<div class="ttc" id="a_hardware_sync_8cpp_html_a2db89fe2dc8cefc83e5dfa16ed61f4b5"><div class="ttname"><a href="_hardware_sync_8cpp.html#a2db89fe2dc8cefc83e5dfa16ed61f4b5">parallel_execute</a></div><div class="ttdeci">nsukitStatus_t parallel_execute(std::vector&lt; nsukit::BaseKit * &gt; &amp;slave_list, const std::string &amp;cmd)</div><div class="ttdef"><b>Definition:</b> <a href="_hardware_sync_8cpp_source.html#l00045">HardwareSync.cpp:45</a></div></div>
+<div class="ttc" id="a_hardware_sync_8cpp_html_a7a48bfab6d539f37d1aa17a000f03c8b"><div class="ttname"><a href="_hardware_sync_8cpp.html#a7a48bfab6d539f37d1aa17a000f03c8b">parse_cmd_str</a></div><div class="ttdeci">nsukitStatus_t parse_cmd_str(char *cmd_str, std::vector&lt; std::string &gt; &amp;cmds)</div><div class="ttdef"><b>Definition:</b> <a href="_hardware_sync_8cpp_source.html#l00022">HardwareSync.cpp:22</a></div></div>
+<div class="ttc" id="a_hardware_sync_8h_html"><div class="ttname"><a href="_hardware_sync_8h.html">HardwareSync.h</a></div></div>
+<div class="ttc" id="a_hardware_sync_8h_html_a594acaf9fa6e93b6d40ec29f066e144a"><div class="ttname"><a href="_hardware_sync_8h.html#a594acaf9fa6e93b6d40ec29f066e144a">HSYNC_CMD_FMT_DELIM</a></div><div class="ttdeci">#define HSYNC_CMD_FMT_DELIM</div><div class="ttdef"><b>Definition:</b> <a href="_hardware_sync_8h_source.html#l00013">HardwareSync.h:13</a></div></div>
+<div class="ttc" id="a_hardware_sync_8h_html_a6509ef6643b4166dd8129273f459edfc"><div class="ttname"><a href="_hardware_sync_8h.html#a6509ef6643b4166dd8129273f459edfc">HSYNC_DEFAULT_CMD_FMT</a></div><div class="ttdeci">#define HSYNC_DEFAULT_CMD_FMT</div><div class="ttdef"><b>Definition:</b> <a href="_hardware_sync_8h_source.html#l00012">HardwareSync.h:12</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_base_kit_html"><div class="ttname"><a href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a></div><div class="ttdef"><b>Definition:</b> <a href="base__kit_8h_source.html#l00008">base_kit.h:8</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_base_kit_html_a15263d9a54484dbb8ce179173109796d"><div class="ttname"><a href="classnsukit_1_1_base_kit.html#a15263d9a54484dbb8ce179173109796d">nsukit::BaseKit::execute</a></div><div class="ttdeci">virtual nsukitStatus_t execute(nsuCSParam_t cname)</div><div class="ttdef"><b>Definition:</b> <a href="base__kit_8cpp_source.html#l00062">base_kit.cpp:62</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ac0b62b8b03a0f74800de7582f24f1f25"><div class="ttname"><a href="namespacensukit.html#ac0b62b8b03a0f74800de7582f24f1f25">nsukit::hl_hsync_sync</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_hsync_sync(nsukit::BaseKit *master, nsukit::BaseKit **slaves, int slave_num, char *cmd_str=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="_hardware_sync_8cpp_source.html#l00074">HardwareSync.cpp:74</a></div></div>
+<div class="ttc" id="atype_8h_html_a324a8aa029ee38ccd1e011c882c0abc7"><div class="ttname"><a href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div><div class="ttdeci">nsukitStatus_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00033">type.h:33</a></div></div>
+<div class="ttc" id="atype_8h_html_a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99"><div class="ttname"><a href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a></div><div class="ttdeci">@ NSUKIT_STATUS_SUCCESS</div><div class="ttdoc">0 运行成功</div></div>
+<div class="ttc" id="atype_8h_html_a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865"><div class="ttname"><a href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865">nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE</a></div><div class="ttdeci">@ NSUKIT_STATUS_INVALID_VALUE</div><div class="ttdoc">8 不受支持的传参</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_f1b9f07b7d1067b67a84b2362ac84dd5.html">high_level</a></li><li class="navelem"><a class="el" href="_hardware_sync_8cpp.html">HardwareSync.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

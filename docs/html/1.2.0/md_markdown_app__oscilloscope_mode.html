@@ -1,0 +1,262 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: 〽️Oscilloscope mode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('md_markdown_app__oscilloscope_mode.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">〽️Oscilloscope mode </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="autotoc_md84"></a>
+1. 设备初始化</h1>
+<h2><a class="anchor" id="autotoc_md85"></a>
+1.1. 实例化Soc对象，并连接目标Soc</h2>
+<ol type="1">
+<li>实例化一个NSUSoc类的对象soc，<ol type="a">
+<li>此soc对象维护了本机与模块具体使用了哪三种交互，以及交互所需的上下文</li>
+<li>在本例中，选择了TCP作为CS交互接口，PCIE作为CR、DS交互接口，关于CS、CR、DS的定义可参考此段描述 <a class="el" href="md_markdown_02__quickstart.html#md_基础接口">基础接口</a></li>
+</ol>
+</li>
+<li>建立连接<ol type="a">
+<li><a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a> 中保存了目标模块的基础信息<ol type="i">
+<li>设置了cs操作所需的目标ip，即为模块的ip</li>
+<li>设置了cr操作所需的目标pcie id号，单模块时固定为0</li>
+<li>设置了ds操作所需的目标pcie id号，单模块时固定为0</li>
+</ol>
+</li>
+<li>使用 <a class="el" href="classnsukit_1_1_n_s_u_soc.html#a6d2785379401816cd8a5977b759fd91f">nsukit::NSUSoc::link_cmd</a> 成员函数建立与模块间的cs、cr链接</li>
+<li>使用 <a class="el" href="classnsukit_1_1_n_s_u_soc.html#a8f2d3a1417ef074bf1019f1af2e87616">nsukit::NSUSoc::link_stream</a> 成员函数建立与模块间的ds链接</li>
+</ol>
+</li>
+</ol>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> soc{};</div>
+<div class="line"><a class="code hl_struct" href="structnsu_init_param__t.html">nsuInitParam_t</a> param;</div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_t_c_p_param__t.html#a17083dac7fd693bbe871b16bee5ddbba">cmd_ip</a> = <span class="stringliteral">&quot;xxx.xxx.xxx.xxx&quot;</span>;</div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_x_d_m_a_param__t.html#a5a35713cb0b856f868fa1b58f9c7d39c">cmd_board</a> = 0;</div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_x_d_m_a_param__t.html#ae2206cb6654abede717005d878479201">stream_board</a> = 0;</div>
+<div class="line"><span class="keyword">auto</span> res = soc.link_cmd(&amp;param);</div>
+<div class="line">res |= soc.link_stream(&amp;param);</div>
+<div class="ttc" id="a_n_s_u_kit_8h_html"><div class="ttname"><a href="_n_s_u_kit_8h.html">NSUKit.h</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_n_s_u_soc_html"><div class="ttname"><a href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc</a></div><div class="ttdef"><b>Definition:</b> <a href="_n_s_u_kit_8h_source.html#l00031">NSUKit.h:31</a></div></div>
+<div class="ttc" id="astructnsu_init_param__t_html"><div class="ttname"><a href="structnsu_init_param__t.html">nsuInitParam_t</a></div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00128">type.h:128</a></div></div>
+<div class="ttc" id="astructnsu_t_c_p_param__t_html_a17083dac7fd693bbe871b16bee5ddbba"><div class="ttname"><a href="structnsu_t_c_p_param__t.html#a17083dac7fd693bbe871b16bee5ddbba">nsuTCPParam_t::cmd_ip</a></div><div class="ttdeci">std::string cmd_ip</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00078">type.h:78</a></div></div>
+<div class="ttc" id="astructnsu_x_d_m_a_param__t_html_a5a35713cb0b856f868fa1b58f9c7d39c"><div class="ttname"><a href="structnsu_x_d_m_a_param__t.html#a5a35713cb0b856f868fa1b58f9c7d39c">nsuXDMAParam_t::cmd_board</a></div><div class="ttdeci">nsuBoardNum_t cmd_board</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00094">type.h:94</a></div></div>
+<div class="ttc" id="astructnsu_x_d_m_a_param__t_html_ae2206cb6654abede717005d878479201"><div class="ttname"><a href="structnsu_x_d_m_a_param__t.html#ae2206cb6654abede717005d878479201">nsuXDMAParam_t::stream_board</a></div><div class="ttdeci">nsuBoardNum_t stream_board</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00100">type.h:100</a></div></div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md86"></a>
+1.2. 初始化Soc</h2>
+<ol type="1">
+<li>可通过cs交互完成对业务模块的初始化<ol type="a">
+<li>CS交互接口分为如下三个部分，具体说明可参考 <a class="el" href="md_markdown_02__quickstart.html#md_指令流交互">指令流交互</a><ol type="i">
+<li><a class="el" href="classnsukit_1_1_n_s_u_soc.html#abc63a222ce8984fff2c82ec528fd664e">nsukit::NSUSoc::get_param</a> <br  />
+</li>
+<li><a class="el" href="classnsukit_1_1_n_s_u_soc.html#a0dda1eab7ab0b8465067f12fa1c1f4e0">nsukit::NSUSoc::set_param</a></li>
+<li><a class="el" href="classnsukit_1_1_n_s_u_soc.html#a00dbd9f1f2e7e85415da45a7ac7c3080">nsukit::NSUSoc::execute</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>初始化业务模块时，可配置模块的ADC、DAC采样率，是否开启上下变频等</li>
+<li>本例中将业务模块的ADC采样率配置为4000Msps，并通过执行<code>RF配置</code>指令，将参数配置给业务模块</li>
+</ol>
+<div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.set_param(<span class="stringliteral">&quot;ADC采样率&quot;</span>, 4000);</div>
+<div class="line">soc.execute(<span class="stringliteral">&quot;RF配置&quot;</span>);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md87"></a>
+2. 触发配置</h1>
+<h2><a class="anchor" id="autotoc_md88"></a>
+2.1. 配置触发使能及触发电平</h2>
+<ol type="1">
+<li>将CH0的触发使能打开，将触发电平设置为4096，</li>
+<li>将ADC采集到的电平进行int16量化后，所得量化值与此值(4096)做比较，大于此值则被触发</li>
+<li>通过 ADTriggerConfig 指令下发给设备</li>
+</ol>
+<div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.set_param(<span class="stringliteral">&quot;CH0TriggerEnable&quot;</span>, 1);</div>
+<div class="line">soc.set_param(<span class="stringliteral">&quot;CH0TriggerLevel&quot;</span>, 4096);</div>
+<div class="line">soc.execute(<span class="stringliteral">&quot;ADTriggerConfig&quot;</span>);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md89"></a>
+2.2. 配置预取点数</h2>
+<ol type="1">
+<li>将8个AD CH的预取点数配置为128<ol type="a">
+<li>此值应为16的整倍数，8个通道保持一致</li>
+<li>含义为预取在配置的触发电平TriggerLevel到来之前的PreTriggerPoints个点</li>
+</ol>
+</li>
+<li>通过 ADTriggerConfig 指令下发给设备</li>
+</ol>
+<div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.set_param(<span class="stringliteral">&quot;PreTriggerPoints&quot;</span>, 128);</div>
+<div class="line">soc.execute(<span class="stringliteral">&quot;ADTriggerConfig&quot;</span>);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md90"></a>
+3. 多通道采集配置</h1>
+<h2><a class="anchor" id="autotoc_md91"></a>
+3.1. 配置采集总点数</h2>
+<ol type="1">
+<li>将8个ADC配置为采集128k点，通过 ADTriggerConfig 指令下发给设备</li>
+<li>**注意**：可在配置完ADTriggerConfig指令所携带的多个参数后，统一执行依次ADTriggerConfig</li>
+</ol>
+<div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.set_param(<span class="stringliteral">&quot;TotalTriggerPoints&quot;</span>, 128);</div>
+<div class="line">soc.execute(<span class="stringliteral">&quot;ADTriggerConfig&quot;</span>);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md92"></a>
+3.2. Start/Stop</h2>
+<ol type="1">
+<li>系统开启 <div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.set_param(<span class="stringliteral">&quot;基准PRF数量&quot;</span>, 0xFFFFFFFF);</div>
+<div class="line">soc.set_param(<span class="stringliteral">&quot;基准PRF周期&quot;</span>, 1000);</div>
+<div class="line">soc.execute(<span class="stringliteral">&quot;系统开启&quot;</span>);</div>
+</div><!-- fragment --></li>
+<li>系统停止 <div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.execute(<span class="stringliteral">&quot;系统停止&quot;</span>);</div>
+</div><!-- fragment --></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md93"></a>
+4. 多通道数据获取</h1>
+<h2><a class="anchor" id="autotoc_md94"></a>
+4.1. DS交互</h2>
+<ol type="1">
+<li>DS交互流程可参照示例代码<ol type="a">
+<li>异步上行 <a class="el" href="data__upload_8cpp.html">examples/data_upload.cpp</a></li>
+<li>同步上行 <a class="el" href="_d_s_op_use_case_8cpp.html">examples/DSOpUseCase.cpp</a></li>
+</ol>
+</li>
+<li>DS交互分为申请DS交互内存、开启DS交互、等待DS交互完成三个流程<ol type="a">
+<li>申请到的一片DS交互内存可重复利用，不必在DS交互完成后释放</li>
+<li>DS交互的解释可参照此文档: <a class="el" href="md_markdown_02__quickstart.html#md_数据流交互">数据流交互</a></li>
+</ol>
+</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md95"></a>
+4.2. 多通道数据交织格式</h2>
+<ol type="1">
+<li>由于一个业务模块具备8个ADC CH，但模块的DS交互接口只具备一个数据传输通道；所以模块会将8个通道的时域数据按一定规则打包后传输给主机</li>
+<li>业务模块的打包规则为<ol type="a">
+<li>一个采样点的数据位宽为int16</li>
+<li>每次采集到TotalTriggerPoints个点时，8个CH的原始时域数据前会分别加上一个256个Bytes的包头</li>
+<li>8段带包头的数据会以256个字节为一组，按顺序交织在一起。</li>
+<li>即 <code>256B CH0</code> - <code>256B CH1</code> - ... - <code>256B CH7</code> - <code>256B CH0</code> - ...</li>
+</ol>
+</li>
+<li>此打包格式具备独立的可自解释的包头，为追求性能时，可由用户软件直接按固定规则取数，而不解析打包包头</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md96"></a>
+5. 算力模块调用(可选)</h1>
+<p>如业务模块上配备有独立的算力模块，可通过本部分提供的方式调用算力模块算力进行计算</p>
+<h2><a class="anchor" id="autotoc_md97"></a>
+5.1. Nvidia AGX GPU</h2>
+<ol type="1">
+<li><a href="https://developer.nvidia.com/embedded/downloads#?search=Data%20Sheet&amp;tx=$product,jetson_agx_xavier">Xavier DataSheet</a></li>
+<li><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html">CUDA Doc</a></li>
+<li>程序结构可参照 <a class="el" href="data__upload_8cpp.html">examples/data_upload.cpp</a> ，并将write_file_thread改为具体算法 </li>
+</ol>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/include/middleware/icd_parser.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('icd__parser_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">icd_parser.h 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &quot;<a class="el" href="base__mw_8h_source.html">base_mw.h</a>&quot;</code><br />
+</div>
+<p><a href="icd__parser_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnsukit_1_1_command_pack.html">nsukit::CommandPack</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i_c_d_reg_mw.html">nsukit::ICDRegMw</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:namespacensukit"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacensukit.html">nsukit</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ae3428cd2ac62e0ac83769ee84fd82426"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#ae3428cd2ac62e0ac83769ee84fd82426">ICD_Uint8</a>&#160;&#160;&#160;&quot;uint8&quot;</td></tr>
+<tr class="separator:ae3428cd2ac62e0ac83769ee84fd82426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43f1c48532296ec8101356ad8d85d247"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a43f1c48532296ec8101356ad8d85d247">ICD_Int8</a>&#160;&#160;&#160;&quot;int8&quot;</td></tr>
+<tr class="separator:a43f1c48532296ec8101356ad8d85d247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07d72d8d4360de4313c58bb8188a2d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#aa07d72d8d4360de4313c58bb8188a2d8">ICD_Uint16</a>&#160;&#160;&#160;&quot;uint16&quot;</td></tr>
+<tr class="separator:aa07d72d8d4360de4313c58bb8188a2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c79869274df1736ac2fd23c05c25b31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a8c79869274df1736ac2fd23c05c25b31">ICD_Int16</a>&#160;&#160;&#160;&quot;int16&quot;</td></tr>
+<tr class="separator:a8c79869274df1736ac2fd23c05c25b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a443ad29fe8acd3ac20ee1124361ea27e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a443ad29fe8acd3ac20ee1124361ea27e">ICD_Uint32</a>&#160;&#160;&#160;&quot;uint32&quot;</td></tr>
+<tr class="separator:a443ad29fe8acd3ac20ee1124361ea27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe53516d704c24d209bc6613819074e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a1fe53516d704c24d209bc6613819074e">ICD_Int32</a>&#160;&#160;&#160;&quot;int32&quot;</td></tr>
+<tr class="separator:a1fe53516d704c24d209bc6613819074e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28e49b73912d43d29a3eab2872ab322a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a28e49b73912d43d29a3eab2872ab322a">ICD_Float</a>&#160;&#160;&#160;&quot;float&quot;</td></tr>
+<tr class="separator:a28e49b73912d43d29a3eab2872ab322a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5ffeca42e3c0796786955fb3af26b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a1f5ffeca42e3c0796786955fb3af26b2">ICD_Double</a>&#160;&#160;&#160;&quot;double&quot;</td></tr>
+<tr class="separator:a1f5ffeca42e3c0796786955fb3af26b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6c8b4716cff85c26a4a55f7f6c8490"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#acf6c8b4716cff85c26a4a55f7f6c8490">ICD_File</a>&#160;&#160;&#160;&quot;file&quot;</td></tr>
+<tr class="separator:acf6c8b4716cff85c26a4a55f7f6c8490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a483e852377641fd918f67b93031dc4d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a483e852377641fd918f67b93031dc4d2">ICD_FileLength</a>&#160;&#160;&#160;&quot;filelength&quot;</td></tr>
+<tr class="separator:a483e852377641fd918f67b93031dc4d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677b6035e0f2a174ab295efeb2950584"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a677b6035e0f2a174ab295efeb2950584">ICD_ParamFlag_File</a>&#160;&#160;&#160;&quot;__file__&quot;</td></tr>
+<tr class="separator:a677b6035e0f2a174ab295efeb2950584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e90c6b7fd22411ab29887f3542dafad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icd__parser_8h.html#a7e90c6b7fd22411ab29887f3542dafad">ICD_ParamFlag_FileLength</a>&#160;&#160;&#160;&quot;__filelength__&quot;</td></tr>
+<tr class="separator:a7e90c6b7fd22411ab29887f3542dafad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a7cbf5ef3ebae58b94bdbfe6d6edc5ab7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacensukit.html#a7cbf5ef3ebae58b94bdbfe6d6edc5ab7">nsukit::DeleteCommandPack</a> (<a class="el" href="structnsukit_1_1_command_pack.html">CommandPack</a> *pack)</td></tr>
+<tr class="separator:a7cbf5ef3ebae58b94bdbfe6d6edc5ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5f9649225a8caa5e0c8c49331012907"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacensukit.html#af5f9649225a8caa5e0c8c49331012907">nsukit::GetFileSize</a> (const std::string &amp;file_path)</td></tr>
+<tr class="separator:af5f9649225a8caa5e0c8c49331012907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c834ba4b5b6e8a8acb7e875ddfbe96e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacensukit.html#a6c834ba4b5b6e8a8acb7e875ddfbe96e">nsukit::StringEndWith</a> (std::string_view str, std::string_view tail)</td></tr>
+<tr class="separator:a6c834ba4b5b6e8a8acb7e875ddfbe96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7cbed2e69221c2180b62dcd71d4fa81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacensukit.html#ae7cbed2e69221c2180b62dcd71d4fa81">nsukit::StringStartWith</a> (std::string_view str, std::string_view head)</td></tr>
+<tr class="separator:ae7cbed2e69221c2180b62dcd71d4fa81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a3a9c7bb27fe71bcc46cdd7a4fa8273f9"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacensukit.html#a3a9c7bb27fe71bcc46cdd7a4fa8273f9">nsukit::TypeSizeMap</a></td></tr>
+<tr class="separator:a3a9c7bb27fe71bcc46cdd7a4fa8273f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="a1f5ffeca42e3c0796786955fb3af26b2" name="a1f5ffeca42e3c0796786955fb3af26b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5ffeca42e3c0796786955fb3af26b2">&#9670;&#160;</a></span>ICD_Double</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Double&#160;&#160;&#160;&quot;double&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00022">22</a> 行定义.</p>
+
+</div>
+</div>
+<a id="acf6c8b4716cff85c26a4a55f7f6c8490" name="acf6c8b4716cff85c26a4a55f7f6c8490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6c8b4716cff85c26a4a55f7f6c8490">&#9670;&#160;</a></span>ICD_File</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_File&#160;&#160;&#160;&quot;file&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00023">23</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a483e852377641fd918f67b93031dc4d2" name="a483e852377641fd918f67b93031dc4d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a483e852377641fd918f67b93031dc4d2">&#9670;&#160;</a></span>ICD_FileLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_FileLength&#160;&#160;&#160;&quot;filelength&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00024">24</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a28e49b73912d43d29a3eab2872ab322a" name="a28e49b73912d43d29a3eab2872ab322a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28e49b73912d43d29a3eab2872ab322a">&#9670;&#160;</a></span>ICD_Float</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Float&#160;&#160;&#160;&quot;float&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00021">21</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8c79869274df1736ac2fd23c05c25b31" name="a8c79869274df1736ac2fd23c05c25b31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c79869274df1736ac2fd23c05c25b31">&#9670;&#160;</a></span>ICD_Int16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Int16&#160;&#160;&#160;&quot;int16&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00018">18</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1fe53516d704c24d209bc6613819074e" name="a1fe53516d704c24d209bc6613819074e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe53516d704c24d209bc6613819074e">&#9670;&#160;</a></span>ICD_Int32</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Int32&#160;&#160;&#160;&quot;int32&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00020">20</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a43f1c48532296ec8101356ad8d85d247" name="a43f1c48532296ec8101356ad8d85d247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43f1c48532296ec8101356ad8d85d247">&#9670;&#160;</a></span>ICD_Int8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Int8&#160;&#160;&#160;&quot;int8&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00016">16</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a677b6035e0f2a174ab295efeb2950584" name="a677b6035e0f2a174ab295efeb2950584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a677b6035e0f2a174ab295efeb2950584">&#9670;&#160;</a></span>ICD_ParamFlag_File</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_ParamFlag_File&#160;&#160;&#160;&quot;__file__&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00025">25</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7e90c6b7fd22411ab29887f3542dafad" name="a7e90c6b7fd22411ab29887f3542dafad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e90c6b7fd22411ab29887f3542dafad">&#9670;&#160;</a></span>ICD_ParamFlag_FileLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_ParamFlag_FileLength&#160;&#160;&#160;&quot;__filelength__&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00026">26</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa07d72d8d4360de4313c58bb8188a2d8" name="aa07d72d8d4360de4313c58bb8188a2d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa07d72d8d4360de4313c58bb8188a2d8">&#9670;&#160;</a></span>ICD_Uint16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Uint16&#160;&#160;&#160;&quot;uint16&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00017">17</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a443ad29fe8acd3ac20ee1124361ea27e" name="a443ad29fe8acd3ac20ee1124361ea27e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a443ad29fe8acd3ac20ee1124361ea27e">&#9670;&#160;</a></span>ICD_Uint32</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Uint32&#160;&#160;&#160;&quot;uint32&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00019">19</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae3428cd2ac62e0ac83769ee84fd82426" name="ae3428cd2ac62e0ac83769ee84fd82426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3428cd2ac62e0ac83769ee84fd82426">&#9670;&#160;</a></span>ICD_Uint8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ICD_Uint8&#160;&#160;&#160;&quot;uint8&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="icd__parser_8h_source.html">icd_parser.h</a> 第 <a class="el" href="icd__parser_8h_source.html#l00015">15</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f3a764a09f183f4b5a8d06ec579b1cfd.html">middleware</a></li><li class="navelem"><a class="el" href="icd__parser_8h.html">icd_parser.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

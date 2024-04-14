@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['_5fapi_5fcall_0',['_API_CALL',['../type_8h.html#a31c96bbb337d997c0af3dbf758201267',1,'_API_CALL():&#160;type.h'],['../xdma__api_8h.html#a31c96bbb337d997c0af3dbf758201267',1,'_API_CALL():&#160;xdma_api.h']]],
+  ['_5fcommon_5fread_1',['_common_read',['../classnsukit_1_1_u___base_cmd_mixin.html#ade63d2505efd0c568f1851225cb517dd',1,'nsukit::U_BaseCmdMixin::_common_read()'],['../classnsukit_1_1_mixin___virtual_reg_cmd.html#a3ff041c31933ca447452cb4a2c67da01',1,'nsukit::Mixin_VirtualRegCmd::_common_read()']]],
+  ['_5fcommon_5fwrite_2',['_common_write',['../classnsukit_1_1_u___base_cmd_mixin.html#a8d9c47f4ef00c7fd032741d3fb95dcff',1,'nsukit::U_BaseCmdMixin::_common_write()'],['../classnsukit_1_1_mixin___virtual_reg_cmd.html#ad8a3653b43ae62f9eb0cb77eb019ab86',1,'nsukit::Mixin_VirtualRegCmd::_common_write(nsuRegAddr_t reg, nsuRegValue_t value)']]],
+  ['_5ffmt_5freg_5fread_3',['_fmt_reg_read',['../classnsukit_1_1_mixin___virtual_reg_cmd.html#ae09161ce2ca38a238302b412ae332916',1,'nsukit::Mixin_VirtualRegCmd']]],
+  ['_5ffmt_5freg_5fwrite_4',['_fmt_reg_write',['../classnsukit_1_1_mixin___virtual_reg_cmd.html#a347f8bff933cea35d28b6e52b38b1f1b',1,'nsukit::Mixin_VirtualRegCmd']]]
+];

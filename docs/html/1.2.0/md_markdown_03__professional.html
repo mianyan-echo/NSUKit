@@ -1,0 +1,303 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: 进阶使用</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('md_markdown_03__professional.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">进阶使用 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div style="position: fixed; top: 90%; left: 90%"> <a href="#目录" style="text-decoration: none">返回目录</a> </div><p><span id="目录"></span></p>
+<h1><a class="anchor" id="autotoc_md21"></a>
+目录</h1>
+<ul>
+<li><a href="#基本结构">基本结构</a></li>
+<li><a href="#自闭环仿真">自闭环仿真</a></li>
+<li><a href="#数据流交互">数据流交互</a></li>
+</ul>
+<hr  />
+<p> <span id="基本结构"></span></p>
+<h1><a class="anchor" id="autotoc_md23"></a>
+基本结构</h1>
+<center><img src="introduction_global.png" alt="" class="inline"/>     </center><ol type="1">
+<li>本SDK提供的接口主要针对射频/数字组件与cpu的交互，将整个交互流程划分为<code>请求层</code>、<code>处理层</code>、<code>协议层</code>三个部分<ol type="a">
+<li><b>请求层</b>:<ol type="i">
+<li>将组件提供的各种参数的读取和配置，看作对一个寄存器的读写，那么参数名即为<code>寄存器地址</code>，参数值为<code>寄存器值</code></li>
+<li>将与组件的数据流交互看作一次次DMA，可以指定使用的dma通道、内存地址、数据大小等进行一次dma</li>
+</ol>
+</li>
+<li><b>处理层</b>: 组件与cpu之间可能会约定各种各样的上层交互协议，那么可以在中间处理这一部分中实现上层协议，并将此协议的最终控制接口转为请求所需的读写寄存器和DMA格式</li>
+<li><b>协议层</b>: 对诸如TCP、串口、axi_lite、axi_stream等标准通信协议，进行封装。</li>
+</ol>
+</li>
+<li>基于这三个部分的划分，<code>协议层</code>、<code>处理层</code>的变更不会影响基于<code>请求层</code>开发的任何程序</li>
+</ol>
+<hr  />
+<p><span id="自闭环仿真"></span></p>
+<h1><a class="anchor" id="autotoc_md25"></a>
+自闭环仿真</h1>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">待办事项:</a></b></dt><dd>SimCmdUItf、SimStreamUItf类正在完善</dd></dl>
+<ol type="1">
+<li>提供SimCmdUItf、SimStreamUItf两个虚拟协议类，可以模拟与板卡的通信过程，支持写入记忆、数据流仿真等一系列功能，方便 <b>在没有硬件条件时测试上层程序</b></li>
+<li><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="data__download_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>() {</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc</a>&lt;</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_sim_cmd_u_itf.html">nsukit::SimCmdUItf</a>,</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_sim_cmd_u_itf.html">nsukit::SimCmdUItf</a>,</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_sim_stream_u_itf.html">nsukit::SimStreamUItf</a>&gt; kit{};</div>
+<div class="line"><span class="keywordtype">size_t</span> buf_len = 1024*1024;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structnsu_init_param__t.html">nsuInitParam_t</a> param;</div>
+<div class="line"> </div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_sim_param__t.html#ab41cd0f2c7c8320a132d17cbbe9d8a4b">sim_target</a> = 0;</div>
+<div class="line"><span class="comment">// 模拟生成数据函数，数据上行时，会向alloc_buffer中写入从1开始的递增数据</span></div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_sim_param__t.html#a41152caa3992d550b51780110241a3a9">sim_stream_func</a> = [](<a class="code hl_variable" href="type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> buf, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> len) {</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;len; i++) {</div>
+<div class="line">*(buf+i-1) = (<span class="keywordtype">char</span> )i;</div>
+<div class="line">}</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">kit.link_cmd(&amp;param);</div>
+<div class="line">kit.link_stream(&amp;param);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> fd = kit.alloc_buffer(buf_len);</div>
+<div class="line"><span class="keyword">auto</span> data_ptr = kit.get_buffer(fd, buf_len);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 模拟开启采集要配置的寄存器</span></div>
+<div class="line">kit.write(0x10000000, 1);</div>
+<div class="line">kit.write(0x10000000, 0);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 第一个参数指定数据流通道，可为0~3</span></div>
+<div class="line">kit.stream_recv(0, fd, buf_len, 0);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (*(uint8_t *)data_ptr == 1) {</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;模拟上行数据成功&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="a_n_s_u_kit_8h_html"><div class="ttname"><a href="_n_s_u_kit_8h.html">NSUKit.h</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_n_s_u_soc_html"><div class="ttname"><a href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc</a></div><div class="ttdef"><b>Definition:</b> <a href="_n_s_u_kit_8h_source.html#l00031">NSUKit.h:31</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_sim_cmd_u_itf_html"><div class="ttname"><a href="classnsukit_1_1_sim_cmd_u_itf.html">nsukit::SimCmdUItf</a></div><div class="ttdef"><b>Definition:</b> <a href="sim__interface_8h_source.html#l00012">sim_interface.h:12</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_sim_stream_u_itf_html"><div class="ttname"><a href="classnsukit_1_1_sim_stream_u_itf.html">nsukit::SimStreamUItf</a></div><div class="ttdef"><b>Definition:</b> <a href="sim__interface_8h_source.html#l00040">sim_interface.h:40</a></div></div>
+<div class="ttc" id="adata__download_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="data__download_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="data__download_8cpp_source.html#l00150">data_download.cpp:150</a></div></div>
+<div class="ttc" id="astructnsu_init_param__t_html"><div class="ttname"><a href="structnsu_init_param__t.html">nsuInitParam_t</a></div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00128">type.h:128</a></div></div>
+<div class="ttc" id="astructnsu_sim_param__t_html_a41152caa3992d550b51780110241a3a9"><div class="ttname"><a href="structnsu_sim_param__t.html#a41152caa3992d550b51780110241a3a9">nsuSimParam_t::sim_stream_func</a></div><div class="ttdeci">void(* sim_stream_func)(nsuCharBuf_p buf, nsuSize_t length)</div><div class="ttdoc">向输入的内存中写入模拟数据的函数</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00108">type.h:108</a></div></div>
+<div class="ttc" id="astructnsu_sim_param__t_html_ab41cd0f2c7c8320a132d17cbbe9d8a4b"><div class="ttname"><a href="structnsu_sim_param__t.html#ab41cd0f2c7c8320a132d17cbbe9d8a4b">nsuSimParam_t::sim_target</a></div><div class="ttdeci">int sim_target</div><div class="ttdoc">模拟目标</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00107">type.h:107</a></div></div>
+<div class="ttc" id="atype_8h_html_a2b36603e2e6439d54042181e0f7fb0d2"><div class="ttname"><a href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a></div><div class="ttdeci">DLLEXTERN typedef nsuSize_t nsuStreamLen_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00068">type.h:68</a></div></div>
+<div class="ttc" id="atype_8h_html_a730c3323e6e03395ef7064d6c371a936"><div class="ttname"><a href="type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a></div><div class="ttdeci">DLLEXTERN typedef char * nsuCharBuf_p</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00062">type.h:62</a></div></div>
+</div><!-- fragment --></li>
+</ol>
+<hr  />
+<p><span id="数据流交互"></span></p>
+<h1><a class="anchor" id="autotoc_md27"></a>
+数据流交互</h1>
+<h2><a class="anchor" id="autotoc_md28"></a>
+同步接口</h2>
+<center><img src="block_stream_show.png" alt="" class="inline"/>     </center><ol type="1">
+<li>同步方式数据流交互接口: NSUSoc.stream_send、NSUSoc.stream_recv</li>
+<li>如下示例在host上申请了一片1G的内存，对前1kB写入数据递增数，将这1kB数据下发到板卡</li>
+</ol>
+<div class="fragment"><div class="line">kit.link_stream(&amp;param);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> buf_len = 1024*1024*1024;</div>
+<div class="line"><span class="keyword">auto</span> fd = kit.alloc_buffer(buf_len);</div>
+<div class="line"><span class="keyword">auto</span> data_ptr = kit.get_buffer(fd, buf_len);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (<span class="keywordtype">int</span> i =0; i&lt;1024*1024; i++) data_ptr[i] = i;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 第一个参数指定数据流通道，可为0~3，此函数会阻塞，只到数据流传输成功或报错/超时</span></div>
+<div class="line">kit.stream_send(0, fd, buf_len, 0);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
+异步方式</h2>
+<center><img src="async_stream_itf.png" alt="" class="inline"/>     </center><ol type="1">
+<li>提供异步数据流交互接口: NSUKit.open_send、NSUKit.open_recv、NSUKit.wait_stream、NSUKit.break_stream</li>
+<li>接口在开启数据流后立即返回，不等待说有数据传输完成，用户可以在数据流传输过程中继续执行其它操作</li>
+</ol>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="data__download_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]) {</div>
+<div class="line">   <span class="keyword">const</span> <span class="keywordtype">int</span> ds_chnl = 0;</div>
+<div class="line">std::ofstream outf;</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> kit{};</div>
+<div class="line"><a class="code hl_struct" href="structnsu_init_param__t.html">nsuInitParam_t</a> param;</div>
+<div class="line"> </div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;当前示例&quot;</span> &lt;&lt; argv[0]</div>
+<div class="line">     &lt;&lt; <span class="stringliteral">&quot;为展示基于PCIE的数据上行的接口调用示例，功能为从板卡0的数传通道0上行指定数量的数据并写入文件&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="keywordflow">if</span> (argc != 4) {</div>
+<div class="line">   std::cout &lt;&lt; <span class="stringliteral">&quot;不受支持的传参方法&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">std::cout &lt;&lt; argv[0] &lt;&lt; <span class="stringliteral">&quot; {IP} {totalBytes} {filePath}&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="keywordflow">return</span> 1;</div>
+<div class="line">}</div>
+<div class="line"><a class="code hl_variable" href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> total_len = std::atoi(argv[2]);</div>
+<div class="line"><span class="keywordflow">if</span> (total_len % 4 != 0) {</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;上行数据总长度total_len &quot;</span> &lt;&lt; total_len &lt;&lt; <span class="stringliteral">&quot;Bytes应为 &quot;</span> &lt;&lt; 4 &lt;&lt; <span class="stringliteral">&quot;Bytes的整倍数&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="keywordflow">return</span> 1;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 连接板卡</span></div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_t_c_p_param__t.html#a17083dac7fd693bbe871b16bee5ddbba">cmd_ip</a> = argv[1];</div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_x_d_m_a_param__t.html#a5a35713cb0b856f868fa1b58f9c7d39c">cmd_board</a> = 0;</div>
+<div class="line">param.<a class="code hl_variable" href="structnsu_x_d_m_a_param__t.html#ae2206cb6654abede717005d878479201">stream_board</a> = 0;</div>
+<div class="line"><span class="keyword">auto</span> res = kit.link_cmd(&amp;param);</div>
+<div class="line"><span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>) {</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;建立CS、CR连接：&quot;</span> &lt;&lt; <a class="code hl_function" href="namespacensukit.html#a2bee63ea91d6cafab8cd7d7eb2dbdd77">nsukit::status2_string</a>(res) &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line">res = kit.link_stream(&amp;param);</div>
+<div class="line"><span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>) {</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;建立DS连接：&quot;</span> &lt;&lt; <a class="code hl_function" href="namespacensukit.html#a2bee63ea91d6cafab8cd7d7eb2dbdd77">nsukit::status2_string</a>(res) &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 准备DS连接要用的内存</span></div>
+<div class="line"><a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> mem = kit.alloc_buffer(total_len);                 <span class="comment">// 申请内存</span></div>
+<div class="line"><span class="keyword">auto</span> ds_buf = (<span class="keywordtype">char</span> *)kit.get_buffer(mem, total_len);          <span class="comment">// 获取内存首指针</span></div>
+<div class="line"> </div>
+<div class="line">                                                                  <span class="comment">// 通知FPGA开始采集</span></div>
+<div class="line">res = kit.execute(<span class="stringliteral">&quot;系统开启&quot;</span>);</div>
+<div class="line"><span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>) {</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;系统开启：&quot;</span> &lt;&lt; <a class="code hl_function" href="namespacensukit.html#a2bee63ea91d6cafab8cd7d7eb2dbdd77">nsukit::status2_string</a>(res) &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 上行一个颗粒度的数据</span></div>
+<div class="line">res = kit.open_recv(ds_chnl, mem, total_len, 0);</div>
+<div class="line"><span class="keywordflow">if</span> (res == <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>) {</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;成功开启DS交互&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="keyword">auto</span> ds_state = <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7">nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING</a>;</div>
+<div class="line"><span class="keywordflow">while</span> (ds_state != <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>) {</div>
+<div class="line">ds_state = kit.wait_stream(mem, 1000.);</div>
+<div class="line"><span class="comment">//            std::cout &lt;&lt; &quot;wait_stream：&quot; &lt;&lt; nsukit::status2_string(ds_state) &lt;&lt; std::endl;</span></div>
+<div class="line">}</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">std::cout &lt;&lt; *(uint32_t *)ds_buf &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 通知FPGA开始采集</span></div>
+<div class="line">res = kit.execute(<span class="stringliteral">&quot;系统停止&quot;</span>);</div>
+<div class="line"><span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a>) {</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;系统停止：&quot;</span> &lt;&lt; <a class="code hl_function" href="namespacensukit.html#a2bee63ea91d6cafab8cd7d7eb2dbdd77">nsukit::status2_string</a>(res) &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 存盘</span></div>
+<div class="line">outf.open(argv[3], std::ofstream::binary);</div>
+<div class="line">outf.write(ds_buf, total_len);</div>
+<div class="line">outf.close();</div>
+<div class="line"> </div>
+<div class="line">kit.free_buffer(mem);  <span class="comment">// 释放内存</span></div>
+<div class="line"><span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespacensukit_html_a2bee63ea91d6cafab8cd7d7eb2dbdd77"><div class="ttname"><a href="namespacensukit.html#a2bee63ea91d6cafab8cd7d7eb2dbdd77">nsukit::status2_string</a></div><div class="ttdeci">std::string NSU_DLLEXPORT status2_string(nsukitStatus_t status)</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00015">config.cpp:15</a></div></div>
+<div class="ttc" id="astructnsu_t_c_p_param__t_html_a17083dac7fd693bbe871b16bee5ddbba"><div class="ttname"><a href="structnsu_t_c_p_param__t.html#a17083dac7fd693bbe871b16bee5ddbba">nsuTCPParam_t::cmd_ip</a></div><div class="ttdeci">std::string cmd_ip</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00078">type.h:78</a></div></div>
+<div class="ttc" id="astructnsu_x_d_m_a_param__t_html_a5a35713cb0b856f868fa1b58f9c7d39c"><div class="ttname"><a href="structnsu_x_d_m_a_param__t.html#a5a35713cb0b856f868fa1b58f9c7d39c">nsuXDMAParam_t::cmd_board</a></div><div class="ttdeci">nsuBoardNum_t cmd_board</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00094">type.h:94</a></div></div>
+<div class="ttc" id="astructnsu_x_d_m_a_param__t_html_ae2206cb6654abede717005d878479201"><div class="ttname"><a href="structnsu_x_d_m_a_param__t.html#ae2206cb6654abede717005d878479201">nsuXDMAParam_t::stream_board</a></div><div class="ttdeci">nsuBoardNum_t stream_board</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00100">type.h:100</a></div></div>
+<div class="ttc" id="atype_8h_html_a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99"><div class="ttname"><a href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">nsukitStatus_t::NSUKIT_STATUS_SUCCESS</a></div><div class="ttdeci">@ NSUKIT_STATUS_SUCCESS</div><div class="ttdoc">0 运行成功</div></div>
+<div class="ttc" id="atype_8h_html_a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7"><div class="ttname"><a href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7">nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING</a></div><div class="ttdeci">@ NSUKIT_STATUS_STREAM_RUNNING</div></div>
+<div class="ttc" id="atype_8h_html_a36ec38291b397ae7f8f7a784a2b857f5"><div class="ttname"><a href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a></div><div class="ttdeci">DLLEXTERN typedef size_t nsuSize_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00067">type.h:67</a></div></div>
+<div class="ttc" id="atype_8h_html_a4cad6ed355eee3b0ede0927b1c5ce39a"><div class="ttname"><a href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a></div><div class="ttdeci">DLLEXTERN typedef void * nsuMemory_p</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00066">type.h:66</a></div></div>
+</div><!-- fragment --><hr  />
+<center>Copyright © 2023 耐数 <a href="http://naishu.tech/" target="_blank">naishu.tech</a></center> <center>北京耐数电子有限公司</center> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>
