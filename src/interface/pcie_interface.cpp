@@ -179,7 +179,7 @@ nsuVoidBuf_p PCIEStreamUItf::get_buffer(nsuMemory_p fd, nsuStreamLen_t length) {
 
 nsukitStatus_t
 PCIEStreamUItf::open_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset) {
-    if ((chnl >= maxChnl) or(length % byteWidth != 0) or (offset % byteWidth != 0)) {
+    if ((chnl >= maxChnl) || (length % byteWidth != 0) || (offset % byteWidth != 0)) {
         return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
     }
     if (downloadProcess.find(fd) == downloadProcess.end()) {
@@ -197,7 +197,7 @@ PCIEStreamUItf::open_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t leng
 
 nsukitStatus_t
 PCIEStreamUItf::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset) {
-    if ((chnl >= maxChnl) or(length % byteWidth != 0) or (offset % byteWidth != 0)) {
+    if ((chnl >= maxChnl) || (length % byteWidth != 0) || (offset % byteWidth != 0)) {
         return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
     }
     if (uploadProcess.find(fd) == uploadProcess.end()) {

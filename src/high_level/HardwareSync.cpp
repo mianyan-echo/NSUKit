@@ -77,6 +77,11 @@ nsukitStatus_t nsukit::hl_hsync_sync(nsukit::BaseKit *master, nsukit::BaseKit **
     std::vector<nsukit::BaseKit *> slave_list;
 
     parse_cmd_str(cmd_str, cmds);
+    if (cmds.size() == 1) {
+        res |= master->execute(cmds[0]);
+        res |= parallel_execute(slave_list, cmds[0]);
+        return res;
+    }
     if (cmds.size() != 6) {
         return nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
     }
