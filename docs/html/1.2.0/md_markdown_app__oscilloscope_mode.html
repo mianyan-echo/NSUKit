@@ -99,7 +99,15 @@ $(document).ready(function(){initNavTree('md_markdown_app__oscilloscope_mode.htm
   <div class="headertitle"><div class="title">〽️Oscilloscope mode </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md84"></a>
+<div class="textblock"><ol type="1">
+<li><b>简述</b> ：本文档为CSA-8A模块(下简称模块/业务模块)示波器模式的软件编程文档，根据此文档可以初步应用CSA-8A模块的一下功能<ol type="a">
+<li>切换模块ADC采样率</li>
+<li>使用AD触发能力</li>
+<li>以数据流的形式获取多AD采集到的数据</li>
+</ol>
+</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md84"></a>
 1. 设备初始化</h1>
 <h2><a class="anchor" id="autotoc_md85"></a>
 1.1. 实例化Soc对象，并连接目标Soc</h2>
@@ -152,10 +160,14 @@ $(document).ready(function(){initNavTree('md_markdown_app__oscilloscope_mode.htm
 <li>初始化业务模块时，可配置模块的ADC、DAC采样率，是否开启上下变频等</li>
 <li>本例中将业务模块的ADC采样率配置为4000Msps，并通过执行<code>RF配置</code>指令，将参数配置给业务模块</li>
 </ol>
-<div class="fragment"><div class="line">...</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line">soc.set_param(<span class="stringliteral">&quot;ADC采样率&quot;</span>, 4000);</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> soc{};</div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.<a class="code hl_function" href="classnsukit_1_1_n_s_u_soc.html#a0dda1eab7ab0b8465067f12fa1c1f4e0">set_param</a>(<span class="stringliteral">&quot;ADC采样率&quot;</span>, 4000);</div>
 <div class="line">soc.execute(<span class="stringliteral">&quot;RF配置&quot;</span>);</div>
+<div class="ttc" id="aclassnsukit_1_1_n_s_u_soc_html_a0dda1eab7ab0b8465067f12fa1c1f4e0"><div class="ttname"><a href="classnsukit_1_1_n_s_u_soc.html#a0dda1eab7ab0b8465067f12fa1c1f4e0">nsukit::NSUSoc::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t name, T value)</div><div class="ttdef"><b>Definition:</b> <a href="_n_s_u_kit_8h_source.html#l00450">NSUKit.h:450</a></div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md87"></a>
 2. 触发配置</h1>
 <h2><a class="anchor" id="autotoc_md88"></a>
@@ -163,51 +175,67 @@ $(document).ready(function(){initNavTree('md_markdown_app__oscilloscope_mode.htm
 <ol type="1">
 <li>将CH0的触发使能打开，将触发电平设置为4096，</li>
 <li>将ADC采集到的电平进行int16量化后，所得量化值与此值(4096)做比较，大于此值则被触发</li>
-<li>通过 ADTriggerConfig 指令下发给设备</li>
+<li>通过 <code>ADTriggerConfig</code> 指令下发给设备</li>
 </ol>
-<div class="fragment"><div class="line">...</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line">soc.set_param(<span class="stringliteral">&quot;CH0TriggerEnable&quot;</span>, 1);</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> soc{};</div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.<a class="code hl_function" href="classnsukit_1_1_n_s_u_soc.html#a0dda1eab7ab0b8465067f12fa1c1f4e0">set_param</a>(<span class="stringliteral">&quot;CH0TriggerEnable&quot;</span>, 1);</div>
 <div class="line">soc.set_param(<span class="stringliteral">&quot;CH0TriggerLevel&quot;</span>, 4096);</div>
 <div class="line">soc.execute(<span class="stringliteral">&quot;ADTriggerConfig&quot;</span>);</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md89"></a>
 2.2. 配置预取点数</h2>
 <ol type="1">
-<li>将8个AD CH的预取点数配置为128<ol type="a">
+<li>将8个AD CH的预取点数配置为512<ol type="a">
 <li>此值应为16的整倍数，8个通道保持一致</li>
-<li>含义为预取在配置的触发电平TriggerLevel到来之前的PreTriggerPoints个点</li>
+<li>含义为预取在配置的触发电平<code>TriggerLevel</code>到来之前的<code>PreTriggerPoints</code>个点</li>
 </ol>
 </li>
-<li>通过 ADTriggerConfig 指令下发给设备</li>
+<li>通过 <code>ADTriggerConfig</code> 指令下发给设备</li>
 </ol>
-<div class="fragment"><div class="line">...</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line">soc.set_param(<span class="stringliteral">&quot;PreTriggerPoints&quot;</span>, 128);</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> soc{};</div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.<a class="code hl_function" href="classnsukit_1_1_n_s_u_soc.html#a0dda1eab7ab0b8465067f12fa1c1f4e0">set_param</a>(<span class="stringliteral">&quot;PreTriggerPoints&quot;</span>, 512);</div>
 <div class="line">soc.execute(<span class="stringliteral">&quot;ADTriggerConfig&quot;</span>);</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md90"></a>
 3. 多通道采集配置</h1>
 <h2><a class="anchor" id="autotoc_md91"></a>
 3.1. 配置采集总点数</h2>
 <ol type="1">
-<li>将8个ADC配置为采集128k点，通过 ADTriggerConfig 指令下发给设备</li>
-<li>**注意**：可在配置完ADTriggerConfig指令所携带的多个参数后，统一执行依次ADTriggerConfig</li>
+<li>将8个ADC配置为采集128k点，通过 <code>ADTriggerConfig</code> 指令下发给设备</li>
+<li>**注意**：可在配置完<code>ADTriggerConfig</code>指令所携带的多个参数后，统一执行一次<code>ADTriggerConfig</code></li>
 </ol>
-<div class="fragment"><div class="line">...</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line">soc.set_param(<span class="stringliteral">&quot;TotalTriggerPoints&quot;</span>, 128);</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> soc{};</div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.<a class="code hl_function" href="classnsukit_1_1_n_s_u_soc.html#a0dda1eab7ab0b8465067f12fa1c1f4e0">set_param</a>(<span class="stringliteral">&quot;TotalTriggerPoints&quot;</span>, 128);</div>
 <div class="line">soc.execute(<span class="stringliteral">&quot;ADTriggerConfig&quot;</span>);</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md92"></a>
 3.2. Start/Stop</h2>
 <ol type="1">
-<li>系统开启 <div class="fragment"><div class="line">...</div>
+<li>系统开启，此时如果有CH开启了触发模式，则对应CH每来一次符合电平要求的触发，每个CH都会采集 <code>TotalTriggerPoints</code>个点 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line">soc.set_param(<span class="stringliteral">&quot;基准PRF数量&quot;</span>, 0xFFFFFFFF);</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> soc{};</div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.<a class="code hl_function" href="classnsukit_1_1_n_s_u_soc.html#a0dda1eab7ab0b8465067f12fa1c1f4e0">set_param</a>(<span class="stringliteral">&quot;基准PRF数量&quot;</span>, 0xFFFFFFFF);</div>
 <div class="line">soc.set_param(<span class="stringliteral">&quot;基准PRF周期&quot;</span>, 1000);</div>
 <div class="line">soc.execute(<span class="stringliteral">&quot;系统开启&quot;</span>);</div>
 </div><!-- fragment --></li>
-<li>系统停止 <div class="fragment"><div class="line">...</div>
+<li>系统停止，在此状态下，模块不检测触发，无数据上行 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_n_s_u_kit_8h.html">NSUKit.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line">soc.execute(<span class="stringliteral">&quot;系统停止&quot;</span>);</div>
+<div class="line"><a class="code hl_class" href="classnsukit_1_1_n_s_u_soc.html">nsukit::NSUSoc&lt;nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf&gt;</a> soc{};</div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">soc.<a class="code hl_function" href="classnsukit_1_1_n_s_u_soc.html#a00dbd9f1f2e7e85415da45a7ac7c3080">execute</a>(<span class="stringliteral">&quot;系统停止&quot;</span>);</div>
+<div class="ttc" id="aclassnsukit_1_1_n_s_u_soc_html_a00dbd9f1f2e7e85415da45a7ac7c3080"><div class="ttname"><a href="classnsukit_1_1_n_s_u_soc.html#a00dbd9f1f2e7e85415da45a7ac7c3080">nsukit::NSUSoc::execute</a></div><div class="ttdeci">nsukitStatus_t execute(nsuCSParam_t cname) override</div><div class="ttdef"><b>Definition:</b> <a href="_n_s_u_kit_8h_source.html#l00423">NSUKit.h:423</a></div></div>
 </div><!-- fragment --></li>
 </ol>
 <h1><a class="anchor" id="autotoc_md93"></a>
