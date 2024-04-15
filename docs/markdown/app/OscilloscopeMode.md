@@ -1,5 +1,10 @@
 # 〽️Oscilloscope mode
 
+1. **简述** ：本文档为CSA-8A模块(下简称模块/业务模块)示波器模式的软件编程文档，根据此文档可以初步应用CSA-8A模块的一下功能
+   1. 切换模块ADC采样率
+   2. 使用AD触发能力
+   3. 以数据流的形式获取多AD采集到的数据
+
 ## 1. 设备初始化
 ### 1.1. 实例化Soc对象，并连接目标Soc
 1. 实例化一个NSUSoc类的对象soc， 
@@ -34,6 +39,9 @@ res |= soc.link_stream(&param);
 3. 本例中将业务模块的ADC采样率配置为4000Msps，并通过执行`RF配置`指令，将参数配置给业务模块
 
 ```cpp
+#include "NSUKit.h"
+ 
+nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> soc{};
 ...
 
 soc.set_param("ADC采样率", 4000);
@@ -45,9 +53,12 @@ soc.execute("RF配置");
 
 1. 将CH0的触发使能打开，将触发电平设置为4096，
 2. 将ADC采集到的电平进行int16量化后，所得量化值与此值(4096)做比较，大于此值则被触发
-3. 通过 ADTriggerConfig 指令下发给设备
+3. 通过 `ADTriggerConfig` 指令下发给设备
 
 ```cpp
+#include "NSUKit.h"
+ 
+nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> soc{};
 ...
 
 soc.set_param("CH0TriggerEnable", 1);
@@ -57,15 +68,18 @@ soc.execute("ADTriggerConfig");
 
 ### 2.2. 配置预取点数
 
-1. 将8个AD CH的预取点数配置为128
+1. 将8个AD CH的预取点数配置为512
    1. 此值应为16的整倍数，8个通道保持一致
-   2. 含义为预取在配置的触发电平TriggerLevel到来之前的PreTriggerPoints个点
-2. 通过 ADTriggerConfig 指令下发给设备
+   2. 含义为预取在配置的触发电平`TriggerLevel`到来之前的`PreTriggerPoints`个点
+2. 通过 `ADTriggerConfig` 指令下发给设备
 
 ```cpp
+#include "NSUKit.h"
+ 
+nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> soc{};
 ...
 
-soc.set_param("PreTriggerPoints", 128);
+soc.set_param("PreTriggerPoints", 512);
 soc.execute("ADTriggerConfig");
 ```
 
@@ -74,10 +88,13 @@ soc.execute("ADTriggerConfig");
 
 ### 3.1. 配置采集总点数
 
-1. 将8个ADC配置为采集128k点，通过 ADTriggerConfig 指令下发给设备
-2. **注意**：可在配置完ADTriggerConfig指令所携带的多个参数后，统一执行依次ADTriggerConfig
+1. 将8个ADC配置为采集128k点，通过 `ADTriggerConfig` 指令下发给设备
+2. **注意**：可在配置完`ADTriggerConfig`指令所携带的多个参数后，统一执行一次`ADTriggerConfig`
 
 ```cpp
+#include "NSUKit.h"
+ 
+nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> soc{};
 ...
 
 soc.set_param("TotalTriggerPoints", 128);
@@ -86,8 +103,11 @@ soc.execute("ADTriggerConfig");
 
 ### 3.2. Start/Stop
 
-1. 系统开启
+1. 系统开启，此时如果有CH开启了触发模式，则对应CH每来一次符合电平要求的触发，每个CH都会采集 `TotalTriggerPoints`个点
 ```cpp
+#include "NSUKit.h"
+ 
+nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> soc{};
 ...
 
 soc.set_param("基准PRF数量", 0xFFFFFFFF);
@@ -95,8 +115,11 @@ soc.set_param("基准PRF周期", 1000);
 soc.execute("系统开启");
 ```
 
-2. 系统停止
+2. 系统停止，在此状态下，模块不检测触发，无数据上行
 ```cpp
+#include "NSUKit.h"
+ 
+nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> soc{};
 ...
 
 soc.execute("系统停止");
