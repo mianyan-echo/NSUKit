@@ -16,7 +16,7 @@
 #include <fcntl.h>
 #elif _WIN32
 
-#include <winsock2.h>  // 在windows.h之前
+#include <winsock2.h>  //
 #include <windows.h>
 
 #pragma comment(lib, "ws2_32.lib")
@@ -25,10 +25,12 @@
 
 #endif
 
+#include "type.h"
+
 namespace nsukit {
     #define LISTEN_COUNT             5
     #define SELECT_TIMEOUT           1
-    #define RECV_DEFAULT_TIMEOUT     5000    // 接收超时时间5000ms
+    #define RECV_DEFAULT_TIMEOUT     5000
     #define BLOCK_SIZE               1024
 
 
@@ -65,7 +67,7 @@ namespace nsukit {
      * }
      * @endcode
      */
-    class SocketGenerator {
+    class NSU_DLLEXPORT SocketGenerator {
     private:
 #ifdef linux
         struct sockaddr_in addrSer;

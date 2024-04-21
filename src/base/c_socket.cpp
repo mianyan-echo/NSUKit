@@ -154,9 +154,13 @@ int SocketGenerator::ConnectServer(float connect_time) {
 int SocketGenerator::AcceptClient() {
     // Return -1 on failure
 #ifdef _WIN32
-    return accept(tcpServer, (SOCKADDR *) &addrCli, &addr_len);
+    tcpClient = accept(tcpServer, (SOCKADDR *) &addrCli, &addr_len);
+    tcpClientConnected = true;
+    return tcpClient;
 #else
-    return accept(tcpServer, (struct sockaddr*)&addrCli, &addr_len);
+    tcpClient = accept(tcpServer, (struct sockaddr*)&addrCli, &addr_len);
+    tcpClientConnected = true;
+    return tcpClient;
 #endif
 }
 
@@ -168,7 +172,7 @@ int SocketGenerator::RecvData(int s, char *buf, int len) {
     if (recv_count > 0) {
         return recv_count;
     } else {
-        // tcpClientConnected = false;
+         tcpClientConnected = false;
         return 0;
     }
 }
@@ -176,10 +180,11 @@ int SocketGenerator::RecvData(int s, char *buf, int len) {
 
 int SocketGenerator::SendData(int s, char *buf, int len) {
     int sent_count = send(s, buf, len, 0);
+    WSAGetLastError();
     if (sent_count > 0) {
         return sent_count;
     } else {
-        // tcpClientConnected = false;
+         tcpClientConnected = false;
         return 0;
     }
 }

@@ -89,7 +89,7 @@ soc.execute("ADTriggerConfig");
 ### 3.1. 配置采集总点数
 
 1. 将8个ADC配置为采集128k点，通过 `ADTriggerConfig` 指令下发给设备
-2. **注意**：可在配置完`ADTriggerConfig`指令所携带的多个参数后，统一执行一次`ADTriggerConfig`
+2. **注意** ：可在配置完`ADTriggerConfig`指令所携带的多个参数后，统一执行一次`ADTriggerConfig`
 
 ```cpp
 #include "NSUKit.h"
@@ -110,8 +110,6 @@ soc.execute("ADTriggerConfig");
 nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> soc{};
 ...
 
-soc.set_param("基准PRF数量", 0xFFFFFFFF);
-soc.set_param("基准PRF周期", 1000);
 soc.execute("系统开启");
 ```
 
