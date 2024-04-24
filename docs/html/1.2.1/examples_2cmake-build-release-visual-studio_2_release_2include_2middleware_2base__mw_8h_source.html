@@ -1,0 +1,234 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/examples/cmake-build-release-visual-studio/Release/include/middleware/base_mw.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.1</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2base__mw_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">base_mw.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2base__mw_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by 56585 on 2023/8/15.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef NSUKIT_BASE_MW_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define NSUKIT_BASE_MW_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;base/base_kit.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;interface/base_itf.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacensukit.html">nsukit</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">class </span><a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> U_Middleware {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classnsukit_1_1_u___middleware.html#a6393f26eda51bed14cd3862c8746980b">   14</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_u___middleware.html#a6393f26eda51bed14cd3862c8746980b">config</a>(<a class="code hl_struct" href="structnsu_init_param__t.html">nsuInitParam_t</a> *param) { <span class="keywordflow">return</span> nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    };</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">class </span><a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> I_BaseRegMw : <span class="keyword">public</span> U_Middleware {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#aa1e90ff0c4964c51397f620c82541d6b">   20</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#aa1e90ff0c4964c51397f620c82541d6b">I_BaseRegMw</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#af184c36f8740b8866ceb1080b85a108d">   22</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#af184c36f8740b8866ceb1080b85a108d">I_BaseRegMw</a>(<a class="code hl_class" href="classnsukit_1_1_i___base_cmd_u_itf.html">I_BaseCmdUItf</a> *kit) {}</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a23d3fa7a3a2f9c3c2cc915ed1467c44d">   24</a></span>        <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a23d3fa7a3a2f9c3c2cc915ed1467c44d">~I_BaseRegMw</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a151d29ff9d8a1db87c1ac38bd530c548">   26</a></span>        <span class="keyword">virtual</span> uint8_t <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a151d29ff9d8a1db87c1ac38bd530c548">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, uint8_t _default=0);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#ada408eca3ed2641fa15c1694561f9a9c">   27</a></span>        <span class="keyword">virtual</span> int8_t <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#ada408eca3ed2641fa15c1694561f9a9c">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, int8_t _default=0);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#ab0f4fa468bc6bae47c682bb18b76c5b0">   28</a></span>        <span class="keyword">virtual</span> uint16_t <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#ab0f4fa468bc6bae47c682bb18b76c5b0">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, uint16_t _default=0);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a6a2d45231f3c081bece0b202744c4c23">   29</a></span>        <span class="keyword">virtual</span> int16_t <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a6a2d45231f3c081bece0b202744c4c23">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, int16_t _default=0);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#aa48c94d3932f8faea132cbe2b7cfb32f">   30</a></span>        <span class="keyword">virtual</span> uint32_t <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#aa48c94d3932f8faea132cbe2b7cfb32f">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, uint32_t _default=0);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#adacd1a1892f81972e50f40efe6948317">   31</a></span>        <span class="keyword">virtual</span> int32_t <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#adacd1a1892f81972e50f40efe6948317">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, int32_t _default=0);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a15ed81a966b2a36cc74a28faeeaf402a">   32</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a15ed81a966b2a36cc74a28faeeaf402a">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keywordtype">double</span> _default=0.);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a06ef15967e13ed5ac9f313732d946ecd">   33</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a06ef15967e13ed5ac9f313732d946ecd">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keywordtype">float</span> _default=0.);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#ad79e835d51617f95d5feaa6696e98dff">   34</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#ad79e835d51617f95d5feaa6696e98dff">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, std::string _default=<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a3ac94ff2a2007d39ea548016033fb332">   37</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a3ac94ff2a2007d39ea548016033fb332">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> uint8_t &amp;value);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a32f4ef456455d88082f7a0794a7ebf4e">   38</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a32f4ef456455d88082f7a0794a7ebf4e">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> int8_t &amp;value);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a6761c1b8dbd68c07cbdd31f3b8627d8f">   39</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a6761c1b8dbd68c07cbdd31f3b8627d8f">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> uint16_t &amp;value);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a734f07bc36b998449ebab19635f47084">   40</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a734f07bc36b998449ebab19635f47084">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> int16_t &amp;value);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#ad1a53250e3a7ca348429742baa03f8c8">   41</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#ad1a53250e3a7ca348429742baa03f8c8">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> uint32_t &amp;value);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a4bd7632987f37d48879218bbd1fe687a">   42</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a4bd7632987f37d48879218bbd1fe687a">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> int32_t &amp;value);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#aac13e6c3a3b5e8ec764071195688c8b4">   43</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#aac13e6c3a3b5e8ec764071195688c8b4">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;value);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#aaa55de04c70d52a65b793e7343fa3f95">   44</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#aaa55de04c70d52a65b793e7343fa3f95">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;value);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a591627a60516e5010a95d0263cf585ee">   45</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a591627a60516e5010a95d0263cf585ee">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> std::string &amp;value);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_reg_mw.html#a5c4a130ba2772e74187fbb12f1cd1903">   47</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_reg_mw.html#a5c4a130ba2772e74187fbb12f1cd1903">execute</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a730c9b4a53bcba19f64397b467741c0f">nsuCSName_t</a> cname);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    };</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">class </span><a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> <a class="code hl_class" href="classnsukit_1_1_i___base_stream_mw.html">I_BaseStreamMw</a> : <span class="keyword">public</span> <a class="code hl_class" href="classnsukit_1_1_u___middleware.html">U_Middleware</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#ab1ee7dea19b61660736ef53e3fbef0b8">   53</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#ab1ee7dea19b61660736ef53e3fbef0b8">I_BaseStreamMw</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#a3f0dfb1120dfc8fe0632a203270d1883">   55</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#a3f0dfb1120dfc8fe0632a203270d1883">I_BaseStreamMw</a>(<a class="code hl_class" href="classnsukit_1_1_i___base_stream_u_itf.html">I_BaseStreamUItf</a> *itf) {};</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#a98887f05941bd355b4029d1b4297ebab">   58</a></span>        <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#a98887f05941bd355b4029d1b4297ebab">open_send</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a> chnl, <a class="code hl_variable" href="include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> offset = 0);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#ac7ec64314586f96c0d2d07202d3efd4e">   61</a></span>        <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#ac7ec64314586f96c0d2d07202d3efd4e">open_recv</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a> chnl, <a class="code hl_variable" href="include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> offset = 0);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#abf3a8eb3648f8b830dd6a73d3f2f0c1a">   63</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#abf3a8eb3648f8b830dd6a73d3f2f0c1a">wait_stream</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <span class="keywordtype">float</span> timeout = 1.);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#a0236b4b32b4455a1da78d1b3c70a8d0c">   65</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#a0236b4b32b4455a1da78d1b3c70a8d0c">break_stream</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#a05f2c719e9c7bacbff11fc63c8c6d865">   68</a></span>        <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#a05f2c719e9c7bacbff11fc63c8c6d865">stream_recv</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a> chnl, <a class="code hl_variable" href="include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> offset = 0,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    <span class="keywordtype">bool</span>(*stop_event) () = <span class="keyword">nullptr</span>, <span class="keywordtype">float</span> timeout = 5., <span class="keywordtype">int</span> flag = 1);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i___base_stream_mw.html#a0e9ea0e78188e81406dcf5175260e05c">   72</a></span>        <a class="code hl_function" href="classnsukit_1_1_i___base_stream_mw.html#a0e9ea0e78188e81406dcf5175260e05c">stream_send</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a> chnl, <a class="code hl_variable" href="include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <a class="code hl_variable" href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> offset = 0,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                    <span class="keywordtype">bool</span>(*stop_event) () = <span class="keyword">nullptr</span>, <span class="keywordtype">float</span> timeout = 5., <span class="keywordtype">int</span> flag = 1);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif </span><span class="comment">//NSUKIT_BASE_MW_H</span></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_cmd_u_itf_html"><div class="ttname"><a href="classnsukit_1_1_i___base_cmd_u_itf.html">nsukit::I_BaseCmdUItf</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2interface_2base__itf_8h_source.html#l00081">base_itf.h:81</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a06ef15967e13ed5ac9f313732d946ecd"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a06ef15967e13ed5ac9f313732d946ecd">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual float get_param(nsuCSParam_t &amp;param_name, float _default=0.)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a151d29ff9d8a1db87c1ac38bd530c548"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a151d29ff9d8a1db87c1ac38bd530c548">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual uint8_t get_param(nsuCSParam_t &amp;param_name, uint8_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a15ed81a966b2a36cc74a28faeeaf402a"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a15ed81a966b2a36cc74a28faeeaf402a">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual double get_param(nsuCSParam_t &amp;param_name, double _default=0.)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a23d3fa7a3a2f9c3c2cc915ed1467c44d"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a23d3fa7a3a2f9c3c2cc915ed1467c44d">nsukit::I_BaseRegMw::~I_BaseRegMw</a></div><div class="ttdeci">~I_BaseRegMw()=default</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a32f4ef456455d88082f7a0794a7ebf4e"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a32f4ef456455d88082f7a0794a7ebf4e">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const int8_t &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a3ac94ff2a2007d39ea548016033fb332"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a3ac94ff2a2007d39ea548016033fb332">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const uint8_t &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a4bd7632987f37d48879218bbd1fe687a"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a4bd7632987f37d48879218bbd1fe687a">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const int32_t &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a591627a60516e5010a95d0263cf585ee"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a591627a60516e5010a95d0263cf585ee">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const std::string &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a5c4a130ba2772e74187fbb12f1cd1903"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a5c4a130ba2772e74187fbb12f1cd1903">nsukit::I_BaseRegMw::execute</a></div><div class="ttdeci">virtual nsukitStatus_t execute(nsuCSName_t cname)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a6761c1b8dbd68c07cbdd31f3b8627d8f"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a6761c1b8dbd68c07cbdd31f3b8627d8f">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const uint16_t &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a6a2d45231f3c081bece0b202744c4c23"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a6a2d45231f3c081bece0b202744c4c23">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual int16_t get_param(nsuCSParam_t &amp;param_name, int16_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_a734f07bc36b998449ebab19635f47084"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#a734f07bc36b998449ebab19635f47084">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const int16_t &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_aa1e90ff0c4964c51397f620c82541d6b"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#aa1e90ff0c4964c51397f620c82541d6b">nsukit::I_BaseRegMw::I_BaseRegMw</a></div><div class="ttdeci">I_BaseRegMw()=default</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_aa48c94d3932f8faea132cbe2b7cfb32f"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#aa48c94d3932f8faea132cbe2b7cfb32f">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual uint32_t get_param(nsuCSParam_t &amp;param_name, uint32_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_aaa55de04c70d52a65b793e7343fa3f95"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#aaa55de04c70d52a65b793e7343fa3f95">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const float &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_aac13e6c3a3b5e8ec764071195688c8b4"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#aac13e6c3a3b5e8ec764071195688c8b4">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const double &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_ab0f4fa468bc6bae47c682bb18b76c5b0"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#ab0f4fa468bc6bae47c682bb18b76c5b0">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual uint16_t get_param(nsuCSParam_t &amp;param_name, uint16_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_ad1a53250e3a7ca348429742baa03f8c8"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#ad1a53250e3a7ca348429742baa03f8c8">nsukit::I_BaseRegMw::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const uint32_t &amp;value)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_ad79e835d51617f95d5feaa6696e98dff"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#ad79e835d51617f95d5feaa6696e98dff">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual std::string get_param(nsuCSParam_t &amp;param_name, std::string _default=&quot;&quot;)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_ada408eca3ed2641fa15c1694561f9a9c"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#ada408eca3ed2641fa15c1694561f9a9c">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual int8_t get_param(nsuCSParam_t &amp;param_name, int8_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_adacd1a1892f81972e50f40efe6948317"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#adacd1a1892f81972e50f40efe6948317">nsukit::I_BaseRegMw::get_param</a></div><div class="ttdeci">virtual int32_t get_param(nsuCSParam_t &amp;param_name, int32_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_reg_mw_html_af184c36f8740b8866ceb1080b85a108d"><div class="ttname"><a href="classnsukit_1_1_i___base_reg_mw.html#af184c36f8740b8866ceb1080b85a108d">nsukit::I_BaseRegMw::I_BaseRegMw</a></div><div class="ttdeci">I_BaseRegMw(I_BaseCmdUItf *kit)</div><div class="ttdef"><b>Definition:</b> <a href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2base__mw_8h_source.html#l00022">base_mw.h:22</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html">nsukit::I_BaseStreamMw</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2base__mw_8h_source.html#l00051">base_mw.h:51</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_a0236b4b32b4455a1da78d1b3c70a8d0c"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#a0236b4b32b4455a1da78d1b3c70a8d0c">nsukit::I_BaseStreamMw::break_stream</a></div><div class="ttdeci">virtual nsukitStatus_t break_stream(nsuMemory_p fd)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_a05f2c719e9c7bacbff11fc63c8c6d865"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#a05f2c719e9c7bacbff11fc63c8c6d865">nsukit::I_BaseStreamMw::stream_recv</a></div><div class="ttdeci">virtual nsukitStatus_t stream_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0, bool(*stop_event)()=nullptr, float timeout=5., int flag=1)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_a0e9ea0e78188e81406dcf5175260e05c"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#a0e9ea0e78188e81406dcf5175260e05c">nsukit::I_BaseStreamMw::stream_send</a></div><div class="ttdeci">virtual nsukitStatus_t stream_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0, bool(*stop_event)()=nullptr, float timeout=5., int flag=1)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_a3f0dfb1120dfc8fe0632a203270d1883"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#a3f0dfb1120dfc8fe0632a203270d1883">nsukit::I_BaseStreamMw::I_BaseStreamMw</a></div><div class="ttdeci">I_BaseStreamMw(I_BaseStreamUItf *itf)</div><div class="ttdef"><b>Definition:</b> <a href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2base__mw_8h_source.html#l00055">base_mw.h:55</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_a98887f05941bd355b4029d1b4297ebab"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#a98887f05941bd355b4029d1b4297ebab">nsukit::I_BaseStreamMw::open_send</a></div><div class="ttdeci">virtual nsukitStatus_t open_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_ab1ee7dea19b61660736ef53e3fbef0b8"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#ab1ee7dea19b61660736ef53e3fbef0b8">nsukit::I_BaseStreamMw::I_BaseStreamMw</a></div><div class="ttdeci">I_BaseStreamMw()=default</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_abf3a8eb3648f8b830dd6a73d3f2f0c1a"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#abf3a8eb3648f8b830dd6a73d3f2f0c1a">nsukit::I_BaseStreamMw::wait_stream</a></div><div class="ttdeci">virtual nsukitStatus_t wait_stream(nsuMemory_p fd, float timeout=1.)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_mw_html_ac7ec64314586f96c0d2d07202d3efd4e"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_mw.html#ac7ec64314586f96c0d2d07202d3efd4e">nsukit::I_BaseStreamMw::open_recv</a></div><div class="ttdeci">virtual nsukitStatus_t open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_stream_u_itf_html"><div class="ttname"><a href="classnsukit_1_1_i___base_stream_u_itf.html">nsukit::I_BaseStreamUItf</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2interface_2base__itf_8h_source.html#l00224">base_itf.h:224</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_u___middleware_html"><div class="ttname"><a href="classnsukit_1_1_u___middleware.html">nsukit::U_Middleware</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2base__mw_8h_source.html#l00012">base_mw.h:12</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_u___middleware_html_a6393f26eda51bed14cd3862c8746980b"><div class="ttname"><a href="classnsukit_1_1_u___middleware.html#a6393f26eda51bed14cd3862c8746980b">nsukit::U_Middleware::config</a></div><div class="ttdeci">virtual nsukitStatus_t config(nsuInitParam_t *param)</div><div class="ttdef"><b>Definition:</b> <a href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2base__mw_8h_source.html#l00014">base_mw.h:14</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a2b36603e2e6439d54042181e0f7fb0d2"><div class="ttname"><a href="include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a></div><div class="ttdeci">DLLEXTERN typedef nsuSize_t nsuStreamLen_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00087">type.h:87</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a324a8aa029ee38ccd1e011c882c0abc7"><div class="ttname"><a href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div><div class="ttdeci">nsukitStatus_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00052">type.h:52</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a470f44efe052bcf0e83ab4a6aa5ccc54"><div class="ttname"><a href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div><div class="ttdeci">#define NSU_DLLEXPORT</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00018">type.h:18</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a4cad6ed355eee3b0ede0927b1c5ce39a"><div class="ttname"><a href="include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a></div><div class="ttdeci">DLLEXTERN typedef void * nsuMemory_p</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00085">type.h:85</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a6406d9827fe2b2fee91118a4a44822eb"><div class="ttname"><a href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a></div><div class="ttdeci">DLLEXTERN typedef std::string nsuCSParam_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00090">type.h:90</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a730c9b4a53bcba19f64397b467741c0f"><div class="ttname"><a href="include_2base_2type_8h.html#a730c9b4a53bcba19f64397b467741c0f">nsuCSName_t</a></div><div class="ttdeci">DLLEXTERN typedef std::string nsuCSName_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00091">type.h:91</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_aaf489189677bc98aef379998c0203db3"><div class="ttname"><a href="include_2base_2type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a></div><div class="ttdeci">DLLEXTERN typedef uint8_t nsuChnlNum_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00084">type.h:84</a></div></div>
+<div class="ttc" id="anamespacensukit_html"><div class="ttname"><a href="namespacensukit.html">nsukit</a></div><div class="ttdef"><b>Definition:</b> <a href="json__icd__wrapper_8h_source.html#l00011">json_icd_wrapper.h:11</a></div></div>
+<div class="ttc" id="astructnsu_init_param__t_html"><div class="ttname"><a href="structnsu_init_param__t.html">nsuInitParam_t</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00148">type.h:148</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="dir_c7f34d84649281ecbcbdd8b37f74e33c.html">cmake-build-release-visual-studio</a></li><li class="navelem"><a class="el" href="dir_b61c2086d72fac55eabe7b3ba383f456.html">Release</a></li><li class="navelem"><a class="el" href="dir_744aa0a50dc4520a49bc6ccb4dff93aa.html">include</a></li><li class="navelem"><a class="el" href="dir_96c2f3d841a9733bdc41fb821695ed64.html">middleware</a></li><li class="navelem"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2base__mw_8h.html">base_mw.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

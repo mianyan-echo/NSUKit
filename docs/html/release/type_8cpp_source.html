@@ -1,0 +1,166 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/src/base/type.cpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.1</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('type_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">type.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="type_8cpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by 56585 on 2023/8/16.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;base/type.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_thread_safe_event.html#a91c21474d9b62745a2a3bc087802d499">    7</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_thread_safe_event.html#a91c21474d9b62745a2a3bc087802d499">ThreadSafeEvent::isSet</a>() {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    std::lock_guard&lt;std::mutex&gt; lock(mtx);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordflow">return</span> eventOccurred;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_thread_safe_event.html#ae65796e7406ab039bb5f60b8e722b2d4">   13</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_thread_safe_event.html#ae65796e7406ab039bb5f60b8e722b2d4">ThreadSafeEvent::setEvent</a>() {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        std::lock_guard&lt;std::mutex&gt; lock(mtx);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        eventOccurred = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    cv.notify_one();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_thread_safe_event.html#a5c6f47cedaf7fcfd6337254f216fe46d">   22</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_thread_safe_event.html#a5c6f47cedaf7fcfd6337254f216fe46d">ThreadSafeEvent::waitForEvent</a>(<span class="keywordtype">int</span> timeout) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::unique_lock&lt;std::mutex&gt; lock(mtx);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (timeout&gt;0) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> cv.wait_for(lock, std::chrono::seconds(timeout), [&amp;]{ <span class="keywordflow">return</span> eventOccurred; });</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        cv.wait(lock, [&amp;]{ <span class="keywordflow">return</span> eventOccurred; });</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_thread_safe_event.html#a36b0b02812fdbddf8fefe545f3c5514a">   33</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_thread_safe_event.html#a36b0b02812fdbddf8fefe545f3c5514a">ThreadSafeEvent::resetEvent</a>() {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::lock_guard&lt;std::mutex&gt; lock(mtx);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    eventOccurred = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="type_8cpp.html#aca22d215a591b818343ecca963ac750b">   45</a></span><a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="type_8cpp.html#aca22d215a591b818343ecca963ac750b">operator| </a>(<a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> lhs, <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> rhs) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a><span class="keyword">&gt;</span>((int)lhs | (<span class="keywordtype">int</span>)rhs);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="type_8cpp.html#a1bfc74d30c03f70296bb9f75b4152fb0">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="type_8cpp.html#a1bfc74d30c03f70296bb9f75b4152fb0">operator|= </a>(<a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> &amp;lhs, <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> rhs) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// 传入左值采用传引用方式，而后将这个引用指向一个新的值，并且不用返回新的值</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    lhs = <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a><span class="keyword">&gt;</span>((int)lhs | (<span class="keywordtype">int</span>)rhs);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+<div class="ttc" id="aclass_thread_safe_event_html_a36b0b02812fdbddf8fefe545f3c5514a"><div class="ttname"><a href="class_thread_safe_event.html#a36b0b02812fdbddf8fefe545f3c5514a">ThreadSafeEvent::resetEvent</a></div><div class="ttdeci">void resetEvent()</div><div class="ttdef"><b>Definition:</b> <a href="type_8cpp_source.html#l00033">type.cpp:33</a></div></div>
+<div class="ttc" id="aclass_thread_safe_event_html_a5c6f47cedaf7fcfd6337254f216fe46d"><div class="ttname"><a href="class_thread_safe_event.html#a5c6f47cedaf7fcfd6337254f216fe46d">ThreadSafeEvent::waitForEvent</a></div><div class="ttdeci">bool waitForEvent(int timeout=0)</div><div class="ttdef"><b>Definition:</b> <a href="type_8cpp_source.html#l00022">type.cpp:22</a></div></div>
+<div class="ttc" id="aclass_thread_safe_event_html_a91c21474d9b62745a2a3bc087802d499"><div class="ttname"><a href="class_thread_safe_event.html#a91c21474d9b62745a2a3bc087802d499">ThreadSafeEvent::isSet</a></div><div class="ttdeci">bool isSet()</div><div class="ttdef"><b>Definition:</b> <a href="type_8cpp_source.html#l00007">type.cpp:7</a></div></div>
+<div class="ttc" id="aclass_thread_safe_event_html_ae65796e7406ab039bb5f60b8e722b2d4"><div class="ttname"><a href="class_thread_safe_event.html#ae65796e7406ab039bb5f60b8e722b2d4">ThreadSafeEvent::setEvent</a></div><div class="ttdeci">void setEvent()</div><div class="ttdef"><b>Definition:</b> <a href="type_8cpp_source.html#l00013">type.cpp:13</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a324a8aa029ee38ccd1e011c882c0abc7"><div class="ttname"><a href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div><div class="ttdeci">nsukitStatus_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00052">type.h:52</a></div></div>
+<div class="ttc" id="atype_8cpp_html_a1bfc74d30c03f70296bb9f75b4152fb0"><div class="ttname"><a href="type_8cpp.html#a1bfc74d30c03f70296bb9f75b4152fb0">operator|=</a></div><div class="ttdeci">void operator|=(nsukitStatus_t &amp;lhs, nsukitStatus_t rhs)</div><div class="ttdef"><b>Definition:</b> <a href="type_8cpp_source.html#l00055">type.cpp:55</a></div></div>
+<div class="ttc" id="atype_8cpp_html_aca22d215a591b818343ecca963ac750b"><div class="ttname"><a href="type_8cpp.html#aca22d215a591b818343ecca963ac750b">operator|</a></div><div class="ttdeci">nsukitStatus_t operator|(nsukitStatus_t lhs, nsukitStatus_t rhs)</div><div class="ttdef"><b>Definition:</b> <a href="type_8cpp_source.html#l00045">type.cpp:45</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0af1587c8378955de40f48b4bd1869f0.html">base</a></li><li class="navelem"><a class="el" href="type_8cpp.html">type.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

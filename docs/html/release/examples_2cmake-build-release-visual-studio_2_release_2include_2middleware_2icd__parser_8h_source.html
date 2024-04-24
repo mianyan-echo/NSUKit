@@ -1,0 +1,286 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/examples/cmake-build-release-visual-studio/Release/include/middleware/icd_parser.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.1</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">icd_parser.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by 56585 on 2023/8/14.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef NSUKIT_ICD_PARSER_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define NSUKIT_ICD_PARSER_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="include_2middleware_2base__mw_8h.html">base_mw.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacensukit.html">nsukit</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#ae3428cd2ac62e0ac83769ee84fd82426">   15</a></span><span class="preprocessor">#define ICD_Uint8                     &quot;uint8&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a43f1c48532296ec8101356ad8d85d247">   16</a></span><span class="preprocessor">#define ICD_Int8                      &quot;int8&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#aa07d72d8d4360de4313c58bb8188a2d8">   17</a></span><span class="preprocessor">#define ICD_Uint16                    &quot;uint16&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a8c79869274df1736ac2fd23c05c25b31">   18</a></span><span class="preprocessor">#define ICD_Int16                     &quot;int16&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a443ad29fe8acd3ac20ee1124361ea27e">   19</a></span><span class="preprocessor">#define ICD_Uint32                    &quot;uint32&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a1fe53516d704c24d209bc6613819074e">   20</a></span><span class="preprocessor">#define ICD_Int32                     &quot;int32&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a28e49b73912d43d29a3eab2872ab322a">   21</a></span><span class="preprocessor">#define ICD_Float                     &quot;float&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a1f5ffeca42e3c0796786955fb3af26b2">   22</a></span><span class="preprocessor">#define ICD_Double                    &quot;double&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#acf6c8b4716cff85c26a4a55f7f6c8490">   23</a></span><span class="preprocessor">#define ICD_File                      &quot;file&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a483e852377641fd918f67b93031dc4d2">   24</a></span><span class="preprocessor">#define ICD_FileLength                &quot;filelength&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a677b6035e0f2a174ab295efeb2950584">   25</a></span><span class="preprocessor">#define ICD_ParamFlag_File            &quot;__file__&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html#a7e90c6b7fd22411ab29887f3542dafad">   26</a></span><span class="preprocessor">#define ICD_ParamFlag_FileLength      &quot;__filelength__&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacensukit.html#a3a9c7bb27fe71bcc46cdd7a4fa8273f9">   29</a></span>    <span class="keyword">static</span> std::map&lt;std::string, int&gt; <a class="code hl_variable" href="namespacensukit.html#a3a9c7bb27fe71bcc46cdd7a4fa8273f9">TypeSizeMap</a> = {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#ae3428cd2ac62e0ac83769ee84fd82426">ICD_Uint8</a>,      1},</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#a43f1c48532296ec8101356ad8d85d247">ICD_Int8</a>,       1},</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#aa07d72d8d4360de4313c58bb8188a2d8">ICD_Uint16</a>,     2},</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#a8c79869274df1736ac2fd23c05c25b31">ICD_Int16</a>,      2},</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#a443ad29fe8acd3ac20ee1124361ea27e">ICD_Uint32</a>,     4},</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#a1fe53516d704c24d209bc6613819074e">ICD_Int32</a>,      4},</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#a28e49b73912d43d29a3eab2872ab322a">ICD_Float</a>,      4},</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#a483e852377641fd918f67b93031dc4d2">ICD_FileLength</a>, 4},</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            {<a class="code hl_define" href="include_2middleware_2icd__parser_8h.html#a1f5ffeca42e3c0796786955fb3af26b2">ICD_Double</a>,     8}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">struct </span>CommandPack {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordtype">char</span> *<a class="code hl_variable" href="structnsukit_1_1_command_pack.html#a9626910dde6fc15117e6f079494a2025">bytes</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_variable" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> <a class="code hl_variable" href="structnsukit_1_1_command_pack.html#af08e6f91e8ed332f3fbfe53b068c968d">length</a> = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_variable" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> <a class="code hl_variable" href="structnsukit_1_1_command_pack.html#adf93212def2bde119606cd25b92fc58c">recvLen</a> = 0;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    };</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacensukit.html#a64e6e7556fc72f0de99f4d4900b9e10d">DeleteCommandPack</a>(CommandPack *pack);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> uint32_t <a class="code hl_function" href="namespacensukit.html#a70fc022b250a983e2017e65731a69ef2">GetFileSize</a>(<span class="keyword">const</span> std::string &amp;file_path);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacensukit.html#a880aca13723045becb2954a1dbee657e">StringEndWith</a>(std::string_view str, std::string_view tail);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacensukit.html#a779371f080af6f6611e432ef919c37c6">StringStartWith</a>(std::string_view str, std::string_view head);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">class </span>JsonWrapper;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">class </span><a class="code hl_define" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> ICDRegMw : <span class="keyword">public</span> I_BaseRegMw {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        I_BaseCmdUItf *cs_itf;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        std::string icdPath{};</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        JsonWrapper *icd;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">bool</span> checkFeedback = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a41f27e56984c46d9c3bb793d77742d6f">   72</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a41f27e56984c46d9c3bb793d77742d6f">EnableParam</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a730c9b4a53bcba19f64397b467741c0f">nsuCSName_t</a> cname, <a class="code hl_variable" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> buf);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a095f0001eaf07fbb3f6a95954289d22f">   74</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a095f0001eaf07fbb3f6a95954289d22f">set_param_by_tname</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> pname, std::string type, <a class="code hl_variable" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> buf);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a41d2eaad5ba0cf107c5ef54c6968153f">   78</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a41d2eaad5ba0cf107c5ef54c6968153f">ICDRegMw</a>(<a class="code hl_class" href="classnsukit_1_1_i___base_cmd_u_itf.html">I_BaseCmdUItf</a> *itf);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a22adefae377cbb5c832536c79923311e">   80</a></span>        <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a22adefae377cbb5c832536c79923311e">~ICDRegMw</a>();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a2a519d9006fe500ed668df6ce0172312">   82</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a2a519d9006fe500ed668df6ce0172312">config</a>(<a class="code hl_struct" href="structnsu_init_param__t.html">nsuInitParam_t</a> *param) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a890bd26f7c41cef63672042cb7e96b6a">   84</a></span>        <a class="code hl_struct" href="structnsukit_1_1_command_pack.html">CommandPack</a> *<a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a890bd26f7c41cef63672042cb7e96b6a">FmtCommand</a>(<span class="keyword">const</span> std::string &amp;cmd_name, <span class="keyword">const</span> std::string &amp;file_path = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#ad69c5873635c29f3ead70add833d4890">   86</a></span>        uint8_t <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#ad69c5873635c29f3ead70add833d4890">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, uint8_t _default = 0);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a610a10e6b59db962154fcbdc85b3982e">   88</a></span>        int8_t <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a610a10e6b59db962154fcbdc85b3982e">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, int8_t _default = 0);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a27c69fea0b12d8b3455e4c15f1796b1b">   90</a></span>        uint16_t <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a27c69fea0b12d8b3455e4c15f1796b1b">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, uint16_t _default = 0);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#af0aabd66159c943c36bbdcbf0108f007">   92</a></span>        int16_t <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#af0aabd66159c943c36bbdcbf0108f007">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, int16_t _default = 0);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a89a6531daa1aba4bee4f6fd2d4a2d512">   94</a></span>        uint32_t <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a89a6531daa1aba4bee4f6fd2d4a2d512">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, uint32_t _default = 0);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#ac77cfa1cd12c7c9bfb6a8dc5be261956">   96</a></span>        int32_t <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#ac77cfa1cd12c7c9bfb6a8dc5be261956">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, int32_t _default = 0);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#abae9d3b457463126dce5525826d46736">   98</a></span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#abae9d3b457463126dce5525826d46736">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keywordtype">double</span> _default = 0.);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a925643a467815bc8914f5bff9cbfee13">  100</a></span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a925643a467815bc8914f5bff9cbfee13">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keywordtype">float</span> _default = 0.);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a755b8e38ad3dffae4b4e4510d2ba3594">  102</a></span>        std::string <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a755b8e38ad3dffae4b4e4510d2ba3594">get_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, std::string _default = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a0a08b706a30394d5c8b5c2091c725878">  104</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a0a08b706a30394d5c8b5c2091c725878">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> uint8_t &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a14aba05737d3bb17b80f01c57eb26a50">  106</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a14aba05737d3bb17b80f01c57eb26a50">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> int8_t &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a5517a7454dcbf4623a89f14f378b75f8">  108</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a5517a7454dcbf4623a89f14f378b75f8">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> uint16_t &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#af04176db8fc88fb9996a4378c08e19e6">  110</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#af04176db8fc88fb9996a4378c08e19e6">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> int16_t &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a359cb0b083e1b19591caafe7de098dd9">  112</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a359cb0b083e1b19591caafe7de098dd9">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> uint32_t &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a13d6be73d23f8361c80bcebaada15a9f">  114</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a13d6be73d23f8361c80bcebaada15a9f">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> int32_t &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a0a207a2ee77da0b32a7892da3340cb6d">  116</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a0a207a2ee77da0b32a7892da3340cb6d">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#ad9823d8e8a324b6f438e9ccefb7beec4">  118</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#ad9823d8e8a324b6f438e9ccefb7beec4">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#a1c072c8c99346a08bb8b6c0141e25231">  120</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#a1c072c8c99346a08bb8b6c0141e25231">set_param</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a> &amp;param_name, <span class="keyword">const</span> std::string &amp;value) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classnsukit_1_1_i_c_d_reg_mw.html#aeb879f726046d3d65885528e1dc3c6b3">  122</a></span>        <a class="code hl_enumeration" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="classnsukit_1_1_i_c_d_reg_mw.html#aeb879f726046d3d65885528e1dc3c6b3">execute</a>(<a class="code hl_variable" href="include_2base_2type_8h.html#a730c9b4a53bcba19f64397b467741c0f">nsuCSName_t</a> cname) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    };</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#endif </span><span class="comment">//NSUKIT_ICD_PARSER_H</span></div>
+<div class="ttc" id="aclassnsukit_1_1_i___base_cmd_u_itf_html"><div class="ttname"><a href="classnsukit_1_1_i___base_cmd_u_itf.html">nsukit::I_BaseCmdUItf</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2interface_2base__itf_8h_source.html#l00081">base_itf.h:81</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a095f0001eaf07fbb3f6a95954289d22f"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a095f0001eaf07fbb3f6a95954289d22f">nsukit::ICDRegMw::set_param_by_tname</a></div><div class="ttdeci">nsukitStatus_t set_param_by_tname(nsuCSParam_t pname, std::string type, nsuCharBuf_p buf)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a0a08b706a30394d5c8b5c2091c725878"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a0a08b706a30394d5c8b5c2091c725878">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const uint8_t &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a0a207a2ee77da0b32a7892da3340cb6d"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a0a207a2ee77da0b32a7892da3340cb6d">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const double &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a13d6be73d23f8361c80bcebaada15a9f"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a13d6be73d23f8361c80bcebaada15a9f">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const int32_t &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a14aba05737d3bb17b80f01c57eb26a50"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a14aba05737d3bb17b80f01c57eb26a50">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const int8_t &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a1c072c8c99346a08bb8b6c0141e25231"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a1c072c8c99346a08bb8b6c0141e25231">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const std::string &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a22adefae377cbb5c832536c79923311e"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a22adefae377cbb5c832536c79923311e">nsukit::ICDRegMw::~ICDRegMw</a></div><div class="ttdeci">~ICDRegMw()</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a27c69fea0b12d8b3455e4c15f1796b1b"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a27c69fea0b12d8b3455e4c15f1796b1b">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">uint16_t get_param(nsuCSParam_t &amp;param_name, uint16_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a2a519d9006fe500ed668df6ce0172312"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a2a519d9006fe500ed668df6ce0172312">nsukit::ICDRegMw::config</a></div><div class="ttdeci">nsukitStatus_t config(nsuInitParam_t *param) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a359cb0b083e1b19591caafe7de098dd9"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a359cb0b083e1b19591caafe7de098dd9">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const uint32_t &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a41d2eaad5ba0cf107c5ef54c6968153f"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a41d2eaad5ba0cf107c5ef54c6968153f">nsukit::ICDRegMw::ICDRegMw</a></div><div class="ttdeci">ICDRegMw(I_BaseCmdUItf *itf)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a41f27e56984c46d9c3bb793d77742d6f"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a41f27e56984c46d9c3bb793d77742d6f">nsukit::ICDRegMw::EnableParam</a></div><div class="ttdeci">nsukitStatus_t EnableParam(nsuCSName_t cname, nsuCharBuf_p buf)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a5517a7454dcbf4623a89f14f378b75f8"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a5517a7454dcbf4623a89f14f378b75f8">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const uint16_t &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a610a10e6b59db962154fcbdc85b3982e"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a610a10e6b59db962154fcbdc85b3982e">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">int8_t get_param(nsuCSParam_t &amp;param_name, int8_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a755b8e38ad3dffae4b4e4510d2ba3594"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a755b8e38ad3dffae4b4e4510d2ba3594">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">std::string get_param(nsuCSParam_t &amp;param_name, std::string _default=&quot;&quot;)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a890bd26f7c41cef63672042cb7e96b6a"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a890bd26f7c41cef63672042cb7e96b6a">nsukit::ICDRegMw::FmtCommand</a></div><div class="ttdeci">CommandPack * FmtCommand(const std::string &amp;cmd_name, const std::string &amp;file_path=&quot;&quot;)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a89a6531daa1aba4bee4f6fd2d4a2d512"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a89a6531daa1aba4bee4f6fd2d4a2d512">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">uint32_t get_param(nsuCSParam_t &amp;param_name, uint32_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_a925643a467815bc8914f5bff9cbfee13"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#a925643a467815bc8914f5bff9cbfee13">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">float get_param(nsuCSParam_t &amp;param_name, float _default=0.)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_abae9d3b457463126dce5525826d46736"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#abae9d3b457463126dce5525826d46736">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">double get_param(nsuCSParam_t &amp;param_name, double _default=0.)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_ac77cfa1cd12c7c9bfb6a8dc5be261956"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#ac77cfa1cd12c7c9bfb6a8dc5be261956">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">int32_t get_param(nsuCSParam_t &amp;param_name, int32_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_ad69c5873635c29f3ead70add833d4890"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#ad69c5873635c29f3ead70add833d4890">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">uint8_t get_param(nsuCSParam_t &amp;param_name, uint8_t _default=0)</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_ad9823d8e8a324b6f438e9ccefb7beec4"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#ad9823d8e8a324b6f438e9ccefb7beec4">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const float &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_aeb879f726046d3d65885528e1dc3c6b3"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#aeb879f726046d3d65885528e1dc3c6b3">nsukit::ICDRegMw::execute</a></div><div class="ttdeci">nsukitStatus_t execute(nsuCSName_t cname) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_af04176db8fc88fb9996a4378c08e19e6"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#af04176db8fc88fb9996a4378c08e19e6">nsukit::ICDRegMw::set_param</a></div><div class="ttdeci">nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const int16_t &amp;value) override</div></div>
+<div class="ttc" id="aclassnsukit_1_1_i_c_d_reg_mw_html_af0aabd66159c943c36bbdcbf0108f007"><div class="ttname"><a href="classnsukit_1_1_i_c_d_reg_mw.html#af0aabd66159c943c36bbdcbf0108f007">nsukit::ICDRegMw::get_param</a></div><div class="ttdeci">int16_t get_param(nsuCSParam_t &amp;param_name, int16_t _default=0)</div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a324a8aa029ee38ccd1e011c882c0abc7"><div class="ttname"><a href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div><div class="ttdeci">nsukitStatus_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00052">type.h:52</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a36ec38291b397ae7f8f7a784a2b857f5"><div class="ttname"><a href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a></div><div class="ttdeci">DLLEXTERN typedef size_t nsuSize_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00086">type.h:86</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a470f44efe052bcf0e83ab4a6aa5ccc54"><div class="ttname"><a href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div><div class="ttdeci">#define NSU_DLLEXPORT</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00018">type.h:18</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a6406d9827fe2b2fee91118a4a44822eb"><div class="ttname"><a href="include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a></div><div class="ttdeci">DLLEXTERN typedef std::string nsuCSParam_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00090">type.h:90</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a730c3323e6e03395ef7064d6c371a936"><div class="ttname"><a href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a></div><div class="ttdeci">DLLEXTERN typedef char * nsuCharBuf_p</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00081">type.h:81</a></div></div>
+<div class="ttc" id="ainclude_2base_2type_8h_html_a730c9b4a53bcba19f64397b467741c0f"><div class="ttname"><a href="include_2base_2type_8h.html#a730c9b4a53bcba19f64397b467741c0f">nsuCSName_t</a></div><div class="ttdeci">DLLEXTERN typedef std::string nsuCSName_t</div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00091">type.h:91</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2base__mw_8h_html"><div class="ttname"><a href="include_2middleware_2base__mw_8h.html">base_mw.h</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_a1f5ffeca42e3c0796786955fb3af26b2"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#a1f5ffeca42e3c0796786955fb3af26b2">ICD_Double</a></div><div class="ttdeci">#define ICD_Double</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00022">icd_parser.h:22</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_a1fe53516d704c24d209bc6613819074e"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#a1fe53516d704c24d209bc6613819074e">ICD_Int32</a></div><div class="ttdeci">#define ICD_Int32</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00020">icd_parser.h:20</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_a28e49b73912d43d29a3eab2872ab322a"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#a28e49b73912d43d29a3eab2872ab322a">ICD_Float</a></div><div class="ttdeci">#define ICD_Float</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00021">icd_parser.h:21</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_a43f1c48532296ec8101356ad8d85d247"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#a43f1c48532296ec8101356ad8d85d247">ICD_Int8</a></div><div class="ttdeci">#define ICD_Int8</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00016">icd_parser.h:16</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_a443ad29fe8acd3ac20ee1124361ea27e"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#a443ad29fe8acd3ac20ee1124361ea27e">ICD_Uint32</a></div><div class="ttdeci">#define ICD_Uint32</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00019">icd_parser.h:19</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_a483e852377641fd918f67b93031dc4d2"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#a483e852377641fd918f67b93031dc4d2">ICD_FileLength</a></div><div class="ttdeci">#define ICD_FileLength</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00024">icd_parser.h:24</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_a8c79869274df1736ac2fd23c05c25b31"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#a8c79869274df1736ac2fd23c05c25b31">ICD_Int16</a></div><div class="ttdeci">#define ICD_Int16</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00018">icd_parser.h:18</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_aa07d72d8d4360de4313c58bb8188a2d8"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#aa07d72d8d4360de4313c58bb8188a2d8">ICD_Uint16</a></div><div class="ttdeci">#define ICD_Uint16</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00017">icd_parser.h:17</a></div></div>
+<div class="ttc" id="ainclude_2middleware_2icd__parser_8h_html_ae3428cd2ac62e0ac83769ee84fd82426"><div class="ttname"><a href="include_2middleware_2icd__parser_8h.html#ae3428cd2ac62e0ac83769ee84fd82426">ICD_Uint8</a></div><div class="ttdeci">#define ICD_Uint8</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00015">icd_parser.h:15</a></div></div>
+<div class="ttc" id="anamespacensukit_html"><div class="ttname"><a href="namespacensukit.html">nsukit</a></div><div class="ttdef"><b>Definition:</b> <a href="json__icd__wrapper_8h_source.html#l00011">json_icd_wrapper.h:11</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a3a9c7bb27fe71bcc46cdd7a4fa8273f9"><div class="ttname"><a href="namespacensukit.html#a3a9c7bb27fe71bcc46cdd7a4fa8273f9">nsukit::TypeSizeMap</a></div><div class="ttdeci">static std::map&lt; std::string, int &gt; TypeSizeMap</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00029">icd_parser.h:29</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a64e6e7556fc72f0de99f4d4900b9e10d"><div class="ttname"><a href="namespacensukit.html#a64e6e7556fc72f0de99f4d4900b9e10d">nsukit::DeleteCommandPack</a></div><div class="ttdeci">NSU_DLLEXPORT void DeleteCommandPack(CommandPack *pack)</div><div class="ttdef"><b>Definition:</b> <a href="icd__parser_8cpp_source.html#l00488">icd_parser.cpp:488</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a70fc022b250a983e2017e65731a69ef2"><div class="ttname"><a href="namespacensukit.html#a70fc022b250a983e2017e65731a69ef2">nsukit::GetFileSize</a></div><div class="ttdeci">NSU_DLLEXPORT uint32_t GetFileSize(const std::string &amp;file_path)</div><div class="ttdef"><b>Definition:</b> <a href="icd__parser_8cpp_source.html#l00455">icd_parser.cpp:455</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a779371f080af6f6611e432ef919c37c6"><div class="ttname"><a href="namespacensukit.html#a779371f080af6f6611e432ef919c37c6">nsukit::StringStartWith</a></div><div class="ttdeci">NSU_DLLEXPORT bool StringStartWith(std::string_view str, std::string_view head)</div><div class="ttdef"><b>Definition:</b> <a href="icd__parser_8cpp_source.html#l00480">icd_parser.cpp:480</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a880aca13723045becb2954a1dbee657e"><div class="ttname"><a href="namespacensukit.html#a880aca13723045becb2954a1dbee657e">nsukit::StringEndWith</a></div><div class="ttdeci">NSU_DLLEXPORT bool StringEndWith(std::string_view str, std::string_view tail)</div><div class="ttdef"><b>Definition:</b> <a href="icd__parser_8cpp_source.html#l00470">icd_parser.cpp:470</a></div></div>
+<div class="ttc" id="astructnsu_init_param__t_html"><div class="ttname"><a href="structnsu_init_param__t.html">nsuInitParam_t</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2base_2type_8h_source.html#l00148">type.h:148</a></div></div>
+<div class="ttc" id="astructnsukit_1_1_command_pack_html"><div class="ttname"><a href="structnsukit_1_1_command_pack.html">nsukit::CommandPack</a></div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00048">icd_parser.h:48</a></div></div>
+<div class="ttc" id="astructnsukit_1_1_command_pack_html_a9626910dde6fc15117e6f079494a2025"><div class="ttname"><a href="structnsukit_1_1_command_pack.html#a9626910dde6fc15117e6f079494a2025">nsukit::CommandPack::bytes</a></div><div class="ttdeci">char * bytes</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00049">icd_parser.h:49</a></div></div>
+<div class="ttc" id="astructnsukit_1_1_command_pack_html_adf93212def2bde119606cd25b92fc58c"><div class="ttname"><a href="structnsukit_1_1_command_pack.html#adf93212def2bde119606cd25b92fc58c">nsukit::CommandPack::recvLen</a></div><div class="ttdeci">nsuSize_t recvLen</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00051">icd_parser.h:51</a></div></div>
+<div class="ttc" id="astructnsukit_1_1_command_pack_html_af08e6f91e8ed332f3fbfe53b068c968d"><div class="ttname"><a href="structnsukit_1_1_command_pack.html#af08e6f91e8ed332f3fbfe53b068c968d">nsukit::CommandPack::length</a></div><div class="ttdeci">nsuSize_t length</div><div class="ttdef"><b>Definition:</b> <a href="include_2middleware_2icd__parser_8h_source.html#l00050">icd_parser.h:50</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="dir_c7f34d84649281ecbcbdd8b37f74e33c.html">cmake-build-release-visual-studio</a></li><li class="navelem"><a class="el" href="dir_b61c2086d72fac55eabe7b3ba383f456.html">Release</a></li><li class="navelem"><a class="el" href="dir_744aa0a50dc4520a49bc6ccb4dff93aa.html">include</a></li><li class="navelem"><a class="el" href="dir_96c2f3d841a9733bdc41fb821695ed64.html">middleware</a></li><li class="navelem"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2middleware_2icd__parser_8h.html">icd_parser.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

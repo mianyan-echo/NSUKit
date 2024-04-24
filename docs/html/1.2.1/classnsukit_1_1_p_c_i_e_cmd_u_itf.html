@@ -1,0 +1,1374 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: nsukit::PCIECmdUItf类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.1</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classnsukit_1_1_p_c_i_e_cmd_u_itf.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="#pro-static-attribs">静态 Protected 属性</a> &#124;
+<a href="classnsukit_1_1_p_c_i_e_cmd_u_itf-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">nsukit::PCIECmdUItf类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a>&gt;</code></p>
+<div class="dynheader">
+类 nsukit::PCIECmdUItf 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classnsukit_1_1_p_c_i_e_cmd_u_itf.png" usemap="#nsukit::PCIECmdUItf_map" alt=""/>
+  <map id="nsukit::PCIECmdUItf_map" name="nsukit::PCIECmdUItf_map">
+<area href="classnsukit_1_1_i___base_cmd_u_itf.html" alt="nsukit::I_BaseCmdUItf" shape="rect" coords="0,56,131,80"/>
+<area href="classnsukit_1_1_u___interface.html" alt="nsukit::U_Interface" shape="rect" coords="0,0,131,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aa379a0c05f01e7c929f566446dfb2323"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aa379a0c05f01e7c929f566446dfb2323">PCIECmdUItf</a> ()</td></tr>
+<tr class="separator:aa379a0c05f01e7c929f566446dfb2323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa71eb4a985f0840e44698840655051ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aa71eb4a985f0840e44698840655051ef">~PCIECmdUItf</a> () override</td></tr>
+<tr class="separator:aa71eb4a985f0840e44698840655051ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b73b366761f3fe109039236b741a52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a13b73b366761f3fe109039236b741a52">accept</a> (<a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a> *param) override</td></tr>
+<tr class="separator:a13b73b366761f3fe109039236b741a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07320f3fedd412ace084c281018bfe60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a07320f3fedd412ace084c281018bfe60">close</a> () override</td></tr>
+<tr class="separator:a07320f3fedd412ace084c281018bfe60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d671a6eb20738475d02a10ac9082b9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a5d671a6eb20738475d02a10ac9082b9f">set_timeout</a> (float s) override</td></tr>
+<tr class="separator:a5d671a6eb20738475d02a10ac9082b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087176b060616e7ed70893af18e85aee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a087176b060616e7ed70893af18e85aee">write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> value) override</td></tr>
+<tr class="separator:a087176b060616e7ed70893af18e85aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d10393d5c99303af0ddf8340f1f8f74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a2d10393d5c99303af0ddf8340f1f8f74">read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> *buf) override</td></tr>
+<tr class="separator:a2d10393d5c99303af0ddf8340f1f8f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad29ef977500aff5ad17006153373ac89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#ad29ef977500aff5ad17006153373ac89">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a8cf01257012f18085e191b0c02492c7a">nsuBytes_t</a> &amp;bytes) override</td></tr>
+<tr class="separator:ad29ef977500aff5ad17006153373ac89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ef07ba9825e0abe62752cd4ec7a5f81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a7ef07ba9825e0abe62752cd4ec7a5f81">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> bytes, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length) override</td></tr>
+<tr class="separator:a7ef07ba9825e0abe62752cd4ec7a5f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad974a255649cc2c11e2b697e595a11a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aad974a255649cc2c11e2b697e595a11a">recv_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> size, <a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> buf) override</td></tr>
+<tr class="separator:aad974a255649cc2c11e2b697e595a11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa379a0c05f01e7c929f566446dfb2323"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aa379a0c05f01e7c929f566446dfb2323">PCIECmdUItf</a> ()</td></tr>
+<tr class="separator:aa379a0c05f01e7c929f566446dfb2323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa71eb4a985f0840e44698840655051ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aa71eb4a985f0840e44698840655051ef">~PCIECmdUItf</a> () override</td></tr>
+<tr class="separator:aa71eb4a985f0840e44698840655051ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b9e4a499a4886dd70b956577df73ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#ac8b9e4a499a4886dd70b956577df73ff">accept</a> (<a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a> *param) override</td></tr>
+<tr class="separator:ac8b9e4a499a4886dd70b956577df73ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6642a670c8d2db6e5a9121245a1dd4a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a6642a670c8d2db6e5a9121245a1dd4a6">close</a> () override</td></tr>
+<tr class="separator:a6642a670c8d2db6e5a9121245a1dd4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0e1f9301a2d3b94c1ea8d2a4be4b28c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#af0e1f9301a2d3b94c1ea8d2a4be4b28c">set_timeout</a> (float s) override</td></tr>
+<tr class="separator:af0e1f9301a2d3b94c1ea8d2a4be4b28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f0ef0eb4b7e36af7ad39e09c0d8dac1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a8f0ef0eb4b7e36af7ad39e09c0d8dac1">write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> value) override</td></tr>
+<tr class="separator:a8f0ef0eb4b7e36af7ad39e09c0d8dac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd254abf65fe30b80c64f44785be09d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#abbd254abf65fe30b80c64f44785be09d">read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> *buf) override</td></tr>
+<tr class="separator:abbd254abf65fe30b80c64f44785be09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35b658245cf848f4dd643867d88cd83e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a35b658245cf848f4dd643867d88cd83e">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a8cf01257012f18085e191b0c02492c7a">nsuBytes_t</a> &amp;bytes) override</td></tr>
+<tr class="separator:a35b658245cf848f4dd643867d88cd83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1043ade2d9aec54dd02fb2ce596bc28a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a1043ade2d9aec54dd02fb2ce596bc28a">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> bytes, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length) override</td></tr>
+<tr class="separator:a1043ade2d9aec54dd02fb2ce596bc28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca638b2f98e51573be3024e8fb51400"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a4ca638b2f98e51573be3024e8fb51400">recv_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> size, <a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> buf) override</td></tr>
+<tr class="separator:a4ca638b2f98e51573be3024e8fb51400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnsukit_1_1_i___base_cmd_u_itf')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html">nsukit::I_BaseCmdUItf</a></td></tr>
+<tr class="memitem:a85e4520b4e182a13d5057d4e1e39d6bd inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a85e4520b4e182a13d5057d4e1e39d6bd">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a8cf01257012f18085e191b0c02492c7a">nsuBytes_t</a> &amp;bytes)</td></tr>
+<tr class="separator:a85e4520b4e182a13d5057d4e1e39d6bd inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05df00d2cb7ef45df04d0da9764944a1 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a05df00d2cb7ef45df04d0da9764944a1">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> bytes, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length)</td></tr>
+<tr class="separator:a05df00d2cb7ef45df04d0da9764944a1 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0debcc5d36ece53e41ba3ddcf755c224 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a0debcc5d36ece53e41ba3ddcf755c224">recv_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> size, <a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> buf)</td></tr>
+<tr class="separator:a0debcc5d36ece53e41ba3ddcf755c224 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a214c58259b9ae1dc22b2e95189b57b23 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a214c58259b9ae1dc22b2e95189b57b23">write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> value)</td></tr>
+<tr class="separator:a214c58259b9ae1dc22b2e95189b57b23 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c20ca24455b39587e317b90783edc31 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a8c20ca24455b39587e317b90783edc31">read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> *buf)</td></tr>
+<tr class="separator:a8c20ca24455b39587e317b90783edc31 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062acdbc6521000d0ae54292d8e34ac7 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a062acdbc6521000d0ae54292d8e34ac7">multi_write</a> (std::vector&lt; <a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> &gt; &amp;addr, std::vector&lt; <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> &gt; &amp;value)</td></tr>
+<tr class="separator:a062acdbc6521000d0ae54292d8e34ac7 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade6d2218c3b8ee672efe01773d5b053a inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#ade6d2218c3b8ee672efe01773d5b053a">multi_read</a> (std::vector&lt; <a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> &gt; &amp;addr, std::vector&lt; <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> * &gt; &amp;value)</td></tr>
+<tr class="separator:ade6d2218c3b8ee672efe01773d5b053a inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf77490c927d69ed7750bb5da1707d95 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#acf77490c927d69ed7750bb5da1707d95">increment_write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:acf77490c927d69ed7750bb5da1707d95 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79470b210465f51bc88f8e14c34dfde inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#ab79470b210465f51bc88f8e14c34dfde">increment_read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:ab79470b210465f51bc88f8e14c34dfde inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c773923a283332e5d3e203f29a48c6c inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a3c773923a283332e5d3e203f29a48c6c">loop_write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:a3c773923a283332e5d3e203f29a48c6c inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6a1f4cf52f386a2e08d647ac19c8c5 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a4b6a1f4cf52f386a2e08d647ac19c8c5">loop_read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:a4b6a1f4cf52f386a2e08d647ac19c8c5 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e4520b4e182a13d5057d4e1e39d6bd inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a85e4520b4e182a13d5057d4e1e39d6bd">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a8cf01257012f18085e191b0c02492c7a">nsuBytes_t</a> &amp;bytes)</td></tr>
+<tr class="separator:a85e4520b4e182a13d5057d4e1e39d6bd inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05df00d2cb7ef45df04d0da9764944a1 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a05df00d2cb7ef45df04d0da9764944a1">send_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> bytes, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length)</td></tr>
+<tr class="separator:a05df00d2cb7ef45df04d0da9764944a1 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0debcc5d36ece53e41ba3ddcf755c224 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a0debcc5d36ece53e41ba3ddcf755c224">recv_bytes</a> (<a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> size, <a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a> buf)</td></tr>
+<tr class="separator:a0debcc5d36ece53e41ba3ddcf755c224 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a214c58259b9ae1dc22b2e95189b57b23 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a214c58259b9ae1dc22b2e95189b57b23">write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> value)</td></tr>
+<tr class="separator:a214c58259b9ae1dc22b2e95189b57b23 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c20ca24455b39587e317b90783edc31 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a8c20ca24455b39587e317b90783edc31">read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> *buf)</td></tr>
+<tr class="separator:a8c20ca24455b39587e317b90783edc31 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062acdbc6521000d0ae54292d8e34ac7 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a062acdbc6521000d0ae54292d8e34ac7">multi_write</a> (std::vector&lt; <a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> &gt; &amp;addr, std::vector&lt; <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> &gt; &amp;value)</td></tr>
+<tr class="separator:a062acdbc6521000d0ae54292d8e34ac7 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade6d2218c3b8ee672efe01773d5b053a inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#ade6d2218c3b8ee672efe01773d5b053a">multi_read</a> (std::vector&lt; <a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> &gt; &amp;addr, std::vector&lt; <a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> * &gt; &amp;value)</td></tr>
+<tr class="separator:ade6d2218c3b8ee672efe01773d5b053a inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf77490c927d69ed7750bb5da1707d95 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#acf77490c927d69ed7750bb5da1707d95">increment_write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:acf77490c927d69ed7750bb5da1707d95 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79470b210465f51bc88f8e14c34dfde inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#ab79470b210465f51bc88f8e14c34dfde">increment_read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:ab79470b210465f51bc88f8e14c34dfde inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c773923a283332e5d3e203f29a48c6c inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a3c773923a283332e5d3e203f29a48c6c">loop_write</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:a3c773923a283332e5d3e203f29a48c6c inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6a1f4cf52f386a2e08d647ac19c8c5 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a4b6a1f4cf52f386a2e08d647ac19c8c5">loop_read</a> (<a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> addr, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> length, <a class="el" href="include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> value, <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> reg_len=<a class="el" href="include_2base_2config_8h.html#af837d7294f9cb470747cafb85dd6955f">NSU_REG_BWIDTH</a>)</td></tr>
+<tr class="separator:a4b6a1f4cf52f386a2e08d647ac19c8c5 inherit pub_methods_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classnsukit_1_1_u___interface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnsukit_1_1_u___interface')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="classnsukit_1_1_u___interface.html">nsukit::U_Interface</a></td></tr>
+<tr class="memitem:afe8daddac7ef406242cbaaf34de3bdbd inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#afe8daddac7ef406242cbaaf34de3bdbd">~U_Interface</a> ()=default</td></tr>
+<tr class="separator:afe8daddac7ef406242cbaaf34de3bdbd inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3915970c53fc4ca65b946baba25e052 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#aa3915970c53fc4ca65b946baba25e052">accept</a> (<a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a> *param)</td></tr>
+<tr class="separator:aa3915970c53fc4ca65b946baba25e052 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b653c240835fde2ecb10215eb33b09e inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#a0b653c240835fde2ecb10215eb33b09e">close</a> ()</td></tr>
+<tr class="separator:a0b653c240835fde2ecb10215eb33b09e inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab85cec25e77d86e8109b366a4a2bfc77 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#ab85cec25e77d86e8109b366a4a2bfc77">set_timeout</a> (float s)</td></tr>
+<tr class="separator:ab85cec25e77d86e8109b366a4a2bfc77 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8daddac7ef406242cbaaf34de3bdbd inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#afe8daddac7ef406242cbaaf34de3bdbd">~U_Interface</a> ()=default</td></tr>
+<tr class="separator:afe8daddac7ef406242cbaaf34de3bdbd inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3915970c53fc4ca65b946baba25e052 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#aa3915970c53fc4ca65b946baba25e052">accept</a> (<a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a> *param)</td></tr>
+<tr class="separator:aa3915970c53fc4ca65b946baba25e052 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b653c240835fde2ecb10215eb33b09e inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#a0b653c240835fde2ecb10215eb33b09e">close</a> ()</td></tr>
+<tr class="separator:a0b653c240835fde2ecb10215eb33b09e inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab85cec25e77d86e8109b366a4a2bfc77 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_u___interface.html#ab85cec25e77d86e8109b366a4a2bfc77">set_timeout</a> (float s)</td></tr>
+<tr class="separator:ab85cec25e77d86e8109b366a4a2bfc77 inherit pub_methods_classnsukit_1_1_u___interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a87e4b5d18548aab9ff3f41189ab6f9a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a87e4b5d18548aab9ff3f41189ab6f9a6">reset_irq</a> ()</td></tr>
+<tr class="separator:a87e4b5d18548aab9ff3f41189ab6f9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4f97f604e0ecb8f39fbef33aa375e44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#ac4f97f604e0ecb8f39fbef33aa375e44">per_recv</a> ()</td></tr>
+<tr class="separator:ac4f97f604e0ecb8f39fbef33aa375e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec31ce6dd58e6cd96ae31a4beb1d2ca1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aec31ce6dd58e6cd96ae31a4beb1d2ca1">reset_irq</a> ()</td></tr>
+<tr class="separator:aec31ce6dd58e6cd96ae31a4beb1d2ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5391ebcb5ed8b9d8f274c40ffa87435b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a5391ebcb5ed8b9d8f274c40ffa87435b">per_recv</a> ()</td></tr>
+<tr class="separator:a5391ebcb5ed8b9d8f274c40ffa87435b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:ac4080e5866cf3fdf8557e84afb68c820"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#af4fb4e02e7a1350e00337a516a89e93c">nsuBoardNum_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#ac4080e5866cf3fdf8557e84afb68c820">pciBoard</a> = 0</td></tr>
+<tr class="separator:ac4080e5866cf3fdf8557e84afb68c820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3380545dedbaa9efbfe2cc4e876a91a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a3380545dedbaa9efbfe2cc4e876a91a5">sentBase</a> = 0</td></tr>
+<tr class="separator:a3380545dedbaa9efbfe2cc4e876a91a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1eb9e88661017bec94350f520a474c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aec1eb9e88661017bec94350f520a474c">recvBase</a> = 0</td></tr>
+<tr class="separator:aec1eb9e88661017bec94350f520a474c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab421c3a5ed1cb29001ef4ac4e4cd1bb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#ab421c3a5ed1cb29001ef4ac4e4cd1bb0">irqBase</a> = 0</td></tr>
+<tr class="separator:ab421c3a5ed1cb29001ef4ac4e4cd1bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dfd593ccaa4f3fcbff5e048160e3a6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a7dfd593ccaa4f3fcbff5e048160e3a6c">sentDownBase</a> = 0</td></tr>
+<tr class="separator:a7dfd593ccaa4f3fcbff5e048160e3a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1c3574142a13b6ead0a829bce4d8bdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#ad1c3574142a13b6ead0a829bce4d8bdc">pciTimeout</a> = 0</td></tr>
+<tr class="separator:ad1c3574142a13b6ead0a829bce4d8bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fad5794e816f9603603471f4aa56f1e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#a3fad5794e816f9603603471f4aa56f1e">onceTimeout</a> = 0</td></tr>
+<tr class="separator:a3fad5794e816f9603603471f4aa56f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a6f1a78c0650b020cf4a6c20b8351d"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#ac8a6f1a78c0650b020cf4a6c20b8351d">OpLock</a> {}</td></tr>
+<tr class="separator:ac8a6f1a78c0650b020cf4a6c20b8351d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+静态 Protected 属性</h2></td></tr>
+<tr class="memitem:aff3d0b7166f31aff2cf8963a425c417c"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html#aff3d0b7166f31aff2cf8963a425c417c">irqNum</a> = 15</td></tr>
+<tr class="separator:aff3d0b7166f31aff2cf8963a425c417c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+额外继承的成员函数</h2></td></tr>
+<tr class="inherit_header pub_attribs_classnsukit_1_1_i___base_cmd_u_itf"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classnsukit_1_1_i___base_cmd_u_itf')"><img src="closed.png" alt="-"/>&#160;Public 属性 继承自 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html">nsukit::I_BaseCmdUItf</a></td></tr>
+<tr class="memitem:a900dce94f271a85118864f38ecb37608 inherit pub_attribs_classnsukit_1_1_i___base_cmd_u_itf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnsukit_1_1_u___base_cmd_mixin.html">U_BaseCmdMixin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a900dce94f271a85118864f38ecb37608">mixin_</a> = nullptr</td></tr>
+<tr class="separator:a900dce94f271a85118864f38ecb37608 inherit pub_attribs_classnsukit_1_1_i___base_cmd_u_itf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00035">35</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="aa379a0c05f01e7c929f566446dfb2323" name="aa379a0c05f01e7c929f566446dfb2323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa379a0c05f01e7c929f566446dfb2323">&#9670;&#160;</a></span>PCIECmdUItf() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nsukit::PCIECmdUItf::PCIECmdUItf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section note"><dt>注解</dt><dd>将基类 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html">nsukit::I_BaseCmdUItf</a> 的成员变量mixin_赋值为 <a class="el" href="classnsukit_1_1_mixin___native_reg_cmd.html">nsukit::Mixin_NativeRegCmd</a> 的实例 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00065">65</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa71eb4a985f0840e44698840655051ef" name="aa71eb4a985f0840e44698840655051ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa71eb4a985f0840e44698840655051ef">&#9670;&#160;</a></span>~PCIECmdUItf() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nsukit::PCIECmdUItf::~PCIECmdUItf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00067">67</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa379a0c05f01e7c929f566446dfb2323" name="aa379a0c05f01e7c929f566446dfb2323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa379a0c05f01e7c929f566446dfb2323">&#9670;&#160;</a></span>PCIECmdUItf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nsukit::PCIECmdUItf::PCIECmdUItf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section note"><dt>注解</dt><dd>将基类 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html">nsukit::I_BaseCmdUItf</a> 的成员变量mixin_赋值为 <a class="el" href="classnsukit_1_1_mixin___native_reg_cmd.html">nsukit::Mixin_NativeRegCmd</a> 的实例 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2interface_2pcie__interface_8h_source.html#l00065">65</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa71eb4a985f0840e44698840655051ef" name="aa71eb4a985f0840e44698840655051ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa71eb4a985f0840e44698840655051ef">&#9670;&#160;</a></span>~PCIECmdUItf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nsukit::PCIECmdUItf::~PCIECmdUItf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2interface_2pcie__interface_8h_source.html#l00067">67</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ac8b9e4a499a4886dd70b956577df73ff" name="ac8b9e4a499a4886dd70b956577df73ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8b9e4a499a4886dd70b956577df73ff">&#9670;&#160;</a></span>accept() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a> *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>板卡号 </td></tr>
+    <tr><td class="paramname">sent_base</td><td>ICDOverAXI发送基地址 </td></tr>
+    <tr><td class="paramname">recv_base</td><td>ICDOverAXI接收基地址 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否连接成功 </dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_u___interface.html#aa3915970c53fc4ca65b946baba25e052">nsukit::U_Interface</a> .</p>
+
+</div>
+</div>
+<a id="a13b73b366761f3fe109039236b741a52" name="a13b73b366761f3fe109039236b741a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13b73b366761f3fe109039236b741a52">&#9670;&#160;</a></span>accept() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::accept </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a> *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>板卡号 </td></tr>
+    <tr><td class="paramname">sent_base</td><td>ICDOverAXI发送基地址 </td></tr>
+    <tr><td class="paramname">recv_base</td><td>ICDOverAXI接收基地址 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否连接成功 </dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_u___interface.html#aa3915970c53fc4ca65b946baba25e052">nsukit::U_Interface</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00050">50</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a6642a670c8d2db6e5a9121245a1dd4a6" name="a6642a670c8d2db6e5a9121245a1dd4a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6642a670c8d2db6e5a9121245a1dd4a6">&#9670;&#160;</a></span>close() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_u___interface.html#a0b653c240835fde2ecb10215eb33b09e">nsukit::U_Interface</a> .</p>
+
+</div>
+</div>
+<a id="a07320f3fedd412ace084c281018bfe60" name="a07320f3fedd412ace084c281018bfe60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07320f3fedd412ace084c281018bfe60">&#9670;&#160;</a></span>close() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_u___interface.html#a0b653c240835fde2ecb10215eb33b09e">nsukit::U_Interface</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00061">61</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5391ebcb5ed8b9d8f274c40ffa87435b" name="a5391ebcb5ed8b9d8f274c40ffa87435b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5391ebcb5ed8b9d8f274c40ffa87435b">&#9670;&#160;</a></span>per_recv() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::per_recv </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ICD over AXI方式的读取反馈前的预处理，等待对端发送反馈 </p><dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ac4f97f604e0ecb8f39fbef33aa375e44" name="ac4f97f604e0ecb8f39fbef33aa375e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f97f604e0ecb8f39fbef33aa375e44">&#9670;&#160;</a></span>per_recv() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::per_recv </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ICD over AXI方式的读取反馈前的预处理，等待对端发送反馈 </p><dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00132">132</a> 行定义.</p>
+
+</div>
+</div>
+<a id="abbd254abf65fe30b80c64f44785be09d" name="abbd254abf65fe30b80c64f44785be09d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd254abf65fe30b80c64f44785be09d">&#9670;&#160;</a></span>read() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> *&#160;</td>
+          <td class="paramname"><em>buf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td></td></tr>
+    <tr><td class="paramname">buf</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a8c20ca24455b39587e317b90783edc31">nsukit::I_BaseCmdUItf</a> .</p>
+
+</div>
+</div>
+<a id="a2d10393d5c99303af0ddf8340f1f8f74" name="a2d10393d5c99303af0ddf8340f1f8f74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d10393d5c99303af0ddf8340f1f8f74">&#9670;&#160;</a></span>read() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> *&#160;</td>
+          <td class="paramname"><em>buf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td></td></tr>
+    <tr><td class="paramname">buf</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a8c20ca24455b39587e317b90783edc31">nsukit::I_BaseCmdUItf</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00115">115</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4ca638b2f98e51573be3024e8fb51400" name="a4ca638b2f98e51573be3024e8fb51400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ca638b2f98e51573be3024e8fb51400">&#9670;&#160;</a></span>recv_bytes() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::recv_bytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a>&#160;</td>
+          <td class="paramname"><em>buf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td></td></tr>
+    <tr><td class="paramname">buf</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a0debcc5d36ece53e41ba3ddcf755c224">nsukit::I_BaseCmdUItf</a> .</p>
+
+</div>
+</div>
+<a id="aad974a255649cc2c11e2b697e595a11a" name="aad974a255649cc2c11e2b697e595a11a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad974a255649cc2c11e2b697e595a11a">&#9670;&#160;</a></span>recv_bytes() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::recv_bytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a>&#160;</td>
+          <td class="paramname"><em>buf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td></td></tr>
+    <tr><td class="paramname">buf</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a0debcc5d36ece53e41ba3ddcf755c224">nsukit::I_BaseCmdUItf</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00098">98</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aec31ce6dd58e6cd96ae31a4beb1d2ca1" name="aec31ce6dd58e6cd96ae31a4beb1d2ca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec31ce6dd58e6cd96ae31a4beb1d2ca1">&#9670;&#160;</a></span>reset_irq() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::reset_irq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>复位ICD over AXI的接收中断 </p><dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a87e4b5d18548aab9ff3f41189ab6f9a6" name="a87e4b5d18548aab9ff3f41189ab6f9a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e4b5d18548aab9ff3f41189ab6f9a6">&#9670;&#160;</a></span>reset_irq() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::reset_irq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>复位ICD over AXI的接收中断 </p><dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00125">125</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a35b658245cf848f4dd643867d88cd83e" name="a35b658245cf848f4dd643867d88cd83e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b658245cf848f4dd643867d88cd83e">&#9670;&#160;</a></span>send_bytes() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::send_bytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a8cf01257012f18085e191b0c02492c7a">nsuBytes_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>bytes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a85e4520b4e182a13d5057d4e1e39d6bd">nsukit::I_BaseCmdUItf</a> .</p>
+
+</div>
+</div>
+<a id="ad29ef977500aff5ad17006153373ac89" name="ad29ef977500aff5ad17006153373ac89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29ef977500aff5ad17006153373ac89">&#9670;&#160;</a></span>send_bytes() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::send_bytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a8cf01257012f18085e191b0c02492c7a">nsuBytes_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>bytes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a85e4520b4e182a13d5057d4e1e39d6bd">nsukit::I_BaseCmdUItf</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00072">72</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1043ade2d9aec54dd02fb2ce596bc28a" name="a1043ade2d9aec54dd02fb2ce596bc28a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1043ade2d9aec54dd02fb2ce596bc28a">&#9670;&#160;</a></span>send_bytes() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::send_bytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a>&#160;</td>
+          <td class="paramname"><em>bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a05df00d2cb7ef45df04d0da9764944a1">nsukit::I_BaseCmdUItf</a> .</p>
+
+</div>
+</div>
+<a id="a7ef07ba9825e0abe62752cd4ec7a5f81" name="a7ef07ba9825e0abe62752cd4ec7a5f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ef07ba9825e0abe62752cd4ec7a5f81">&#9670;&#160;</a></span>send_bytes() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::send_bytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a>&#160;</td>
+          <td class="paramname"><em>bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a05df00d2cb7ef45df04d0da9764944a1">nsukit::I_BaseCmdUItf</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00077">77</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af0e1f9301a2d3b94c1ea8d2a4be4b28c" name="af0e1f9301a2d3b94c1ea8d2a4be4b28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0e1f9301a2d3b94c1ea8d2a4be4b28c">&#9670;&#160;</a></span>set_timeout() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::set_timeout </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_u___interface.html#ab85cec25e77d86e8109b366a4a2bfc77">nsukit::U_Interface</a> .</p>
+
+</div>
+</div>
+<a id="a5d671a6eb20738475d02a10ac9082b9f" name="a5d671a6eb20738475d02a10ac9082b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d671a6eb20738475d02a10ac9082b9f">&#9670;&#160;</a></span>set_timeout() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::set_timeout </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_u___interface.html#ab85cec25e77d86e8109b366a4a2bfc77">nsukit::U_Interface</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00066">66</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8f0ef0eb4b7e36af7ad39e09c0d8dac1" name="a8f0ef0eb4b7e36af7ad39e09c0d8dac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f0ef0eb4b7e36af7ad39e09c0d8dac1">&#9670;&#160;</a></span>write() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsukit::PCIECmdUItf::write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td></td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a214c58259b9ae1dc22b2e95189b57b23">nsukit::I_BaseCmdUItf</a> .</p>
+
+</div>
+</div>
+<a id="a087176b060616e7ed70893af18e85aee" name="a087176b060616e7ed70893af18e85aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a087176b060616e7ed70893af18e85aee">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> PCIECmdUItf::write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td></td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p>重载 <a class="el" href="classnsukit_1_1_i___base_cmd_u_itf.html#a214c58259b9ae1dc22b2e95189b57b23">nsukit::I_BaseCmdUItf</a> .</p>
+
+<p class="definition">在文件 <a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a> 第 <a class="el" href="pcie__interface_8cpp_source.html#l00109">109</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="ab421c3a5ed1cb29001ef4ac4e4cd1bb0" name="ab421c3a5ed1cb29001ef4ac4e4cd1bb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab421c3a5ed1cb29001ef4ac4e4cd1bb0">&#9670;&#160;</a></span>irqBase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> nsukit::PCIECmdUItf::irqBase = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00042">42</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aff3d0b7166f31aff2cf8963a425c417c" name="aff3d0b7166f31aff2cf8963a425c417c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff3d0b7166f31aff2cf8963a425c417c">&#9670;&#160;</a></span>irqNum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static unsigned int nsukit::PCIECmdUItf::irqNum = 15</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00037">37</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a3fad5794e816f9603603471f4aa56f1e" name="a3fad5794e816f9603603471f4aa56f1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fad5794e816f9603603471f4aa56f1e">&#9670;&#160;</a></span>onceTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double nsukit::PCIECmdUItf::onceTimeout = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00046">46</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac8a6f1a78c0650b020cf4a6c20b8351d" name="ac8a6f1a78c0650b020cf4a6c20b8351d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8a6f1a78c0650b020cf4a6c20b8351d">&#9670;&#160;</a></span>OpLock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex nsukit::PCIECmdUItf::OpLock {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00047">47</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac4080e5866cf3fdf8557e84afb68c820" name="ac4080e5866cf3fdf8557e84afb68c820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4080e5866cf3fdf8557e84afb68c820">&#9670;&#160;</a></span>pciBoard</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#af4fb4e02e7a1350e00337a516a89e93c">nsuBoardNum_t</a> nsukit::PCIECmdUItf::pciBoard = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00039">39</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad1c3574142a13b6ead0a829bce4d8bdc" name="ad1c3574142a13b6ead0a829bce4d8bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1c3574142a13b6ead0a829bce4d8bdc">&#9670;&#160;</a></span>pciTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nsukit::PCIECmdUItf::pciTimeout = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00044">44</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aec1eb9e88661017bec94350f520a474c" name="aec1eb9e88661017bec94350f520a474c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1eb9e88661017bec94350f520a474c">&#9670;&#160;</a></span>recvBase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> nsukit::PCIECmdUItf::recvBase = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00041">41</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a3380545dedbaa9efbfe2cc4e876a91a5" name="a3380545dedbaa9efbfe2cc4e876a91a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3380545dedbaa9efbfe2cc4e876a91a5">&#9670;&#160;</a></span>sentBase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> nsukit::PCIECmdUItf::sentBase = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00040">40</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7dfd593ccaa4f3fcbff5e048160e3a6c" name="a7dfd593ccaa4f3fcbff5e048160e3a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dfd593ccaa4f3fcbff5e048160e3a6c">&#9670;&#160;</a></span>sentDownBase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> nsukit::PCIECmdUItf::sentDownBase = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a> 第 <a class="el" href="include_2interface_2pcie__interface_8h_source.html#l00043">43</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>D:/Work/CppProject/NSUKit/include/interface/<a class="el" href="include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a></li>
+<li>D:/Work/CppProject/NSUKit/examples/cmake-build-release-visual-studio/Release/include/interface/<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2interface_2pcie__interface_8h_source.html">pcie_interface.h</a></li>
+<li>D:/Work/CppProject/NSUKit/src/interface/<a class="el" href="pcie__interface_8cpp_source.html">pcie_interface.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacensukit.html">nsukit</a></li><li class="navelem"><a class="el" href="classnsukit_1_1_p_c_i_e_cmd_u_itf.html">PCIECmdUItf</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

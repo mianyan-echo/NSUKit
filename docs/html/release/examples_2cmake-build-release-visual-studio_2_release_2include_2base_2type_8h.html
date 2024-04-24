@@ -1,0 +1,678 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/examples/cmake-build-release-visual-studio/Release/include/base/type.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.2.1</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">type.h 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;any&gt;</code><br />
+<code>#include &lt;cstdarg&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;condition_variable&gt;</code><br />
+</div>
+<p><a href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_thread_safe_event.html">ThreadSafeEvent</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnsu_t_c_p_param__t.html">nsuTCPParam_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnsu_serial_param__t.html">nsuSerialParam_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnsu_x_d_m_a_param__t.html">nsuXDMAParam_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnsu_sim_param__t.html">nsuSimParam_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnsu_mw_param__t.html">nsuMwParam_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnsu_init_param__t.html">nsuInitParam_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a31c96bbb337d997c0af3dbf758201267"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a31c96bbb337d997c0af3dbf758201267">_API_CALL</a>&#160;&#160;&#160;__stdcall</td></tr>
+<tr class="separator:a31c96bbb337d997c0af3dbf758201267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7611c4c638437f0ef8cd3fd50f901f0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a>&#160;&#160;&#160;extern &quot;C&quot;</td></tr>
+<tr class="separator:a7611c4c638437f0ef8cd3fd50f901f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470f44efe052bcf0e83ab4a6aa5ccc54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a>&#160;&#160;&#160;__declspec(dllexport)</td></tr>
+<tr class="separator:a470f44efe052bcf0e83ab4a6aa5ccc54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a324a8aa029ee38ccd1e011c882c0abc7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> { <br />
+&#160;&#160;<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">NSUKIT_STATUS_SUCCESS</a> = 0
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7acf3220d9659710331647800ac5aff519">NSUKIT_STATUS_NEED_RELOAD</a> = 1 &lt;&lt; 0
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7ac075db1f29610b632a2a3a157af21a04">NSUKIT_STATUS_ARCH_MISMATCH</a> = 1 &lt;&lt; 1
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7ab91401124dae935a35e87c834c509e1e">NSUKIT_STATUS_ALLOC_FAILED</a> = 1 &lt;&lt; 2
+, <br />
+&#160;&#160;<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865">NSUKIT_STATUS_INVALID_VALUE</a> = 1 &lt;&lt; 3
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aca6556776970aeff41096494298bc3d5">NSUKIT_STATUS_TEMP_MISMATCH</a> = 1 &lt;&lt; 4
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a599a0acf1ea431bd9b22ea92c2a37c97">NSUKIT_STATUS_MISMATCH_MIXIN</a> = 1 &lt;&lt; 5
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7acf3b932b0eee379d43721e29cd7650e8">NSUKIT_STATUS_ACCEPT_FAIL</a> = 1 &lt;&lt; 6
+, <br />
+&#160;&#160;<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a687cd7f5b65fdfebd0b1abb101d5b296">NSUKIT_STATUS_STREAM_FAIL</a> = 1 &lt;&lt; 7
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7">NSUKIT_STATUS_STREAM_RUNNING</a> = 1 &lt;&lt; 8
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a35c9974d0d9bb1162c4130a774a06463">NSUKIT_STATUS_TIMEOUT</a> = 1 &lt;&lt; 9
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a7b36f3d5869d0ebd841d546214b8c6a4">NSUKIT_STATUS_MEMBER_NOT_SUPPORT</a> = 1 &lt;&lt; 10
+, <br />
+&#160;&#160;<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a58bc070cd4e3e849b81110770a1e943a">NSUKIT_STATUS_ITF_FAIL</a> = 1 &lt;&lt; 11
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aa9e46b524c972323642a6ad71756c141">NSUKIT_STATUS_NOT_LINK</a> = 1 &lt;&lt; 12
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99">NSUKIT_STATUS_SUCCESS</a> = 0
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7acf3220d9659710331647800ac5aff519">NSUKIT_STATUS_NEED_RELOAD</a> = 1 &lt;&lt; 0
+, <br />
+&#160;&#160;<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7ac075db1f29610b632a2a3a157af21a04">NSUKIT_STATUS_ARCH_MISMATCH</a> = 1 &lt;&lt; 1
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7ab91401124dae935a35e87c834c509e1e">NSUKIT_STATUS_ALLOC_FAILED</a> = 1 &lt;&lt; 2
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865">NSUKIT_STATUS_INVALID_VALUE</a> = 1 &lt;&lt; 3
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aca6556776970aeff41096494298bc3d5">NSUKIT_STATUS_TEMP_MISMATCH</a> = 1 &lt;&lt; 4
+, <br />
+&#160;&#160;<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a599a0acf1ea431bd9b22ea92c2a37c97">NSUKIT_STATUS_MISMATCH_MIXIN</a> = 1 &lt;&lt; 5
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7acf3b932b0eee379d43721e29cd7650e8">NSUKIT_STATUS_ACCEPT_FAIL</a> = 1 &lt;&lt; 6
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a687cd7f5b65fdfebd0b1abb101d5b296">NSUKIT_STATUS_STREAM_FAIL</a> = 1 &lt;&lt; 7
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7">NSUKIT_STATUS_STREAM_RUNNING</a> = 1 &lt;&lt; 8
+, <br />
+&#160;&#160;<a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a35c9974d0d9bb1162c4130a774a06463">NSUKIT_STATUS_TIMEOUT</a> = 1 &lt;&lt; 9
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a7b36f3d5869d0ebd841d546214b8c6a4">NSUKIT_STATUS_MEMBER_NOT_SUPPORT</a> = 1 &lt;&lt; 10
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7a58bc070cd4e3e849b81110770a1e943a">NSUKIT_STATUS_ITF_FAIL</a> = 1 &lt;&lt; 11
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7aa9e46b524c972323642a6ad71756c141">NSUKIT_STATUS_NOT_LINK</a> = 1 &lt;&lt; 12
+<br />
+ }</td></tr>
+<tr class="separator:a324a8aa029ee38ccd1e011c882c0abc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97f86391e6e3d2a57bf8ea586a50bfe0"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a97f86391e6e3d2a57bf8ea586a50bfe0">nsuBulkMode</a> { <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a97f86391e6e3d2a57bf8ea586a50bfe0a9159b3578e4e1eb31ffdf90acd6f6e40">LOOP</a> = 0
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a97f86391e6e3d2a57bf8ea586a50bfe0a90cf1f5206b348a822cc1a453a587534">INCREMENT</a> = 1
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a97f86391e6e3d2a57bf8ea586a50bfe0a9159b3578e4e1eb31ffdf90acd6f6e40">LOOP</a> = 0
+, <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a97f86391e6e3d2a57bf8ea586a50bfe0a90cf1f5206b348a822cc1a453a587534">INCREMENT</a> = 1
+ }</td></tr>
+<tr class="separator:a97f86391e6e3d2a57bf8ea586a50bfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a1b700b5f895240dbf153b93399dd23bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a1b700b5f895240dbf153b93399dd23bb">operator|</a> (<a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> lhs, <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> rhs)</td></tr>
+<tr class="separator:a1b700b5f895240dbf153b93399dd23bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a870424b704e0479ef2c33ff20f4de9a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a870424b704e0479ef2c33ff20f4de9a2">operator|=</a> (<a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> &amp;lhs, <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> rhs)</td></tr>
+<tr class="separator:a870424b704e0479ef2c33ff20f4de9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:a8cf01257012f18085e191b0c02492c7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a8cf01257012f18085e191b0c02492c7a">nsuBytes_t</a></td></tr>
+<tr class="separator:a8cf01257012f18085e191b0c02492c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730c3323e6e03395ef7064d6c371a936"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a730c3323e6e03395ef7064d6c371a936">nsuCharBuf_p</a></td></tr>
+<tr class="separator:a730c3323e6e03395ef7064d6c371a936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ab7df3439c3be25d1687cb6631ab87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a></td></tr>
+<tr class="separator:a37ab7df3439c3be25d1687cb6631ab87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4fb4e02e7a1350e00337a516a89e93c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#af4fb4e02e7a1350e00337a516a89e93c">nsuBoardNum_t</a></td></tr>
+<tr class="separator:af4fb4e02e7a1350e00337a516a89e93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf489189677bc98aef379998c0203db3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a></td></tr>
+<tr class="separator:aaf489189677bc98aef379998c0203db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cad6ed355eee3b0ede0927b1c5ce39a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a></td></tr>
+<tr class="separator:a4cad6ed355eee3b0ede0927b1c5ce39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36ec38291b397ae7f8f7a784a2b857f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a></td></tr>
+<tr class="separator:a36ec38291b397ae7f8f7a784a2b857f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b36603e2e6439d54042181e0f7fb0d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a></td></tr>
+<tr class="separator:a2b36603e2e6439d54042181e0f7fb0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d8b4425fe34bf12e6457b77ef72dea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a></td></tr>
+<tr class="separator:ac1d8b4425fe34bf12e6457b77ef72dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ba057a470311150851786c1cae61268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a></td></tr>
+<tr class="separator:a9ba057a470311150851786c1cae61268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6406d9827fe2b2fee91118a4a44822eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a6406d9827fe2b2fee91118a4a44822eb">nsuCSParam_t</a></td></tr>
+<tr class="separator:a6406d9827fe2b2fee91118a4a44822eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730c9b4a53bcba19f64397b467741c0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a730c9b4a53bcba19f64397b467741c0f">nsuCSName_t</a></td></tr>
+<tr class="separator:a730c9b4a53bcba19f64397b467741c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a045fee5bfcfd466e3d638f23a7a91976"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a045fee5bfcfd466e3d638f23a7a91976">nsuStatus_t</a></td></tr>
+<tr class="separator:a045fee5bfcfd466e3d638f23a7a91976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a228623113260d91bbde5b5fd56e96b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html#a9a228623113260d91bbde5b5fd56e96b">nsuStatus_p</a></td></tr>
+<tr class="separator:a9a228623113260d91bbde5b5fd56e96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="a31c96bbb337d997c0af3dbf758201267" name="a31c96bbb337d997c0af3dbf758201267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31c96bbb337d997c0af3dbf758201267">&#9670;&#160;</a></span>_API_CALL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _API_CALL&#160;&#160;&#160;__stdcall</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00016">16</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7611c4c638437f0ef8cd3fd50f901f0b" name="a7611c4c638437f0ef8cd3fd50f901f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7611c4c638437f0ef8cd3fd50f901f0b">&#9670;&#160;</a></span>DLLEXTERN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DLLEXTERN&#160;&#160;&#160;extern &quot;C&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00017">17</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a470f44efe052bcf0e83ab4a6aa5ccc54" name="a470f44efe052bcf0e83ab4a6aa5ccc54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a470f44efe052bcf0e83ab4a6aa5ccc54">&#9670;&#160;</a></span>NSU_DLLEXPORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NSU_DLLEXPORT&#160;&#160;&#160;__declspec(dllexport)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00018">18</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="a97f86391e6e3d2a57bf8ea586a50bfe0" name="a97f86391e6e3d2a57bf8ea586a50bfe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f86391e6e3d2a57bf8ea586a50bfe0">&#9670;&#160;</a></span>nsuBulkMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="include_2base_2type_8h.html#a97f86391e6e3d2a57bf8ea586a50bfe0">nsuBulkMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a97f86391e6e3d2a57bf8ea586a50bfe0a9159b3578e4e1eb31ffdf90acd6f6e40" name="a97f86391e6e3d2a57bf8ea586a50bfe0a9159b3578e4e1eb31ffdf90acd6f6e40"></a>LOOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a97f86391e6e3d2a57bf8ea586a50bfe0a90cf1f5206b348a822cc1a453a587534" name="a97f86391e6e3d2a57bf8ea586a50bfe0a90cf1f5206b348a822cc1a453a587534"></a>INCREMENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a97f86391e6e3d2a57bf8ea586a50bfe0a9159b3578e4e1eb31ffdf90acd6f6e40" name="a97f86391e6e3d2a57bf8ea586a50bfe0a9159b3578e4e1eb31ffdf90acd6f6e40"></a>LOOP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a97f86391e6e3d2a57bf8ea586a50bfe0a90cf1f5206b348a822cc1a453a587534" name="a97f86391e6e3d2a57bf8ea586a50bfe0a90cf1f5206b348a822cc1a453a587534"></a>INCREMENT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00074">74</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a324a8aa029ee38ccd1e011c882c0abc7" name="a324a8aa029ee38ccd1e011c882c0abc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a324a8aa029ee38ccd1e011c882c0abc7">&#9670;&#160;</a></span>nsukitStatus_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>统一描述接口返回的执行状态 </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99" name="a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99"></a>NSUKIT_STATUS_SUCCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7acf3220d9659710331647800ac5aff519" name="a324a8aa029ee38ccd1e011c882c0abc7acf3220d9659710331647800ac5aff519"></a>NSUKIT_STATUS_NEED_RELOAD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7ac075db1f29610b632a2a3a157af21a04" name="a324a8aa029ee38ccd1e011c882c0abc7ac075db1f29610b632a2a3a157af21a04"></a>NSUKIT_STATUS_ARCH_MISMATCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7ab91401124dae935a35e87c834c509e1e" name="a324a8aa029ee38ccd1e011c882c0abc7ab91401124dae935a35e87c834c509e1e"></a>NSUKIT_STATUS_ALLOC_FAILED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865" name="a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865"></a>NSUKIT_STATUS_INVALID_VALUE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7aca6556776970aeff41096494298bc3d5" name="a324a8aa029ee38ccd1e011c882c0abc7aca6556776970aeff41096494298bc3d5"></a>NSUKIT_STATUS_TEMP_MISMATCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a599a0acf1ea431bd9b22ea92c2a37c97" name="a324a8aa029ee38ccd1e011c882c0abc7a599a0acf1ea431bd9b22ea92c2a37c97"></a>NSUKIT_STATUS_MISMATCH_MIXIN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7acf3b932b0eee379d43721e29cd7650e8" name="a324a8aa029ee38ccd1e011c882c0abc7acf3b932b0eee379d43721e29cd7650e8"></a>NSUKIT_STATUS_ACCEPT_FAIL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a687cd7f5b65fdfebd0b1abb101d5b296" name="a324a8aa029ee38ccd1e011c882c0abc7a687cd7f5b65fdfebd0b1abb101d5b296"></a>NSUKIT_STATUS_STREAM_FAIL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7" name="a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7"></a>NSUKIT_STATUS_STREAM_RUNNING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a35c9974d0d9bb1162c4130a774a06463" name="a324a8aa029ee38ccd1e011c882c0abc7a35c9974d0d9bb1162c4130a774a06463"></a>NSUKIT_STATUS_TIMEOUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a7b36f3d5869d0ebd841d546214b8c6a4" name="a324a8aa029ee38ccd1e011c882c0abc7a7b36f3d5869d0ebd841d546214b8c6a4"></a>NSUKIT_STATUS_MEMBER_NOT_SUPPORT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a58bc070cd4e3e849b81110770a1e943a" name="a324a8aa029ee38ccd1e011c882c0abc7a58bc070cd4e3e849b81110770a1e943a"></a>NSUKIT_STATUS_ITF_FAIL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7aa9e46b524c972323642a6ad71756c141" name="a324a8aa029ee38ccd1e011c882c0abc7aa9e46b524c972323642a6ad71756c141"></a>NSUKIT_STATUS_NOT_LINK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99" name="a324a8aa029ee38ccd1e011c882c0abc7a0784716beb935a7b292e4892de741d99"></a>NSUKIT_STATUS_SUCCESS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7acf3220d9659710331647800ac5aff519" name="a324a8aa029ee38ccd1e011c882c0abc7acf3220d9659710331647800ac5aff519"></a>NSUKIT_STATUS_NEED_RELOAD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7ac075db1f29610b632a2a3a157af21a04" name="a324a8aa029ee38ccd1e011c882c0abc7ac075db1f29610b632a2a3a157af21a04"></a>NSUKIT_STATUS_ARCH_MISMATCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7ab91401124dae935a35e87c834c509e1e" name="a324a8aa029ee38ccd1e011c882c0abc7ab91401124dae935a35e87c834c509e1e"></a>NSUKIT_STATUS_ALLOC_FAILED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865" name="a324a8aa029ee38ccd1e011c882c0abc7adf55977dd08500af85c530190d7f7865"></a>NSUKIT_STATUS_INVALID_VALUE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7aca6556776970aeff41096494298bc3d5" name="a324a8aa029ee38ccd1e011c882c0abc7aca6556776970aeff41096494298bc3d5"></a>NSUKIT_STATUS_TEMP_MISMATCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a599a0acf1ea431bd9b22ea92c2a37c97" name="a324a8aa029ee38ccd1e011c882c0abc7a599a0acf1ea431bd9b22ea92c2a37c97"></a>NSUKIT_STATUS_MISMATCH_MIXIN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7acf3b932b0eee379d43721e29cd7650e8" name="a324a8aa029ee38ccd1e011c882c0abc7acf3b932b0eee379d43721e29cd7650e8"></a>NSUKIT_STATUS_ACCEPT_FAIL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a687cd7f5b65fdfebd0b1abb101d5b296" name="a324a8aa029ee38ccd1e011c882c0abc7a687cd7f5b65fdfebd0b1abb101d5b296"></a>NSUKIT_STATUS_STREAM_FAIL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7" name="a324a8aa029ee38ccd1e011c882c0abc7aa7aade35e7ad6dc97939b0322a83b8f7"></a>NSUKIT_STATUS_STREAM_RUNNING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a35c9974d0d9bb1162c4130a774a06463" name="a324a8aa029ee38ccd1e011c882c0abc7a35c9974d0d9bb1162c4130a774a06463"></a>NSUKIT_STATUS_TIMEOUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a7b36f3d5869d0ebd841d546214b8c6a4" name="a324a8aa029ee38ccd1e011c882c0abc7a7b36f3d5869d0ebd841d546214b8c6a4"></a>NSUKIT_STATUS_MEMBER_NOT_SUPPORT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7a58bc070cd4e3e849b81110770a1e943a" name="a324a8aa029ee38ccd1e011c882c0abc7a58bc070cd4e3e849b81110770a1e943a"></a>NSUKIT_STATUS_ITF_FAIL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a324a8aa029ee38ccd1e011c882c0abc7aa9e46b524c972323642a6ad71756c141" name="a324a8aa029ee38ccd1e011c882c0abc7aa9e46b524c972323642a6ad71756c141"></a>NSUKIT_STATUS_NOT_LINK&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00052">52</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="a1b700b5f895240dbf153b93399dd23bb" name="a1b700b5f895240dbf153b93399dd23bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b700b5f895240dbf153b93399dd23bb">&#9670;&#160;</a></span>operator|()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> operator| </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>重载 “|” 操作符 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>左值 </td></tr>
+    <tr><td class="paramname">rhs</td><td>右值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>按位与后的枚举值 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="type_8cpp_source.html">type.cpp</a> 第 <a class="el" href="type_8cpp_source.html#l00045">45</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a870424b704e0479ef2c33ff20f4de9a2" name="a870424b704e0479ef2c33ff20f4de9a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a870424b704e0479ef2c33ff20f4de9a2">&#9670;&#160;</a></span>operator|=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a> void operator|= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>重载 “|=” 操作符 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>左值 </td></tr>
+    <tr><td class="paramname">rhs</td><td>右值 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="type_8cpp_source.html">type.cpp</a> 第 <a class="el" href="type_8cpp_source.html#l00055">55</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">变量说明</h2>
+<a id="af4fb4e02e7a1350e00337a516a89e93c" name="af4fb4e02e7a1350e00337a516a89e93c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4fb4e02e7a1350e00337a516a89e93c">&#9670;&#160;</a></span>nsuBoardNum_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint8_t nsuBoardNum_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00083">83</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8cf01257012f18085e191b0c02492c7a" name="a8cf01257012f18085e191b0c02492c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cf01257012f18085e191b0c02492c7a">&#9670;&#160;</a></span>nsuBytes_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef std::vector&lt;char&gt; nsuBytes_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00080">80</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a730c3323e6e03395ef7064d6c371a936" name="a730c3323e6e03395ef7064d6c371a936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730c3323e6e03395ef7064d6c371a936">&#9670;&#160;</a></span>nsuCharBuf_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef char* nsuCharBuf_p</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00081">81</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aaf489189677bc98aef379998c0203db3" name="aaf489189677bc98aef379998c0203db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf489189677bc98aef379998c0203db3">&#9670;&#160;</a></span>nsuChnlNum_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint8_t nsuChnlNum_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00084">84</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a730c9b4a53bcba19f64397b467741c0f" name="a730c9b4a53bcba19f64397b467741c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730c9b4a53bcba19f64397b467741c0f">&#9670;&#160;</a></span>nsuCSName_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef std::string nsuCSName_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00091">91</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a6406d9827fe2b2fee91118a4a44822eb" name="a6406d9827fe2b2fee91118a4a44822eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6406d9827fe2b2fee91118a4a44822eb">&#9670;&#160;</a></span>nsuCSParam_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef std::string nsuCSParam_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00090">90</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4cad6ed355eee3b0ede0927b1c5ce39a" name="a4cad6ed355eee3b0ede0927b1c5ce39a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cad6ed355eee3b0ede0927b1c5ce39a">&#9670;&#160;</a></span>nsuMemory_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef void* nsuMemory_p</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00085">85</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac1d8b4425fe34bf12e6457b77ef72dea" name="ac1d8b4425fe34bf12e6457b77ef72dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1d8b4425fe34bf12e6457b77ef72dea">&#9670;&#160;</a></span>nsuRegAddr_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint32_t nsuRegAddr_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00088">88</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9ba057a470311150851786c1cae61268" name="a9ba057a470311150851786c1cae61268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ba057a470311150851786c1cae61268">&#9670;&#160;</a></span>nsuRegValue_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef uint32_t nsuRegValue_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00089">89</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a36ec38291b397ae7f8f7a784a2b857f5" name="a36ec38291b397ae7f8f7a784a2b857f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36ec38291b397ae7f8f7a784a2b857f5">&#9670;&#160;</a></span>nsuSize_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef size_t nsuSize_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00086">86</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a9a228623113260d91bbde5b5fd56e96b" name="a9a228623113260d91bbde5b5fd56e96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a228623113260d91bbde5b5fd56e96b">&#9670;&#160;</a></span>nsuStatus_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a>* nsuStatus_p</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00093">93</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a045fee5bfcfd466e3d638f23a7a91976" name="a045fee5bfcfd466e3d638f23a7a91976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a045fee5bfcfd466e3d638f23a7a91976">&#9670;&#160;</a></span>nsuStatus_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef <a class="el" href="include_2base_2type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> nsuStatus_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00092">92</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a2b36603e2e6439d54042181e0f7fb0d2" name="a2b36603e2e6439d54042181e0f7fb0d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b36603e2e6439d54042181e0f7fb0d2">&#9670;&#160;</a></span>nsuStreamLen_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef <a class="el" href="include_2base_2type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> nsuStreamLen_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00087">87</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a37ab7df3439c3be25d1687cb6631ab87" name="a37ab7df3439c3be25d1687cb6631ab87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ab7df3439c3be25d1687cb6631ab87">&#9670;&#160;</a></span>nsuVoidBuf_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="include_2base_2type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> typedef void* nsuVoidBuf_p</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html">type.h</a> 第 <a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h_source.html#l00082">82</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="dir_c7f34d84649281ecbcbdd8b37f74e33c.html">cmake-build-release-visual-studio</a></li><li class="navelem"><a class="el" href="dir_b61c2086d72fac55eabe7b3ba383f456.html">Release</a></li><li class="navelem"><a class="el" href="dir_744aa0a50dc4520a49bc6ccb4dff93aa.html">include</a></li><li class="navelem"><a class="el" href="dir_faecbb50f929a5015f7fe4f913d65060.html">base</a></li><li class="navelem"><a class="el" href="examples_2cmake-build-release-visual-studio_2_release_2include_2base_2type_8h.html">type.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>
