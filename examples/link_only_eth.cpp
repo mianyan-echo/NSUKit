@@ -17,7 +17,7 @@
 #include "NSUKit.h"
 
 int main() {
-    nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::SimStreamUItf> kit{};
+    nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::TCPStreamUItf> kit{};
     nsuInitParam_t param;
     param.cmd_ip ="192.168.1.162";
     param.cmd_tcp_port = 5001;

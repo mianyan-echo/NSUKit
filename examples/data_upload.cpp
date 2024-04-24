@@ -115,7 +115,9 @@ void upload_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, nsuSize_t t
         }
         current += block;
         q->full.Push(mem);
-        if (current == total) break;
+        if (current == total) {
+            break;
+        };
     }
     lock = new std::unique_lock<std::mutex>(*mu);
     q->stopFlag = 1;
@@ -228,11 +230,22 @@ int main(int argc, char *argv[]) {
     res = kit.execute("ADTriggerConfig");
     std::cout << "ADTrigger Config Successful!!!" << std::endl;
 
+    res = kit.execute("SocStop");
+    if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+        std::cout << "SocStop: " << nsukit::status2_string(res) << std::endl;
+    }
+
+    // Start the upstream and storage threads.
+    std::thread up_trd(upload_thread, &kit, &q, ds_block, total_len, &mu);
+    std::thread write_trd(write_file_thread, &kit, &q, ds_block, argv[3], &mu);
+
+    std::cout << "Stream thread start successful!!!" << std::endl;
+
 #ifdef STREAM_WITH_TCP
-    kit.set_param("ADC数据输出方式", 1);
+    kit.set_param(u8"ADC数据输出方式", 1);
     std::cout << "Use TCP get data stream" << std::endl;
 #else
-    kit.set_param("ADC数据输出方式", 0);
+    kit.set_param(u8"ADC数据输出方式", 0);
     std::cout << "Use PCIE get data stream" << std::endl;
 #endif
     // Notify FPGA to start data acquisition.
@@ -240,10 +253,6 @@ int main(int argc, char *argv[]) {
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "SocStart: " << nsukit::status2_string(res) << std::endl;
     }
-
-    // Start the upstream and storage threads.
-    std::thread up_trd(upload_thread, &kit, &q, ds_block, total_len, &mu);
-    std::thread write_trd(write_file_thread, &kit, &q, ds_block, argv[3], &mu);
     up_trd.join();
     write_trd.join();
 
