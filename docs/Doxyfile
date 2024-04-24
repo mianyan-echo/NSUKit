@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = NSUKit
-PROJECT_NUMBER         = 1.2.0
+PROJECT_NUMBER         = 1.2.1
 PROJECT_BRIEF          = 板卡级统一交互接口
 PROJECT_LOGO           = ./image/logo.png
 OUTPUT_DIRECTORY       = html
@@ -209,7 +209,7 @@ IGNORE_PREFIX          =
 # Configuration options related to the HTML output
 #---------------------------------------------------------------------------
 GENERATE_HTML          = YES
-HTML_OUTPUT            = 1.2.0
+HTML_OUTPUT            = 1.2.1
 HTML_FILE_EXTENSION    = .html
 HTML_HEADER            = header.html
 HTML_FOOTER            =

@@ -7,6 +7,29 @@
 using namespace nsukit;
 
 
+TEST(NSUKITTest, ETH) {
+    nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::TCPStreamUItf> kit{};
+    nsuInitParam_t param;
+    param.cmd_ip ="192.168.1.162";
+    param.cmd_tcp_port = 5001;
+    param.stream_ip ="192.168.1.162";
+    param.stream_tcp_port = 6002;
+
+    auto res = kit.link_cmd(&param);
+    res = kit.link_stream(&param);
+
+//    res = kit.execute("RFConfig");
+    kit.set_param("ADC数据输出方式", 1);
+
+    auto mem = kit.alloc_buffer(10240);
+    auto mem_1 = kit.alloc_buffer(10240);
+    res = kit.execute("SocStart");
+    kit.stream_recv(0, mem, 1024, 0);
+    kit.stream_recv(0, mem_1, 1024, 1024);
+    auto buffer = kit.get_buffer(mem, 1024);
+}
+
+
 //TEST(NSUKITTest, TTT) {
 //    nsukit::NSUSoc<nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> kit{};
 //    nsuInitParam_t param;

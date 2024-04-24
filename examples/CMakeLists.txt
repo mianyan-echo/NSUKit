@@ -15,6 +15,7 @@ add_executable(DataDownload data_download.cpp)
 add_executable(DSOpUseCase DSOpUseCase.cpp)
 add_executable(DataUpload data_upload.cpp)
 add_executable(HardwareSync hardware_sync.cpp)
+add_executable(LinkOnlyEth link_only_eth.cpp)
 
 target_link_libraries(
         FirmwareUpdate
@@ -43,7 +44,7 @@ target_link_libraries(
 
 target_link_libraries(
         DataUpload
-        NSUKit.dll
+        NSUKit
         xdma_api
 )
 
@@ -59,4 +60,10 @@ target_link_libraries(
         NSUKit
         xdma_api
         pthread
+)
+
+target_link_libraries(LinkOnlyEth
+        NSUKit
+        xdma_api
+#        pthread
 )

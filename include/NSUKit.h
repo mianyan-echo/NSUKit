@@ -291,17 +291,17 @@ namespace nsukit {
         }
         METHOD_NEED_(check_typesafe);
 
-        // 初始化状态为成功
+        //
         nsukitStatus_t status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 
         if (!this->combined_cmd_itf()) {
             auto* crInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cr);
             status |= crInterface->accept(param);
         }
-        // 调用命令接口的 accept 函数，将结果合并到状态中
+        //
         auto* csInterface = dynamic_cast<I_BaseCmdUItf*>(itf_cs);
         status |= csInterface->accept(param);
-        // 调用命令中间件的 config 函数，将结果合并到状态中
+        //
         auto* cmdMiddleware = dynamic_cast<I_BaseRegMw*>(mw_cmd);
         status |= cmdMiddleware->config(param);
 
@@ -309,7 +309,7 @@ namespace nsukit {
             cmd_linked = true;
         }
 
-        // 返回合并后的状态
+        //
         return status;
     }
 
@@ -317,7 +317,7 @@ namespace nsukit {
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::unlink_cmd() {
         METHOD_NEED_(check_typesafe);
-        // 初始化状态为成功
+        //
         nsukitStatus_t status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 
         if (!this->combined_cmd_itf()) {
@@ -339,13 +339,13 @@ namespace nsukit {
         }
         METHOD_NEED_(check_typesafe);
 
-        // 初始化状态为成功
+        //
         nsukitStatus_t status = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 
-        // 调用命令接口的 accept 函数，将结果合并到状态中
+        //
         auto* chnlInterface = dynamic_cast<I_BaseStreamUItf*>(itf_ds);
         status |= chnlInterface->accept(param);
-        // 调用命令中间件的 config 函数，将结果合并到状态中
+        //
         auto* chnlMiddleware = dynamic_cast<I_BaseStreamMw*>(mw_chnl);
         status |= chnlMiddleware->config(param);
 
@@ -353,7 +353,7 @@ namespace nsukit {
             stream_linked = true;
         }
 
-        // 返回合并后的状态
+        //
         return status;
     }
 

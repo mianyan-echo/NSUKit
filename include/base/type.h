@@ -6,7 +6,7 @@
 #ifndef NSUKIT_TYPE_H
 #define NSUKIT_TYPE_H
 
-#ifdef linux
+#ifdef __linux__
 
 #define _API_CALL
 #define DLLEXTERN
@@ -25,17 +25,36 @@
 #include <cstdarg>
 #include <cstdint>
 #include <vector>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+
+
+class ThreadSafeEvent {
+    std::mutex mtx;
+    std::condition_variable cv;
+    bool eventOccurred = false;
+
+public:
+    bool waitForEvent(int timeout=0);
+
+    void setEvent();
+
+    void resetEvent();
+
+    bool isSet();
+};
 
 /**
  * @enum nsukitStatus_t
  * 统一描述接口返回的执行状态
  */
 DLLEXTERN enum class nsukitStatus_t {
-    NSUKIT_STATUS_SUCCESS             =                  0,        //!< 0 运行成功
-    NSUKIT_STATUS_NEED_RELOAD         =                  1 << 0,   //!< 1 此方法需要重载
-    NSUKIT_STATUS_ARCH_MISMATCH       =                  1 << 1,   //!< 2 接口不支持此操作系统
-    NSUKIT_STATUS_ALLOC_FAILED        =                  1 << 2,   //!< 4 内存申请失败
-    NSUKIT_STATUS_INVALID_VALUE       =                  1 << 3,   //!< 8 不受支持的传参
+    NSUKIT_STATUS_SUCCESS             =                  0,
+    NSUKIT_STATUS_NEED_RELOAD         =                  1 << 0,
+    NSUKIT_STATUS_ARCH_MISMATCH       =                  1 << 1,
+    NSUKIT_STATUS_ALLOC_FAILED        =                  1 << 2,
+    NSUKIT_STATUS_INVALID_VALUE       =                  1 << 3,
     NSUKIT_STATUS_TEMP_MISMATCH       =                  1 << 4,
     NSUKIT_STATUS_MISMATCH_MIXIN      =                  1 << 5,
     NSUKIT_STATUS_ACCEPT_FAIL         =                  1 << 6,
@@ -53,8 +72,8 @@ NSU_DLLEXPORT void operator|= (nsukitStatus_t &lhs, nsukitStatus_t rhs);
 
 
 DLLEXTERN enum class nsuBulkMode {
-    LOOP = 0,       //!< 循环向单寄存器地址中写入数据
-    INCREMENT = 1   //!< 从给定基地址依次递增写入数据
+    LOOP = 0,
+    INCREMENT = 1
 };
 
 
@@ -81,6 +100,7 @@ struct nsuTCPParam_t{
 
     std::string stream_ip = "127.0.0.1";
     uint32_t stream_tcp_port{};
+    uint32_t stream_tcp_block = 4 * 1024 * 1024;
 };
 
 

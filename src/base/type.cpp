@@ -4,6 +4,38 @@
 #include "base/type.h"
 
 
+bool ThreadSafeEvent::isSet() {
+    std::lock_guard<std::mutex> lock(mtx);
+    return eventOccurred;
+}
+
+
+void ThreadSafeEvent::setEvent() {
+    {
+        std::lock_guard<std::mutex> lock(mtx);
+        eventOccurred = true;
+    }
+    cv.notify_one();
+}
+
+
+bool ThreadSafeEvent::waitForEvent(int timeout) {
+    std::unique_lock<std::mutex> lock(mtx);
+    if (timeout>0) {
+        return cv.wait_for(lock, std::chrono::seconds(timeout), [&]{ return eventOccurred; });
+    } else {
+        cv.wait(lock, [&]{ return eventOccurred; });
+    }
+    return true;
+}
+
+
+void ThreadSafeEvent::resetEvent() {
+    std::lock_guard<std::mutex> lock(mtx);
+    eventOccurred = false;
+}
+
+
 /**
  * 重载 “|” 操作符
  * @param lhs 左值

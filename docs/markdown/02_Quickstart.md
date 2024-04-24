@@ -113,9 +113,10 @@ kit.read(0x10000000, &reg);
 #include "NSUKit.h"
 
 nsukit::NSUSoc<nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf> kit;
+...
 
 int data[20];
-kit.bulk_write(0x10000030, data, nsukit::nsuBulkMode::INCREMENT);            // 从给定寄存器地址，依次将给定数据依次写入后续地址 
+kit.bulk_write(0x10000030, (char *)data, 20, nsukit::nsuBulkMode::INCREMENT);            // 从给定寄存器地址，依次将给定数据依次写入后续地址 
 kit.bulk_read(0x00000020, 10, nsukit::nsuBulkMode::INCREMENT)                // 从给定基地址开始，从寄存器中读取指定长度的值
 ```
 
@@ -126,9 +127,10 @@ kit.bulk_read(0x00000020, 10, nsukit::nsuBulkMode::INCREMENT)                // 
 #include "NSUKit.h"
 
 nsukit::NSUSoc<nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf> kit;
+...
 
 int data[20];
-kit.bulk_write(0x10000030, data, nsukit::nsuBulkMode::LOOP);            // 从给定寄存器地址，将给定数据依次写入，地址不递增
+kit.bulk_write(0x10000030, (char *)data, 20, nsukit::nsuBulkMode::LOOP);            // 从给定寄存器地址，将给定数据依次写入，地址不递增
 kit.bulk_read(0x00000020, 10, nsukit::nsuBulkMode::LOOP)                // 从给定寄存器地址，按一定间隔读出寄存器中的值
 ```
 

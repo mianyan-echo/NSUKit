@@ -33,6 +33,19 @@
 #include "NSUKit.h"
 
 
+//#define STREAM_WITH_PCIE
+#define STREAM_WITH_TCP
+#define SocType nsukit::NSUSoc <nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf>
+
+#ifdef STREAM_WITH_PCIE
+#define SocType nsukit::NSUSoc <nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::PCIEStreamUItf>
+#endif
+
+#ifdef STREAM_WITH_TCP
+#define SocType nsukit::NSUSoc <nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::TCPStreamUItf>
+#endif
+
+
 /**
  * @class ThreadSafeQueue
  * @tparam T
@@ -77,12 +90,12 @@ struct Deque {
 
 
 /**
- * 数据上行线程，从板卡中按粒度捞出数据，将数据推入full队列
- * @param _kit NSUSoc类的实例，与Soc进行数据流交互
- * @param q 循环队列
- * @param block 数据上行粒度
- * @param total 全部数据
- * @param mu 互斥锁
+ * Data upstream thread retrieves data from the board at a granular level and pushes it into the full queue.
+ * @param _kit
+ * @param q
+ * @param block
+ * @param total
+ * @param mu
  */
 void upload_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, nsuSize_t total, std::mutex *mu) {
     std::unique_lock<std::mutex> *lock;
@@ -102,7 +115,9 @@ void upload_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, nsuSize_t t
         }
         current += block;
         q->full.Push(mem);
-        if (current == total) break;
+        if (current == total) {
+            break;
+        };
     }
     lock = new std::unique_lock<std::mutex>(*mu);
     q->stopFlag = 1;
@@ -124,7 +139,7 @@ void write_file_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, const s
     std::ofstream outF;
     outF.open(path, std::ofstream::binary);
     int cnt = 0;
-    nsuSize_t speed_count;
+    nsuSize_t speed_count = 0;
     auto st = std::chrono::steady_clock::now();
 
     while (true) {
@@ -134,16 +149,18 @@ void write_file_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, const s
         }
         delete lock;
         mem = q->full.Pop();
-
         outF.write((char *)_kit->get_buffer(mem, block), block);
         q->empty.Push(mem);
+//        std::this_thread::sleep_for(std::chrono::seconds(1));
         speed_count += block;
 
         if (cnt % 20 == 0) {
             auto count = std::chrono::steady_clock::now() - st;
-            std::cout << std::flush << '\r' << "当前写盘速度: " << speed_count*1000./(count.count()) << "MB/s" << std::endl;
-//            speed_count = 0;
+            std::cout << std::flush << '\r' << "current write file speed: " << speed_count*1000./(count.count()) << "MB/s" << std::endl;
+            speed_count = 0;
+            st = std::chrono::steady_clock::now();
         }
+        cnt++;
     }
     std::cout << std::endl;
     outF.close();
@@ -154,7 +171,7 @@ int main(int argc, char *argv[]) {
     unsigned int ds_block = 1024*1024;
     Deque q;
     std::mutex mu;
-    nsukit::NSUSoc <nsukit::TCPCmdUItf, nsukit::PCIECmdUItf, nsukit::PCIEStreamUItf> kit{};
+    SocType kit{};
 
     if (argc != 4) {
         std::cout << "Unsupported parameter passing method" << std::endl;
@@ -174,6 +191,18 @@ int main(int argc, char *argv[]) {
     param.cmd_ip = argv[1];
     param.cmd_board = 0;
     param.stream_board = 0;
+#ifdef STREAM_WITH_TCP
+    auto ip = std::string(argv[1]);
+    // 192.168.1.161 => 6001
+    std::string port_str{};
+    port_str += ip[ip.length()-2];
+    port_str += "00";
+    port_str += ip[ip.length()-1];
+    int port = std::atoi(port_str.data());
+    param.stream_ip = ip;
+    param.stream_tcp_port = port;
+    param.stream_tcp_block = 4 * 1024 * 1024;
+#endif
 
     auto res = kit.link_cmd(&param);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
@@ -185,32 +214,55 @@ int main(int argc, char *argv[]) {
         std::cout << "Establish a DS connection: " << nsukit::status2_string(res) << std::endl;
     }
 
+    std::cout << "SocLink Successful!!!   now alloc buffer" << std::endl;
     for (int i=0; i<10; i++) {
         nsuMemory_p mem = kit.alloc_buffer(ds_block);
         q.empty.Push(mem);
     }
 
+    res = kit.execute("RFConfig");
+    std::cout << "Soc Init Successful!!!" << std::endl;
 
-    // 通知FPGA开始采集
-    res = kit.execute("系统开启");
+    kit.set_param("TotalTriggerPoints", 128);  // 128k sample points
+    kit.set_param("PreTriggerPoints", 512);    // pre sample 512 points
+    kit.set_param("CH0TriggerEnable", 1);      // enable CH0 Trigger
+    kit.set_param("CH0TriggerLevel", 4096);    // config CH0 Trigger level
+    res = kit.execute("ADTriggerConfig");
+    std::cout << "ADTrigger Config Successful!!!" << std::endl;
+
+    res = kit.execute("SocStop");
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "系统开启：" << nsukit::status2_string(res) << std::endl;
+        std::cout << "SocStop: " << nsukit::status2_string(res) << std::endl;
     }
 
-    // 开启上行及存盘线程
+    // Start the upstream and storage threads.
     std::thread up_trd(upload_thread, &kit, &q, ds_block, total_len, &mu);
     std::thread write_trd(write_file_thread, &kit, &q, ds_block, argv[3], &mu);
 
+    std::cout << "Stream thread start successful!!!" << std::endl;
+
+#ifdef STREAM_WITH_TCP
+    kit.set_param(u8"ADC数据输出方式", 1);
+    std::cout << "Use TCP get data stream" << std::endl;
+#else
+    kit.set_param(u8"ADC数据输出方式", 0);
+    std::cout << "Use PCIE get data stream" << std::endl;
+#endif
+    // Notify FPGA to start data acquisition.
+    res = kit.execute("SocStart");
+    if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
+        std::cout << "SocStart: " << nsukit::status2_string(res) << std::endl;
+    }
     up_trd.join();
     write_trd.join();
 
-    // 通知FPGA开始采集
-    res = kit.execute("系统停止");
+    // Notify FPGA to stop data acquisition.
+    res = kit.execute("SocStop");
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "系统停止：" << nsukit::status2_string(res) << std::endl;
+        std::cout << "SocStop: " << nsukit::status2_string(res) << std::endl;
     }
 
-    std::cout << "Data download completed" << std::endl;
+    std::cout << "Data upload completed" << std::endl;
 
     return 0;
 }

@@ -309,7 +309,7 @@
                 ["uint32", "0x00000000"]
             ]
         },
-        "RF配置": {
+        "RFConfig": {
             "send": [
                 "发送指令包头",
                 ["uint32", "0x31000003"],
@@ -420,7 +420,7 @@
                 "NCO频率配置结果"
             ]
         },
-        "系统停止": {
+        "SocStop": {
             "send": [
                 "发送指令包头",
                 ["uint32", "0x31000002"],
@@ -435,7 +435,7 @@
                 "系统停止结果"
             ]
         },
-        "系统开启": {
+        "SocStart": {
             "send": [
                 "发送指令包头",
                 ["uint32", "0x31000001"],
@@ -589,20 +589,20 @@
                 "TotalTriggerPoints",
                 "PreTriggerPoints",
                 "CH0TriggerEnable",
-                "CH1TriggerEnable",
-                "CH2TriggerEnable",
-                "CH3TriggerEnable",
-                "CH4TriggerEnable",
-                "CH5TriggerEnable",
-                "CH6TriggerEnable",
-                "CH7TriggerEnable",
                 "CH0TriggerLevel",
+                "CH1TriggerEnable",
                 "CH1TriggerLevel",
+                "CH2TriggerEnable",
                 "CH2TriggerLevel",
+                "CH3TriggerEnable",
                 "CH3TriggerLevel",
+                "CH4TriggerEnable",
                 "CH4TriggerLevel",
+                "CH5TriggerEnable",
                 "CH5TriggerLevel",
+                "CH6TriggerEnable",
                 "CH6TriggerLevel",
+                "CH7TriggerEnable",
                 "CH7TriggerLevel"
             ],
             "recv": [
