@@ -38,6 +38,7 @@ nsukitStatus_t TCPCmdUItf::close() {
 
 nsukitStatus_t TCPCmdUItf::set_timeout(float s) {
     sockGen.recvTimeout = (int) (s * 1000);
+    tcpTimeout = s;
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 
@@ -61,7 +62,10 @@ nsukitStatus_t TCPCmdUItf::send_bytes(nsuCharBuf_p bytes, nsuSize_t length) {
     auto res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
     opLock.lock();
     auto tcp_status = TcpSendBytes(&sockGen, bytes, length);
-    if (tcp_status == 0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (tcp_status == 0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("Send Bytes FAIL, status 0");
+    }
 
 //    sockGen.CloseSock(sockGen.tcpClient);
     opLock.unlock();
@@ -73,7 +77,10 @@ nsukitStatus_t TCPCmdUItf::recv_bytes(nsuSize_t size, nsuCharBuf_p buf) {
     auto res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
     opLock.lock();
     auto tcp_status = TcpRecvBytes(&sockGen, buf, size);
-    if (tcp_status == 0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (tcp_status == 0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("Recv Bytes FAIL, status 0");
+    }
 //    sockGen.CloseSock(sockGen.tcpClient);
     opLock.unlock();
     return res;
@@ -118,6 +125,7 @@ nsukitStatus_t TCPStreamUItf::close() {
         sockGen.CloseSock(sockGen.tcpServer);
     } catch (...) {
         res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("ITF_FALL close tcp link catch");
     }
     opLock.unlock();
     return res;
@@ -239,10 +247,10 @@ nsukitStatus_t TCPStreamUItf::wait_stream(nsuMemory_p fd, float timeout) {
     mem->finish_event.waitForEvent(static_cast<int>(timeout));
 
     std::unique_lock<std::mutex> lock(mem->mtx);
-    if (mem->using_size < mem->need_size) {
-        return nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
-    } else if (!mem->error_msg.empty()) {
+    if (!mem->error_msg.empty()) {
         return nsukitStatus_t::NSUKIT_STATUS_STREAM_FAIL;
+    } else if (mem->using_size < mem->need_size) {
+        return nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
     } else {
         return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
     }

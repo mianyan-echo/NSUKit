@@ -1,7 +1,7 @@
 ## 编译方法
 ```shell
 cd build
-cmake -DENABLE_TEST=OFF ..
+cmake -DENABLE_TEST=OFF -DNSUKIT_WITH_XDMA=ON -DNSUKIT_DEBUG_EN=OFF ..
 cmake --build . --target NSUKit
 ```
 
@@ -9,7 +9,7 @@ cmake --build . --target NSUKit
 ### gcc
 ```shell
 cp -r NSUKit/include ./
-cp NSUKit/lib.libNSUKit.so ./
+cp NSUKit/lib/libNSUKit.so ./
 gcc xxx.cpp -INSUKit/include -lNSUKit
 ```
 
