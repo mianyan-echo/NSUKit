@@ -16,6 +16,7 @@ add_executable(DSOpUseCase DSOpUseCase.cpp)
 add_executable(DataUpload data_upload.cpp)
 add_executable(HardwareSync hardware_sync.cpp)
 add_executable(LinkOnlyEth link_only_eth.cpp)
+add_executable(SendIcdCommandTCP send_icd_command_tcp.cpp)
 
 target_link_libraries(
         FirmwareUpdate
@@ -46,6 +47,7 @@ target_link_libraries(
         DataUpload
         NSUKit
         xdma_api
+        pthread
 )
 
 target_link_libraries(
@@ -65,5 +67,12 @@ target_link_libraries(
 target_link_libraries(LinkOnlyEth
         NSUKit
         xdma_api
-#        pthread
+        #        pthread
 )
+
+target_link_libraries(
+        SendIcdCommandTCP
+        NSUKit
+        xdma_api
+)
+
