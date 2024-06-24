@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
 
     auto res = kit.link_stream(&param);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "建立DS连接：" << nsukit::status2_string(res) << std::endl;
+        std::cout << "DS link: " << nsukit::status2_string(res) << std::endl;
         return 1;
     }
 

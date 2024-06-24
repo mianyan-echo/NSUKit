@@ -119,7 +119,7 @@ nsukitStatus_t SimStreamUItf::free_buffer(nsuMemory_p fd) {
     if (memory->self_malloc) {
         free(memory->buffer);
     }
-    free(memory);
+    delete memory;
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 

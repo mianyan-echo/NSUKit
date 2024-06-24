@@ -171,7 +171,7 @@ int main(int argc, char *argv[]) {
     unsigned int ds_block = 1024*1024;
     Deque q;
     std::mutex mu;
-    SocType kit{};
+    SocType* kit = new SocType{};
 
     if (argc != 4) {
         std::cout << "Unsupported parameter passing method" << std::endl;
@@ -204,52 +204,52 @@ int main(int argc, char *argv[]) {
     param.stream_tcp_block = 4 * 1024 * 1024;
 #endif
 
-    auto res = kit.link_cmd(&param);
+    auto res = kit->link_cmd(&param);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "Establish CS and CR connections: " << nsukit::status2_string(res) << std::endl;
     }
 
-    res = kit.link_stream(&param);
+    res = kit->link_stream(&param);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "Establish a DS connection: " << nsukit::status2_string(res) << std::endl;
     }
 
     std::cout << "SocLink Successful!!!   now alloc buffer" << std::endl;
     for (int i=0; i<10; i++) {
-        nsuMemory_p mem = kit.alloc_buffer(ds_block);
+        nsuMemory_p mem = kit->alloc_buffer(ds_block);
         q.empty.Push(mem);
     }
 
-    res = kit.execute("RFConfig");
+    res = kit->execute("RFConfig");
     std::cout << "Soc Init Successful!!!" << std::endl;
 
-    kit.set_param("TotalTriggerPoints", 128);  // 128k sample points
-    kit.set_param("PreTriggerPoints", 512);    // pre sample 512 points
-    kit.set_param("CH0TriggerEnable", 1);      // enable CH0 Trigger
-    kit.set_param("CH0TriggerLevel", 4096);    // config CH0 Trigger level
-    res = kit.execute("ADTriggerConfig");
+    kit->set_param("TotalTriggerPoints", 128);  // 128k sample points
+    kit->set_param("PreTriggerPoints", 512);    // pre sample 512 points
+    kit->set_param("CH0TriggerEnable", 1);      // enable CH0 Trigger
+    kit->set_param("CH0TriggerLevel", 4096);    // config CH0 Trigger level
+    res = kit->execute("ADTriggerConfig");
     std::cout << "ADTrigger Config Successful!!!" << std::endl;
 
-    res = kit.execute("SocStop");
+    res = kit->execute("SocStop");
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "SocStop: " << nsukit::status2_string(res) << std::endl;
     }
 
     // Start the upstream and storage threads.
-    std::thread up_trd(upload_thread, &kit, &q, ds_block, total_len, &mu);
-    std::thread write_trd(write_file_thread, &kit, &q, ds_block, argv[3], &mu);
+    std::thread up_trd(upload_thread, kit, &q, ds_block, total_len, &mu);
+    std::thread write_trd(write_file_thread, kit, &q, ds_block, argv[3], &mu);
 
     std::cout << "Stream thread start successful!!!" << std::endl;
 
 #ifdef STREAM_WITH_TCP
-    kit.set_param(u8"ADC数据输出方式", 1);
+    kit->set_param(u8"ADC数据输出方式", 1);
     std::cout << "Use TCP get data stream" << std::endl;
 #else
     kit.set_param(u8"ADC数据输出方式", 0);
     std::cout << "Use PCIE get data stream" << std::endl;
 #endif
     // Notify FPGA to start data acquisition.
-    res = kit.execute("SocStart");
+    res = kit->execute("SocStart");
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "SocStart: " << nsukit::status2_string(res) << std::endl;
     }
@@ -257,7 +257,7 @@ int main(int argc, char *argv[]) {
     write_trd.join();
 
     // Notify FPGA to stop data acquisition.
-    res = kit.execute("SocStop");
+    res = kit->execute("SocStop");
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "SocStop: " << nsukit::status2_string(res) << std::endl;
     }

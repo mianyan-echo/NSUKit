@@ -275,12 +275,12 @@ namespace nsukit {
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::~NSUSoc() {
         if (!this->combined_cmd_itf()) {
-            free(itf_cr);
+            delete itf_cr;
         }
-        free(itf_cs);
-        free(itf_ds);
-        free(mw_cmd);
-        free(mw_chnl);
+        delete itf_cs;
+        delete itf_ds;
+        delete mw_cmd;
+        delete mw_chnl;
     }
 
 

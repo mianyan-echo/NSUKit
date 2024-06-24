@@ -13,6 +13,11 @@ TCPCmdUItf::TCPCmdUItf() {
 }
 
 
+TCPCmdUItf::~TCPCmdUItf() {
+    delete mixin_;
+}
+
+
 nsukitStatus_t TCPCmdUItf::accept(nsuInitParam_t *param) {
     tcpTimeout = param->cmd_tcp_timeout;
     tcpPort = param->cmd_tcp_port;

@@ -44,29 +44,30 @@ nsukitStatus_t parse_cmd_str(char *cmd_str, std::vector<std::string>& cmds) {
  */
 nsukitStatus_t parallel_execute(std::vector<nsukit::BaseKit *>& slave_list, const std::string& cmd) {
     nsukitStatus_t res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
-//    unsigned long long num_parallel = slave_list.size();
-//#ifndef HSYNC_EN_ASYNC
-//    // thread库实现
-//    std::thread threads[num_parallel];
-//    for(int i=0; i < num_parallel; i++) {
-//        const auto &elem = slave_list[i];
-//        threads[i] = std::thread(&nsukit::BaseKit::execute, elem, cmd);
-////        [&elem, cmd]() {elem->execute(cmd);}
-//    }
-//    for(int i=0; i < num_parallel; i++) {
-//        threads[i].join();
-//    }
-//#else
-////     async
-//    std::future<nsukitStatus_t> futures[num_parallel];
-//    for(int i=0; i<num_parallel; i++) {
-//        const auto &elem = slave_list[i];
-//        futures[i] = std::async(std::launch::async, &nsukit::BaseKit::execute, elem, cmd);
-//    }
-//    for(int i=0; i<num_parallel; i++) {
-//        res |= futures[i].get();
-//    }
-//#endif
+    unsigned long long num_parallel = slave_list.size();
+#ifndef HSYNC_EN_ASYNC
+    // thread库实现
+    std::thread threads[num_parallel];
+    for(int i=0; i < num_parallel; i++) {
+        const auto &elem = slave_list[i];
+        threads[i] = std::thread(&nsukit::BaseKit::execute, elem, cmd);
+//        [&elem, cmd]() {elem->execute(cmd);}
+    }
+    for(int i=0; i < num_parallel; i++) {
+        threads[i].join();
+    }
+#else
+//     async
+    auto * futures = new std::future<nsukitStatus_t>[num_parallel];
+    for(int i=0; i<num_parallel; i++) {
+        const auto &elem = slave_list[i];
+        futures[i] = std::async(std::launch::async, &nsukit::BaseKit::execute, elem, cmd);
+    }
+    for(int i=0; i<num_parallel; i++) {
+        res |= futures[i].get();
+    }
+    delete[] futures;
+#endif
     return res;
 }
 
