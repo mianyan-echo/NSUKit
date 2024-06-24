@@ -36,12 +36,6 @@ target_link_libraries(
         xdma_api
         pthread
 )
-target_link_libraries(
-        DataDownload
-        NSUKit
-        xdma_api
-        pthread
-)
 
 target_link_libraries(
         DataUpload

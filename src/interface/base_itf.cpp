@@ -66,10 +66,10 @@ Mixin_NativeRegCmd::increment_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidB
     }
     auto ceil_num = (nsuSize_t )std::ceil((float )length/(float )reg_len);
     auto buf = (nsuRegValue_t *) malloc(ceil_num* sizeof(nsuRegValue_t));
-    memcpy(buf, value, length);
     for (int i=0;i<ceil_num;i++){
         res |= cmd_itf_->read(addr+reg_len*i, buf+i);
     }
+    memcpy(value, buf, length);
     free(buf);
     return res;
 }
@@ -157,7 +157,10 @@ nsukitStatus_t Mixin_VirtualRegCmd::_common_write(nsuRegAddr_t reg, nsuRegValue_
     res |= cmd_itf_->recv_bytes(16, r_head);
     memcpy(&pack, r_head, 16);
     res |= cmd_itf_->recv_bytes(pack.length-16, r_head);
-    if (*(nsuRegValue_t *)r_head!=0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (*(nsuRegValue_t *)r_head!=0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("cmd result!=0");
+    }
     return res;
 }
 
@@ -173,7 +176,10 @@ nsukitStatus_t Mixin_VirtualRegCmd::_common_read(nsuRegAddr_t reg, nsuRegValue_t
     res |= cmd_itf_->recv_bytes(16, r_head);
     memcpy(&pack, r_head, 16);
     res |= cmd_itf_->recv_bytes(pack.length-16, r_head);
-    if (*(nsuRegValue_t *)r_head!=0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (*(nsuRegValue_t *)r_head!=0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("cmd result!=0");
+    }
     if (res == nsukitStatus_t::NSUKIT_STATUS_SUCCESS) *buf = *(nsuRegValue_t *)r_head;
     return res;
 }
@@ -227,7 +233,9 @@ Mixin_VirtualRegCmd::increment_write(nsuRegAddr_t addr, nsuVoidBuf_p value, nsuS
     res |= cmd_itf_->recv_bytes(16, r_head);
     memcpy(&head, r_head, 16);
     res |= cmd_itf_->recv_bytes(head.length-16, r_head);
-    if (*(nsuRegValue_t *)r_head!=0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (*(nsuRegValue_t *)r_head!=0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    }
     return res;
 }
 
@@ -239,7 +247,10 @@ Mixin_VirtualRegCmd::increment_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoid
 
     auto buf = (nsuCharBuf_p ) malloc(sizeof(RegPack)+padding_len);
     res |= cmd_itf_->recv_bytes(sizeof(RegPack)+padding_len-4, buf);
-    if (*(nsuRegValue_t *)(buf+16)!=0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (*(nsuRegValue_t *)(buf+16)!=0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("cmd result!=0");
+    }
     memcpy(value, buf+4*20, padding_len);
     free(buf);
     return res;
@@ -261,7 +272,10 @@ Mixin_VirtualRegCmd::loop_write(nsuRegAddr_t addr, nsuVoidBuf_p value, nsuSize_t
     res |= cmd_itf_->recv_bytes(16, r_head);
     memcpy(&head, r_head, 16);
     res |= cmd_itf_->recv_bytes(head.length-16, r_head);
-    if (*(nsuRegValue_t *)r_head!=0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (*(nsuRegValue_t *)r_head!=0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("cmd result!=0");
+    }
     return res;
 }
 
@@ -273,7 +287,10 @@ Mixin_VirtualRegCmd::loop_read(nsuRegAddr_t addr, nsuSize_t length, nsuVoidBuf_p
 
     auto buf = (nsuCharBuf_p ) malloc(sizeof(RegPack)+padding_len);
     res |= cmd_itf_->recv_bytes(sizeof(RegPack)+padding_len-4, buf);
-    if (*(nsuRegValue_t *)(buf+16)!=0) res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+    if (*(nsuRegValue_t *)(buf+16)!=0) {
+        res |= nsukitStatus_t::NSUKIT_STATUS_ITF_FAIL;
+        DEBUG_PRINT_CLASS("cmd result!=0");
+    }
     memcpy(value, buf+20, padding_len);
     free(buf);
     return res;

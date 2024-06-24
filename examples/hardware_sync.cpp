@@ -52,6 +52,8 @@ int main(int argc, char *argv[]) {
     res |= nsukit::hl_hsync_sync(&master, slaves, argc-2, cmd_fmt);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "多板同步：" << nsukit::status2_string(res) << std::endl;
+    } else {
+        std::cout << "Hardware Synchronization Succeeded" << std::endl;
     }
 
     for(int i=2;i<argc;i++) {

@@ -11,7 +11,7 @@
 namespace nsukit {
 #define HSYNC_DEFAULT_CMD_FMT "hsync_s1\nhsync_s2\nhsync_s3\nhsync_s4\nhsync_s5\nhsync_s6"
 #define HSYNC_CMD_FMT_DELIM '\n'
-#define HSYNC_EN_ASYNC   // 是否使能异步模式并发向各个slave发送hsync指令
+//#define HSYNC_EN_ASYNC   // 是否使能异步模式并发向各个slave发送hsync指令
 
     /**
      *
