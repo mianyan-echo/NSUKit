@@ -23,42 +23,31 @@ std::string BaseKit::get_param(nsuCSParam_t &param_name, std::string _default) {
 
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const uint8_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const int8_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const uint16_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const int16_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const uint32_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const int32_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const double &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const float &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t BaseKit::set_param(nsuCSParam_t &param_name, const std::string &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 
-nsukitStatus_t BaseKit::execute(nsuCSName_t cname) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+nsukitStatus_t BaseKit::execute(nsuCSName_t cname) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }

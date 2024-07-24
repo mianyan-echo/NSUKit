@@ -27,72 +27,57 @@ std::string I_BaseRegMw::get_param(nsuCSParam_t &param_name, std::string _defaul
 
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const uint8_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const int8_t &value) {
     return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
 }
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const uint16_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const int16_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const uint32_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const int32_t &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const double &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const float &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseRegMw::set_param(nsuCSParam_t &param_name, const std::string &value) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 
 nsukitStatus_t I_BaseRegMw::execute(nsuCSName_t cname) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
 nsukitStatus_t
 I_BaseStreamMw::open_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t
 I_BaseStreamMw::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseStreamMw::wait_stream(nsuMemory_p fd, float timeout) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t I_BaseStreamMw::break_stream(nsuMemory_p fd) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t
 I_BaseStreamMw::stream_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset,
                             bool (*stop_event)(), float timeout, int flag) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}
 
 nsukitStatus_t
 I_BaseStreamMw::stream_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset,
                             bool (*stop_event)(), float timeout, int flag) {
-    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
-}
+    return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;}

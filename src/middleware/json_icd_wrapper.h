@@ -11,7 +11,7 @@
 namespace nsukit {
     class JsonWrapper {
     public:
-        Json::Reader ICDReader;  //icd.jsonè¯»å–å™¨
+        Json::Reader ICDReader;  //icd.json¶ÁÈ¡Æ÷
         Json::Value icdRoot{};
         Json::Value *icdParams{};
         Json::Value *icdCommands{};
@@ -19,7 +19,7 @@ namespace nsukit {
         bool InitICD(std::string_view path);
 
         /**
-         * æ¶µç›–åŸºç¡€ç±»åž‹ï¼Œå°†åŸºç¡€ç±»åž‹å€¼è§£æžä¸ºCommandPack
+         * º­¸Ç»ù´¡ÀàÐÍ£¬½«»ù´¡ÀàÐÍÖµ½âÎöÎªCommandPack
          * @tparam T
          * @param reg
          * @param value
@@ -35,7 +35,7 @@ namespace nsukit {
         CommandPack *FmtFile(const std::string &file_path, bool need_size = false);
 
         /**
-         * ä¿®æ”¹æŸä¸ªå‚æ•°çš„å€¼
+         * ÐÞ¸ÄÄ³¸ö²ÎÊýµÄÖµ
          *
          * @tparam T
          * @param param_name
@@ -47,7 +47,7 @@ namespace nsukit {
 
 
         /**
-         * èŽ·å–å‚æ•°å€¼
+         * »ñÈ¡²ÎÊýÖµ
          *
          * @tparam T
          * @param param_name
@@ -84,7 +84,9 @@ namespace nsukit {
     T JsonWrapper::get_icd_param(nsuCSParam_t &param_name) {
         Json::Value reg, value;
         T _value;
-        if (!icdParams->isMember(param_name)) throw std::runtime_error("æ­¤å‚æ•°ä¸å­˜åœ¨");
+        if (!icdParams->isMember(param_name)){
+            throw std::runtime_error("´Ë²ÎÊý²»´æÔÚ");
+        }
         reg = (*icdParams)[param_name];
         value = reg[1];
 
@@ -113,19 +115,19 @@ namespace nsukit {
             } else if (value_type == ICD_Int32) {
                 _value = (T) value.asInt();
             } else {
-                std::cout << "æœªè¯†åˆ«çš„å€¼ç±»åž‹ " << value.toStyledString() << std::endl;
-                throw std::runtime_error("æœªè¯†åˆ«çš„å¯„å­˜å™¨å€¼ç±»åž‹");
+                std::cout << "Î´Ê¶±ðµÄÖµÀàÐÍ " << value.toStyledString() << std::endl;
+                throw std::runtime_error("Î´Ê¶±ðµÄ¼Ä´æÆ÷ÖµÀàÐÍ");
             }
         } else {
-            std::cout << "æœªè¯†åˆ«çš„å€¼ç±»åž‹ " << value.toStyledString() << std::endl;
-            throw std::runtime_error("æœªè¯†åˆ«çš„å¯„å­˜å™¨å€¼ç±»åž‹");
+            std::cout << "Î´Ê¶±ðµÄÖµÀàÐÍ " << value.toStyledString() << std::endl;
+            throw std::runtime_error("Î´Ê¶±ðµÄ¼Ä´æÆ÷ÖµÀàÐÍ");
         }
         return _value;
     }
 
     /**
-     * æ¨¡æ¿ç‰¹åŒ–ï¼Œé’ˆå¯¹fileç±»åž‹çš„å‚æ•°ï¼Œæˆ–è€…æƒ³ä»¥å­—ç¬¦ä¸²å½¢å¼è¡¨ç¤ºçš„å‚æ•°
-     * @param param_name å‚æ•°åç§°
+     * Ä£°åÌØ»¯£¬Õë¶ÔfileÀàÐÍµÄ²ÎÊý£¬»òÕßÏëÒÔ×Ö·û´®ÐÎÊ½±íÊ¾µÄ²ÎÊý
+     * @param param_name ²ÎÊýÃû³Æ
      * @return string
      */
     template<>

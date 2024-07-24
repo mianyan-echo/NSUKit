@@ -83,23 +83,23 @@ namespace nsukit {
 
         CommandPack *FmtCommand(const std::string &cmd_name, const std::string &file_path = "");
 
-        uint8_t get_param(nsuCSParam_t &param_name, uint8_t _default = 0);
+        uint8_t get_param(nsuCSParam_t &param_name, uint8_t _default = 0) override;
 
-        int8_t get_param(nsuCSParam_t &param_name, int8_t _default = 0);
+        int8_t get_param(nsuCSParam_t &param_name, int8_t _default = 0) override;
 
-        uint16_t get_param(nsuCSParam_t &param_name, uint16_t _default = 0);
+        uint16_t get_param(nsuCSParam_t &param_name, uint16_t _default = 0) override;
 
-        int16_t get_param(nsuCSParam_t &param_name, int16_t _default = 0);
+        int16_t get_param(nsuCSParam_t &param_name, int16_t _default = 0) override;
 
-        uint32_t get_param(nsuCSParam_t &param_name, uint32_t _default = 0);
+        uint32_t get_param(nsuCSParam_t &param_name, uint32_t _default = 0) override;
 
-        int32_t get_param(nsuCSParam_t &param_name, int32_t _default = 0);
+        int32_t get_param(nsuCSParam_t &param_name, int32_t _default = 0) override;
 
-        double get_param(nsuCSParam_t &param_name, double _default = 0.);
+        double get_param(nsuCSParam_t &param_name, double _default = 0.) override;
 
-        float get_param(nsuCSParam_t &param_name, float _default = 0.);
+        float get_param(nsuCSParam_t &param_name, float _default = 0.) override;
 
-        std::string get_param(nsuCSParam_t &param_name, std::string _default = "");
+        std::string get_param(nsuCSParam_t &param_name, std::string _default = "") override;
 
         nsukitStatus_t set_param(nsuCSParam_t &param_name, const uint8_t &value) override;
 

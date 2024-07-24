@@ -11,13 +11,17 @@ namespace nsukit {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        virtual nsukitStatus_t unlink_cmd() { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t unlink_cmd() {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        }
 
         virtual nsukitStatus_t link_stream(nsuInitParam_t *param) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
         }
 
-        virtual nsukitStatus_t unlink_stream() { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t unlink_stream() {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        }
 
         virtual nsukitStatus_t write(nsuRegAddr_t addr, nsuRegValue_t value) {
             return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
@@ -61,11 +65,17 @@ namespace nsukit {
 
         virtual nsukitStatus_t execute(nsuCSParam_t cname);
 
-        virtual nsuMemory_p alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf = nullptr) { return nullptr; }
+        virtual nsuMemory_p alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf = nullptr) {
+            return nullptr;
+        }
 
-        virtual nsukitStatus_t free_buffer(nsuMemory_p fd) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t free_buffer(nsuMemory_p fd) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD;
+        }
 
-        virtual nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length=0) { return nullptr; }
+        virtual nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length=0) {
+            return nullptr;
+        }
 
         virtual nsukitStatus_t
         stream_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0,
@@ -90,9 +100,11 @@ namespace nsukit {
         }
 
         virtual nsukitStatus_t
-        wait_stream(nsuMemory_p fd, float timeout = 0.) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        wait_stream(nsuMemory_p fd, float timeout = 0.) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
 
-        virtual nsukitStatus_t break_stream(nsuMemory_p fd) { return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
+        virtual nsukitStatus_t break_stream(nsuMemory_p fd) {
+            return nsukitStatus_t::NSUKIT_STATUS_NEED_RELOAD; }
     };
 }
 

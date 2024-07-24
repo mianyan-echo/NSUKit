@@ -31,9 +31,9 @@
 namespace nsukit {
 
 #ifdef NSUKIT_DEBUG_EN
-#define DEBUG_ENABLED         true
+ #define DEBUG_ENABLED         true
 #else
-#define DEBUG_ENABLED         false
+#define DEBUG_ENABLED         true
 #endif
 
 #define NSU_REG_BWIDTH        4

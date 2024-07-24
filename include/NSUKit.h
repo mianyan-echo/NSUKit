@@ -141,20 +141,60 @@ namespace nsukit {
 
         /**
          *
-         * @tparam T
          * @param name
          * @param value
          * @return
          */
-        template<typename T>
-        nsukitStatus_t set_param(nsuCSParam_t name, T value);
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const uint8_t &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const int8_t &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const uint16_t &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const int16_t &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const uint32_t &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const int32_t &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const double &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const float &value) override;
+        nsukitStatus_t
+        set_param(nsuCSParam_t &param_name, const std::string &value) override;
 
-        template<typename T>
-        T get_param(nsuCSParam_t name, T _default=0);
-
+        /**
+         *
+         * @param name
+         * @param value
+         * @return
+         */
+        uint8_t
+        get_param(nsuCSParam_t &param_name, uint8_t _default = 0) override;
+        int8_t
+        get_param(nsuCSParam_t &param_name, int8_t _default = 0) override;
+        uint16_t
+        get_param(nsuCSParam_t &param_name, uint16_t _default = 0) override;
+        int16_t
+        get_param(nsuCSParam_t &param_name, int16_t _default = 0) override;
+        uint32_t
+        get_param(nsuCSParam_t &param_name, uint32_t _default = 0) override;
+        int32_t
+        get_param(nsuCSParam_t &param_name, int32_t _default = 0) override;
+        double
+        get_param(nsuCSParam_t &param_name, double _default = 0.) override;
+        float
+        get_param(nsuCSParam_t &param_name, float _default = 0.) override;
         std::string
-        get_param(nsuCSParam_t &param_name, std::string _default="") override;
+        get_param(nsuCSParam_t &param_name, std::string _default = "") override;
 
+        /**
+         *
+         * @param name
+         * @param value
+         * @return
+         */
         nsukitStatus_t
         execute(nsuCSParam_t cname) override;
 
@@ -428,15 +468,54 @@ namespace nsukit {
         return mw->execute(cname);
     }
 
-
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    template<typename T>
-    T NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t name, T _default) {
+    uint8_t
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, uint8_t _default) {
         auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
-        return mw->get_param(name, _default);
+        return mw->get_param(param_name, _default);
     }
-
-
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    int8_t
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, int8_t _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    uint16_t
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, uint16_t _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    int16_t
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, int16_t _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    uint32_t
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, uint32_t _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    int32_t
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, int32_t _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    double
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, double _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    float
+    NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, float _default) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->get_param(param_name, _default);
+    }
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
     std::string
     NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::get_param(nsuCSParam_t &param_name, std::string _default) {
@@ -444,12 +523,50 @@ namespace nsukit {
         return mw->get_param(param_name, _default);
     }
 
-
     template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
-    template<typename T>
-    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t name, T value) {
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const uint8_t &value) {
         auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
-        return mw->set_param(name, value);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const int8_t &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const uint16_t &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const int16_t &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const uint32_t &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const int32_t &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const double &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const float &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
+    }
+    template<class CSItf_t, class CRItf_t, class DSItf_t, class CmdMw_t, class ChnlMw_t>
+    nsukitStatus_t NSUSoc<CSItf_t, CRItf_t, DSItf_t, CmdMw_t, ChnlMw_t>::set_param(nsuCSParam_t &param_name, const std::string &value) {
+        auto mw = dynamic_cast<I_BaseRegMw *>(mw_cmd);
+        return mw->set_param(param_name, value);
     }
 
 

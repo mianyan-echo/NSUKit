@@ -313,7 +313,7 @@ CommandPack *JsonWrapper::FmtFile(const std::string &file_path, bool need_size) 
             _in.read(fileData->bytes, fileData->length);
         }
     } else {
-        std::cout << "文件路径 " << file_path << " 错误" << std::endl;
+        std::cout << "The file path " << file_path << " is wrong" << std::endl;
     }
     return fileData;
 }
@@ -335,7 +335,7 @@ CommandPack *ICDRegMw::FmtCommand(const std::string &cmd_name, const std::string
 
     if (!icd->icdCommands->isMember(cmd_name)) {
         std::cout << "Not find command: " << cmd_name << std::endl;
-        throw std::runtime_error("指令名称在icd中不存在");
+        throw std::runtime_error("The instruction name does not exist in ICD");
     }
 
     // 生成要发送的指令
@@ -351,7 +351,7 @@ CommandPack *ICDRegMw::FmtCommand(const std::string &cmd_name, const std::string
         } else if (reg.isArray()) {
             regTemp = icd->FmtRegister(reg, reg[1]);
         } else {
-            throw std::runtime_error("不受支持的寄存器写法");
+            throw std::runtime_error("Sorry, send to registers is unsupported");
         }
         assert(regTemp->bytes != nullptr);
         registerList.emplace_back(regTemp);
@@ -362,16 +362,16 @@ CommandPack *ICDRegMw::FmtCommand(const std::string &cmd_name, const std::string
     command = (*(icd->icdCommands))[cmd_name]["recv"];
     for (auto &reg: command) {
         if (reg.isString() && reg.asString() == ICD_ParamFlag_File) {
-            throw std::runtime_error("不受支持的寄存器写法");
+            throw std::runtime_error("Sorry, recv from registers is unsupported");
         } else if (reg.isString() && reg.asString() == ICD_ParamFlag_FileLength) {
-            throw std::runtime_error("不受支持的寄存器写法");
+            throw std::runtime_error("Sorry, recv from registers is unsupported");
         } else if (reg.isString() && icd->icdParams->isMember(reg.asString())) {
             reg = (*(icd->icdParams))[reg.asString()];
             recv_len += TypeSizeMap[reg[0].asString()];
         } else if (reg.isArray()) {
             recv_len += TypeSizeMap[reg[0].asString()];
         } else {
-            throw std::runtime_error("不受支持的寄存器写法");
+            throw std::runtime_error("Sorry, recv from registers is unsupported");
         }
     }
 
@@ -396,7 +396,7 @@ nsukitStatus_t ICDRegMw::EnableParam(nsuCSName_t cname, nsuCharBuf_p buf) {
     auto res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 
     if (!icd->icdCommands->isMember(cname)) {
-        std::cout << "Not find command: " << cname << std::endl;
+        res |= nsukitStatus_t::NSUKIT_STATUS_INVALID_VALUE;
         throw std::runtime_error("指令名称在icd中不存在");
     }
 
