@@ -34,34 +34,29 @@ target_link_libraries(
         DataDownload
         NSUKit
         xdma_api
-        pthread
 )
 
 target_link_libraries(
         DataUpload
         NSUKit
         xdma_api
-        pthread
 )
 
 target_link_libraries(
         HardwareSync
         NSUKit
         xdma_api
-        pthread
 )
 
 target_link_libraries(
         DSOpUseCase
         NSUKit
         xdma_api
-        pthread
 )
 
 target_link_libraries(LinkOnlyEth
         NSUKit
         xdma_api
-        #        pthread
 )
 
 target_link_libraries(
@@ -69,4 +64,13 @@ target_link_libraries(
         NSUKit
         xdma_api
 )
+
+
+# Linux下链接pthread库
+if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    target_link_libraries(DataUpload pthread)
+    target_link_libraries(DataDownload pthread)
+    target_link_libraries(LinkOnlyEth pthread)
+    target_link_libraries(HardwareSync pthread)
+endif ()
 

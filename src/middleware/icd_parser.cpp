@@ -467,7 +467,7 @@ uint32_t nsukit::GetFileSize(const std::string &file_path) {
  * @param tail 目标结尾
  * @return bool 是或否
  */
-bool nsukit::StringEndWith(std::string_view str, std::string_view tail) {
+bool nsukit::StringEndWith(const std::string& str, const std::string& tail) {
     return str.compare(str.size() - tail.size(), tail.size(), tail) == 0;
 }
 
@@ -477,7 +477,7 @@ bool nsukit::StringEndWith(std::string_view str, std::string_view tail) {
  * @param head 目标开头
  * @return bool 是或否
  */
-bool nsukit::StringStartWith(std::string_view str, std::string_view head) {
+bool nsukit::StringStartWith(const std::string& str, const std::string& head) {
     return str.compare(0, head.size(), head) == 0;
 }
 

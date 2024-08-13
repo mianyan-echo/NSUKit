@@ -11,8 +11,8 @@
                                                    (NSUKIT_PROJECT_VER_PATCH))
 #define NSUKIT_VER_(major, minor, patch)         (((major) << 16) + ((minor) << 8) + (patch))
 
-#define NSUKIT_BUILD_TIME "20240624_091939"
-#define NSUKIT_GIT_INFO "master_31d00ec"
+#define NSUKIT_BUILD_TIME "20240805_155325"
+#define NSUKIT_GIT_INFO "master_ba0dc3e"
 
 
 #define NSUKIT_WITH_XDMA

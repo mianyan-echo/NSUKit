@@ -281,3 +281,99 @@ PCIEStreamUItf::stream_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t le
         }
     }
 }
+
+
+PCIERingUItf::PCIERingUItf() = default;
+
+nsukitStatus_t PCIERingUItf::accept(nsuInitParam_t *param) {
+    ring_chnl_size = param->ring_chnl_size;
+    return PCIEStreamUItf::accept(param);
+}
+
+nsukitStatus_t PCIERingUItf::close() {
+    for (auto &t: ringCache) {
+        if (t.second != nullptr) fpga_ring_close(t.second);
+    }
+    for (auto &t: memory_dict) {
+        if (t.second != nullptr) free_buffer(t.second);
+    }
+    memory_index = 0;
+    return PCIEStreamUItf::close();
+}
+
+nsuMemory_p PCIERingUItf::alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf) {
+    auto mem = new Memory{};
+
+    mem->idx = memory_index;
+    mem->mem_size = length;
+    mem->finish_event.setEvent();
+
+    memory_dict[memory_index] = mem;
+    memory_index++;
+    return mem;
+}
+
+nsukitStatus_t PCIERingUItf::free_buffer(nsuMemory_p fd) {
+    auto mem = (Memory *)fd;
+    if (!mem->finish_event.isSet()) {
+        return nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
+    }
+    mem->finish_event.resetEvent();
+    memory_dict.erase(mem->idx);
+    delete mem;
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}
+
+nsuVoidBuf_p PCIERingUItf::get_buffer(nsuMemory_p fd, nsuStreamLen_t length) {
+    auto mem = (Memory *)fd;
+    {
+        std::unique_lock<std::mutex> lock(mem->mtx);
+        return mem->memory;
+    }
+}
+
+nsukitStatus_t
+PCIERingUItf::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset) {
+    auto res = nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+    auto mem = (Memory *)fd;
+    if (offset != 0) {
+        return nsukitStatus_t::NSUKIT_STATUS_STREAM_FAIL;
+    }
+    {
+        std::unique_lock<std::mutex> lock(mem->mtx);
+        if (ringCache[chnl] == nullptr) {
+            auto ring = fpga_ring_create(pciBoard, chnl, 1, ring_chnl_size[chnl] / byteWidth);
+            ringCache[chnl] = ring;
+        }
+        mem->ring = ringCache[chnl];
+        mem->chnl = chnl;
+    }
+
+    return res;
+}
+
+nsukitStatus_t PCIERingUItf::wait_stream(nsuMemory_p fd, float timeout) {
+    auto mem = (Memory *)fd;
+    {
+        std::unique_lock<std::mutex> lock(mem->mtx);
+        nsuMemory_p buffer = fpga_ring_next_buffer(mem->ring, mem->mem_size/byteWidth, int (timeout*1000.));
+        if (buffer == nullptr) {
+            return nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
+        }
+        mem->memory = buffer;
+    }
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}
+
+nsukitStatus_t PCIERingUItf::break_stream(nsuMemory_p fd) {
+    auto mem = (Memory *)fd;
+    {
+        std::unique_lock<std::mutex> lock(mem->mtx);
+        if (mem->ring == nullptr) {
+            return nsukitStatus_t::NSUKIT_STATUS_STREAM_FAIL;
+        }
+        ringCache[mem->chnl] = nullptr;
+        fpga_ring_close(mem->ring);
+    }
+    return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
+}

@@ -25,6 +25,7 @@
 #include <cstdarg>
 #include <cstdint>
 #include <vector>
+#include <map>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
@@ -118,6 +119,12 @@ struct nsuXDMAParam_t{
     nsuRegAddr_t cmd_sent_down_base=0;
 
     nsuBoardNum_t stream_board=0;
+    std::map<nsuChnlNum_t, nsuSize_t> ring_chnl_size= {
+            {0, 512 * 1024 * 1024},
+            {1, 512 * 1024 * 1024},
+            {2, 512 * 1024 * 1024},
+            {3, 512 * 1024 * 1024},
+    };
 };
 
 /**

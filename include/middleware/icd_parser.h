@@ -55,9 +55,9 @@ namespace nsukit {
 
     NSU_DLLEXPORT uint32_t GetFileSize(const std::string &file_path);
 
-    NSU_DLLEXPORT bool StringEndWith(std::string_view str, std::string_view tail);
+    NSU_DLLEXPORT bool StringEndWith(const std::string& str, const std::string& tail);
 
-    NSU_DLLEXPORT bool StringStartWith(std::string_view str, std::string_view head);
+    NSU_DLLEXPORT bool StringStartWith(const std::string& str, const std::string& head);
 
 
     class JsonWrapper;

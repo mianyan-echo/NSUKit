@@ -47,7 +47,7 @@ nsukitStatus_t parallel_execute(std::vector<nsukit::BaseKit *>& slave_list, cons
     unsigned long long num_parallel = slave_list.size();
 #ifndef HSYNC_EN_ASYNC
     // thread库实现
-    std::thread threads[num_parallel];
+    auto threads = new std::thread[num_parallel];
     for(int i=0; i < num_parallel; i++) {
         const auto &elem = slave_list[i];
         threads[i] = std::thread(&nsukit::BaseKit::execute, elem, cmd);
@@ -56,6 +56,7 @@ nsukitStatus_t parallel_execute(std::vector<nsukit::BaseKit *>& slave_list, cons
     for(int i=0; i < num_parallel; i++) {
         threads[i].join();
     }
+    delete[] threads;
 #else
 //     async
     auto * futures = new std::future<nsukitStatus_t>[num_parallel];
