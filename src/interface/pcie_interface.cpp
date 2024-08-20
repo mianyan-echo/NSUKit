@@ -287,7 +287,9 @@ PCIERingUItf::PCIERingUItf() = default;
 
 nsukitStatus_t PCIERingUItf::accept(nsuInitParam_t *param) {
     ring_chnl_size = param->ring_chnl_size;
-    return PCIEStreamUItf::accept(param);
+    auto res = PCIEStreamUItf::accept(param);
+    DEBUG_PRINT_CLASS(fpga_info_string(pciBoard));
+    return res;
 }
 
 nsukitStatus_t PCIERingUItf::close() {
@@ -343,6 +345,7 @@ PCIERingUItf::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length
         std::unique_lock<std::mutex> lock(mem->mtx);
         if (ringCache[chnl] == nullptr) {
             auto ring = fpga_ring_create(pciBoard, chnl, 1, ring_chnl_size[chnl] / byteWidth);
+            fpga_ring_resume(ring);
             ringCache[chnl] = ring;
         }
         mem->ring = ringCache[chnl];
@@ -356,8 +359,12 @@ nsukitStatus_t PCIERingUItf::wait_stream(nsuMemory_p fd, float timeout) {
     auto mem = (Memory *)fd;
     {
         std::unique_lock<std::mutex> lock(mem->mtx);
+        DEBUG_PRINT_CLASS(std::to_string(mem->mem_size/byteWidth));
         nsuMemory_p buffer = fpga_ring_next_buffer(mem->ring, mem->mem_size/byteWidth, int (timeout*1000.));
         if (buffer == nullptr) {
+//            char err[10240];
+//            fpga_ring_get_info(mem->ring, err);
+//            DEBUG_PRINT_CLASS(err);
             return nsukitStatus_t::NSUKIT_STATUS_STREAM_RUNNING;
         }
         mem->memory = buffer;
