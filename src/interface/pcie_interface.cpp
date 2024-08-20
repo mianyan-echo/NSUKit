@@ -312,6 +312,7 @@ nsuMemory_p PCIERingUItf::alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf) 
 
     memory_dict[memory_index] = mem;
     memory_index++;
+    DEBUG_PRINT_CLASS(std::to_string(length));
     return mem;
 }
 
@@ -341,6 +342,7 @@ PCIERingUItf::open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length
     if (offset != 0) {
         return nsukitStatus_t::NSUKIT_STATUS_STREAM_FAIL;
     }
+    DEBUG_PRINT_CLASS("chnl="+std::to_string(chnl)+", length="+std::to_string(length));
     {
         std::unique_lock<std::mutex> lock(mem->mtx);
         if (ringCache[chnl] == nullptr) {
@@ -361,6 +363,7 @@ nsukitStatus_t PCIERingUItf::wait_stream(nsuMemory_p fd, float timeout) {
         std::unique_lock<std::mutex> lock(mem->mtx);
         DEBUG_PRINT_CLASS(std::to_string(mem->mem_size/byteWidth));
         nsuMemory_p buffer = fpga_ring_next_buffer(mem->ring, mem->mem_size/byteWidth, int (timeout*1000.));
+        DEBUG_PRINT_CLASS("00000");
         if (buffer == nullptr) {
 //            char err[10240];
 //            fpga_ring_get_info(mem->ring, err);
@@ -374,6 +377,7 @@ nsukitStatus_t PCIERingUItf::wait_stream(nsuMemory_p fd, float timeout) {
 
 nsukitStatus_t PCIERingUItf::break_stream(nsuMemory_p fd) {
     auto mem = (Memory *)fd;
+    DEBUG_PRINT_CLASS("00000");
     {
         std::unique_lock<std::mutex> lock(mem->mtx);
         if (mem->ring == nullptr) {
