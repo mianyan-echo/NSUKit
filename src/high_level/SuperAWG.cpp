@@ -3,6 +3,7 @@
 //
 
 #include "high_level/SuperAWG.h"
+#include "NSUKit.h"
 
 //using namespace nsukit;
 

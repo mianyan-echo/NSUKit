@@ -30,6 +30,7 @@ set(NSUKitTest_SRC
         xdma_loop_test.cpp
         test_config.h
         hsync_test.cpp
+        function_call.cpp
 )
 
 add_executable(nsukit_test ${NSUKitTest_SRC})

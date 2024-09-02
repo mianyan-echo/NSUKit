@@ -100,7 +100,7 @@ struct nsuTCPParam_t{
     float cmd_tcp_timeout = 1.;
 
     std::string stream_ip = "127.0.0.1";
-    uint32_t stream_tcp_port{};
+    uint32_t stream_tcp_port = 6001;
     uint32_t stream_tcp_block = 4 * 1024 * 1024;
 };
 

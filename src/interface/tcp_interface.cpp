@@ -37,6 +37,7 @@ nsukitStatus_t TCPCmdUItf::accept(nsuInitParam_t *param) {
 
 
 nsukitStatus_t TCPCmdUItf::close() {
+    sockGen.CloseSock(sockGen.tcpClient);
     return nsukitStatus_t::NSUKIT_STATUS_SUCCESS;
 }
 

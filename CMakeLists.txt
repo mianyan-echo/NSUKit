@@ -92,7 +92,9 @@ SET(libNSUKit_SRC
         src/high_level/HardwareSync.cpp
         include/high_level/HardwareSync.h
         include/high_level/ADTrigger.h
-        src/high_level/ADTrigger.cpp)
+        src/high_level/ADTrigger.cpp
+        include/high_level/FunctionCall.h
+        src/high_level/FunctionCall.cpp)
 
 if (NSUKIT_WITH_XDMA)
 else ()
