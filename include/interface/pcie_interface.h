@@ -261,5 +261,98 @@ namespace nsukit {
         stream_send(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0,
                     bool(*stop_event) () = nullptr, float timeout = 5., int flag = 1) override;
     };
+
+
+    class NSU_DLLEXPORT PCIERingUItf : public PCIEStreamUItf {
+    private:
+        const uint8_t byteWidth = 4;
+        const uint8_t maxChnl = 4;
+        std::map<nsuChnlNum_t, nsuSize_t> ring_chnl_size= {
+                {0, 512 * 1024 * 1024},
+                {1, 512 * 1024 * 1024},
+                {2, 512 * 1024 * 1024},
+                {3, 512 * 1024 * 1024},
+        };
+    protected:
+        struct Memory {
+            nsuMemory_p memory;
+            std::string error_msg{};
+            nsuStreamLen_t mem_size;
+            unsigned int idx;
+            nsuChnlNum_t chnl;
+            HANDLE ring = nullptr;
+            ThreadSafeEvent finish_event;
+            std::mutex mtx;
+        };
+        std::map<unsigned int, Memory *> memory_dict{};
+        unsigned int memory_index = 0;
+
+        std::map<uint32_t, HANDLE> ringCache{
+                {0, nullptr},
+                {1, nullptr},
+                {2, nullptr},
+                {3, nullptr}
+        };
+    public:
+        /**
+         *
+         */
+        PCIERingUItf();
+
+        ~PCIERingUItf() override = default;
+
+        nsukitStatus_t accept(nsuInitParam_t *param) override;
+
+        nsukitStatus_t close() override;
+
+        /**
+         *
+         * @param length
+         * @param buf
+         * @return
+         */
+        nsuMemory_p alloc_buffer(nsuStreamLen_t length, nsuVoidBuf_p buf = nullptr) override;
+
+        /**
+         *
+         * @param fd
+         * @return
+         */
+        nsukitStatus_t free_buffer(nsuMemory_p fd) override;
+
+        /**
+         *
+         * @param fd
+         * @param length
+         * @return
+         */
+        nsuVoidBuf_p get_buffer(nsuMemory_p fd, nsuStreamLen_t length) override;
+
+        /**
+         *
+         * @param chnl
+         * @param fd
+         * @param length
+         * @param offset
+         * @return
+         */
+        nsukitStatus_t
+        open_recv(nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset = 0) override;
+
+        /**
+         *
+         * @param fd
+         * @param timeout
+         * @return
+         */
+        nsukitStatus_t wait_stream(nsuMemory_p fd, float timeout = 1.) override;
+
+        /**
+         *
+         * @param fd
+         * @return
+         */
+        nsukitStatus_t break_stream(nsuMemory_p fd) override;
+    };
 }
 #endif //NSUKIT_PCIE_INTERFACE_H

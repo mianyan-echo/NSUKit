@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # 定义项目名称和版本
-project(NSUKit VERSION 1.2.1)
+project(NSUKit VERSION 1.4.0)
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 17)
 
@@ -15,6 +15,7 @@ include(Utility)
 # cmake -DENABLE_TEST=ON 时启用test
 option(ENABLE_TEST "set to switch enable test" OFF)
 option(NSUKIT_WITH_XDMA "配置项目编译和目标文件是否依赖xdma_api" OFF)
+option(NSUKIT_DEBUG_EN "config enable nsukit debug print" OFF)
 
 string(TIMESTAMP COMPILE_TIME %Y%m%d_%H%M%S)
 set(build_time    ${COMPILE_TIME})
@@ -91,7 +92,9 @@ SET(libNSUKit_SRC
         src/high_level/HardwareSync.cpp
         include/high_level/HardwareSync.h
         include/high_level/ADTrigger.h
-        src/high_level/ADTrigger.cpp)
+        src/high_level/ADTrigger.cpp
+        include/high_level/FunctionCall.h
+        src/high_level/FunctionCall.cpp)
 
 if (NSUKIT_WITH_XDMA)
 else ()

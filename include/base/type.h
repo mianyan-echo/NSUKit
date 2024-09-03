@@ -25,6 +25,7 @@
 #include <cstdarg>
 #include <cstdint>
 #include <vector>
+#include <map>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
@@ -99,7 +100,7 @@ struct nsuTCPParam_t{
     float cmd_tcp_timeout = 1.;
 
     std::string stream_ip = "127.0.0.1";
-    uint32_t stream_tcp_port{};
+    uint32_t stream_tcp_port = 6001;
     uint32_t stream_tcp_block = 4 * 1024 * 1024;
 };
 
@@ -118,6 +119,12 @@ struct nsuXDMAParam_t{
     nsuRegAddr_t cmd_sent_down_base=0;
 
     nsuBoardNum_t stream_board=0;
+    std::map<nsuChnlNum_t, nsuSize_t> ring_chnl_size= {
+            {0, 512 * 1024 * 1024},
+            {1, 512 * 1024 * 1024},
+            {2, 512 * 1024 * 1024},
+            {3, 512 * 1024 * 1024},
+    };
 };
 
 /**

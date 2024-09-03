@@ -16,5 +16,6 @@
 
 
 #cmakedefine NSUKIT_WITH_XDMA
+#cmakedefine NSUKIT_DEBUG_EN
 
 #endif //NSUKIT_VERSION_H

@@ -1,7 +1,7 @@
 ## 编译方法
 ```shell
 cd build
-cmake -DENABLE_TEST=OFF ..
+cmake -DENABLE_TEST=OFF -DNSUKIT_WITH_XDMA=ON -DNSUKIT_DEBUG_EN=OFF ..
 cmake --build . --target NSUKit
 ```
 
@@ -9,7 +9,7 @@ cmake --build . --target NSUKit
 ### gcc
 ```shell
 cp -r NSUKit/include ./
-cp NSUKit/lib.libNSUKit.so ./
+cp NSUKit/lib/libNSUKit.so ./
 gcc xxx.cpp -INSUKit/include -lNSUKit
 ```
 
@@ -56,3 +56,18 @@ if (*(uint8_t *)data_ptr == 1) {
 return 0;
 }
 ```
+
+## nsukitcpp中examples使用方法
+- 复制工程文件
+- cd ~/nsukitcpp/build/
+- cmake -DNSUKIT_WITH_XDMA=ON ..
+- make -j 8
+- sudo make install
+- cp libNSUKit.so ../lib/
+- 复制 xdma动态链接库文件分别到   /usr/lib   nsukitcpp/lib  
+- cd ~/nsukitcpp/examples/
+- mkdir build
+- cd ~/nsukitcpp/examples/build/
+- cmake ..
+- make -j 8
+- 上传icd 至 ~/nsukitcpp/examples/build/

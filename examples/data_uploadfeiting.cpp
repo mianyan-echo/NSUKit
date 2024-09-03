@@ -33,12 +33,12 @@
 #include "NSUKit.h"
 
 
-//#define STREAM_WITH_PCIE
-#define STREAM_WITH_TCP
+#define STREAM_WITH_PCIE
+//#define STREAM_WITH_TCP
 #define SocType nsukit::NSUSoc <nsukit::SimCmdUItf, nsukit::SimCmdUItf, nsukit::SimStreamUItf>
 
 #ifdef STREAM_WITH_PCIE
-#define SocType nsukit::NSUSoc <nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::PCIEStreamUItf>
+#define SocType nsukit::NSUSoc <nsukit::TCPCmdUItf, nsukit::TCPCmdUItf, nsukit::PCIERingUItf>
 #endif
 
 #ifdef STREAM_WITH_TCP
@@ -97,13 +97,13 @@ struct Deque {
  * @param total
  * @param mu
  */
-void upload_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, nsuSize_t total, std::mutex *mu) {
+void upload_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, nsuSize_t total, std::mutex *mu, nsuChnlNum_t chnl) {
     std::unique_lock<std::mutex> *lock;
     nsuMemory_p mem;
     nsuSize_t current = 0;
     while (true) {
         mem = q->empty.Pop();
-        auto s = _kit->open_recv(0, mem, block, 0);
+        auto s = _kit->open_recv(chnl, mem, block, 0);
         if (s != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
             std::cout << "Establish CS and CR connections: "  << std::endl;
             std::cout << "Failed to enable data uplink " << nsukit::status2_string(s) << ", currently uplinked: " << current << std::endl;
@@ -168,7 +168,7 @@ void write_file_thread(nsukit::BaseKit *_kit, Deque *q, nsuSize_t block, const s
 
 
 int main(int argc, char *argv[]) {
-    unsigned int ds_block = 1024*1024;
+    unsigned int ds_block = 32*1024*1024;
     Deque q;
     std::mutex mu;
     SocType* kit = new SocType{};
@@ -176,7 +176,7 @@ int main(int argc, char *argv[]) {
     if (argc != 4) {
         std::cout << "Unsupported parameter passing method" << std::endl;
         // DataUpload 127.0.0.1 104857600 ./da_data_1.dat
-        std::cout << argv[0] << " {IP} {totalBytes} {filePath}" << std::endl;
+        std::cout << argv[0] << " {IP} {totalBytes} {filePath} {chnl}" << std::endl;
         return 1;
     }
     nsuSize_t total_len = std::atoi(argv[2]);
@@ -188,28 +188,9 @@ int main(int argc, char *argv[]) {
     }
 
     nsuInitParam_t param;
-    param.cmd_ip = argv[1];
-    param.cmd_board = 0;
     param.stream_board = 0;
-#ifdef STREAM_WITH_TCP
-    auto ip = std::string(argv[1]);
-    // 192.168.1.161 => 6001
-    std::string port_str{};
-    port_str += ip[ip.length()-2];
-    port_str += "00";
-    port_str += ip[ip.length()-1];
-    int port = std::atoi(port_str.data());
-    param.stream_ip = ip;
-    param.stream_tcp_port = port;
-    param.stream_tcp_block = 4 * 1024 * 1024;
-#endif
 
-    auto res = kit->link_cmd(&param);
-    if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "Establish CS and CR connections: " << nsukit::status2_string(res) << std::endl;
-    }
-
-    res = kit->link_stream(&param);
+    auto res = kit->link_stream(&param);
     if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
         std::cout << "Establish a DS connection: " << nsukit::status2_string(res) << std::endl;
     }
@@ -220,47 +201,14 @@ int main(int argc, char *argv[]) {
         q.empty.Push(mem);
     }
 
-    res = kit->execute("RFConfig");
-    std::cout << "Soc Init Successful!!!" << std::endl;
-
-    kit->set_param("TotalTriggerPoints", 128);  // 128k sample points
-    kit->set_param("PreTriggerPoints", 512);    // pre sample 512 points
-    kit->set_param("CH0TriggerEnable", 1);      // enable CH0 Trigger
-    kit->set_param("CH0TriggerLevel", 4096);    // config CH0 Trigger level
-    res = kit->execute("ADTriggerConfig");
-    std::cout << "ADTrigger Config Successful!!!" << std::endl;
-
-    res = kit->execute("SocStop");
-    if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "SocStop: " << nsukit::status2_string(res) << std::endl;
-    }
-
     // Start the upstream and storage threads.
-    std::thread up_trd(upload_thread, kit, &q, ds_block, total_len, &mu);
+    std::thread up_trd(upload_thread, kit, &q, ds_block, total_len, &mu, std::atoi(argv[4]));
     std::thread write_trd(write_file_thread, kit, &q, ds_block, argv[3], &mu);
 
     std::cout << "Stream thread start successful!!!" << std::endl;
 
-#ifdef STREAM_WITH_TCP
-    kit->set_param(u8"ADC数据输出方式", 1);
-    std::cout << "Use TCP get data stream" << std::endl;
-#else
-    kit.set_param(u8"ADC数据输出方式", 0);
-    std::cout << "Use PCIE get data stream" << std::endl;
-#endif
-    // Notify FPGA to start data acquisition.
-    res = kit->execute("SocStart");
-    if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "SocStart: " << nsukit::status2_string(res) << std::endl;
-    }
     up_trd.join();
     write_trd.join();
-
-    // Notify FPGA to stop data acquisition.
-    res = kit->execute("SocStop");
-    if (res != nsukitStatus_t::NSUKIT_STATUS_SUCCESS) {
-        std::cout << "SocStop: " << nsukit::status2_string(res) << std::endl;
-    }
 
     std::cout << "Data upload completed" << std::endl;
 

@@ -180,7 +180,6 @@ int SocketGenerator::RecvData(int s, char *buf, int len) {
 
 int SocketGenerator::SendData(int s, char *buf, int len) {
     int sent_count = send(s, buf, len, 0);
-    WSAGetLastError();
     if (sent_count > 0) {
         return sent_count;
     } else {

@@ -23,7 +23,7 @@ namespace nsukit {
     public:
         TCPCmdUItf();
 
-        ~TCPCmdUItf() override = default;
+        ~TCPCmdUItf() override;
 
         /**
          *

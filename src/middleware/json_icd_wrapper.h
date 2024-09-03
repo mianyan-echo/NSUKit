@@ -84,7 +84,9 @@ namespace nsukit {
     T JsonWrapper::get_icd_param(nsuCSParam_t &param_name) {
         Json::Value reg, value;
         T _value;
-        if (!icdParams->isMember(param_name)) throw std::runtime_error("此参数不存在");
+        if (!icdParams->isMember(param_name)){
+            throw std::runtime_error("此参数不存在");
+        }
         reg = (*icdParams)[param_name];
         value = reg[1];
 
