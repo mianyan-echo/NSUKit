@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # 定义项目名称和版本
-project(NSUKit VERSION 1.2.2)
+project(NSUKit VERSION 1.4.0)
 # 设置C++标准
 set(CMAKE_CXX_STANDARD 17)
 

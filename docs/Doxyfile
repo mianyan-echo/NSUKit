@@ -5,9 +5,9 @@
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = NSUKit
-PROJECT_NUMBER         = 1.2.1
+PROJECT_NUMBER         = 1.4.0
 PROJECT_BRIEF          = 板卡级统一交互接口
-PROJECT_LOGO           = ./image/logo.png
+PROJECT_LOGO           = ./image/rigol.png
 OUTPUT_DIRECTORY       = html
 CREATE_SUBDIRS         = NO
 CREATE_SUBDIRS_LEVEL   = 8
@@ -209,7 +209,7 @@ IGNORE_PREFIX          =
 # Configuration options related to the HTML output
 #---------------------------------------------------------------------------
 GENERATE_HTML          = YES
-HTML_OUTPUT            = 1.2.1
+HTML_OUTPUT            = 1.4.0
 HTML_FILE_EXTENSION    = .html
 HTML_HEADER            = header.html
 HTML_FOOTER            =
