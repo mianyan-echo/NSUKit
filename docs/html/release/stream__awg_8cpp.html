@@ -1,0 +1,519 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/examples/stream_awg.cpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="rigol.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.4.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('stream__awg_8cpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">stream_awg.cpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;complex&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;condition_variable&gt;</code><br />
+<code>#include &quot;<a class="el" href="_n_s_u_kit_8h_source.html">NSUKit.h</a>&quot;</code><br />
+</div>
+<p><a href="stream__awg_8cpp_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_thread_safe_queue.html">ThreadSafeQueue&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_deque.html">Deque</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a7947cb0a5740658645b52c68562fa9d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#a7947cb0a5740658645b52c68562fa9d0">TIME_WIDTH</a>&#160;&#160;&#160;10e-6</td></tr>
+<tr class="separator:a7947cb0a5740658645b52c68562fa9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6511732d5b29a6781cf38783157f21e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#a6511732d5b29a6781cf38783157f21e1">CHANNEL_NUM</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a6511732d5b29a6781cf38783157f21e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52220397ecea855b3a99746e451426e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#a52220397ecea855b3a99746e451426e1">BLOCK</a>&#160;&#160;&#160;60000*<a class="el" href="stream__awg_8cpp.html#a6511732d5b29a6781cf38783157f21e1">CHANNEL_NUM</a>*10</td></tr>
+<tr class="separator:a52220397ecea855b3a99746e451426e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:af918f2761c9a9575a22a1859acff9aaa"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="class_thread_safe_queue.html">ThreadSafeQueue</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#af918f2761c9a9575a22a1859acff9aaa">memQueue</a></td></tr>
+<tr class="separator:af918f2761c9a9575a22a1859acff9aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:af95fdb789d5339e5800bf4e24926c77a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af95fdb789d5339e5800bf4e24926c77a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#af95fdb789d5339e5800bf4e24926c77a">generate_signal_iq</a> (float timeWidth, uint32_t freq, uint32_t fs, T *buffer)</td></tr>
+<tr class="separator:af95fdb789d5339e5800bf4e24926c77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf1f1b892872b23a2e93340cadd0665"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3cf1f1b892872b23a2e93340cadd0665"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#a3cf1f1b892872b23a2e93340cadd0665">generate_signal_iq_reverse</a> (float timeWidth, uint32_t freq, uint32_t fs, T *buffer)</td></tr>
+<tr class="separator:a3cf1f1b892872b23a2e93340cadd0665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf7018f0cbf591cfbf339b13b285391"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#aabf7018f0cbf591cfbf339b13b285391">download_thread</a> (<a class="el" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *_kit, <a class="el" href="struct_deque.html">Deque</a> *q, <a class="el" href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> block, <a class="el" href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> total, std::mutex *mu, <a class="el" href="type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> total_DDR_depth)</td></tr>
+<tr class="separator:aabf7018f0cbf591cfbf339b13b285391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49516bfbfe0bf481930856ac2ce26cb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#a49516bfbfe0bf481930856ac2ce26cb0">data_generate</a> (<a class="el" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *_kit, <a class="el" href="struct_deque.html">Deque</a> *q, <a class="el" href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a> block, std::mutex *mu, uint32_t total_sampling_points, uint32_t sampling_rate, uint32_t signal_frequency)</td></tr>
+<tr class="separator:a49516bfbfe0bf481930856ac2ce26cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stream__awg_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="a52220397ecea855b3a99746e451426e1" name="a52220397ecea855b3a99746e451426e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52220397ecea855b3a99746e451426e1">&#9670;&#160;</a></span>BLOCK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BLOCK&#160;&#160;&#160;60000*<a class="el" href="stream__awg_8cpp.html#a6511732d5b29a6781cf38783157f21e1">CHANNEL_NUM</a>*10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00048">48</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a6511732d5b29a6781cf38783157f21e1" name="a6511732d5b29a6781cf38783157f21e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6511732d5b29a6781cf38783157f21e1">&#9670;&#160;</a></span>CHANNEL_NUM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CHANNEL_NUM&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00047">47</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7947cb0a5740658645b52c68562fa9d0" name="a7947cb0a5740658645b52c68562fa9d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7947cb0a5740658645b52c68562fa9d0">&#9670;&#160;</a></span>TIME_WIDTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIME_WIDTH&#160;&#160;&#160;10e-6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00046">46</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类型定义说明</h2>
+<a id="af918f2761c9a9575a22a1859acff9aaa" name="af918f2761c9a9575a22a1859acff9aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af918f2761c9a9575a22a1859acff9aaa">&#9670;&#160;</a></span>memQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="class_thread_safe_queue.html">ThreadSafeQueue</a>&lt;void&gt; <a class="el" href="data__download_8cpp.html#af918f2761c9a9575a22a1859acff9aaa">memQueue</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00083">83</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="a49516bfbfe0bf481930856ac2ce26cb0" name="a49516bfbfe0bf481930856ac2ce26cb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49516bfbfe0bf481930856ac2ce26cb0">&#9670;&#160;</a></span>data_generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void data_generate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *&#160;</td>
+          <td class="paramname"><em>_kit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_deque.html">Deque</a> *&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td>
+          <td class="paramname"><em>block</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::mutex *&#160;</td>
+          <td class="paramname"><em>mu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>total_sampling_points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>sampling_rate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>signal_frequency</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>数据生成 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_kit</td><td></td></tr>
+    <tr><td class="paramname">q</td><td></td></tr>
+    <tr><td class="paramname">block</td><td></td></tr>
+    <tr><td class="paramname">mu</td><td></td></tr>
+    <tr><td class="paramname">total_sampling_points</td><td>总采样点数 </td></tr>
+    <tr><td class="paramname">sampling_rate</td><td>采样频率 </td></tr>
+    <tr><td class="paramname">signal_frequency</td><td>信号频率 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00218">218</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aabf7018f0cbf591cfbf339b13b285391" name="aabf7018f0cbf591cfbf339b13b285391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf7018f0cbf591cfbf339b13b285391">&#9670;&#160;</a></span>download_thread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void download_thread </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *&#160;</td>
+          <td class="paramname"><em>_kit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_deque.html">Deque</a> *&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td>
+          <td class="paramname"><em>block</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="type_8h.html#a36ec38291b397ae7f8f7a784a2b857f5">nsuSize_t</a>&#160;</td>
+          <td class="paramname"><em>total</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::mutex *&#160;</td>
+          <td class="paramname"><em>mu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a>&#160;</td>
+          <td class="paramname"><em>total_DDR_depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>数据下行线程，从板卡中按粒度捞出数据，将数据推入full队列 </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_kit</td><td>NSUSoc类的实例，与Soc进行数据流交互 </td></tr>
+    <tr><td class="paramname">q</td><td>循环队列 </td></tr>
+    <tr><td class="paramname">block</td><td>数据上行粒度 </td></tr>
+    <tr><td class="paramname">total</td><td>全部数据 </td></tr>
+    <tr><td class="paramname">mu</td><td>互斥锁 </td></tr>
+    <tr><td class="paramname">total_DDR_depth</td><td>总DDR深度 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00163">163</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af95fdb789d5339e5800bf4e24926c77a" name="af95fdb789d5339e5800bf4e24926c77a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95fdb789d5339e5800bf4e24926c77a">&#9670;&#160;</a></span>generate_signal_iq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool generate_signal_iq </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>timeWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>freq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>fs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>iq I in high digits, Q in low digits </p><dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeWidth</td><td>信号时宽 </td></tr>
+    <tr><td class="paramname">freq</td><td>信号频率 </td></tr>
+    <tr><td class="paramname">fs</td><td>采样率 </td></tr>
+    <tr><td class="paramname">buffer</td><td>缓存 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00118">118</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a3cf1f1b892872b23a2e93340cadd0665" name="a3cf1f1b892872b23a2e93340cadd0665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cf1f1b892872b23a2e93340cadd0665">&#9670;&#160;</a></span>generate_signal_iq_reverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool generate_signal_iq_reverse </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>timeWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>freq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>fs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>reverse iq I in low digits, Q in high digits </p><dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeWidth</td><td>信号时宽 </td></tr>
+    <tr><td class="paramname">freq</td><td>信号频率 </td></tr>
+    <tr><td class="paramname">fs</td><td>采样率 </td></tr>
+    <tr><td class="paramname">buffer</td><td>缓存 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd></dd></dl>
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00141">141</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="stream__awg_8cpp_source.html">stream_awg.cpp</a> 第 <a class="el" href="stream__awg_8cpp_source.html#l00284">284</a> 行定义.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="stream__awg_8cpp.html">stream_awg.cpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

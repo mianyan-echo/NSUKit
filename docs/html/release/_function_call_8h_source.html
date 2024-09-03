@@ -1,0 +1,290 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<html xmlns="http://www.w3.org/1999/xhtml" class="light-mode">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NSUKit: D:/Work/CppProject/NSUKit/include/high_level/FunctionCall.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="rigol.png"/></td>
+     <script type="text/javascript" src="../version.js"></script>
+  <td id="projectalign">
+   <div id="projectname">NSUKit
+        <span id="projectnumber">1.4.0</span>
+   </div>
+   <div id="projectbrief">板卡级统一交互接口</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part --><!-- 制作者 Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_function_call_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">FunctionCall.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_function_call_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Copyright (c) 2024. Naishu</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// NSUKit is licensed under Mulan PSL v2.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// You can use this software according to the terms and conditions of the Mulan PSL v2.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// You may obtain a copy of Mulan PSL v2 at:</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//          http://license.coscl.org.cn/MulanPSL2</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// THIS SOFTWARE IS PROVIDED ON AN &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OF ANY KIND,</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT,</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// See the Mulan PSL v2 for more details.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"></span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// Created by jilianyi&lt;jilianyi@naishu.tech&gt; on 2024/8/27.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef NSUKIT_FUNCTIONCALL_H</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define NSUKIT_FUNCTIONCALL_H</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="base__kit_8h.html">base/base_kit.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacensukit.html">nsukit</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <span class="keywordtype">void</span> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    *<a class="code hl_function" href="namespacensukit.html#a2cfa79e35fa8be8faeae0bb38f078935">hl_fc_create_soc</a>(uint8_t type=0);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <span class="keywordtype">void</span> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="namespacensukit.html#a57ec2a029fdb638d17c436d6c82657d6">hl_fc_release_soc</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="namespacensukit.html#ab2b96713c7ef3cae72fb6e0b0e10d21f">hl_fc_link_cmd</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* addr, uint32_t port, <span class="keyword">const</span> <span class="keywordtype">char</span>* icd_path);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_function" href="namespacensukit.html#a58fa3efd652336068aefbe33f9add190">hl_fc_unlink_cmd</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="namespacensukit.html#acacade70d0feea8ca04a1ecf879e4fd8">hl_fc_link_stream</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, uint32_t port);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_function" href="namespacensukit.html#abfbe0b333864f7bb4775ae4cd9d33b84">hl_fc_unlink_stream</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacensukit.html#ac035932b1282fd6856b214ca36a7d26a">   43</a></span>    <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_function" href="namespacensukit.html#ac035932b1282fd6856b214ca36a7d26a">hl_fc_set_param</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, T value) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">auto</span> _name = std::string(name);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">auto</span> res = kit-&gt;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#aaa4f9588081f11c757f1aba7666599af">set_param</a>(_name, value);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="namespacensukit.html#ad91189aa8db1b8124eb51f1a72df97eb">hl_fc_set_parami32</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, int32_t value);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_function" href="namespacensukit.html#ae239a5b90bde1a3f6a552edd0e08e6bb">hl_fc_set_parami16</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, int16_t value);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="namespacensukit.html#ab22dde6963c73ee823efb4c670a9ca42">hl_fc_set_parami8</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, int8_t value);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_function" href="namespacensukit.html#a8f7220ea025c62d6827fa8fced7687b4">hl_fc_set_paramf32</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, <span class="keywordtype">float</span> value);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_function" href="namespacensukit.html#a7b356722e993d0137e9dbe4a8160c933">hl_fc_set_paramf64</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, <span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="namespacensukit.html#a1b2eb1379b2c59bb0acb3f68d7f35c9a">hl_fc_set_paramstr</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name, <span class="keywordtype">void</span>* value);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespacensukit.html#aa4c9e0207be3bb9ade43f0e232eb1c5a">   68</a></span>    T <a class="code hl_function" href="namespacensukit.html#aa4c9e0207be3bb9ade43f0e232eb1c5a">hl_fc_get_param</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        T val = 0;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">auto</span> _name = std::string(name);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        val = kit-&gt;<a class="code hl_function" href="classnsukit_1_1_base_kit.html#a43c381001b902bb8c7585245fa112bcf">get_param</a>(_name, val);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> val;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> int32_t <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_function" href="namespacensukit.html#adf2968299fc2d25ba5c592f6d2092b63">hl_fc_get_parami32</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> int16_t <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_function" href="namespacensukit.html#afcb0c906dddfebd132f80b834b8d7583">hl_fc_get_parami16</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> int8_t <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_function" href="namespacensukit.html#adb467c62f146c2eedb5cd8316f504a85">hl_fc_get_parami8</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <span class="keywordtype">float</span> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="namespacensukit.html#afda73117547ad414c2b14a9d953ed087">hl_fc_get_paramf32</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <span class="keywordtype">double</span> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_function" href="namespacensukit.html#af31ec4f5d245177ba4f7e01c5eaebe70">hl_fc_get_paramf64</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <span class="keywordtype">char</span> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    *<a class="code hl_function" href="namespacensukit.html#a9343900772095bd8a04ca79e1b9f0cef">hl_fc_get_paramstr</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_function" href="namespacensukit.html#ac7e226a46be59d08e52d9a9f26c4dad5">hl_fc_execute</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="namespacensukit.html#ad88d5442daca75d597ae2b661b4b5421">hl_fc_write</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> name, <a class="code hl_variable" href="type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> value);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_variable" href="type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_function" href="namespacensukit.html#a4703402c9cd9a4a6e78dca2ef264e6a7">hl_fc_read</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> name);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_variable" href="type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_function" href="namespacensukit.html#a4703402c9cd9a4a6e78dca2ef264e6a7">hl_fc_read</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a> name);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="namespacensukit.html#a1ee9a04ae2e617e906a9b24a666654dc">hl_fc_alloc_buffer</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <a class="code hl_variable" href="type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> buf = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_function" href="namespacensukit.html#ae1432bcb9b6aee14cca515bd26f0ea20">hl_fc_free_buffer</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_variable" href="type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_function" href="namespacensukit.html#ac8dd4c146a862cddf0cd402b1179d11d">hl_fc_get_buffer</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length=0);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_function" href="namespacensukit.html#a3f567e9545244a2634bf944ef1fe3328">hl_fc_stream_recv</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a> chnl, <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> offset = 0);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_function" href="namespacensukit.html#a41cac01d182614c47d3657913aee804f">hl_fc_wait_stream</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <span class="keywordtype">float</span> timeout = 0.);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_function" href="namespacensukit.html#aa54e10d10ff9f2ba05f9255cb726d3b6">hl_fc_break_stream</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_function" href="namespacensukit.html#ad2e986ef7b9abd27e6616e9540c7ef22">hl_fc_open_recv</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a> chnl, <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> offset = 0);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> <a class="code hl_enumeration" href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a> <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_function" href="namespacensukit.html#ab96b1f660dac56ab5c4732f33cc2951d">hl_fc_recv_to_file_useless</a>(<a class="code hl_class" href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a> *kit, <a class="code hl_variable" href="type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a> chnl, <a class="code hl_variable" href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a> fd, <a class="code hl_variable" href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a> length, <span class="keyword">const</span> <span class="keywordtype">char</span>* file_name);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_define" href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a> uint32_t <a class="code hl_define" href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="namespacensukit.html#a235b32e22b0e77fa0bf20635ebff7260">hl_fc_tool_get_first_point</a>(<a class="code hl_variable" href="type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a> data_p);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#endif </span><span class="comment">//NSUKIT_FUNCTIONCALL_H</span></div>
+<div class="ttc" id="abase__kit_8h_html"><div class="ttname"><a href="base__kit_8h.html">base_kit.h</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_base_kit_html"><div class="ttname"><a href="classnsukit_1_1_base_kit.html">nsukit::BaseKit</a></div><div class="ttdef"><b>Definition:</b> <a href="base__kit_8h_source.html#l00008">base_kit.h:8</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_base_kit_html_a43c381001b902bb8c7585245fa112bcf"><div class="ttname"><a href="classnsukit_1_1_base_kit.html#a43c381001b902bb8c7585245fa112bcf">nsukit::BaseKit::get_param</a></div><div class="ttdeci">virtual uint8_t get_param(nsuCSParam_t &amp;param_name, uint8_t _default=0)</div><div class="ttdef"><b>Definition:</b> <a href="base__kit_8cpp_source.html#l00006">base_kit.cpp:6</a></div></div>
+<div class="ttc" id="aclassnsukit_1_1_base_kit_html_aaa4f9588081f11c757f1aba7666599af"><div class="ttname"><a href="classnsukit_1_1_base_kit.html#aaa4f9588081f11c757f1aba7666599af">nsukit::BaseKit::set_param</a></div><div class="ttdeci">virtual nsukitStatus_t set_param(nsuCSParam_t &amp;param_name, const uint8_t &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="base__kit_8cpp_source.html#l00025">base_kit.cpp:25</a></div></div>
+<div class="ttc" id="anamespacensukit_html"><div class="ttname"><a href="namespacensukit.html">nsukit</a></div><div class="ttdef"><b>Definition:</b> <a href="json__icd__wrapper_8h_source.html#l00011">json_icd_wrapper.h:11</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a1b2eb1379b2c59bb0acb3f68d7f35c9a"><div class="ttname"><a href="namespacensukit.html#a1b2eb1379b2c59bb0acb3f68d7f35c9a">nsukit::hl_fc_set_paramstr</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_set_paramstr(nsukit::BaseKit *kit, const char *name, void *value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00080">FunctionCall.cpp:80</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a1ee9a04ae2e617e906a9b24a666654dc"><div class="ttname"><a href="namespacensukit.html#a1ee9a04ae2e617e906a9b24a666654dc">nsukit::hl_fc_alloc_buffer</a></div><div class="ttdeci">DLLEXTERN nsuMemory_p NSU_DLLEXPORT hl_fc_alloc_buffer(nsukit::BaseKit *kit, nsuStreamLen_t length, nsuVoidBuf_p buf=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00131">FunctionCall.cpp:131</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a235b32e22b0e77fa0bf20635ebff7260"><div class="ttname"><a href="namespacensukit.html#a235b32e22b0e77fa0bf20635ebff7260">nsukit::hl_fc_tool_get_first_point</a></div><div class="ttdeci">DLLEXTERN uint32_t NSU_DLLEXPORT hl_fc_tool_get_first_point(nsuVoidBuf_p data_p)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00167">FunctionCall.cpp:167</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a2cfa79e35fa8be8faeae0bb38f078935"><div class="ttname"><a href="namespacensukit.html#a2cfa79e35fa8be8faeae0bb38f078935">nsukit::hl_fc_create_soc</a></div><div class="ttdeci">DLLEXTERN void NSU_DLLEXPORT * hl_fc_create_soc(uint8_t type=0)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00021">FunctionCall.cpp:21</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a3f567e9545244a2634bf944ef1fe3328"><div class="ttname"><a href="namespacensukit.html#a3f567e9545244a2634bf944ef1fe3328">nsukit::hl_fc_stream_recv</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_stream_recv(nsukit::BaseKit *kit, nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00143">FunctionCall.cpp:143</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a41cac01d182614c47d3657913aee804f"><div class="ttname"><a href="namespacensukit.html#a41cac01d182614c47d3657913aee804f">nsukit::hl_fc_wait_stream</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_wait_stream(nsukit::BaseKit *kit, nsuMemory_p fd, float timeout=0.)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00148">FunctionCall.cpp:148</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a4703402c9cd9a4a6e78dca2ef264e6a7"><div class="ttname"><a href="namespacensukit.html#a4703402c9cd9a4a6e78dca2ef264e6a7">nsukit::hl_fc_read</a></div><div class="ttdeci">DLLEXTERN nsuRegValue_t NSU_DLLEXPORT hl_fc_read(nsukit::BaseKit *kit, nsuRegAddr_t name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00125">FunctionCall.cpp:125</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a57ec2a029fdb638d17c436d6c82657d6"><div class="ttname"><a href="namespacensukit.html#a57ec2a029fdb638d17c436d6c82657d6">nsukit::hl_fc_release_soc</a></div><div class="ttdeci">DLLEXTERN void NSU_DLLEXPORT hl_fc_release_soc(nsukit::BaseKit *kit)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00030">FunctionCall.cpp:30</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a58fa3efd652336068aefbe33f9add190"><div class="ttname"><a href="namespacensukit.html#a58fa3efd652336068aefbe33f9add190">nsukit::hl_fc_unlink_cmd</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_unlink_cmd(nsukit::BaseKit *kit)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00046">FunctionCall.cpp:46</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a7b356722e993d0137e9dbe4a8160c933"><div class="ttname"><a href="namespacensukit.html#a7b356722e993d0137e9dbe4a8160c933">nsukit::hl_fc_set_paramf64</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_set_paramf64(nsukit::BaseKit *kit, const char *name, double value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00076">FunctionCall.cpp:76</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a8f7220ea025c62d6827fa8fced7687b4"><div class="ttname"><a href="namespacensukit.html#a8f7220ea025c62d6827fa8fced7687b4">nsukit::hl_fc_set_paramf32</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_set_paramf32(nsukit::BaseKit *kit, const char *name, float value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00072">FunctionCall.cpp:72</a></div></div>
+<div class="ttc" id="anamespacensukit_html_a9343900772095bd8a04ca79e1b9f0cef"><div class="ttname"><a href="namespacensukit.html#a9343900772095bd8a04ca79e1b9f0cef">nsukit::hl_fc_get_paramstr</a></div><div class="ttdeci">DLLEXTERN char NSU_DLLEXPORT * hl_fc_get_paramstr(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00108">FunctionCall.cpp:108</a></div></div>
+<div class="ttc" id="anamespacensukit_html_aa4c9e0207be3bb9ade43f0e232eb1c5a"><div class="ttname"><a href="namespacensukit.html#aa4c9e0207be3bb9ade43f0e232eb1c5a">nsukit::hl_fc_get_param</a></div><div class="ttdeci">T hl_fc_get_param(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8h_source.html#l00068">FunctionCall.h:68</a></div></div>
+<div class="ttc" id="anamespacensukit_html_aa54e10d10ff9f2ba05f9255cb726d3b6"><div class="ttname"><a href="namespacensukit.html#aa54e10d10ff9f2ba05f9255cb726d3b6">nsukit::hl_fc_break_stream</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_break_stream(nsukit::BaseKit *kit, nsuMemory_p fd)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00152">FunctionCall.cpp:152</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ab22dde6963c73ee823efb4c670a9ca42"><div class="ttname"><a href="namespacensukit.html#ab22dde6963c73ee823efb4c670a9ca42">nsukit::hl_fc_set_parami8</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_set_parami8(nsukit::BaseKit *kit, const char *name, int8_t value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00068">FunctionCall.cpp:68</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ab2b96713c7ef3cae72fb6e0b0e10d21f"><div class="ttname"><a href="namespacensukit.html#ab2b96713c7ef3cae72fb6e0b0e10d21f">nsukit::hl_fc_link_cmd</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_link_cmd(nsukit::BaseKit *kit, const char *addr, uint32_t port, const char *icd_path)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00037">FunctionCall.cpp:37</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ab96b1f660dac56ab5c4732f33cc2951d"><div class="ttname"><a href="namespacensukit.html#ab96b1f660dac56ab5c4732f33cc2951d">nsukit::hl_fc_recv_to_file_useless</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_recv_to_file_useless(nsukit::BaseKit *kit, nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, const char *file_name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00161">FunctionCall.cpp:161</a></div></div>
+<div class="ttc" id="anamespacensukit_html_abfbe0b333864f7bb4775ae4cd9d33b84"><div class="ttname"><a href="namespacensukit.html#abfbe0b333864f7bb4775ae4cd9d33b84">nsukit::hl_fc_unlink_stream</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_unlink_stream(nsukit::BaseKit *kit)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00056">FunctionCall.cpp:56</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ac035932b1282fd6856b214ca36a7d26a"><div class="ttname"><a href="namespacensukit.html#ac035932b1282fd6856b214ca36a7d26a">nsukit::hl_fc_set_param</a></div><div class="ttdeci">nsukitStatus_t hl_fc_set_param(nsukit::BaseKit *kit, const char *name, T value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8h_source.html#l00043">FunctionCall.h:43</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ac7e226a46be59d08e52d9a9f26c4dad5"><div class="ttname"><a href="namespacensukit.html#ac7e226a46be59d08e52d9a9f26c4dad5">nsukit::hl_fc_execute</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_execute(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00117">FunctionCall.cpp:117</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ac8dd4c146a862cddf0cd402b1179d11d"><div class="ttname"><a href="namespacensukit.html#ac8dd4c146a862cddf0cd402b1179d11d">nsukit::hl_fc_get_buffer</a></div><div class="ttdeci">DLLEXTERN nsuVoidBuf_p NSU_DLLEXPORT hl_fc_get_buffer(nsukit::BaseKit *kit, nsuMemory_p fd, nsuStreamLen_t length=0)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00139">FunctionCall.cpp:139</a></div></div>
+<div class="ttc" id="anamespacensukit_html_acacade70d0feea8ca04a1ecf879e4fd8"><div class="ttname"><a href="namespacensukit.html#acacade70d0feea8ca04a1ecf879e4fd8">nsukit::hl_fc_link_stream</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_link_stream(nsukit::BaseKit *kit, uint32_t port)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00050">FunctionCall.cpp:50</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ad2e986ef7b9abd27e6616e9540c7ef22"><div class="ttname"><a href="namespacensukit.html#ad2e986ef7b9abd27e6616e9540c7ef22">nsukit::hl_fc_open_recv</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_open_recv(nsukit::BaseKit *kit, nsuChnlNum_t chnl, nsuMemory_p fd, nsuStreamLen_t length, nsuStreamLen_t offset=0)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00156">FunctionCall.cpp:156</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ad88d5442daca75d597ae2b661b4b5421"><div class="ttname"><a href="namespacensukit.html#ad88d5442daca75d597ae2b661b4b5421">nsukit::hl_fc_write</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_write(nsukit::BaseKit *kit, nsuRegAddr_t name, nsuRegValue_t value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00121">FunctionCall.cpp:121</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ad91189aa8db1b8124eb51f1a72df97eb"><div class="ttname"><a href="namespacensukit.html#ad91189aa8db1b8124eb51f1a72df97eb">nsukit::hl_fc_set_parami32</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_set_parami32(nsukit::BaseKit *kit, const char *name, int32_t value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00060">FunctionCall.cpp:60</a></div></div>
+<div class="ttc" id="anamespacensukit_html_adb467c62f146c2eedb5cd8316f504a85"><div class="ttname"><a href="namespacensukit.html#adb467c62f146c2eedb5cd8316f504a85">nsukit::hl_fc_get_parami8</a></div><div class="ttdeci">DLLEXTERN int8_t NSU_DLLEXPORT hl_fc_get_parami8(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00096">FunctionCall.cpp:96</a></div></div>
+<div class="ttc" id="anamespacensukit_html_adf2968299fc2d25ba5c592f6d2092b63"><div class="ttname"><a href="namespacensukit.html#adf2968299fc2d25ba5c592f6d2092b63">nsukit::hl_fc_get_parami32</a></div><div class="ttdeci">DLLEXTERN int32_t NSU_DLLEXPORT hl_fc_get_parami32(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00088">FunctionCall.cpp:88</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ae1432bcb9b6aee14cca515bd26f0ea20"><div class="ttname"><a href="namespacensukit.html#ae1432bcb9b6aee14cca515bd26f0ea20">nsukit::hl_fc_free_buffer</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_free_buffer(nsukit::BaseKit *kit, nsuMemory_p fd)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00135">FunctionCall.cpp:135</a></div></div>
+<div class="ttc" id="anamespacensukit_html_ae239a5b90bde1a3f6a552edd0e08e6bb"><div class="ttname"><a href="namespacensukit.html#ae239a5b90bde1a3f6a552edd0e08e6bb">nsukit::hl_fc_set_parami16</a></div><div class="ttdeci">DLLEXTERN nsukitStatus_t NSU_DLLEXPORT hl_fc_set_parami16(nsukit::BaseKit *kit, const char *name, int16_t value)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00064">FunctionCall.cpp:64</a></div></div>
+<div class="ttc" id="anamespacensukit_html_af31ec4f5d245177ba4f7e01c5eaebe70"><div class="ttname"><a href="namespacensukit.html#af31ec4f5d245177ba4f7e01c5eaebe70">nsukit::hl_fc_get_paramf64</a></div><div class="ttdeci">DLLEXTERN double NSU_DLLEXPORT hl_fc_get_paramf64(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00104">FunctionCall.cpp:104</a></div></div>
+<div class="ttc" id="anamespacensukit_html_afcb0c906dddfebd132f80b834b8d7583"><div class="ttname"><a href="namespacensukit.html#afcb0c906dddfebd132f80b834b8d7583">nsukit::hl_fc_get_parami16</a></div><div class="ttdeci">DLLEXTERN int16_t NSU_DLLEXPORT hl_fc_get_parami16(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00092">FunctionCall.cpp:92</a></div></div>
+<div class="ttc" id="anamespacensukit_html_afda73117547ad414c2b14a9d953ed087"><div class="ttname"><a href="namespacensukit.html#afda73117547ad414c2b14a9d953ed087">nsukit::hl_fc_get_paramf32</a></div><div class="ttdeci">DLLEXTERN float NSU_DLLEXPORT hl_fc_get_paramf32(nsukit::BaseKit *kit, const char *name)</div><div class="ttdef"><b>Definition:</b> <a href="_function_call_8cpp_source.html#l00100">FunctionCall.cpp:100</a></div></div>
+<div class="ttc" id="atype_8h_html_a2b36603e2e6439d54042181e0f7fb0d2"><div class="ttname"><a href="type_8h.html#a2b36603e2e6439d54042181e0f7fb0d2">nsuStreamLen_t</a></div><div class="ttdeci">DLLEXTERN typedef nsuSize_t nsuStreamLen_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00088">type.h:88</a></div></div>
+<div class="ttc" id="atype_8h_html_a324a8aa029ee38ccd1e011c882c0abc7"><div class="ttname"><a href="type_8h.html#a324a8aa029ee38ccd1e011c882c0abc7">nsukitStatus_t</a></div><div class="ttdeci">nsukitStatus_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00053">type.h:53</a></div></div>
+<div class="ttc" id="atype_8h_html_a37ab7df3439c3be25d1687cb6631ab87"><div class="ttname"><a href="type_8h.html#a37ab7df3439c3be25d1687cb6631ab87">nsuVoidBuf_p</a></div><div class="ttdeci">DLLEXTERN typedef void * nsuVoidBuf_p</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00083">type.h:83</a></div></div>
+<div class="ttc" id="atype_8h_html_a470f44efe052bcf0e83ab4a6aa5ccc54"><div class="ttname"><a href="type_8h.html#a470f44efe052bcf0e83ab4a6aa5ccc54">NSU_DLLEXPORT</a></div><div class="ttdeci">#define NSU_DLLEXPORT</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00018">type.h:18</a></div></div>
+<div class="ttc" id="atype_8h_html_a4cad6ed355eee3b0ede0927b1c5ce39a"><div class="ttname"><a href="type_8h.html#a4cad6ed355eee3b0ede0927b1c5ce39a">nsuMemory_p</a></div><div class="ttdeci">DLLEXTERN typedef void * nsuMemory_p</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00086">type.h:86</a></div></div>
+<div class="ttc" id="atype_8h_html_a7611c4c638437f0ef8cd3fd50f901f0b"><div class="ttname"><a href="type_8h.html#a7611c4c638437f0ef8cd3fd50f901f0b">DLLEXTERN</a></div><div class="ttdeci">#define DLLEXTERN</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00017">type.h:17</a></div></div>
+<div class="ttc" id="atype_8h_html_a9ba057a470311150851786c1cae61268"><div class="ttname"><a href="type_8h.html#a9ba057a470311150851786c1cae61268">nsuRegValue_t</a></div><div class="ttdeci">DLLEXTERN typedef uint32_t nsuRegValue_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00090">type.h:90</a></div></div>
+<div class="ttc" id="atype_8h_html_aaf489189677bc98aef379998c0203db3"><div class="ttname"><a href="type_8h.html#aaf489189677bc98aef379998c0203db3">nsuChnlNum_t</a></div><div class="ttdeci">DLLEXTERN typedef uint8_t nsuChnlNum_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00085">type.h:85</a></div></div>
+<div class="ttc" id="atype_8h_html_ac1d8b4425fe34bf12e6457b77ef72dea"><div class="ttname"><a href="type_8h.html#ac1d8b4425fe34bf12e6457b77ef72dea">nsuRegAddr_t</a></div><div class="ttdeci">DLLEXTERN typedef uint32_t nsuRegAddr_t</div><div class="ttdef"><b>Definition:</b> <a href="type_8h_source.html#l00089">type.h:89</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_4a1fea3653bda42b908d4fc4b3dd894f.html">high_level</a></li><li class="navelem"><a class="el" href="_function_call_8h.html">FunctionCall.h</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>
